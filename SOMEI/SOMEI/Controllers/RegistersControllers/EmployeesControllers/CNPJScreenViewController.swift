@@ -68,11 +68,15 @@ class CNPJScreenViewController: UIViewController, UITextFieldDelegate {
         }else {
             ProfissionalManager.sharedInstance.profissional.cnpj = self.cleanString(cnpj: self.textField.text!)
             if isValidCnpj(cnpj: cleanString(cnpj: textField.text!)) {
-                    ProviderSomei.sharedInstance.searchDadosCnpj(cnpj: self.cleanString(cnpj: self.textField.text!)) {
+                ProviderSomei.sharedInstance.searchDadosCnpj(cnpj: self.cleanString(cnpj: self.textField.text!)) {result in
+                    if result {
                         DispatchQueue.main.async {
-                            ProfissionalManager.sharedInstance.profissional.cnpj = self.cleanString(cnpj: self.textField.text!)
-                            self.goesToFantasyNameScreen()
-                        }
+                             ProfissionalManager.sharedInstance.profissional.cnpj = self.cleanString(cnpj: self.textField.text!)
+                             self.goesToFantasyNameScreen()
+                         }
+                    }else{
+                        self.showInvalidPopUpCnpj()
+                    }
                 }
             }else{
                 showInvalidPopUpCnpj()

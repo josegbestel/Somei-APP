@@ -398,12 +398,8 @@ class ProviderSomei {
         dataTask.resume()
     }
     
-    func searchDadosCnpj(cnpj:String, onComplete: @escaping (() -> Void)) {
-        //"https://www.receitaws.com.br/v1/cnpj/29.783.738.0001-54" invalido
-        //"https://www.receitaws.com.br/v1/cnpj/34.998.923/0001-04"
-        print(cnpj)
+    func searchDadosCnpj(cnpj:String, onComplete: @escaping (Bool) -> Void) {
         let url = URL(string: "https://www.receitaws.com.br/v1/cnpj/\(cnpj)")!
-        print(url)
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
         guard let data = data else { return }
         print(String(data: data, encoding: .utf8)!)
@@ -445,14 +441,13 @@ class ProviderSomei {
                     ProfissionalManager.sharedInstance.endereco.cep = cep
                     ProfissionalManager.sharedInstance.endereco.complemento = complemento
                     
-                    onComplete()
+                    onComplete(true)
                 }else{
                     print("Erro:\n Situação:\(situacao ?? "error")\n Status:\(status ?? "error")\n Natureza juridica:\(natureza_juridica ?? "error")")
-                    onComplete()
                 }
             }catch _{
                 print("erro CNPJ invalido")
-                onComplete()
+                onComplete(false)
             }
         }
         task.resume()
