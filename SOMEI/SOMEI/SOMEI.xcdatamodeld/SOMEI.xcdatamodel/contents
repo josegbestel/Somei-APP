@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CategoriasProfissionais" representedClassName="CategoriasProfissionais" syncable="YES" codeGenerationType="class">
+        <attribute name="categoria" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="ProfissionalEntity" representedClassName="ProfissionalEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="age" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="cnpj" optional="YES" attributeType="String"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="ownerName" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="phone" optional="YES" attributeType="String"/>
+        <attribute name="photo" optional="YES" attributeType="Binary"/>
+        <attribute name="photoLink" optional="YES" attributeType="String"/>
+        <attribute name="profissao" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Profissoes" representedClassName="Profissoes" syncable="YES" codeGenerationType="class">
+        <attribute name="profissao" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="SolicitanteComenters" representedClassName="SolicitanteComenters" syncable="YES" codeGenerationType="class">
+        <attribute name="comentario" optional="YES" attributeType="String"/>
+        <attribute name="nomeProfissional" optional="YES" attributeType="String"/>
+        <attribute name="nota" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="SolicitanteUser" representedClassName="SolicitanteUser" syncable="YES" codeGenerationType="class">
+        <attribute name="age" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="cpf" optional="YES" attributeType="String"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="phone" optional="YES" attributeType="String"/>
+        <attribute name="photo" optional="YES" attributeType="Binary"/>
+        <attribute name="photoLink" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="CategoriasProfissionais" positionX="-468" positionY="-198" width="128" height="58"/>
+        <element name="ProfissionalEntity" positionX="-664.43359375" positionY="-97.6328125" width="128" height="28"/>
+        <element name="Profissoes" positionX="-63" positionY="45" width="128" height="58"/>
+        <element name="SolicitanteComenters" positionX="-468" positionY="-198" width="128" height="88"/>
+        <element name="SolicitanteUser" positionX="-338.890625" positionY="-344.765625" width="128" height="178"/>
+    </elements>
+</model>

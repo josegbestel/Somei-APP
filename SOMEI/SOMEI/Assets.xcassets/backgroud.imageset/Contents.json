@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "Captura de Tela 2020-08-20 às 20.08.50.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Captura de Tela 2020-08-20 às 20.08.50-1.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Captura de Tela 2020-08-20 às 20.08.50-2.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
