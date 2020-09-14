@@ -16,15 +16,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Camada 2" translatesAutoresizingMaskIntoConstraints="NO" id="Ctd-xP-BPb">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="72.5" y="318.5" width="269" height="269"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Ctd-xP-BPb" secondAttribute="height" multiplier="1:1" id="5Qm-na-ike"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.074509803920000006" green="0.37647058820000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="H34-Wl-MU1" firstAttribute="trailing" secondItem="Ctd-xP-BPb" secondAttribute="trailing" id="3bU-tn-B3e"/>
-                            <constraint firstItem="Ctd-xP-BPb" firstAttribute="top" secondItem="H34-Wl-MU1" secondAttribute="top" id="GF3-ua-mdK"/>
-                            <constraint firstItem="H34-Wl-MU1" firstAttribute="bottom" secondItem="Ctd-xP-BPb" secondAttribute="bottom" id="Sgy-Qx-zxD"/>
-                            <constraint firstItem="Ctd-xP-BPb" firstAttribute="leading" secondItem="H34-Wl-MU1" secondAttribute="leading" id="rnc-lo-ixx"/>
+                            <constraint firstItem="Ctd-xP-BPb" firstAttribute="centerY" secondItem="H34-Wl-MU1" secondAttribute="centerY" id="BL4-SM-RSz"/>
+                            <constraint firstItem="Ctd-xP-BPb" firstAttribute="centerX" secondItem="H34-Wl-MU1" secondAttribute="centerX" id="TOr-EF-1ip"/>
+                            <constraint firstItem="Ctd-xP-BPb" firstAttribute="height" secondItem="jDT-6x-Q6v" secondAttribute="height" multiplier="0.3" id="Xu4-HU-0Mt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="H34-Wl-MU1"/>
                     </view>

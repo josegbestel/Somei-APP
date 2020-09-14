@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		392459C7250FDE300031B11A /* OrcamentoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392459C6250FDE300031B11A /* OrcamentoTableViewCell.swift */; };
 		39498D74250F58640043F97A /* SOMEI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39498D72250F58640043F97A /* SOMEI.xcdatamodeld */; };
 		39498D7A250F5C6D0043F97A /* UICornerableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39498D79250F5C6D0043F97A /* UICornerableButton.swift */; };
 		39498D7C250F5C8F0043F97A /* UICornerableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39498D7B250F5C8F0043F97A /* UICornerableView.swift */; };
@@ -114,6 +115,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		392459C6250FDE300031B11A /* OrcamentoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrcamentoTableViewCell.swift; sourceTree = "<group>"; };
 		39498D73250F58640043F97A /* SOMEI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SOMEI.xcdatamodel; sourceTree = "<group>"; };
 		39498D79250F5C6D0043F97A /* UICornerableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICornerableButton.swift; sourceTree = "<group>"; };
 		39498D7B250F5C8F0043F97A /* UICornerableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICornerableView.swift; sourceTree = "<group>"; };
@@ -237,6 +239,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		392459C5250FDDBF0031B11A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3970B963250F5302006C36DD /* UIComponents */,
+				3970B91E250F52D3006C36DD /* Assets.xcassets */,
+				3970B920250F52D3006C36DD /* LaunchScreen.storyboard */,
+				3970B91B250F52D1006C36DD /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3970B909250F52D1006C36DD = {
 			isa = PBXGroup;
 			children = (
@@ -266,14 +279,11 @@
 				3970B958250F5302006C36DD /* Manager */,
 				3970B961250F5302006C36DD /* UserDefaults */,
 				3970B947250F5302006C36DD /* Model */,
-				3970B963250F5302006C36DD /* UIComponents */,
 				3970B965250F5302006C36DD /* Controllers */,
+				392459C5250FDDBF0031B11A /* View */,
 				3970B915250F52D1006C36DD /* AppDelegate.swift */,
 				3970B917250F52D1006C36DD /* SceneDelegate.swift */,
 				3970B919250F52D1006C36DD /* ViewController.swift */,
-				3970B91B250F52D1006C36DD /* Main.storyboard */,
-				3970B91E250F52D3006C36DD /* Assets.xcassets */,
-				3970B920250F52D3006C36DD /* LaunchScreen.storyboard */,
 				3970B923250F52D3006C36DD /* Info.plist */,
 				39498D7D250F5EA80043F97A /* GoogleService-Info.plist */,
 				39498D72250F58640043F97A /* SOMEI.xcdatamodeld */,
@@ -403,6 +413,7 @@
 			children = (
 				3970B972250F5302006C36DD /* EstimateControllers */,
 				3970B967250F5302006C36DD /* ActiveServicesViewController.swift */,
+				392459C6250FDE300031B11A /* OrcamentoTableViewCell.swift */,
 			);
 			path = ActiveServices;
 			sourceTree = "<group>";
@@ -693,6 +704,7 @@
 				3970B9D1250F5302006C36DD /* CEPViewController.swift in Sources */,
 				3970B91A250F52D1006C36DD /* ViewController.swift in Sources */,
 				3970B9BE250F5302006C36DD /* LoginInformationViewController.swift in Sources */,
+				392459C7250FDE300031B11A /* OrcamentoTableViewCell.swift in Sources */,
 				3970B9D2250F5302006C36DD /* CNPJScreenViewController.swift in Sources */,
 				39498D80250F7BFA0043F97A /* ProviderResource.swift in Sources */,
 				3970B916250F52D1006C36DD /* AppDelegate.swift in Sources */,

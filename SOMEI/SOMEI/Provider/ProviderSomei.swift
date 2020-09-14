@@ -32,7 +32,8 @@ class ProviderSomei {
         return "https://somei-app-server.herokuapp.com/api/v1/solicitante/login"
     }
     
-    class func openOrcamentos(email:String, password:String){
+    class func openOrcamentos(email:String, password:String,
+                              completion: @escaping (Bool) -> Void){
         let loginString = String(format: "%@:%@", email, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
@@ -45,18 +46,29 @@ class ProviderSomei {
         let dataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error? ) in
             if error == nil {
                guard let response = response as? HTTPURLResponse else {return}
-               print(response)
+//               print(response)
                do{
                    let json = try JSONSerialization.jsonObject(with: data!, options: [])
-                   print(json)
+//                   print(json)
                }catch _{
                    print("erro json invalido")
                }
                  if response.statusCode == 200 {
                        guard let data = data else {return}
                        do{
-                           if let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String: Any] {
-                              print(json)
+                           if let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [[String : Any]] {
+//                              print(json)
+                            //Popular dados os orçamentos
+                            var orcamentos :[Orcamento] = []
+                            
+                            for(dict) in json{
+                                let orcamento = Orcamento.byDict(dict: dict)
+                                orcamentos.append(orcamento)
+                            }
+                            
+                            OrcamentoManager.sharedInstance.orcamentos = orcamentos
+                            print("\n\nOrçamentos carregados no Model\n\n")
+                            
                            }
                        }catch {
                            print(error.localizedDescription)
@@ -156,12 +168,12 @@ class ProviderSomei {
         let dataTask = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error? ) in
           if error == nil {
              guard let response = response as? HTTPURLResponse else {return}
-            print(response)
+//            print(response)
                if response.statusCode == 200 {
                      guard let data = data else {return}
                      do{
                          if let dctJson = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [[String: Any]] {
-                            print(dctJson)
+//                            print(dctJson)
                             for json in dctJson {
                                  if let categoria = json["titulo"] as? String {
                                      OrcamentoManager.sharedInstance.profissionaisFromApi.insert(categoria, at: 0)

@@ -61,7 +61,15 @@ class SendPicsViewController: UIViewController {
               }
                 self.linkImage = downloadURL
                 OrcamentoManager.sharedInstance.createOrcamento.linkPhotos?.insert(downloadURL, at: 0)
-                print("Sucesso ao obter link da imagem:\(downloadURL)")
+                if OrcamentoManager.sharedInstance.photoArray == nil {
+                    OrcamentoManager.sharedInstance.photoArray = [downloadURL]
+                }else{
+                    OrcamentoManager.sharedInstance.photoArray?.insert(downloadURL, at: 0)
+                    OrcamentoManager.sharedInstance.createOrcamento.linkPhotos?.insert(downloadURL, at: 0)
+                }
+                
+//                print("Sucesso ao obter link da imagem:\(downloadURL)")
+                print(OrcamentoManager.sharedInstance.photoArray)
             }
         }
         uploadTask.resume()

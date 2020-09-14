@@ -35,8 +35,13 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
         loadPerfilOnCoreData()
         readDatasFromCoreData()
         
-        print("email: \(SolicitanteManager.sharedInstance.solicitante.email)")
-        print("Senha: \(SolicitanteManager.sharedInstance.solicitante.password)")
+        //Carregar orçamentos criados
+        if(SolicitanteManager.sharedInstance.solicitante != nil){
+            ProviderSomei.openOrcamentos(email: SolicitanteManager.sharedInstance.solicitante.email ?? "", password: SolicitanteManager.sharedInstance.solicitante.password ?? ""){ succes in
+                print("Solicitação orçamentos criados: ")
+            }
+        }
+        
         
 //        ProviderSomei.loadOrcamentos(user: "jose@somei.com.br", password:"123456" )
         // Do any additional setup after loading the view.
