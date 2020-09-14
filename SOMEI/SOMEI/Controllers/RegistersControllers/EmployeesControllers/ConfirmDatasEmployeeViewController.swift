@@ -70,7 +70,12 @@ class ConfirmDatasEmployeeViewController: UIViewController {
             if error == true {
                 self.goesToConfirmFlow()
             }else {
-                //TODO:error flow
+                DispatchQueue.main.async {
+                    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                    let newNavigation = storyBoard.instantiateViewController(withIdentifier: "InternetErrorViewController")
+                    self.present(newNavigation, animated: true, completion: nil)
+                    //TODO:error flow
+                }
             }
         }
     }

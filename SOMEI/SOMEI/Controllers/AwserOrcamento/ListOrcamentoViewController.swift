@@ -14,6 +14,11 @@ class ListOrcamentoViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        ProviderSomei.ServicosAtivos(email: ProfissionalManager.sharedInstance.profissional.email!, password: ProfissionalManager.sharedInstance.profissional.password!) {res,result in
+//                print(res)
+//                print("_________________")
+//                print(result)
+//         }
     }
 
 }

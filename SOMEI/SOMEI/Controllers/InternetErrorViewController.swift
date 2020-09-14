@@ -55,6 +55,20 @@ class InternetErrorViewController: UIViewController {
               navigationController?.navigationBar.barTintColor = .clear
           }
 
+    @IBAction func tryAgainButton(_ sender: Any) {
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func tryLater(_ sender: Any) {
+        DispatchQueue.main.async {
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let newNavigation = storyBoard.instantiateViewController(withIdentifier: "HomeViewController")
+            self.present(newNavigation, animated: true, completion: nil)
+            //TODO:error flow
+        }
+    }
     /*
     // MARK: - Navigation
 

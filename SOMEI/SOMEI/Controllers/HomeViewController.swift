@@ -14,7 +14,8 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
     var fetchedResultsController: NSFetchedResultsController<SolicitanteUser>!
     var fetchedResultsComentersController: NSFetchedResultsController<SolicitanteComenters>!
-
+    var fetchedResultsProfessionController: NSFetchedResultsController<ProfissionalEntity>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +35,7 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
         //Le o perfil do core data
         loadPerfilOnCoreData()
         readDatasFromCoreData()
-        
+        readProfessionFromCoreData()
         //Carregar orçamentos criados
         if(SolicitanteManager.sharedInstance.solicitante != nil){
             ProviderSomei.openOrcamentos(email: SolicitanteManager.sharedInstance.solicitante.email ?? "", password: SolicitanteManager.sharedInstance.solicitante.password ?? ""){ succes in
@@ -54,7 +55,6 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
             self.present(newNavigation, animated: true, completion: nil)
             return
         }
-        print(SomeiUserDefaults.shared.defaults.bool(forKey: UserDefaultsKeys.createdProfessionalPerfil.rawValue))
         if SomeiUserDefaults.shared.defaults.bool(forKey: UserDefaultsKeys.createdProfessionalPerfil.rawValue) {
             //Go to perfil usuario
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -87,6 +87,26 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
              try fetchedResultsController.performFetch()
         }catch {
            print("Could not load save data: \(error.localizedDescription)")
+        }
+    }
+    
+    func readProfessionFromCoreData() {
+        if SomeiUserDefaults.shared.defaults.bool(forKey: UserDefaultsKeys.createdProfessionalPerfil.rawValue){
+                if !fetchedResultsProfessionController.fetchedObjects!.isEmpty {
+                 guard let perfil:ProfissionalEntity = fetchedResultsProfessionController.fetchedObjects?[0] else {return}
+                  print(perfil)
+                 print(Int(perfil.identifier))
+                 ProfissionalManager.sharedInstance.profissional.cnpj = perfil.cnpj
+                 ProfissionalManager.sharedInstance.profissional.email = perfil.email
+                 ProfissionalManager.sharedInstance.profissional.name = perfil.name
+                 ProfissionalManager.sharedInstance.profissional.password = perfil.password
+                 ProfissionalManager.sharedInstance.profissional.phone = perfil.phone
+                 ProfissionalManager.sharedInstance.profissional.id = Int(perfil.identifier)
+                 ProfissionalManager.sharedInstance.profissional.mainActivity = perfil.profissao
+                 print(ProfissionalManager.sharedInstance.profissional.mainActivity)
+                 guard let imagem = perfil.photo else {return}
+                 ProfissionalManager.sharedInstance.profissional.photo = UIImage(data: imagem)
+              }
         }
     }
     

@@ -29,7 +29,6 @@ class ProfissionalManager {
     
     func completeRegister(onComplete: @escaping (Bool) -> Void) {
         setEndereco()
-        SomeiUserDefaults.shared.defaults.set(true, forKey: UserDefaultsKeys.createdProfessionalPerfil.rawValue)
         guard let structForApi = createStruct() else {onComplete(false); return}
         print(structForApi)
         ProviderSomei.saveNewProfessionalUserInApi(profissional: structForApi){(error) -> Void in
@@ -40,6 +39,7 @@ class ProfissionalManager {
             }else {
                 print("Sucesso ao salvar na API")
                 onComplete(true)
+                SomeiUserDefaults.shared.defaults.set(true, forKey: UserDefaultsKeys.createdProfessionalPerfil.rawValue)
                 self.saveProfessionalPerfilOnCoreData()
             }
         }
