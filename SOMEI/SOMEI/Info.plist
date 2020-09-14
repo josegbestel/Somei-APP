@@ -20,6 +20,16 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Usaremos a camera para tirar uma linda self de você, prometemos apenas isso!</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Usaremos sua localização para agilizarmos o pedido de serviços</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Usaremos sua localização para agilizarmos o pedido de serviços</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Assim conseguiremos pegar a foto perfeita para seu perfil, prometemos só usarmos a que você escolher</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Assim conseguiremos pegar a foto perfeita para seu perfil, prometemos só usarmos a que você escolher</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -60,15 +70,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Assim conseguiremos pegar a foto perfeita para seu perfil, prometemos só usarmos a que você escolher</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Assim conseguiremos pegar a foto perfeita para seu perfil, prometemos só usarmos a que você escolher</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Usaremos sua localização para agilizarmos o pedido de serviços</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Usaremos sua localização para agilizarmos o pedido de serviços</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Usaremos a camera para tirar uma linda self de você, prometemos apenas isso!</string>
 </dict>
 </plist>

@@ -23,6 +23,7 @@ class OrcamentoManager {
     var AgendaStructArray:[AgendaStruct]?
     var agendaFixa:AgendaStruct = AgendaStruct(horaInicio:nil,horaFinal:nil,diaSemana:nil,dinamica:nil)
     var profissionaisFromApi:[String] = []
+    var photoArray:[URL]? = nil
     
     func completeOrcamento(onComplete: @escaping (Bool) -> Void) {
         insertAgendaInArray()
@@ -55,8 +56,10 @@ class OrcamentoManager {
             AgendaStructArray?.insert(datasStruct, at: 0)
         }
         let idUser = SolicitanteManager.sharedInstance.solicitante.id
+        print(photoArray?.count)
         print("Orçamento -> idSuser = \(idUser)")
-        let orcamentoStruct:OrcamentoStruct = OrcamentoStruct.init(categoriaMeiTitulo: selectedProfission ?? "profissao", servico: createOrcamento.descricao ?? "não foi possivel obter descricao", solicitanteId: idUser ?? 00, agendas: AgendaStructArray ?? [], localizacao: localicaoStruct, foto: createOrcamento.linkPhotos)
+        let orcamentoStruct:OrcamentoStruct = OrcamentoStruct.init(categoriaMeiTitulo: selectedProfission ?? "profissao", servico: createOrcamento.descricao ?? "não foi possivel obter descricao", solicitanteId: idUser ?? 00, agendas: AgendaStructArray ?? [], localizacao: localicaoStruct, foto: photoArray)
+        
         
         return orcamentoStruct
     }
