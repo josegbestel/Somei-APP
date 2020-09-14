@@ -14,14 +14,8 @@ class ActiveServicesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-<<<<<<< Updated upstream
         ProviderSomei.openOrcamentos(email: SolicitanteManager.sharedInstance.solicitante.email ?? "", password: SolicitanteManager.sharedInstance.solicitante.password ?? "")
         print( SolicitanteManager.sharedInstance.solicitante.email ?? "",  SolicitanteManager.sharedInstance.solicitante.password ?? "")
-=======
-        ProviderSomei.openOrcamentos(email: SolicitanteManager.sharedInstance.solicitante.email ?? "", password: SolicitanteManager.sharedInstance.solicitante.password ?? "") { success in
-            self.tableView.reloadData()
-        }
->>>>>>> Stashed changes
     }
 
     
@@ -41,13 +35,7 @@ extension ActiveServicesViewController: UITableViewDataSource {
         cell.selectedDay.text = "\(day.diaSemana ?? "")"
         return cell
     }
-<<<<<<< Updated upstream
 }
 extension ActiveServicesViewController: UITableViewDelegate {
-=======
-    
-    
-
->>>>>>> Stashed changes
     
 }

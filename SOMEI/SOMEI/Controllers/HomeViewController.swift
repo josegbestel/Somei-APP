@@ -85,29 +85,6 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
         }
     }
     
-<<<<<<< Updated upstream
-=======
-    func readProfessionFromCoreData() {
-        if SomeiUserDefaults.shared.defaults.bool(forKey: UserDefaultsKeys.createdProfessionalPerfil.rawValue){
-//                if !fetchedResultsProfessionController.fetchedObjects!.isEmpty {
-//                 guard let perfil:ProfissionalEntity = fetchedResultsProfessionController.fetchedObjects?[0] else {return}
-//                  print(perfil)
-//                 print(Int(perfil.identifier))
-//                 ProfissionalManager.sharedInstance.profissional.cnpj = perfil.cnpj
-//                 ProfissionalManager.sharedInstance.profissional.email = perfil.email
-//                 ProfissionalManager.sharedInstance.profissional.name = perfil.name
-//                 ProfissionalManager.sharedInstance.profissional.password = perfil.password
-//                 ProfissionalManager.sharedInstance.profissional.phone = perfil.phone
-//                 ProfissionalManager.sharedInstance.profissional.id = Int(perfil.identifier)
-//                 ProfissionalManager.sharedInstance.profissional.mainActivity = perfil.profissao
-//                 print(ProfissionalManager.sharedInstance.profissional.mainActivity)
-//                 guard let imagem = perfil.photo else {return}
-//                 ProfissionalManager.sharedInstance.profissional.photo = UIImage(data: imagem)
-//              }
-        }
-    }
-    
->>>>>>> Stashed changes
     func readDatasFromCoreData() {
         if !fetchedResultsController.fetchedObjects!.isEmpty {
            guard let perfil:SolicitanteUser = fetchedResultsController.fetchedObjects?[0] else {return}
