@@ -19,8 +19,9 @@ class Orcamento {
     var data:String?
     var horario:String?
     var status:String?
+    var valorMinimo:Int?
     
-    init(profissao:String?,descricao:String?,photos:[UIImage]?,linkPhotos:[URL]?,endereco:Localizacao?,data:String?,horario:String?, status :String?) {
+    init(profissao:String?,descricao:String?,photos:[UIImage]?,linkPhotos:[URL]?,endereco:Localizacao?,data:String?,horario:String?, status :String?, valorMinimo:Int?) {
         self.profissao = profissao
         self.descricao = descricao
         self.photos = photos
@@ -29,19 +30,20 @@ class Orcamento {
         self.data = data
         self.horario = horario
         self.status = status
-        
+        self.valorMinimo = valorMinimo
     }
     
-    static func byDict(dict :[String : Any]) -> Orcamento{
-        var categoria = dict["categoria"] as! [String : Any]
-        var profissao = categoria["titulo"] as! String
-        var descricao = dict["servico"] as! String
-        var status = dict["status"] as! String
-        
+    static func byDict(dict :[String : Any]) -> Orcamento {
+        print(dict)
+        let categoria = dict["categoria"] as! [String : Any]
+        let profissao = categoria["titulo"] as! String
+        let descricao = dict["servico"] as! String
+        let status = dict["status"] as! String
+        let valorMinimo = dict["valorMinimo"] as! Int
         //TODO: Implementar data de criação no back
-        var data = ""
+        let data = ""
         
-        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos: nil, endereco: nil, data: data, horario: nil, status: status)
+        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos: nil, endereco: nil, data: data, horario: nil, status: status, valorMinimo: valorMinimo)
         
         return orcamento
     }
