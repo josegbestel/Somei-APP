@@ -48,7 +48,7 @@ class EmployeePhotoViewController: UIViewController {
                 return
               }
                 self.linkImage = downloadURL
-                ProfissionalManager.sharedInstance.profissional.photoLink = self.linkImage
+                ProfissionalManager.sharedInstance.profissional.photoLink = self.linkImage!
                 print("Sucesso ao obter link da imagem:\(downloadURL)")
             }
         }

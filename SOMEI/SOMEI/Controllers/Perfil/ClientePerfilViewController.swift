@@ -169,9 +169,49 @@ class ClientePerfilViewController: UIViewController, NSFetchedResultsControllerD
            SolicitanteManager.sharedInstance.solicitante.password = perfil.password
            SolicitanteManager.sharedInstance.solicitante.phone = perfil.phone
            SolicitanteManager.sharedInstance.solicitante.id = Int(perfil.identifier)
+           SolicitanteManager.sharedInstance.solicitante.photoLink = URL(string: perfil.photoLink ?? "")!
+           if SolicitanteManager.sharedInstance.solicitante.photoLink != nil {
+                downloadImage(from: cleanString(url: SolicitanteManager.sharedInstance.solicitante.photoLink!))
+           }
            guard let imagem = perfil.photo else {return}
            SolicitanteManager.sharedInstance.solicitante.photo = UIImage(data: imagem)
         }
+    }
+    
+    //funcao necessario pois a lib retorna "OPTINAL(link)"
+    func cleanString(url:URL) -> URL {
+        print(url)
+        let convertoToString = "\(url)"
+        let dropLastWord = String(convertoToString.dropLast())
+        let dropFirstWord:String = String(dropLastWord.dropFirst(9))
+        let urlStr : String = dropFirstWord.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        if let cleanUrl = URL(string: urlStr){
+            return cleanUrl
+        }
+        return url
+    }
+    
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+    
+    func downloadImage(from url: URL) {
+        print("Download Started")
+        getData(from: url) { data, response, error in
+            if error != nil {
+                print("Erro ao baixar imagem:\(error?.localizedDescription ?? "")")
+            }
+            guard let data = data, error == nil else {print("download error"); return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            DispatchQueue.main.async() { [weak self] in
+                SolicitanteManager.sharedInstance.solicitante.photo = UIImage(data: data)
+                self?.updateImage()
+            }
+        }
+    }
+    func updateImage(){
+        photoPerfil.image = SolicitanteManager.sharedInstance.solicitante.photo
     }
     
     @IBAction func createPerfilFlow(_ sender: Any) {

@@ -391,19 +391,19 @@
 		3970B965250F5302006C36DD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3970B971250F5302006C36DD /* FinishRegisterViewController.swift */,
-				3970B96D250F5302006C36DD /* ComentsViewController.swift */,
-				3970B96E250F5302006C36DD /* InternetErrorViewController.swift */,
+				3970B981250F5302006C36DD /* RegistersControllers */,
+				3970B969250F5302006C36DD /* Perfil */,
+				3970B97D250F5302006C36DD /* AwserOrcamento */,
+				3970B966250F5302006C36DD /* ActiveServices */,
 				3970B99C250F5302006C36DD /* LoginCadastroViewControlller.swift */,
 				3970B96F250F5302006C36DD /* LoginInformationViewController.swift */,
 				3970B970250F5302006C36DD /* HomeViewController.swift */,
+				3970B96E250F5302006C36DD /* InternetErrorViewController.swift */,
 				3970B99D250F5302006C36DD /* SearchWorkersViewController.swift */,
+				3970B96D250F5302006C36DD /* ComentsViewController.swift */,
+				3970B971250F5302006C36DD /* FinishRegisterViewController.swift */,
 				3970B96C250F5302006C36DD /* SendPhotosCollectionViewCell.swift */,
 				3970B968250F5302006C36DD /* WorkersCollectionViewCell.swift */,
-				3970B966250F5302006C36DD /* ActiveServices */,
-				3970B97D250F5302006C36DD /* AwserOrcamento */,
-				3970B969250F5302006C36DD /* Perfil */,
-				3970B981250F5302006C36DD /* RegistersControllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

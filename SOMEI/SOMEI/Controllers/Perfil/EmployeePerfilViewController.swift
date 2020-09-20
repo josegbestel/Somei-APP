@@ -137,8 +137,46 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
         ProfissionalManager.sharedInstance.profissional.id = Int(perfil.identifier)
         guard let imagem = perfil.photo else {return}
         ProfissionalManager.sharedInstance.profissional.photo = UIImage(data: imagem)
+        if ProfissionalManager.sharedInstance.profissional.photoLink != nil {
+            downloadImage(from: cleanString(url: ProfissionalManager.sharedInstance.profissional.photoLink!))
+        }
         
     }
+    
+    //funcao necessario pois a lib retorna "OPTINAL(link)"
+    func cleanString(url:URL) -> URL {
+        print(url)
+        let convertoToString = "\(url)"
+        let dropLastWord = String(convertoToString.dropLast())
+        let dropFirstWord:String = String(dropLastWord.dropFirst(9))
+        let urlStr : String = dropFirstWord.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        if let cleanUrl = URL(string: urlStr){
+            return cleanUrl
+        }
+        return url
+    }
+    
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+    
+    func downloadImage(from url: URL) {
+        print("Download Started")
+        getData(from: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            DispatchQueue.main.async() { [weak self] in
+                ProfissionalManager.sharedInstance.profissional.photo = UIImage(data: data)
+                self?.updateImage()
+            }
+        }
+    }
+    func updateImage(){
+       photoPerfil.image = SolicitanteManager.sharedInstance.solicitante.photo
+    }
+    
+    
     
     
     @IBAction func sharePerfilButton(_ sender: Any) {

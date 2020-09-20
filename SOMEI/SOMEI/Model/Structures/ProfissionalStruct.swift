@@ -16,7 +16,6 @@ struct ProfissionalStruct:Codable {
        var categoriaTitulo:String?
        var nome:String?
        var avatar:URL?
-//       var profissao:String?
        var name:String?
        var telefone:String?
        var email:String?

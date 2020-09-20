@@ -20,7 +20,6 @@ class PhoneEmployeeViewController: UIViewController,UITextFieldDelegate {
         textField.delegate = self
         self.hideKeyboardWhenTappedAround()
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(PhoneViewController.dismissKeyboard)))
-        print("passou aqui")
         // Do any additional setup after loading the view.
     }
     

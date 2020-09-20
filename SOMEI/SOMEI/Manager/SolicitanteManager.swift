@@ -40,7 +40,7 @@ class SolicitanteManager {
     
     func createSolicitanteStruct() -> SolicitanteStruct? {
         
-        let solicitanteStruct:SolicitanteStruct = SolicitanteStruct.init(cpf: solicitante.cpf, nome: solicitante.name, email: solicitante.email, senha: solicitante.password, anoNascimento: solicitante.age, telefone: solicitante.phone, avatar: solicitante.photoLink)
+        let solicitanteStruct:SolicitanteStruct = SolicitanteStruct.init(cpf: solicitante.cpf, nome: solicitante.name, email: solicitante.email, senha: solicitante.password, anoNascimento: solicitante.age, telefone: solicitante.phone, avatar: solicitante.photoLink!)
      
         return solicitanteStruct
     }
