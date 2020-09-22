@@ -7,18 +7,30 @@
 //
 
 import UIKit
+import Cosmos
 
 class OrcamentosTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var borderView: UIView!
+    @IBOutlet weak var nameProfileLabel: UILabel!
+    @IBOutlet weak var moneyLabel: UILabel!
+    @IBOutlet weak var fantasyNameLabel: UILabel!
+    @IBOutlet weak var cosmosView: CosmosView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+       
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-
+    
+    @IBAction func seePerfilButton(_ sender: Any) {
+        
+    }
+    
+    @IBAction func selectButton(_ sender: Any) {
+        
+    }
 }
