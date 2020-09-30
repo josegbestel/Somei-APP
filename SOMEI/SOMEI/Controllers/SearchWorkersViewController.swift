@@ -35,7 +35,6 @@ class SearchWorkersViewController: UIViewController {
         textField.delegate = self
         collectionView.delegate = self
         OrcamentoManager.sharedInstance.loadApiAndSaveCoreData()
-        
         loadDatas()
     }
     func goesToContinueFlow() {
@@ -52,6 +51,23 @@ class SearchWorkersViewController: UIViewController {
             self.definesPresentationContext = true
             newVC?.modalPresentationStyle = .overCurrentContext
             self.present(newVC!, animated: true, completion: nil)
+        }
+    }
+    
+    func saveStringOnCoreData(job:String) {
+        
+        var selectedJobs:MoreSearchJobs!
+        
+        if selectedJobs == nil {
+            selectedJobs = MoreSearchJobs(context: SomeiManager.sharedInstance.context)
+        }
+        
+        selectedJobs.jobSearched = job
+        
+        do {
+           try SomeiManager.sharedInstance.context.save()
+        } catch {
+           print(error.localizedDescription)
         }
     }
 
@@ -127,11 +143,10 @@ extension SearchWorkersViewController: UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("teste de guia selecionada")
         let selectedProfession = fetchedResultsController.fetchedObjects?[indexPath.row]
         OrcamentoManager.sharedInstance.selectedProfission = selectedProfession?.profissao
+        saveStringOnCoreData(job: OrcamentoManager.sharedInstance.selectedProfission ?? "")
         goesToContinueFlow()
-//        let selectedProfession = self.filterProfessions[indexPath.row]
         print(selectedProfession?.profissao)
     }
     

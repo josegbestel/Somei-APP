@@ -23,28 +23,25 @@ class ClientePerfilViewController: UIViewController, NSFetchedResultsControllerD
     @IBOutlet weak var createPerfilButton: UICornerableButton!
     
     @IBOutlet weak var firstServiceLabel: UILabel!
-    @IBOutlet weak var secondServiceLabel: UILabel!
-    @IBOutlet weak var thirdServiceLabel: UILabel!
     
     var fetchedResultsController: NSFetchedResultsController<SolicitanteUser>!
     var fetchedResultsComentersController: NSFetchedResultsController<SolicitanteComenters>!
+    var fetchedResultsWorksController: NSFetchedResultsController<MoreSearchJobs>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         commentsView.delegate = self
         fixLayout()
-        firstServiceLabel.isHidden = true
-        secondServiceLabel.isHidden = true
-        thirdServiceLabel.isHidden = true
         if SomeiUserDefaults.shared.defaults.bool(forKey: UserDefaultsKeys.createdSolicitantePerfil.rawValue) {
             createPerfilButton.isHidden = true
             loadPerfilOnCoreData()
             loadCommenters()
+            readMoreWorksSearch()
             readCommentsFromCoreData()
             readDatasFromCoreData()
             completeInformationsPerfil()
         }
-        print(SolicitanteManager.sharedInstance.solicitante.id)
+        print(SolicitanteManager.sharedInstance.solicitante.id ?? "")
     }
     
     func configureLayoutViewServicesOffer() {
@@ -74,31 +71,10 @@ class ClientePerfilViewController: UIViewController, NSFetchedResultsControllerD
         cosmosView.rating = Double(SolicitanteManager.sharedInstance.solicitante.nota ?? 5)
         
         if SolicitanteManager.sharedInstance.solicitante.services != nil {
-                
-                switch (SolicitanteManager.sharedInstance.solicitante.services?.count) {
-                case 0:
-                    firstServiceLabel.text = SolicitanteManager.sharedInstance.solicitante.services?[0]
-                    secondServiceLabel.isHidden = true
-                    thirdServiceLabel.isHidden = true
-                case 1:
-                    firstServiceLabel.isHidden = true
-                    secondServiceLabel.text = SolicitanteManager.sharedInstance.solicitante.services?[1]
-                    thirdServiceLabel.isHidden = true
-                case 2:
-                    firstServiceLabel.isHidden = true
-                    secondServiceLabel.isHidden = true
-                    thirdServiceLabel.text = SolicitanteManager.sharedInstance.solicitante.services?[2]
-                default:
-                    firstServiceLabel.isHidden = true
-                    secondServiceLabel.isHidden = true
-                    thirdServiceLabel.isHidden = true
-                }
-                
-            }else {
-                firstServiceLabel.isHidden = true
-                secondServiceLabel.isHidden = true
-                thirdServiceLabel.isHidden = true
-            }
+            firstServiceLabel.text = SolicitanteManager.sharedInstance.solicitante.services?[0]
+        }else{
+            firstServiceLabel.isHidden = true
+        }
     }
     
     func firstName() -> String? {
@@ -116,6 +92,20 @@ class ClientePerfilViewController: UIViewController, NSFetchedResultsControllerD
               }
           }
         return appendWord
+    }
+    
+    func readMoreWorksSearch() {
+        let worksJobsFetchRequest: NSFetchRequest<MoreSearchJobs> = MoreSearchJobs.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key:"jobSearched", ascending: true)
+        worksJobsFetchRequest.sortDescriptors = [sortDescriptor]
+        
+        fetchedResultsWorksController = NSFetchedResultsController(fetchRequest: worksJobsFetchRequest, managedObjectContext: SomeiManager.sharedInstance.context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsWorksController.delegate = self
+        do{
+           try fetchedResultsWorksController.performFetch()
+        }catch {
+           print("Could not load save data: \(error.localizedDescription)")
+        }
     }
     
     func loadCommenters() {
@@ -158,6 +148,8 @@ class ClientePerfilViewController: UIViewController, NSFetchedResultsControllerD
     }
     
     func readDatasFromCoreData() {
+        //Read mainly services search
+        readSearch()
         if !fetchedResultsController.fetchedObjects!.isEmpty {
            guard let perfil:SolicitanteUser = fetchedResultsController.fetchedObjects?[0] else {return}
             print(perfil)
@@ -175,6 +167,19 @@ class ClientePerfilViewController: UIViewController, NSFetchedResultsControllerD
            }
            guard let imagem = perfil.photo else {return}
            SolicitanteManager.sharedInstance.solicitante.photo = UIImage(data: imagem)
+        }
+    }
+    func readSearch() {
+        if !fetchedResultsWorksController.fetchedObjects!.isEmpty {
+            guard let searchs1:MoreSearchJobs = fetchedResultsWorksController.fetchedObjects?[0] else {return}
+            SolicitanteManager.sharedInstance.solicitante.services?.insert(searchs1.jobSearched ?? "", at: 0)
+            guard let searchs2:MoreSearchJobs = fetchedResultsWorksController.fetchedObjects?[1] else {return}
+            SolicitanteManager.sharedInstance.solicitante.services?.insert(searchs2.jobSearched ?? "", at: 1)
+            guard let searchs3:MoreSearchJobs = fetchedResultsWorksController.fetchedObjects?[2] else {return}
+            SolicitanteManager.sharedInstance.solicitante.services?.insert(searchs3.jobSearched ?? "", at: 2)
+            print("aqui")
+            print(SolicitanteManager.sharedInstance.solicitante.services?.count)
+            print(fetchedResultsWorksController.fetchedObjects!.count)
         }
     }
     

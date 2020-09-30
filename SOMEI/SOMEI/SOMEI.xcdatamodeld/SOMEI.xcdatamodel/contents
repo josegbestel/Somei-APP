@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CategoriasProfissionais" representedClassName="CategoriasProfissionais" syncable="YES" codeGenerationType="class">
         <attribute name="categoria" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="MoreSearchJobs" representedClassName="MoreSearchJobs" syncable="YES" codeGenerationType="class">
+        <attribute name="jobSearched" optional="YES" attributeType="String"/>
     </entity>
     <entity name="ProfissionalEntity" representedClassName="ProfissionalEntity" syncable="YES" codeGenerationType="class">
         <attribute name="age" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
@@ -37,6 +40,7 @@
     </entity>
     <elements>
         <element name="CategoriasProfissionais" positionX="-468" positionY="-198" width="128" height="58"/>
+        <element name="MoreSearchJobs" positionX="-468" positionY="-198" width="128" height="58"/>
         <element name="ProfissionalEntity" positionX="-664.43359375" positionY="-97.6328125" width="128" height="28"/>
         <element name="Profissoes" positionX="-63" positionY="45" width="128" height="58"/>
         <element name="SolicitanteComenters" positionX="-468" positionY="-198" width="128" height="88"/>
