@@ -94,6 +94,7 @@
 		3970B9E4250F5303006C36DD /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3970B99B250F5302006C36DD /* PhoneViewController.swift */; };
 		3970B9E5250F5303006C36DD /* LoginCadastroViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3970B99C250F5302006C36DD /* LoginCadastroViewControlller.swift */; };
 		3970B9E6250F5303006C36DD /* SearchWorkersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3970B99D250F5302006C36DD /* SearchWorkersViewController.swift */; };
+		D125C38125254DB500FD8E33 /* PhotoPortfolioCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D125C38025254DB500FD8E33 /* PhotoPortfolioCollectionViewCell.swift */; };
 		D17228B0251953CD008D129C /* AnswerOrcamentoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17228AF251953CD008D129C /* AnswerOrcamentoViewController.swift */; };
 		D17228B525195E98008D129C /* OrcamentoAnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17228B425195E98008D129C /* OrcamentoAnswerTableViewCell.swift */; };
 		D2F70AC9666561AA392EA1E3 /* Pods_SOMEI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4814DA91DCEE3BDD98942C8E /* Pods_SOMEI.framework */; };
@@ -212,6 +213,7 @@
 		3970B99D250F5302006C36DD /* SearchWorkersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchWorkersViewController.swift; sourceTree = "<group>"; };
 		4814DA91DCEE3BDD98942C8E /* Pods_SOMEI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOMEI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF93BF6073951527603D0181 /* Pods-SOMEI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOMEI.release.xcconfig"; path = "Target Support Files/Pods-SOMEI/Pods-SOMEI.release.xcconfig"; sourceTree = "<group>"; };
+		D125C38025254DB500FD8E33 /* PhotoPortfolioCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPortfolioCollectionViewCell.swift; sourceTree = "<group>"; };
 		D17228AF251953CD008D129C /* AnswerOrcamentoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerOrcamentoViewController.swift; sourceTree = "<group>"; };
 		D17228B425195E98008D129C /* OrcamentoAnswerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrcamentoAnswerTableViewCell.swift; sourceTree = "<group>"; };
 		D6929F95C8DA35D5736F1289 /* Pods-SOMEI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOMEI.debug.xcconfig"; path = "Target Support Files/Pods-SOMEI/Pods-SOMEI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -427,6 +429,7 @@
 			children = (
 				3970B96A250F5302006C36DD /* ClientePerfilViewController.swift */,
 				3970B96B250F5302006C36DD /* EmployeePerfilViewController.swift */,
+				D125C38025254DB500FD8E33 /* PhotoPortfolioCollectionViewCell.swift */,
 			);
 			path = Perfil;
 			sourceTree = "<group>";
@@ -759,6 +762,7 @@
 				3970B9AD250F5302006C36DD /* Comentario.swift in Sources */,
 				3970B9A4250F5302006C36DD /* LocalizacaoStruct.swift in Sources */,
 				3970B99E250F5302006C36DD /* ProviderSomei.swift in Sources */,
+				D125C38125254DB500FD8E33 /* PhotoPortfolioCollectionViewCell.swift in Sources */,
 				3970B9BB250F5302006C36DD /* SendPhotosCollectionViewCell.swift in Sources */,
 				3970B9B8250F5302006C36DD /* WorkersCollectionViewCell.swift in Sources */,
 				D17228B0251953CD008D129C /* AnswerOrcamentoViewController.swift in Sources */,

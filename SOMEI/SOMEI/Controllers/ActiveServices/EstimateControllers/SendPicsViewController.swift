@@ -69,7 +69,7 @@ class SendPicsViewController: UIViewController {
                 }
                 
 //                print("Sucesso ao obter link da imagem:\(downloadURL)")
-                print(OrcamentoManager.sharedInstance.photoArray)
+                print(OrcamentoManager.sharedInstance.photoArray as Any)
             }
         }
         uploadTask.resume()

@@ -9,6 +9,8 @@
 import UIKit
 import Cosmos
 import CoreData
+import FirebaseStorage
+import ALCameraViewController
 
 class EmployeePerfilViewController: UIViewController, NSFetchedResultsControllerDelegate {
 
@@ -18,8 +20,6 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
     @IBOutlet weak var nomeUserPerfil: UILabel!
     
     @IBOutlet weak var firstServiceMoreOffered: UILabel!
-    @IBOutlet weak var secondServiceMoreOffered: UILabel!
-    @IBOutlet weak var thirdServiceMoreOffered: UILabel!
     
     @IBOutlet weak var cosmosView: CosmosView!
     
@@ -27,6 +27,9 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
     
     @IBOutlet weak var servicesOfferView: UIImageView!
     
+    let storage = Storage.storage()
+    var linkImage:URL?
+    var imagesArray:[UIImage] = []
     var fetchedResultsController: NSFetchedResultsController<ProfissionalEntity>!
     
     override func viewDidLoad() {
@@ -63,34 +66,7 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
         photoPerfil.image = ProfissionalManager.sharedInstance.profissional.photo
         nomeUserPerfil.text = "Olá \(firstName() ?? "")"
         cosmosView.rating = Double(ProfissionalManager.sharedInstance.profissional.nota ?? 5)
-        
-        if ProfissionalManager.sharedInstance.profissional.services != nil {
-            
-            switch (ProfissionalManager.sharedInstance.profissional.services?.count) {
-            case 0:
-                firstServiceMoreOffered.text = ProfissionalManager.sharedInstance.profissional.services?[0]
-                secondServiceMoreOffered.isHidden = true
-                thirdServiceMoreOffered.isHidden = true
-            case 1:
-                firstServiceMoreOffered.isHidden = true
-                secondServiceMoreOffered.text = ProfissionalManager.sharedInstance.profissional.services?[1]
-                thirdServiceMoreOffered.isHidden = true
-            case 2:
-                firstServiceMoreOffered.isHidden = true
-                secondServiceMoreOffered.isHidden = true
-                thirdServiceMoreOffered.text = ProfissionalManager.sharedInstance.profissional.services?[2]
-            default:
-                firstServiceMoreOffered.isHidden = true
-                secondServiceMoreOffered.isHidden = true
-                thirdServiceMoreOffered.isHidden = true
-            }
-            
-        }else {
-            firstServiceMoreOffered.isHidden = true
-            secondServiceMoreOffered.isHidden = true
-            thirdServiceMoreOffered.isHidden = true
-        }
-        
+        firstServiceMoreOffered.text = ProfissionalManager.sharedInstance.profissional.mainActivity
     }
     
     func firstName() -> String? {
@@ -140,7 +116,6 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
         if ProfissionalManager.sharedInstance.profissional.photoLink != nil {
             downloadImage(from: cleanString(url: ProfissionalManager.sharedInstance.profissional.photoLink!))
         }
-        
     }
     
     //funcao necessario pois a lib retorna "OPTINAL(link)"
@@ -172,12 +147,47 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
             }
         }
     }
+    
     func updateImage(){
        photoPerfil.image = SolicitanteManager.sharedInstance.solicitante.photo
     }
     
+    func uploadImage(image:UIImage) {
+        let storageRef = storage.reference()
+        print("referencia do banco:\(storageRef)")
+        let imagesRef = storageRef.child("images")
+        print("referencia da imagem:\(imagesRef)")
+        let imageData: NSData = image.pngData()! as NSData
+        let uploadTask = imagesRef.putData(imageData as Data, metadata: nil) { (metadata, error) in
+            if error != nil {
+                print("falhou")
+                print(error?.localizedDescription as Any)
+            }
+            print("sucesso ao salvar!")
+            imagesRef.downloadURL { (url, error) in
+              guard let downloadURL = url else {
+                print("Erro ao obter link da imagem")
+                return
+              }
+                self.linkImage = downloadURL
+                ProfissionalManager.sharedInstance.profissional.photoLink = self.linkImage!
+                print("Sucesso ao obter link da imagem:\(downloadURL)")
+            }
+        }
+        uploadTask.resume()
+    }
     
-    
+    @IBAction func takePhotoPortfolio(_ sender: Any) {
+        let cameraViewController = CameraViewController { [weak self] image, asset in
+           if image != nil {
+             self?.imagesArray.insert(image!, at: 0)
+             self?.collectionPhotosView.reloadData()
+             print(self?.imagesArray.count)
+          }
+          self?.dismiss(animated: true, completion: nil)
+       }
+       present(cameraViewController, animated: true, completion: nil)
+    }
     
     @IBAction func sharePerfilButton(_ sender: Any) {
         let deepLink = [URL(string: "https://www.SomeiApp.AppStore.com")!]
@@ -188,16 +198,18 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
     
 }
 extension EmployeePerfilViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1
+        return imagesArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //TODO: corrigir com os dados vindos da lib
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! WorkersCollectionViewCell
-//        guard let profissoes = fetchedResultsController.fetchedObjects?[indexPath.row] else {
-//            return cell
-//        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PhotoPortfolioCollectionViewCell
+        cell.imageView.image = imagesArray[indexPath.row]
         return cell
     }
     
