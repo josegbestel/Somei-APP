@@ -42,8 +42,9 @@ class Orcamento {
         let valorMinimo = dict["valorMinimo"] as! Int
         //TODO: Implementar data de criação no back
         let data = ""
-        
-        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos: nil, endereco: nil, data: data, horario: nil, status: status, valorMinimo: valorMinimo)
+        let localizacao = dict["localizacao"] as! [String : Any]
+        let endereco:Localizacao = Localizacao(cep: localizacao["cep"] as? String, logradouro: localizacao["logradouro"] as? String, numero: localizacao["numero"] as? Int, complemento: localizacao["complemento"] as? String, bairro: localizacao["bairro"] as? String, cidade: localizacao["cidade"] as? String, uf: localizacao["uf"] as? String, longitude: localizacao["longitude"] as? String, latitude: localizacao["latitude"] as? String)
+        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos: nil, endereco: endereco, data: data, horario: nil, status: status, valorMinimo: valorMinimo)
         
         return orcamento
     }
