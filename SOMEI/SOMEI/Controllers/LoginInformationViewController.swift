@@ -117,7 +117,7 @@ class LoginInformationViewController: UIViewController {
                         SomeiUserDefaults.shared.defaults.set(true, forKey: UserDefaultsKeys.createdProfessionalPerfil.rawValue)
                         
                         //Retornar para a pagina anterior
-                        let newVC = self.storyboard?.instantiateViewController(withIdentifier: "SearchWorkersViewController")
+                        let newVC = self.storyboard?.instantiateViewController(withIdentifier: "perfilHomeEmployee")
                         self.definesPresentationContext = true
                         newVC?.modalPresentationStyle = .overCurrentContext
                         self.present(newVC!, animated: true, completion: nil)
@@ -146,7 +146,5 @@ class LoginInformationViewController: UIViewController {
         }else {
             profissionalLogin()
         }
-       
-        
      }
 }

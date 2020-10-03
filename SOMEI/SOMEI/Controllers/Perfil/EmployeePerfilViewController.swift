@@ -111,11 +111,12 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
         ProfissionalManager.sharedInstance.profissional.ownerName = perfil.ownerName
         ProfissionalManager.sharedInstance.profissional.password = perfil.password
         ProfissionalManager.sharedInstance.profissional.id = Int(perfil.identifier)
-        guard let imagem = perfil.photo else {return}
-        ProfissionalManager.sharedInstance.profissional.photo = UIImage(data: imagem)
+        ProfissionalManager.sharedInstance.profissional.photoLink = URL(string: perfil.photoLink ?? "")
         if ProfissionalManager.sharedInstance.profissional.photoLink != nil {
             downloadImage(from: cleanString(url: ProfissionalManager.sharedInstance.profissional.photoLink!))
         }
+        guard let imagem = perfil.photo else {return}
+        ProfissionalManager.sharedInstance.profissional.photo = UIImage(data: imagem)
     }
     
     //funcao necessario pois a lib retorna "OPTINAL(link)"
@@ -149,7 +150,7 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
     }
     
     func updateImage(){
-       photoPerfil.image = SolicitanteManager.sharedInstance.solicitante.photo
+       photoPerfil.image = ProfissionalManager.sharedInstance.profissional.photo
     }
     
     func uploadImage(image:UIImage) {
