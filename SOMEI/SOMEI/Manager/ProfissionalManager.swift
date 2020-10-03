@@ -105,7 +105,9 @@ class ProfissionalManager {
             profissionalPerfil.ownerName = profissional.ownerName
             profissionalPerfil.password = profissional.password
             profissionalPerfil.photoLink = "\(profissional.photoLink)"
-            profissionalPerfil.photo = profissional.photo!.pngData() as NSData? as Data?
+            if profissional.photo != nil {
+                profissionalPerfil.photo = profissional.photo!.pngData() as NSData? as Data?
+            }
             profissionalPerfil.identifier = Int32(truncating:profissional.id! as NSNumber)
         
            do {

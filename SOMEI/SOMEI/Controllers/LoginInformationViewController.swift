@@ -92,7 +92,43 @@ class LoginInformationViewController: UIViewController {
     }
     
     func profissionalLogin() {
-        
+        ProviderSomei.loginUser(email: emailLogin.text!, password: passwordLogin.text!){ (res, result) in
+            DispatchQueue.main.async{
+                if let sucesso:Bool = res{
+                    if(sucesso){
+                        print("Login realizado com sucesso")
+                        self.loginErrorText.isHidden = false;
+                        
+                        //Pegar response, transformar em objeto
+                        print("Senha do login: \(self.passwordLogin)")
+                        let profissional = Profissional.byDict(dict: result!, password: self.passwordLogin.text!)
+                        
+                        
+                        //Instanciar em ProfissionalManager
+                        ProfissionalManager.sharedInstance.profissional = profissional
+                        
+                        //Define no Defaults que foi criado um perfil profissional
+                        SomeiUserDefaults.shared.defaults.set(true, forKey: UserDefaultsKeys.createdProfessionalPerfil.rawValue)
+                        
+                        
+                        //Salvar profissional no data
+                        ProfissionalManager.sharedInstance.saveProfessionalPerfilOnCoreData()
+                        //Set true to perfilProfissional
+                        SomeiUserDefaults.shared.defaults.set(true, forKey: UserDefaultsKeys.createdProfessionalPerfil.rawValue)
+                        
+                        //Retornar para a pagina anterior
+                        let newVC = self.storyboard?.instantiateViewController(withIdentifier: "SearchWorkersViewController")
+                        self.definesPresentationContext = true
+                        newVC?.modalPresentationStyle = .overCurrentContext
+                        self.present(newVC!, animated: true, completion: nil)
+                        
+                    }else{
+                        print("Login falhou")
+                        self.loginErrorText.isHidden = false;
+                    }
+                }
+            }
+        }
     }
     
 

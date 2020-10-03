@@ -29,6 +29,33 @@ class Profissional: Usuario {
         self.portifolio = portifolio
         self.nota = nota
         self.services = services
+    }
+    
+    static func byDict(dict :[String : Any], password :String) -> Profissional {
         
+        print("dicionario From lib")
+        print(dict)
+        let cnpj = dict["cnpj"] as? String
+        let nota = dict["rating"] as? Int
+        let ownerName = dict["nome"] as? String
+        let age = dict["anoNascimento"] as? Int
+        let phone = dict["telefone"] as? String
+        let email = dict["email"] as? String
+        let password = password
+        let photoLink = dict["avatar"] as! String
+        let id = dict["id"] as! Int
+        let profissao = dict["ocupacao"] as? String
+        let descricao = dict["descricao"] as? String ?? ""
+        let nomeFantasia = dict["nomeFantasia"] as? String
+        var services:[String]? = []
+        services?.insert(descricao, at: 0)
+        
+        //Localização
+        let localizacao = dict["localizacao"] as! [String : Any]
+        let endereco:Localizacao = Localizacao(cep: localizacao["cep"] as? String, logradouro: localizacao["logradouro"] as? String, numero: localizacao["numero"] as? Int, complemento: localizacao["complemento"] as? String, bairro: localizacao["bairro"] as? String, cidade: localizacao["cidade"] as? String, uf: localizacao["uf"] as? String, longitude: localizacao["longitude"] as? String, latitude: localizacao["latitude"] as? String)
+        
+        let profissional = Profissional(cnpj: cnpj, profissao: profissao, name: nomeFantasia, age: age, phone: phone, email: email, photo: nil, password: password, endereço: endereco, photoLink: URL(string: photoLink), ownerName: ownerName, portifolio: nil, nota: nota, services: services, id: id)
+        
+        return profissional
     }
 }

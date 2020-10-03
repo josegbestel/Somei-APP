@@ -5683,7 +5683,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12345678" placeholder="Senha" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mc7-kD-Gws">
                                         <rect key="frame" x="50" y="183" width="121" height="32"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Login inválido" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F2U-9q-PlA" userLabel="loginInvalidoText">
                                         <rect key="frame" x="125.5" y="437" width="163" height="34"/>
@@ -6023,7 +6023,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="90J-ZC-NTi"/>
+        <segue reference="Y3U-n9-iAG"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Camada 2" width="214.5" height="207.5"/>
