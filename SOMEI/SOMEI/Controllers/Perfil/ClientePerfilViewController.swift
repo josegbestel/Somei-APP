@@ -32,6 +32,7 @@ class ClientePerfilViewController: UIViewController, NSFetchedResultsControllerD
         super.viewDidLoad()
         commentsView.delegate = self
         fixLayout()
+        firstServiceLabel.isHidden = true
         if SomeiUserDefaults.shared.defaults.bool(forKey: UserDefaultsKeys.createdSolicitantePerfil.rawValue) {
             createPerfilButton.isHidden = true
             loadPerfilOnCoreData()
@@ -71,9 +72,8 @@ class ClientePerfilViewController: UIViewController, NSFetchedResultsControllerD
         cosmosView.rating = Double(SolicitanteManager.sharedInstance.solicitante.nota ?? 5)
         
         if SolicitanteManager.sharedInstance.solicitante.services != nil {
+            firstServiceLabel.isHidden = false
             firstServiceLabel.text = SolicitanteManager.sharedInstance.solicitante.services?[0]
-        }else{
-            firstServiceLabel.isHidden = true
         }
     }
     
@@ -141,7 +141,10 @@ class ClientePerfilViewController: UIViewController, NSFetchedResultsControllerD
     }
     func readCommentsFromCoreData() {
         if !fetchedResultsComentersController.fetchedObjects!.isEmpty {
-            guard let coment:SolicitanteComenters = fetchedResultsComentersController.fetchedObjects?[0] else {return}
+            guard let coment:SolicitanteComenters = fetchedResultsComentersController.fetchedObjects?[0] else {
+                firstServiceLabel.isHidden = true
+                return
+            }
             let comentario = Comentario(comentario:coment.comentario,nota: coment.nota ,nomeProfissional: coment.nomeProfissional)
             SolicitanteManager.sharedInstance.solicitante.comentarios?.insert(comentario, at:0)
         }
@@ -173,13 +176,6 @@ class ClientePerfilViewController: UIViewController, NSFetchedResultsControllerD
         if !fetchedResultsWorksController.fetchedObjects!.isEmpty {
             guard let searchs1:MoreSearchJobs = fetchedResultsWorksController.fetchedObjects?[0] else {return}
             SolicitanteManager.sharedInstance.solicitante.services?.insert(searchs1.jobSearched ?? "", at: 0)
-            guard let searchs2:MoreSearchJobs = fetchedResultsWorksController.fetchedObjects?[1] else {return}
-            SolicitanteManager.sharedInstance.solicitante.services?.insert(searchs2.jobSearched ?? "", at: 1)
-            guard let searchs3:MoreSearchJobs = fetchedResultsWorksController.fetchedObjects?[2] else {return}
-            SolicitanteManager.sharedInstance.solicitante.services?.insert(searchs3.jobSearched ?? "", at: 2)
-            print("aqui")
-            print(SolicitanteManager.sharedInstance.solicitante.services?.count)
-            print(fetchedResultsWorksController.fetchedObjects!.count)
         }
     }
     

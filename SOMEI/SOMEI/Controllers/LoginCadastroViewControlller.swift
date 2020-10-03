@@ -17,7 +17,10 @@ class LoginCadastroViewControlller: UIViewController {
     }
     
     @IBAction func loginButton(_ sender: Any) {
-        
+        let newVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginInformationViewController")
+        self.definesPresentationContext = true
+        newVC?.modalPresentationStyle = .overCurrentContext
+        self.present(newVC!, animated: true, completion: nil)
     }
     
     @IBAction func cadastroButton(_ sender: Any) {

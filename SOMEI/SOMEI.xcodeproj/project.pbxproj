@@ -98,6 +98,8 @@
 		D17228B0251953CD008D129C /* AnswerOrcamentoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17228AF251953CD008D129C /* AnswerOrcamentoViewController.swift */; };
 		D17228B525195E98008D129C /* OrcamentoAnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17228B425195E98008D129C /* OrcamentoAnswerTableViewCell.swift */; };
 		D180717A25281A0E0087385E /* photosOrcamentoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D180717925281A0E0087385E /* photosOrcamentoCollectionViewCell.swift */; };
+		D180718025284D870087385E /* RequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D180717F25284D870087385E /* RequestsTableViewController.swift */; };
+		D1807188252854390087385E /* ProfissionalServicosAtivos.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1807187252854390087385E /* ProfissionalServicosAtivos.swift */; };
 		D2F70AC9666561AA392EA1E3 /* Pods_SOMEI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4814DA91DCEE3BDD98942C8E /* Pods_SOMEI.framework */; };
 /* End PBXBuildFile section */
 
@@ -218,6 +220,8 @@
 		D17228AF251953CD008D129C /* AnswerOrcamentoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerOrcamentoViewController.swift; sourceTree = "<group>"; };
 		D17228B425195E98008D129C /* OrcamentoAnswerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrcamentoAnswerTableViewCell.swift; sourceTree = "<group>"; };
 		D180717925281A0E0087385E /* photosOrcamentoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photosOrcamentoCollectionViewCell.swift; sourceTree = "<group>"; };
+		D180717F25284D870087385E /* RequestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsTableViewController.swift; sourceTree = "<group>"; };
+		D1807187252854390087385E /* ProfissionalServicosAtivos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfissionalServicosAtivos.swift; sourceTree = "<group>"; };
 		D6929F95C8DA35D5736F1289 /* Pods-SOMEI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOMEI.debug.xcconfig"; path = "Target Support Files/Pods-SOMEI/Pods-SOMEI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -338,6 +342,7 @@
 				3970B955250F5302006C36DD /* Solicitante .swift */,
 				3970B956250F5302006C36DD /* Usuario.swift */,
 				3970B957250F5302006C36DD /* Comentario.swift */,
+				D1807187252854390087385E /* ProfissionalServicosAtivos.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -419,6 +424,7 @@
 		3970B966250F5302006C36DD /* ActiveServices */ = {
 			isa = PBXGroup;
 			children = (
+				D180717E25284D3A0087385E /* ActiveServicesProfissional */,
 				3970B972250F5302006C36DD /* EstimateControllers */,
 				3970B967250F5302006C36DD /* ActiveServicesViewController.swift */,
 				392459C6250FDE300031B11A /* OrcamentoTableViewCell.swift */,
@@ -526,6 +532,14 @@
 				4814DA91DCEE3BDD98942C8E /* Pods_SOMEI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D180717E25284D3A0087385E /* ActiveServicesProfissional */ = {
+			isa = PBXGroup;
+			children = (
+				D180717F25284D870087385E /* RequestsTableViewController.swift */,
+			);
+			path = ActiveServicesProfissional;
 			sourceTree = "<group>";
 		};
 		F3ACCCFF9CB0538314FC41D7 /* Pods */ = {
@@ -730,6 +744,7 @@
 				3970B9B2250F5302006C36DD /* SolicitanteManagerJson.swift in Sources */,
 				3970B9A0250F5302006C36DD /* SolicitanteStruct.swift in Sources */,
 				3970B9DD250F5303006C36DD /* PasswordViewController.swift in Sources */,
+				D180718025284D870087385E /* RequestsTableViewController.swift in Sources */,
 				3970B9B0250F5302006C36DD /* OrcamentoManager.swift in Sources */,
 				3970B9AE250F5302006C36DD /* ProfissionalManager.swift in Sources */,
 				3970B9DC250F5303006C36DD /* ConfirmationDatasViewController.swift in Sources */,
@@ -749,6 +764,7 @@
 				3970B9A5250F5302006C36DD /* OrcamentoStruct.swift in Sources */,
 				3970B9D8250F5303006C36DD /* EmployeePhotoViewController.swift in Sources */,
 				39498D7A250F5C6D0043F97A /* UICornerableButton.swift in Sources */,
+				D1807188252854390087385E /* ProfissionalServicosAtivos.swift in Sources */,
 				3970B9CD250F5302006C36DD /* CategoriasTableViewCell.swift in Sources */,
 				D17228B525195E98008D129C /* OrcamentoAnswerTableViewCell.swift in Sources */,
 				3970B9D6250F5302006C36DD /* ComplementViewController.swift in Sources */,

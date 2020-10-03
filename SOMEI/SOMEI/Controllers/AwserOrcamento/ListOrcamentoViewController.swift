@@ -7,18 +7,48 @@
 //
 
 import UIKit
+import CoreData
 
-class ListOrcamentoViewController: ViewController {
+class ListOrcamentoViewController: ViewController, NSFetchedResultsControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    var fetchedResultsController: NSFetchedResultsController<ProfissionalEntity>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        ProviderSomei.ServicosAtivos(email: ProfissionalManager.sharedInstance.profissional.email!, password: ProfissionalManager.sharedInstance.profissional.password!) {res,result in
-//                print(res)
-//                print("_________________")
-//                print(result)
-//         }
+        loadPerfilOnCoreData()
+        readDatasFromCoreData()
+        if ProfissionalManager.sharedInstance.profissional.email != nil, ProfissionalManager.sharedInstance.profissional.password != nil {
+            ProviderSomei.ServicosAtivos(email: ProfissionalManager.sharedInstance.profissional.email!, password: ProfissionalManager.sharedInstance.profissional.password!) {success in
+                self.tableView.reloadData()
+             }
+        }
+    }
+    
+    func loadPerfilOnCoreData() {
+        let profissionalPerfilRequest: NSFetchRequest<ProfissionalEntity> = ProfissionalEntity.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key:"name", ascending: true)
+        profissionalPerfilRequest.sortDescriptors = [sortDescriptor]
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: profissionalPerfilRequest, managedObjectContext: SomeiManager.sharedInstance.context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController.delegate = self
+        
+        do{
+             try fetchedResultsController.performFetch()
+        }catch {
+           print("Could not load save data: \(error.localizedDescription)")
+        }
+    }
+    
+    func readDatasFromCoreData() {
+        guard let perfil:ProfissionalEntity = fetchedResultsController.fetchedObjects?[0] else {
+            return
+        }
+        ProfissionalManager.sharedInstance.profissional.name = perfil.name
+        ProfissionalManager.sharedInstance.profissional.email = perfil.email
+        ProfissionalManager.sharedInstance.profissional.password = perfil.password
+        ProfissionalManager.sharedInstance.profissional.id = Int(perfil.identifier)
+      
     }
 
 }

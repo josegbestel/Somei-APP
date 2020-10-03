@@ -50,18 +50,7 @@ class LoginInformationViewController: UIViewController {
          alert.addAction(ok)
          self.present(alert, animated: true)
    }
-    
-
-    @IBAction func continueButton(_ sender: Any) {
-        if (emailLogin.text?.count)! == 0, (passwordLogin.text?.count)! == 0  {
-             showEmptyText()
-             return
-        }
-        if !isValidEmail(emailLogin.text!) {
-            showInvalidEmailPopUp()
-            return
-        }
-        
+    func solicitanteLogin() {
         //Realizar login
         ProviderSomei.loginUser(email: emailLogin.text!, password: passwordLogin.text!){ (res, result) in
             DispatchQueue.main.async{
@@ -84,7 +73,8 @@ class LoginInformationViewController: UIViewController {
                         
                         //Salvar solicitante no data
                         SolicitanteManager.sharedInstance.saveSolicitantePerfilOnCoreData()
-                        
+                        //Set true to perfilSolicitante
+                        SomeiUserDefaults.shared.defaults.set(true, forKey: UserDefaultsKeys.createdSolicitantePerfil.rawValue)
                         
                         //Retornar para a pagina anterior
                         let newVC = self.storyboard?.instantiateViewController(withIdentifier: "SearchWorkersViewController")
@@ -99,5 +89,28 @@ class LoginInformationViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func profissionalLogin() {
+        
+    }
+    
+
+    @IBAction func continueButton(_ sender: Any) {
+        if (emailLogin.text?.count)! == 0, (passwordLogin.text?.count)! == 0  {
+             showEmptyText()
+             return
+        }
+        if !isValidEmail(emailLogin.text!) {
+            showInvalidEmailPopUp()
+            return
+        }
+        if !SomeiManager.sharedInstance.isProfession {
+            solicitanteLogin()
+        }else {
+            profissionalLogin()
+        }
+       
+        
      }
 }
