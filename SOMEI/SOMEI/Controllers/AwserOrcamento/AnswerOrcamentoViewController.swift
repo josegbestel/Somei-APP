@@ -21,12 +21,15 @@ class AnswerOrcamentoViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var collectionView: UICollectionViewCell!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var imagesArray:[UIImage] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        completeInformation()
         configureLayout()
+        completeInformation()
+        downloadImages()
     }
     
     func configureLayout() {
@@ -47,7 +50,33 @@ class AnswerOrcamentoViewController: UIViewController {
         profissionalLabel.text = OrcamentoManager.sharedInstance.selectedOrcamento?.profissao
         descriptionInformationToSecondView.text = OrcamentoManager.sharedInstance.selectedOrcamento?.descricao
         
-        
+    }
+    
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+    
+    func downloadImage(from url: URL) {
+        print("Download Started images from Orcamento")
+        getData(from: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished images from Orcamento")
+            DispatchQueue.main.async() { [weak self] in
+                self?.imagesArray.insert(UIImage(data: data)!, at: 0)
+                self?.updateImages()
+            }
+        }
+    }
+    
+    func downloadImages() {
+        let linkPhotos:[URL] = OrcamentoManager.sharedInstance.selectedOrcamento?.linkPhotos ?? []
+        for imageLink in linkPhotos {
+            downloadImage(from: imageLink)
+        }
+    }
+    func updateImages(){
+        collectionView.reloadData()
     }
     
     @IBAction func backButton(_ sender: Any) {
@@ -73,12 +102,12 @@ extension AnswerOrcamentoViewController: UICollectionViewDataSource, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return OrcamentoManager.sharedInstance.selectedOrcamento?.photos?.count ?? 1
+        return imagesArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! SendPhotosCollectionViewCell
-        cell.imageView.image = OrcamentoManager.sharedInstance.selectedOrcamento?.photos?[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! photosOrcamentoCollectionViewCell
+        cell.imageView.image = imagesArray[indexPath.row]
         
         return cell
     }

@@ -6075,7 +6075,7 @@
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="wKG-bt-6m8">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="wKG-bt-6m8" customClass="photosOrcamentoCollectionViewCell" customModule="SOMEI" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ltK-iD-VDF">
@@ -6093,8 +6093,15 @@
                                                                 <constraint firstItem="cV9-Hs-dM5" firstAttribute="top" secondItem="ltK-iD-VDF" secondAttribute="top" id="kH9-E7-zCh"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="imageView" destination="cV9-Hs-dM5" id="LQu-k2-ZsR"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="r8t-dz-KXL" id="WL9-gx-sF6"/>
+                                                    <outlet property="delegate" destination="r8t-dz-KXL" id="9jX-Y4-j2b"/>
+                                                </connections>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Endereço" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQI-Tj-acK">
                                                 <rect key="frame" x="8" y="181" width="73" height="21"/>
@@ -6291,7 +6298,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="v6a-MU-IxU"/>
                     <connections>
-                        <outlet property="collectionView" destination="wKG-bt-6m8" id="N47-ca-ScM"/>
+                        <outlet property="collectionView" destination="qvx-r7-tBp" id="6pm-Lf-NGY"/>
                         <outlet property="descriptionInformationToSecondView" destination="k6f-sZ-YlN" id="UXH-im-2ca"/>
                         <outlet property="descriptionLabel" destination="Mvn-eV-Zxh" id="Cr0-hX-jyw"/>
                         <outlet property="enderecoLabel" destination="HQI-Tj-acK" id="kaQ-Bs-ESa"/>

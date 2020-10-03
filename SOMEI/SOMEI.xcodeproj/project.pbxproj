@@ -97,6 +97,7 @@
 		D125C38125254DB500FD8E33 /* PhotoPortfolioCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D125C38025254DB500FD8E33 /* PhotoPortfolioCollectionViewCell.swift */; };
 		D17228B0251953CD008D129C /* AnswerOrcamentoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17228AF251953CD008D129C /* AnswerOrcamentoViewController.swift */; };
 		D17228B525195E98008D129C /* OrcamentoAnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17228B425195E98008D129C /* OrcamentoAnswerTableViewCell.swift */; };
+		D180717A25281A0E0087385E /* photosOrcamentoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D180717925281A0E0087385E /* photosOrcamentoCollectionViewCell.swift */; };
 		D2F70AC9666561AA392EA1E3 /* Pods_SOMEI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4814DA91DCEE3BDD98942C8E /* Pods_SOMEI.framework */; };
 /* End PBXBuildFile section */
 
@@ -216,6 +217,7 @@
 		D125C38025254DB500FD8E33 /* PhotoPortfolioCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPortfolioCollectionViewCell.swift; sourceTree = "<group>"; };
 		D17228AF251953CD008D129C /* AnswerOrcamentoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerOrcamentoViewController.swift; sourceTree = "<group>"; };
 		D17228B425195E98008D129C /* OrcamentoAnswerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrcamentoAnswerTableViewCell.swift; sourceTree = "<group>"; };
+		D180717925281A0E0087385E /* photosOrcamentoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photosOrcamentoCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6929F95C8DA35D5736F1289 /* Pods-SOMEI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOMEI.debug.xcconfig"; path = "Target Support Files/Pods-SOMEI/Pods-SOMEI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -420,6 +422,7 @@
 				3970B972250F5302006C36DD /* EstimateControllers */,
 				3970B967250F5302006C36DD /* ActiveServicesViewController.swift */,
 				392459C6250FDE300031B11A /* OrcamentoTableViewCell.swift */,
+				D180717925281A0E0087385E /* photosOrcamentoCollectionViewCell.swift */,
 			);
 			path = ActiveServices;
 			sourceTree = "<group>";
@@ -738,6 +741,7 @@
 				3970B9AB250F5302006C36DD /* Solicitante .swift in Sources */,
 				3970B9E4250F5303006C36DD /* PhoneViewController.swift in Sources */,
 				3970B9CB250F5302006C36DD /* AnswerViewController.swift in Sources */,
+				D180717A25281A0E0087385E /* photosOrcamentoCollectionViewCell.swift in Sources */,
 				3970B9C2250F5302006C36DD /* FlexibleHourViewController.swift in Sources */,
 				3970B9C4250F5302006C36DD /* SelectHourTableViewCell.swift in Sources */,
 				3970B9B3250F5302006C36DD /* AnswerOrcamentoManager.swift in Sources */,
