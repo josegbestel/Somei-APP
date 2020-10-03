@@ -21,8 +21,6 @@ class AnswerOrcamentoViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var collectionView: UICollectionView!
-    
     var imagesArray:[UIImage] = []
     
     override func viewDidLoad() {
@@ -49,7 +47,51 @@ class AnswerOrcamentoViewController: UIViewController {
         //solicitação view information
         profissionalLabel.text = OrcamentoManager.sharedInstance.selectedOrcamento?.profissao
         descriptionInformationToSecondView.text = OrcamentoManager.sharedInstance.selectedOrcamento?.descricao
-        
+        enderecoLabel.text = completeOrcamento()
+        configureStatus()
+    }
+    
+    func configureStatus() {
+        let status = OrcamentoManager.sharedInstance.selectedOrcamento?.status
+        switch status {
+          case "SOLICITADO":
+            statusLabel.text = "Solicitado"
+            statusLabel.backgroundColor = UIColor(red: 46/255, green: 75/255, blue: 113/255, alpha:1)
+          case "RESPONDIDO":
+//            rgba(126, 142, 156, 1)
+            statusLabel.text = "Respondido"
+            statusLabel.backgroundColor = UIColor(red: 126/255, green: 142/255, blue: 156/255, alpha:1)
+          case "CONFIRMADO":
+            //rgba(255, 187, 22, 1)
+            statusLabel.text = "Confirmado"
+            statusLabel.backgroundColor = UIColor(red: 255/255, green: 187/255, blue: 22/255, alpha:1)
+          case "PENDENTE":
+//            rgba(148, 62, 255, 1)
+            statusLabel.text = "Pendente"
+            statusLabel.backgroundColor = UIColor(red: 148/255, green: 62/255, blue: 255/255, alpha:1)
+          case "FINALIZADO":
+//            rgba(6, 221, 112, 1)
+            statusLabel.text = "Finalizado"
+            statusLabel.backgroundColor = UIColor(red: 6/255, green: 221/255, blue: 112/255, alpha:1)
+          case "CANCELADO":
+//            rgba(255, 92, 83, 1)
+            statusLabel.text = "Cancelado"
+            statusLabel.backgroundColor = UIColor(red: 255/255, green: 92/255, blue: 83/255, alpha:1)
+          default:
+            print("No status found:\(status ?? "")")
+          }
+    }
+    
+    func completeOrcamento() -> String {
+        var endereco = ""
+        endereco.append(OrcamentoManager.sharedInstance.selectedOrcamento?.endereco?.logradouro ?? "")
+        endereco.append(",")
+        endereco.append("\(OrcamentoManager.sharedInstance.selectedOrcamento?.endereco?.numero ?? 0)")
+        endereco.append("-")
+        endereco.append(OrcamentoManager.sharedInstance.selectedOrcamento?.endereco?.bairro ?? "")
+        endereco.append(",")
+        endereco.append(OrcamentoManager.sharedInstance.selectedOrcamento?.endereco?.cidade ?? "")
+        return endereco
     }
     
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
@@ -76,7 +118,7 @@ class AnswerOrcamentoViewController: UIViewController {
         }
     }
     func updateImages(){
-        collectionView.reloadData()
+        orcamentosPhotosCollection.reloadData()
     }
     
     @IBAction func backButton(_ sender: Any) {

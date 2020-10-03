@@ -6128,8 +6128,8 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SOLICITAÇÃO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRk-hh-DKl">
-                                        <rect key="frame" x="15" y="25" width="67" height="12"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <rect key="frame" x="15" y="19" width="101.5" height="18"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -6224,8 +6224,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RESPOSTAS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ED-5c-Qrr">
-                                        <rect key="frame" x="15" y="274" width="59" height="12"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <rect key="frame" x="15" y="274" width="90" height="18"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -6298,7 +6298,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="v6a-MU-IxU"/>
                     <connections>
-                        <outlet property="collectionView" destination="qvx-r7-tBp" id="6pm-Lf-NGY"/>
                         <outlet property="descriptionInformationToSecondView" destination="k6f-sZ-YlN" id="UXH-im-2ca"/>
                         <outlet property="descriptionLabel" destination="Mvn-eV-Zxh" id="Cr0-hX-jyw"/>
                         <outlet property="enderecoLabel" destination="HQI-Tj-acK" id="kaQ-Bs-ESa"/>

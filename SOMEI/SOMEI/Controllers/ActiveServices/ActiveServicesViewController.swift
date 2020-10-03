@@ -20,9 +20,10 @@ class ActiveServicesViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func goesToOrcamentoList() {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let newNavigation = storyBoard.instantiateViewController(withIdentifier: "AnswerOrcamentoViewController")
-        self.present(newNavigation, animated: true, completion: nil)
+        let newVC = self.storyboard?.instantiateViewController(withIdentifier: "AnswerOrcamentoViewController")
+        self.definesPresentationContext = true
+        newVC?.modalPresentationStyle = .overCurrentContext
+        self.present(newVC!, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
