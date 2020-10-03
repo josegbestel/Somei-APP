@@ -17,8 +17,11 @@ class AnswerOrcamentoViewController: UIViewController {
     @IBOutlet weak var orcamentosPhotosCollection: UICollectionView!
     @IBOutlet weak var enderecoLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var descriptionInformationToSecondView: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var collectionView: UICollectionViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +35,17 @@ class AnswerOrcamentoViewController: UIViewController {
         solicitacaoView.layer.shadowColor = UIColor.black.cgColor
         solicitacaoView.layer.shadowOpacity = 0.24
         solicitacaoView.layer.shadowOffset = .zero
-        solicitacaoView.layer.shadowRadius = 3
+        solicitacaoView.layer.shadowRadius = 5
+        solicitacaoView.layer.cornerRadius = 5
     }
     
     func completeInformation() {
+        //headers information
         profissaoLabel.text = OrcamentoManager.sharedInstance.selectedOrcamento?.profissao
         descriptionLabel.text = OrcamentoManager.sharedInstance.selectedOrcamento?.descricao
+        //solicitação view information
+        profissionalLabel.text = OrcamentoManager.sharedInstance.selectedOrcamento?.profissao
+        descriptionInformationToSecondView.text = OrcamentoManager.sharedInstance.selectedOrcamento?.descricao
         
         
     }
@@ -59,16 +67,19 @@ extension AnswerOrcamentoViewController: UITableViewDataSource, UITableViewDeleg
     }
 }
 extension AnswerOrcamentoViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1
+        return OrcamentoManager.sharedInstance.selectedOrcamento?.photos?.count ?? 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //TODO: corrigir com os dados vindos da lib
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! WorkersCollectionViewCell
-//        guard let profissoes = fetchedResultsController.fetchedObjects?[indexPath.row] else {
-//            return cell
-//        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! SendPhotosCollectionViewCell
+        cell.imageView.image = OrcamentoManager.sharedInstance.selectedOrcamento?.photos?[indexPath.row]
+        
         return cell
     }
     

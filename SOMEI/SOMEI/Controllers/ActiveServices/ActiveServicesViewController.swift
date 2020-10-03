@@ -19,6 +19,12 @@ class ActiveServicesViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
+    func goesToOrcamentoList() {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let newNavigation = storyBoard.instantiateViewController(withIdentifier: "AnswerOrcamentoViewController")
+        self.present(newNavigation, animated: true, completion: nil)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return OrcamentoManager.sharedInstance.orcamentos.count
     }
@@ -38,11 +44,10 @@ class ActiveServicesViewController: UIViewController, UITableViewDelegate, UITab
 
         return cell
     }
-
-    private func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        OrcamentoManager.sharedInstance.selectedOrcamento = OrcamentoManager.sharedInstance.orcamentos[indexPath.row]
-        
-    }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        OrcamentoManager.sharedInstance.selectedOrcamento = OrcamentoManager.sharedInstance.orcamentos[indexPath.row]
+        goesToOrcamentoList()
+    }
 }
 
