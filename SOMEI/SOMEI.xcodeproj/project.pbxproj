@@ -102,6 +102,7 @@
 		D1807188252854390087385E /* ProfissionalServicosAtivos.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1807187252854390087385E /* ProfissionalServicosAtivos.swift */; };
 		D19FB8EE2529A0A000B42211 /* FinancialReportingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19FB8ED2529A0A000B42211 /* FinancialReportingViewController.swift */; };
 		D19FB8F42529BAB000B42211 /* CreditAndDebitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19FB8F32529BAB000B42211 /* CreditAndDebitViewController.swift */; };
+		D19FB8F9252A86A300B42211 /* CreditAndDebitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19FB8F8252A86A300B42211 /* CreditAndDebitTableViewCell.swift */; };
 		D2F70AC9666561AA392EA1E3 /* Pods_SOMEI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4814DA91DCEE3BDD98942C8E /* Pods_SOMEI.framework */; };
 /* End PBXBuildFile section */
 
@@ -226,6 +227,7 @@
 		D1807187252854390087385E /* ProfissionalServicosAtivos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfissionalServicosAtivos.swift; sourceTree = "<group>"; };
 		D19FB8ED2529A0A000B42211 /* FinancialReportingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialReportingViewController.swift; sourceTree = "<group>"; };
 		D19FB8F32529BAB000B42211 /* CreditAndDebitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditAndDebitViewController.swift; sourceTree = "<group>"; };
+		D19FB8F8252A86A300B42211 /* CreditAndDebitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditAndDebitTableViewCell.swift; sourceTree = "<group>"; };
 		D6929F95C8DA35D5736F1289 /* Pods-SOMEI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOMEI.debug.xcconfig"; path = "Target Support Files/Pods-SOMEI/Pods-SOMEI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -560,6 +562,7 @@
 			isa = PBXGroup;
 			children = (
 				D19FB8F32529BAB000B42211 /* CreditAndDebitViewController.swift */,
+				D19FB8F8252A86A300B42211 /* CreditAndDebitTableViewCell.swift */,
 			);
 			path = CreditAndDebit;
 			sourceTree = "<group>";
@@ -766,6 +769,7 @@
 				3970B9B2250F5302006C36DD /* SolicitanteManagerJson.swift in Sources */,
 				3970B9A0250F5302006C36DD /* SolicitanteStruct.swift in Sources */,
 				3970B9DD250F5303006C36DD /* PasswordViewController.swift in Sources */,
+				D19FB8F9252A86A300B42211 /* CreditAndDebitTableViewCell.swift in Sources */,
 				D180718025284D870087385E /* RequestsTableViewController.swift in Sources */,
 				3970B9B0250F5302006C36DD /* OrcamentoManager.swift in Sources */,
 				3970B9AE250F5302006C36DD /* ProfissionalManager.swift in Sources */,

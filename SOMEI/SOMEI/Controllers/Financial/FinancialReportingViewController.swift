@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FinancialReportingViewController: ViewController {
+class FinancialReportingViewController: UIViewController {
 
     //Actual Mouth reporting
     @IBOutlet weak var actualMouthView: UIView!
