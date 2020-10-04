@@ -22,6 +22,8 @@ class FinancialReportingViewController: ViewController {
     @IBOutlet weak var BankDepositView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    //Credit and debit
+    @IBOutlet weak var CreditAndDebitView: UIView!
     
     
     override func viewDidLoad() {
@@ -55,6 +57,15 @@ class FinancialReportingViewController: ViewController {
         BankDepositView.layer.shadowOffset = .zero
         BankDepositView.layer.shadowRadius = 3
         BankDepositView.layer.cornerRadius = 10
+        //Credit And Debit view
+        CreditAndDebitView.clipsToBounds = false
+        CreditAndDebitView.backgroundColor = UIColor.white
+        CreditAndDebitView.layer.shadowColor = UIColor.black.cgColor
+        CreditAndDebitView.layer.shadowOpacity = 0.14
+        CreditAndDebitView.layer.shadowOffset = .zero
+        CreditAndDebitView.layer.shadowRadius = 3
+        CreditAndDebitView.layer.cornerRadius = 10
+        
     }
     
     
