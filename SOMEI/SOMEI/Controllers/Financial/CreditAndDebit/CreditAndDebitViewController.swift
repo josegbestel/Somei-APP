@@ -55,6 +55,7 @@ extension CreditAndDebitViewController: UITableViewDataSource {
         cell.dataLabel.text = "Data"
         cell.valorLabel.text = "VALOR"
         cell.valorLabel.backgroundColor = UIColor.init(red: 49.0/255.0, green: 49.0/255.0, blue: 49.0/255.0, alpha: 1.0)
+        cell.valorLabel.cornerRadius = 8
         return cell
     }
 }
