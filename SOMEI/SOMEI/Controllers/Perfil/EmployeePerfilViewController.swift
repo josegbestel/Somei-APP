@@ -149,7 +149,7 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
         }
     }
     
-    func updateImage(){
+    func updateImage() {
        photoPerfil.image = ProfissionalManager.sharedInstance.profissional.photo
     }
     

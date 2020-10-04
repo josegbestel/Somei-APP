@@ -100,6 +100,7 @@
 		D180717A25281A0E0087385E /* photosOrcamentoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D180717925281A0E0087385E /* photosOrcamentoCollectionViewCell.swift */; };
 		D180718025284D870087385E /* RequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D180717F25284D870087385E /* RequestsTableViewController.swift */; };
 		D1807188252854390087385E /* ProfissionalServicosAtivos.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1807187252854390087385E /* ProfissionalServicosAtivos.swift */; };
+		D19FB8EE2529A0A000B42211 /* FinancialReportingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19FB8ED2529A0A000B42211 /* FinancialReportingViewController.swift */; };
 		D2F70AC9666561AA392EA1E3 /* Pods_SOMEI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4814DA91DCEE3BDD98942C8E /* Pods_SOMEI.framework */; };
 /* End PBXBuildFile section */
 
@@ -222,6 +223,7 @@
 		D180717925281A0E0087385E /* photosOrcamentoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photosOrcamentoCollectionViewCell.swift; sourceTree = "<group>"; };
 		D180717F25284D870087385E /* RequestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsTableViewController.swift; sourceTree = "<group>"; };
 		D1807187252854390087385E /* ProfissionalServicosAtivos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfissionalServicosAtivos.swift; sourceTree = "<group>"; };
+		D19FB8ED2529A0A000B42211 /* FinancialReportingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialReportingViewController.swift; sourceTree = "<group>"; };
 		D6929F95C8DA35D5736F1289 /* Pods-SOMEI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOMEI.debug.xcconfig"; path = "Target Support Files/Pods-SOMEI/Pods-SOMEI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -404,6 +406,7 @@
 		3970B965250F5302006C36DD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D19FB8EC2529A03500B42211 /* Financial */,
 				3970B981250F5302006C36DD /* RegistersControllers */,
 				3970B969250F5302006C36DD /* Perfil */,
 				3970B97D250F5302006C36DD /* AwserOrcamento */,
@@ -540,6 +543,14 @@
 				D180717F25284D870087385E /* RequestsTableViewController.swift */,
 			);
 			path = ActiveServicesProfissional;
+			sourceTree = "<group>";
+		};
+		D19FB8EC2529A03500B42211 /* Financial */ = {
+			isa = PBXGroup;
+			children = (
+				D19FB8ED2529A0A000B42211 /* FinancialReportingViewController.swift */,
+			);
+			path = Financial;
 			sourceTree = "<group>";
 		};
 		F3ACCCFF9CB0538314FC41D7 /* Pods */ = {
@@ -782,6 +793,7 @@
 				3970B9AD250F5302006C36DD /* Comentario.swift in Sources */,
 				3970B9A4250F5302006C36DD /* LocalizacaoStruct.swift in Sources */,
 				3970B99E250F5302006C36DD /* ProviderSomei.swift in Sources */,
+				D19FB8EE2529A0A000B42211 /* FinancialReportingViewController.swift in Sources */,
 				D125C38125254DB500FD8E33 /* PhotoPortfolioCollectionViewCell.swift in Sources */,
 				3970B9BB250F5302006C36DD /* SendPhotosCollectionViewCell.swift in Sources */,
 				3970B9B8250F5302006C36DD /* WorkersCollectionViewCell.swift in Sources */,

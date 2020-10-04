@@ -45,6 +45,9 @@ class ProviderSomei {
         let dataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error? ) in
             if error == nil {
                 guard let response = response as? HTTPURLResponse else {return}
+                print(response.statusCode)
+                print("------")
+                print(response)
                 if response.statusCode == 200 {
                     guard let data = data else {return}
                     do{
