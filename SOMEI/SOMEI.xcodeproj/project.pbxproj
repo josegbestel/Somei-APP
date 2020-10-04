@@ -101,6 +101,7 @@
 		D180718025284D870087385E /* RequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D180717F25284D870087385E /* RequestsTableViewController.swift */; };
 		D1807188252854390087385E /* ProfissionalServicosAtivos.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1807187252854390087385E /* ProfissionalServicosAtivos.swift */; };
 		D19FB8EE2529A0A000B42211 /* FinancialReportingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19FB8ED2529A0A000B42211 /* FinancialReportingViewController.swift */; };
+		D19FB8F42529BAB000B42211 /* CreditAndDebitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19FB8F32529BAB000B42211 /* CreditAndDebitViewController.swift */; };
 		D2F70AC9666561AA392EA1E3 /* Pods_SOMEI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4814DA91DCEE3BDD98942C8E /* Pods_SOMEI.framework */; };
 /* End PBXBuildFile section */
 
@@ -224,6 +225,7 @@
 		D180717F25284D870087385E /* RequestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsTableViewController.swift; sourceTree = "<group>"; };
 		D1807187252854390087385E /* ProfissionalServicosAtivos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfissionalServicosAtivos.swift; sourceTree = "<group>"; };
 		D19FB8ED2529A0A000B42211 /* FinancialReportingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialReportingViewController.swift; sourceTree = "<group>"; };
+		D19FB8F32529BAB000B42211 /* CreditAndDebitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditAndDebitViewController.swift; sourceTree = "<group>"; };
 		D6929F95C8DA35D5736F1289 /* Pods-SOMEI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOMEI.debug.xcconfig"; path = "Target Support Files/Pods-SOMEI/Pods-SOMEI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -548,9 +550,18 @@
 		D19FB8EC2529A03500B42211 /* Financial */ = {
 			isa = PBXGroup;
 			children = (
+				D19FB8F22529BA9200B42211 /* CreditAndDebit */,
 				D19FB8ED2529A0A000B42211 /* FinancialReportingViewController.swift */,
 			);
 			path = Financial;
+			sourceTree = "<group>";
+		};
+		D19FB8F22529BA9200B42211 /* CreditAndDebit */ = {
+			isa = PBXGroup;
+			children = (
+				D19FB8F32529BAB000B42211 /* CreditAndDebitViewController.swift */,
+			);
+			path = CreditAndDebit;
 			sourceTree = "<group>";
 		};
 		F3ACCCFF9CB0538314FC41D7 /* Pods */ = {
@@ -787,6 +798,7 @@
 				3970B9B4250F5302006C36DD /* SolicitanteManager.swift in Sources */,
 				39498D7C250F5C8F0043F97A /* UICornerableView.swift in Sources */,
 				3970B9DF250F5303006C36DD /* ConfirmPasswordViewController.swift in Sources */,
+				D19FB8F42529BAB000B42211 /* CreditAndDebitViewController.swift in Sources */,
 				3970B9C6250F5302006C36DD /* ComplementEstimateViewController.swift in Sources */,
 				3970B9C9250F5302006C36DD /* DescriptionScreenViewController.swift in Sources */,
 				3970B9A1250F5302006C36DD /* HourStruct.swift in Sources */,

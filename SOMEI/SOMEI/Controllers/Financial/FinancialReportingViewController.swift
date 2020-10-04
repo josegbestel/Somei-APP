@@ -19,11 +19,11 @@ class FinancialReportingViewController: ViewController {
     @IBOutlet weak var profitMargin: UIView!
     @IBOutlet weak var percentlabel: UILabel!
     //Bank deposit
-    @IBOutlet weak var BankDepositView: UIView!
+    @IBOutlet weak var bankDepositView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     //Credit and debit
-    @IBOutlet weak var CreditAndDebitView: UIView!
+    @IBOutlet weak var creditAndDebitView: UIView!
     
     
     override func viewDidLoad() {
@@ -41,6 +41,8 @@ class FinancialReportingViewController: ViewController {
         actualMouthView.layer.shadowOffset = .zero
         actualMouthView.layer.shadowRadius = 3
         actualMouthView.layer.cornerRadius = 10
+        let tapMouthView = UITapGestureRecognizer(target: self, action: #selector(self.handleTapCreditAndDebit(_:)))
+        actualMouthView.addGestureRecognizer(tapMouthView)
         //profit margin view
         profitMargin.clipsToBounds = false
         profitMargin.backgroundColor = UIColor.white
@@ -49,25 +51,35 @@ class FinancialReportingViewController: ViewController {
         profitMargin.layer.shadowOffset = .zero
         profitMargin.layer.shadowRadius = 3
         profitMargin.layer.cornerRadius = 10
+        let tapProfitMargin = UITapGestureRecognizer(target: self, action: #selector(self.handleTapCreditAndDebit(_:)))
+        profitMargin.addGestureRecognizer(tapProfitMargin)
         //Bank deposit View
-        BankDepositView.clipsToBounds = false
-        BankDepositView.backgroundColor = UIColor.white
-        BankDepositView.layer.shadowColor = UIColor.black.cgColor
-        BankDepositView.layer.shadowOpacity = 0.14
-        BankDepositView.layer.shadowOffset = .zero
-        BankDepositView.layer.shadowRadius = 3
-        BankDepositView.layer.cornerRadius = 10
+        bankDepositView.clipsToBounds = false
+        bankDepositView.backgroundColor = UIColor.white
+        bankDepositView.layer.shadowColor = UIColor.black.cgColor
+        bankDepositView.layer.shadowOpacity = 0.14
+        bankDepositView.layer.shadowOffset = .zero
+        bankDepositView.layer.shadowRadius = 3
+        bankDepositView.layer.cornerRadius = 10
+        let tapDepositView = UITapGestureRecognizer(target: self, action: #selector(self.handleTapCreditAndDebit(_:)))
+        bankDepositView.addGestureRecognizer(tapDepositView)
         //Credit And Debit view
-        CreditAndDebitView.clipsToBounds = false
-        CreditAndDebitView.backgroundColor = UIColor.white
-        CreditAndDebitView.layer.shadowColor = UIColor.black.cgColor
-        CreditAndDebitView.layer.shadowOpacity = 0.14
-        CreditAndDebitView.layer.shadowOffset = .zero
-        CreditAndDebitView.layer.shadowRadius = 3
-        CreditAndDebitView.layer.cornerRadius = 10
-        
+        creditAndDebitView.clipsToBounds = false
+        creditAndDebitView.backgroundColor = UIColor.white
+        creditAndDebitView.layer.shadowColor = UIColor.black.cgColor
+        creditAndDebitView.layer.shadowOpacity = 0.14
+        creditAndDebitView.layer.shadowOffset = .zero
+        creditAndDebitView.layer.shadowRadius = 3
+        creditAndDebitView.layer.cornerRadius = 10
+        let tapCreditAndDebitView = UITapGestureRecognizer(target: self, action: #selector(self.handleTapCreditAndDebit(_:)))
+        creditAndDebitView.addGestureRecognizer(tapCreditAndDebitView)
     }
-    
+    @objc func handleTapCreditAndDebit(_ sender: UITapGestureRecognizer? = nil) {
+        let newVC = self.storyboard?.instantiateViewController(withIdentifier: "CreditAndDebitViewController")
+        self.definesPresentationContext = true
+        newVC?.modalPresentationStyle = .overCurrentContext
+        self.present(newVC!, animated: true, completion: nil)
+    }
     
 
 }

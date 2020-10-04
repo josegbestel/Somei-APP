@@ -336,7 +336,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MARGEM DE LUCRO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qp5-jd-h65">
-                                        <rect key="frame" x="15" y="179" width="148" height="35"/>
+                                        <rect key="frame" x="15" y="179" width="148" height="45"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -457,7 +457,7 @@
                                     <constraint firstAttribute="trailing" secondItem="BFG-uj-4hn" secondAttribute="trailing" constant="15" id="5X9-eO-1ud"/>
                                     <constraint firstAttribute="trailing" secondItem="uGS-Hx-bcJ" secondAttribute="trailing" constant="15" id="7iu-d4-DsL"/>
                                     <constraint firstItem="sGT-c0-A58" firstAttribute="top" secondItem="993-ki-X73" secondAttribute="bottom" constant="10" id="7sq-t4-VTI"/>
-                                    <constraint firstItem="uGS-Hx-bcJ" firstAttribute="top" secondItem="Qp5-jd-h65" secondAttribute="bottom" constant="20" id="C06-VG-7DA"/>
+                                    <constraint firstItem="uGS-Hx-bcJ" firstAttribute="top" secondItem="Qp5-jd-h65" secondAttribute="bottom" constant="10" id="C06-VG-7DA"/>
                                     <constraint firstAttribute="trailing" secondItem="p0K-dd-GoJ" secondAttribute="trailing" constant="15" id="DLA-R1-gQM"/>
                                     <constraint firstItem="Qp5-jd-h65" firstAttribute="top" secondItem="sGT-c0-A58" secondAttribute="bottom" constant="10" id="JWb-5Q-zPL"/>
                                     <constraint firstItem="uGS-Hx-bcJ" firstAttribute="leading" secondItem="GfN-aX-2sL" secondAttribute="leading" constant="15" id="KQZ-Z5-3X2"/>
@@ -500,9 +500,9 @@
                     <tabBarItem key="tabBarItem" title="Financeiro" image="percent" catalog="system" id="jQ2-1O-yOY"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="BankDepositView" destination="p0K-dd-GoJ" id="6gm-1h-MDI"/>
-                        <outlet property="CreditAndDebitView" destination="BFG-uj-4hn" id="Bqv-VL-yMh"/>
                         <outlet property="actualMouthView" destination="sGT-c0-A58" id="nIP-c4-a7u"/>
+                        <outlet property="bankDepositView" destination="p0K-dd-GoJ" id="6gm-1h-MDI"/>
+                        <outlet property="creditAndDebitView" destination="BFG-uj-4hn" id="Bqv-VL-yMh"/>
                         <outlet property="dateLabel" destination="XZc-YP-9fQ" id="O0V-qK-RXa"/>
                         <outlet property="metaMensalNumber" destination="5Ma-IV-cwb" id="ioa-hm-0As"/>
                         <outlet property="percentlabel" destination="S1e-5Y-bcy" id="6wb-ga-w84"/>
@@ -947,7 +947,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R5j-jS-35B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4597" y="1023"/>
+            <point key="canvasLocation" x="-4588" y="1023"/>
         </scene>
         <!--Fantasy Name View Controller-->
         <scene sceneID="dEZ-xa-ksA">
@@ -6262,6 +6262,107 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AYk-FA-e9b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1742.0289855072465" y="1232.8125"/>
+        </scene>
+        <!--Credit And Debit View Controller-->
+        <scene sceneID="g3q-gh-Ouo">
+            <objects>
+                <viewController storyboardIdentifier="CreditAndDebitViewController" modalPresentationStyle="currentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xRb-pX-MxN" customClass="CreditAndDebitViewController" customModule="SOMEI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="acF-TY-upd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JtR-ad-ZMI">
+                                <rect key="frame" x="28" y="98" width="60" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="hde-KT-hmf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="&lt; Voltar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButton:" destination="xRb-pX-MxN" eventType="touchUpInside" id="GUX-S7-kJi"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVV-pG-PcU" customClass="UICornerableView" customModule="SOMEI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="190" width="414" height="706"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hG-af-sdd">
+                                        <rect key="frame" x="10" y="30" width="394" height="427"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijQ-Ni-PE7" customClass="UICornerableButton" customModule="SOMEI" customModuleProvider="target">
+                                        <rect key="frame" x="75" y="496" width="264" height="57"/>
+                                        <color key="backgroundColor" red="0.078431372550000003" green="0.20000000000000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="57" id="f21-To-4uo"/>
+                                        </constraints>
+                                        <state key="normal" title="Registrar Despesa">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="11"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="registerDespesaButton:" destination="xRb-pX-MxN" eventType="touchUpInside" id="KZq-9z-Npo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="2hG-af-sdd" firstAttribute="top" secondItem="WVV-pG-PcU" secondAttribute="top" constant="30" id="1Cz-55-hZA"/>
+                                    <constraint firstAttribute="trailing" secondItem="2hG-af-sdd" secondAttribute="trailing" constant="10" id="1LM-oE-oeO"/>
+                                    <constraint firstItem="ijQ-Ni-PE7" firstAttribute="top" secondItem="2hG-af-sdd" secondAttribute="bottom" constant="39" id="2FJ-jG-LM9"/>
+                                    <constraint firstAttribute="bottom" secondItem="2hG-af-sdd" secondAttribute="bottom" constant="249" id="Pm0-vD-AqQ"/>
+                                    <constraint firstItem="2hG-af-sdd" firstAttribute="leading" secondItem="WVV-pG-PcU" secondAttribute="leading" constant="10" id="TBA-wx-TUd"/>
+                                    <constraint firstItem="ijQ-Ni-PE7" firstAttribute="leading" secondItem="WVV-pG-PcU" secondAttribute="leading" constant="75" id="phw-QF-gTU"/>
+                                    <constraint firstAttribute="trailing" secondItem="ijQ-Ni-PE7" secondAttribute="trailing" constant="75" id="xF3-Rx-e98"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creditos e Debitos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vka-Xq-eYf">
+                                <rect key="frame" x="10" y="133" width="394" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="uVm-BL-STn"/>
+                        <color key="backgroundColor" red="0.074509803920000006" green="0.37647058820000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="WVV-pG-PcU" firstAttribute="top" secondItem="acF-TY-upd" secondAttribute="top" constant="190" id="1G8-XM-PGm"/>
+                            <constraint firstItem="uVm-BL-STn" firstAttribute="trailing" secondItem="vka-Xq-eYf" secondAttribute="trailing" constant="10" id="49h-ci-8NP"/>
+                            <constraint firstItem="vka-Xq-eYf" firstAttribute="top" secondItem="JtR-ad-ZMI" secondAttribute="bottom" constant="15" id="VWf-Sq-KRl"/>
+                            <constraint firstItem="JtR-ad-ZMI" firstAttribute="leading" secondItem="uVm-BL-STn" secondAttribute="leading" constant="28" id="YLF-KO-lXq"/>
+                            <constraint firstAttribute="bottom" secondItem="WVV-pG-PcU" secondAttribute="bottom" id="ae5-ot-kzH"/>
+                            <constraint firstItem="uVm-BL-STn" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JtR-ad-ZMI" secondAttribute="trailing" symbolic="YES" id="ep3-T6-b9e"/>
+                            <constraint firstItem="WVV-pG-PcU" firstAttribute="trailing" secondItem="uVm-BL-STn" secondAttribute="trailing" id="fTN-re-kf7"/>
+                            <constraint firstItem="vka-Xq-eYf" firstAttribute="leading" secondItem="uVm-BL-STn" secondAttribute="leading" constant="10" id="itC-TV-BNE"/>
+                            <constraint firstItem="JtR-ad-ZMI" firstAttribute="top" secondItem="uVm-BL-STn" secondAttribute="top" constant="54" id="rXP-yu-NRV"/>
+                            <constraint firstItem="WVV-pG-PcU" firstAttribute="leading" secondItem="uVm-BL-STn" secondAttribute="leading" id="sAX-W2-BEa"/>
+                            <constraint firstItem="vka-Xq-eYf" firstAttribute="top" secondItem="JtR-ad-ZMI" secondAttribute="bottom" constant="15" id="ulM-Wd-9iw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="xkw-Sq-71Q"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="view.backgroundColor">
+                            <color key="value" red="0.074509803920000006" green="0.37647058820000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hgN-sw-G9Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4588.4057971014499" y="1749.7767857142856"/>
         </scene>
     </scenes>
     <designables>
