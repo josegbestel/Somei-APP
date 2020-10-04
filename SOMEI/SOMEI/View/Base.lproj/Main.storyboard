@@ -370,22 +370,59 @@
                                             <constraint firstItem="S1e-5Y-bcy" firstAttribute="leading" secondItem="uGS-Hx-bcJ" secondAttribute="leading" constant="24" id="qbb-SA-fT3"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEPÓSITOS BANCÁRIOS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xn-35-ojx">
+                                        <rect key="frame" x="15" y="357" width="180.5" height="18"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0K-dd-GoJ">
+                                        <rect key="frame" x="15" y="385" width="384" height="84"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="05/abr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZc-YP-9fQ">
+                                                <rect key="frame" x="8" y="32" width="65" height="21"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 251,67" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bf-fW-GK0">
+                                                <rect key="frame" x="247.5" y="27" width="118.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="0bf-fW-GK0" secondAttribute="trailing" constant="18" id="1PS-Tj-112"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XZc-YP-9fQ" secondAttribute="trailing" constant="20" symbolic="YES" id="5p7-l5-XwL"/>
+                                            <constraint firstItem="XZc-YP-9fQ" firstAttribute="leading" secondItem="p0K-dd-GoJ" secondAttribute="leading" constant="8" id="JNd-Hq-g52"/>
+                                            <constraint firstItem="XZc-YP-9fQ" firstAttribute="centerY" secondItem="p0K-dd-GoJ" secondAttribute="centerY" id="apZ-9S-c19"/>
+                                            <constraint firstItem="0bf-fW-GK0" firstAttribute="centerY" secondItem="XZc-YP-9fQ" secondAttribute="centerY" id="fgR-rU-6Xe"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="9xn-35-ojx" firstAttribute="top" secondItem="uGS-Hx-bcJ" secondAttribute="bottom" constant="10" id="0A0-Hj-0oh"/>
                                     <constraint firstAttribute="bottom" secondItem="uGS-Hx-bcJ" secondAttribute="bottom" constant="355" id="4Zs-4J-Oj3"/>
                                     <constraint firstItem="993-ki-X73" firstAttribute="top" secondItem="GfN-aX-2sL" secondAttribute="top" constant="15" id="5Ud-lx-o3J"/>
                                     <constraint firstAttribute="trailing" secondItem="uGS-Hx-bcJ" secondAttribute="trailing" constant="15" id="7iu-d4-DsL"/>
                                     <constraint firstItem="sGT-c0-A58" firstAttribute="top" secondItem="993-ki-X73" secondAttribute="bottom" constant="10" id="7sq-t4-VTI"/>
                                     <constraint firstItem="uGS-Hx-bcJ" firstAttribute="top" secondItem="Qp5-jd-h65" secondAttribute="bottom" constant="10" id="C06-VG-7DA"/>
+                                    <constraint firstAttribute="trailing" secondItem="p0K-dd-GoJ" secondAttribute="trailing" constant="15" id="DLA-R1-gQM"/>
                                     <constraint firstItem="Qp5-jd-h65" firstAttribute="top" secondItem="sGT-c0-A58" secondAttribute="bottom" constant="25" id="JWb-5Q-zPL"/>
                                     <constraint firstItem="uGS-Hx-bcJ" firstAttribute="leading" secondItem="GfN-aX-2sL" secondAttribute="leading" constant="15" id="KQZ-Z5-3X2"/>
+                                    <constraint firstItem="p0K-dd-GoJ" firstAttribute="top" secondItem="9xn-35-ojx" secondAttribute="bottom" constant="10" id="QEf-Fa-Smz"/>
                                     <constraint firstItem="Qp5-jd-h65" firstAttribute="leading" secondItem="993-ki-X73" secondAttribute="leading" id="XMa-Ck-Vhu"/>
                                     <constraint firstItem="sGT-c0-A58" firstAttribute="leading" secondItem="GfN-aX-2sL" secondAttribute="leading" constant="15" id="Xvc-rG-qd4"/>
+                                    <constraint firstAttribute="bottom" secondItem="p0K-dd-GoJ" secondAttribute="bottom" constant="233" id="bn2-U4-CJt"/>
+                                    <constraint firstItem="p0K-dd-GoJ" firstAttribute="leading" secondItem="GfN-aX-2sL" secondAttribute="leading" constant="15" id="fH5-b0-YjI"/>
                                     <constraint firstAttribute="trailing" secondItem="sGT-c0-A58" secondAttribute="trailing" constant="15" id="j46-ck-Y86"/>
                                     <constraint firstAttribute="bottom" secondItem="sGT-c0-A58" secondAttribute="bottom" constant="533" id="pgs-F2-f7X"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="993-ki-X73" secondAttribute="trailing" constant="20" symbolic="YES" id="pnq-Wq-pRa"/>
                                     <constraint firstItem="993-ki-X73" firstAttribute="leading" secondItem="GfN-aX-2sL" secondAttribute="leading" constant="15" id="y1X-Wg-7nI"/>
+                                    <constraint firstItem="9xn-35-ojx" firstAttribute="leading" secondItem="Qp5-jd-h65" secondAttribute="leading" id="z8M-zf-a6O"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -410,9 +447,13 @@
                     <tabBarItem key="tabBarItem" title="Financeiro" image="percent" catalog="system" id="jQ2-1O-yOY"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="BankDepositView" destination="p0K-dd-GoJ" id="6gm-1h-MDI"/>
                         <outlet property="actualMouthView" destination="sGT-c0-A58" id="nIP-c4-a7u"/>
+                        <outlet property="dateLabel" destination="XZc-YP-9fQ" id="O0V-qK-RXa"/>
                         <outlet property="metaMensalNumber" destination="5Ma-IV-cwb" id="ioa-hm-0As"/>
+                        <outlet property="percentlabel" destination="S1e-5Y-bcy" id="6wb-ga-w84"/>
                         <outlet property="previsaoMensal" destination="vZi-ae-okT" id="YDQ-ux-MSU"/>
+                        <outlet property="priceLabel" destination="0bf-fW-GK0" id="KW3-19-Hg0"/>
                         <outlet property="profitMargin" destination="uGS-Hx-bcJ" id="K4p-4Q-9Vc"/>
                         <outlet property="saldoAtualNumber" destination="lwW-dr-05E" id="cL6-MR-3BQ"/>
                     </connections>

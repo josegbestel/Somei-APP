@@ -17,6 +17,11 @@ class FinancialReportingViewController: ViewController {
     @IBOutlet weak var previsaoMensal: UILabel!
     //profit margin
     @IBOutlet weak var profitMargin: UIView!
+    @IBOutlet weak var percentlabel: UILabel!
+    //Bank deposit
+    @IBOutlet weak var BankDepositView: UIView!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -42,6 +47,16 @@ class FinancialReportingViewController: ViewController {
         profitMargin.layer.shadowOffset = .zero
         profitMargin.layer.shadowRadius = 3
         profitMargin.layer.cornerRadius = 10
+        //Bank deposit View
+        BankDepositView.clipsToBounds = false
+        BankDepositView.backgroundColor = UIColor.white
+        BankDepositView.layer.shadowColor = UIColor.black.cgColor
+        BankDepositView.layer.shadowOpacity = 0.14
+        BankDepositView.layer.shadowOffset = .zero
+        BankDepositView.layer.shadowRadius = 3
+        BankDepositView.layer.cornerRadius = 10
     }
+    
+    
 
 }
