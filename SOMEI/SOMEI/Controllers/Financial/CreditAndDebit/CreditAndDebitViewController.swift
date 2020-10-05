@@ -37,7 +37,7 @@ class CreditAndDebitViewController: ViewController {
     }
     
     @IBAction func registerDespesaButton(_ sender: Any) {
-        let newVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginCadastroViewControlller")
+        let newVC = self.storyboard?.instantiateViewController(withIdentifier: "NewDespesaViewController")
         self.definesPresentationContext = true
         newVC?.modalPresentationStyle = .overCurrentContext
         self.present(newVC!, animated: true, completion: nil)

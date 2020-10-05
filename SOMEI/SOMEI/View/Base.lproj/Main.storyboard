@@ -120,7 +120,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="STg-qo-Pjd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3617.3913043478265" y="2516.5178571428569"/>
+            <point key="canvasLocation" x="-3617" y="3228"/>
         </scene>
         <!--Solicitações-->
         <scene sceneID="RNS-te-ylJ">
@@ -6480,6 +6480,139 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hgN-sw-G9Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4588.4057971014499" y="1749.7767857142856"/>
+        </scene>
+        <!--New Despesa View Controller-->
+        <scene sceneID="hX9-wl-AXf">
+            <objects>
+                <viewController storyboardIdentifier="NewDespesaViewController" modalPresentationStyle="currentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="M2D-ol-IcF" customClass="NewDespesaViewController" customModule="SOMEI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mjW-A5-xp9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registrar Despesa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcX-J2-rZ6">
+                                <rect key="frame" x="14" y="20" width="386" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="BKc-br-2FP"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="195" id="EtS-vV-t1Q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="apW-us-lxY" customClass="UICornerableView" customModule="SOMEI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="127" width="414" height="715"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valor da despesa:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uS9-uh-9xj">
+                                        <rect key="frame" x="35" y="35" width="166.5" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="vA9-XA-BNS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ex: 250,00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PAB-KN-eod">
+                                        <rect key="frame" x="35" y="81" width="99" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descrição da despesa:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FA-72-kNJ">
+                                        <rect key="frame" x="35" y="133" width="199" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43S-Vg-XB2">
+                                        <rect key="frame" x="20" y="529" width="374" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <state key="normal" title="Salvar!">
+                                            <color key="titleColor" red="0.074509803920000006" green="0.37647058820000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="continueButton:" destination="M2D-ol-IcF" eventType="touchUpInside" id="bbe-ci-OOT"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ex: Despesa com Mercado" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PTA-7V-qc4">
+                                        <rect key="frame" x="37" y="165" width="285" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dia da despesa:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chJ-BF-GDi">
+                                        <rect key="frame" x="37" y="214" width="139.5" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="cJB-ST-rRA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Selecionar Data" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fd0-aX-iom">
+                                        <rect key="frame" x="37" y="243" width="285" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="dateSelectedButton:" destination="M2D-ol-IcF" eventType="editingDidBegin" id="ZUc-0c-IMv"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="chJ-BF-GDi" firstAttribute="top" secondItem="PTA-7V-qc4" secondAttribute="bottom" constant="17.5" id="2BT-NJ-JL8"/>
+                                    <constraint firstItem="8FA-72-kNJ" firstAttribute="leading" secondItem="apW-us-lxY" secondAttribute="leading" constant="35" id="8wQ-Z6-qQd"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PAB-KN-eod" secondAttribute="trailing" constant="20" symbolic="YES" id="9SA-AE-OeD"/>
+                                    <constraint firstItem="uS9-uh-9xj" firstAttribute="top" secondItem="apW-us-lxY" secondAttribute="top" constant="35" id="HC9-nF-yG1"/>
+                                    <constraint firstItem="chJ-BF-GDi" firstAttribute="leading" secondItem="8FA-72-kNJ" secondAttribute="leading" constant="2" id="JfG-we-ASr"/>
+                                    <constraint firstItem="PTA-7V-qc4" firstAttribute="leading" secondItem="PAB-KN-eod" secondAttribute="leading" constant="2" id="LuF-er-LPT"/>
+                                    <constraint firstItem="PTA-7V-qc4" firstAttribute="top" secondItem="8FA-72-kNJ" secondAttribute="bottom" constant="8" symbolic="YES" id="O5U-sA-WFb"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uS9-uh-9xj" secondAttribute="trailing" constant="20" symbolic="YES" id="OWJ-vM-4pZ"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PTA-7V-qc4" secondAttribute="trailing" constant="20" symbolic="YES" id="QGa-yr-bkW"/>
+                                    <constraint firstAttribute="bottom" secondItem="43S-Vg-XB2" secondAttribute="bottom" constant="150" id="Zjr-Xz-QQe"/>
+                                    <constraint firstItem="PAB-KN-eod" firstAttribute="top" secondItem="uS9-uh-9xj" secondAttribute="bottom" constant="22" id="bAW-nz-oEI"/>
+                                    <constraint firstItem="43S-Vg-XB2" firstAttribute="leading" secondItem="apW-us-lxY" secondAttribute="leading" constant="20" symbolic="YES" id="cav-8N-BH5"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8FA-72-kNJ" secondAttribute="trailing" constant="20" symbolic="YES" id="fdW-g1-mWc"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="chJ-BF-GDi" secondAttribute="trailing" constant="20" symbolic="YES" id="i63-Xc-881"/>
+                                    <constraint firstItem="uS9-uh-9xj" firstAttribute="leading" secondItem="apW-us-lxY" secondAttribute="leading" constant="35" id="o0w-X7-YQ6"/>
+                                    <constraint firstItem="PAB-KN-eod" firstAttribute="leading" secondItem="apW-us-lxY" secondAttribute="leading" constant="35" id="pQU-0p-iVZ"/>
+                                    <constraint firstItem="8FA-72-kNJ" firstAttribute="top" secondItem="PAB-KN-eod" secondAttribute="bottom" constant="25" id="sYM-yc-UXv"/>
+                                    <constraint firstAttribute="trailing" secondItem="43S-Vg-XB2" secondAttribute="trailing" constant="20" symbolic="YES" id="zz6-xs-90h"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="c9i-BK-f4s"/>
+                        <color key="backgroundColor" red="0.074509803920000006" green="0.37647058820000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="apW-us-lxY" firstAttribute="top" secondItem="HcX-J2-rZ6" secondAttribute="bottom" constant="67" id="3f0-Dm-Y0P"/>
+                            <constraint firstItem="c9i-BK-f4s" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HcX-J2-rZ6" secondAttribute="trailing" id="7fp-68-Et9"/>
+                            <constraint firstItem="HcX-J2-rZ6" firstAttribute="centerX" secondItem="c9i-BK-f4s" secondAttribute="centerX" id="Bis-OR-jPG"/>
+                            <constraint firstItem="HcX-J2-rZ6" firstAttribute="top" secondItem="c9i-BK-f4s" secondAttribute="top" constant="20" id="FVW-cJ-AgX"/>
+                            <constraint firstItem="apW-us-lxY" firstAttribute="leading" secondItem="c9i-BK-f4s" secondAttribute="leading" id="Lub-G6-x0B"/>
+                            <constraint firstItem="apW-us-lxY" firstAttribute="trailing" secondItem="c9i-BK-f4s" secondAttribute="trailing" id="Sop-Nw-7jz"/>
+                            <constraint firstAttribute="bottom" secondItem="apW-us-lxY" secondAttribute="bottom" id="Ssl-CD-6Tj"/>
+                            <constraint firstItem="HcX-J2-rZ6" firstAttribute="leading" secondItem="c9i-BK-f4s" secondAttribute="leading" constant="14" id="YWn-0T-7xv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="qGg-aN-4yK"/>
+                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="view.backgroundColor">
+                            <color key="value" red="0.074509803920000006" green="0.37647058820000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="dateSelected" destination="Fd0-aX-iom" id="T2w-au-owC"/>
+                        <outlet property="despesaDescription" destination="PTA-7V-qc4" id="PJz-Uz-pZu"/>
+                        <outlet property="despesaValue" destination="PAB-KN-eod" id="pIb-Pf-GQw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aet-K6-EAG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4588.4057971014499" y="2462.9464285714284"/>
         </scene>
     </scenes>
     <designables>
