@@ -30,7 +30,10 @@ class NewDespesaViewController: UIViewController {
           tap.cancelsTouchesInView = false
           view.addGestureRecognizer(tap)
     }
-
+    @IBAction func backButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func dateSelectedButton(_ sender: Any) {
         DispatchQueue.main.async {
             let calendar = YYCalendar(normalCalendarLangType: .ENG, date: "05/11/2020", format: "dd/mm/yyyy") { date in

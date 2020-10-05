@@ -6546,9 +6546,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Selecionar Data" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fd0-aX-iom">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Selecionar Data" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fd0-aX-iom">
                                         <rect key="frame" x="37" y="243" width="285" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="HcF-Yh-EMK"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
@@ -6569,9 +6571,12 @@
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PTA-7V-qc4" secondAttribute="trailing" constant="20" symbolic="YES" id="QGa-yr-bkW"/>
                                     <constraint firstAttribute="bottom" secondItem="43S-Vg-XB2" secondAttribute="bottom" constant="150" id="Zjr-Xz-QQe"/>
                                     <constraint firstItem="PAB-KN-eod" firstAttribute="top" secondItem="uS9-uh-9xj" secondAttribute="bottom" constant="22" id="bAW-nz-oEI"/>
+                                    <constraint firstItem="Fd0-aX-iom" firstAttribute="leading" secondItem="chJ-BF-GDi" secondAttribute="leading" id="bXl-r4-9GA"/>
                                     <constraint firstItem="43S-Vg-XB2" firstAttribute="leading" secondItem="apW-us-lxY" secondAttribute="leading" constant="20" symbolic="YES" id="cav-8N-BH5"/>
+                                    <constraint firstItem="Fd0-aX-iom" firstAttribute="top" secondItem="chJ-BF-GDi" secondAttribute="bottom" constant="8" symbolic="YES" id="ccU-VT-cfx"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8FA-72-kNJ" secondAttribute="trailing" constant="20" symbolic="YES" id="fdW-g1-mWc"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="chJ-BF-GDi" secondAttribute="trailing" constant="20" symbolic="YES" id="i63-Xc-881"/>
+                                    <constraint firstItem="Fd0-aX-iom" firstAttribute="trailing" secondItem="PTA-7V-qc4" secondAttribute="trailing" id="mq4-Fh-RLM"/>
                                     <constraint firstItem="uS9-uh-9xj" firstAttribute="leading" secondItem="apW-us-lxY" secondAttribute="leading" constant="35" id="o0w-X7-YQ6"/>
                                     <constraint firstItem="PAB-KN-eod" firstAttribute="leading" secondItem="apW-us-lxY" secondAttribute="leading" constant="35" id="pQU-0p-iVZ"/>
                                     <constraint firstItem="8FA-72-kNJ" firstAttribute="top" secondItem="PAB-KN-eod" secondAttribute="bottom" constant="25" id="sYM-yc-UXv"/>
@@ -6583,6 +6588,15 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeY-br-DtK">
+                                <rect key="frame" x="14" y="30" width="47" height="30"/>
+                                <state key="normal" title="&lt; Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButton:" destination="M2D-ol-IcF" eventType="touchUpInside" id="s3X-eS-yzZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="c9i-BK-f4s"/>
                         <color key="backgroundColor" red="0.074509803920000006" green="0.37647058820000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -6595,6 +6609,9 @@
                             <constraint firstItem="apW-us-lxY" firstAttribute="trailing" secondItem="c9i-BK-f4s" secondAttribute="trailing" id="Sop-Nw-7jz"/>
                             <constraint firstAttribute="bottom" secondItem="apW-us-lxY" secondAttribute="bottom" id="Ssl-CD-6Tj"/>
                             <constraint firstItem="HcX-J2-rZ6" firstAttribute="leading" secondItem="c9i-BK-f4s" secondAttribute="leading" constant="14" id="YWn-0T-7xv"/>
+                            <constraint firstItem="VeY-br-DtK" firstAttribute="leading" secondItem="HcX-J2-rZ6" secondAttribute="leading" id="j2G-oq-ZGF"/>
+                            <constraint firstItem="c9i-BK-f4s" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VeY-br-DtK" secondAttribute="trailing" symbolic="YES" id="o3v-8F-yaD"/>
+                            <constraint firstItem="VeY-br-DtK" firstAttribute="bottom" secondItem="HcX-J2-rZ6" secondAttribute="bottom" id="qfS-0j-oZO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qGg-aN-4yK"/>
