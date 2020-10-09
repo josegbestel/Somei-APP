@@ -22,7 +22,7 @@ class ProviderSomei {
       private static let baseLoadOrcamentosOnAPI = "https://somei-app-server.herokuapp.com/api/v1/orcamento/profissional/307"
       private static let baseLoadCategoryOnAPI = "https://somei-app-server.herokuapp.com/api/v1/categoria-mei"
       private static let baseLoadFreeProfession = "https://somei-app-server.herokuapp.com/api/v1/categoria-mei/ativos" //Erro 401
-      private static let basePathLoadActivServices = "https://somei-app-server.herokuapp.com/api/v1/resposta-orcamento/profissional/355"
+      private static let basePathLoadActivServices = "https://somei-app-server.herokuapp.com/api/v1/resposta-orcamento/profissional/"
     
       private static let session = URLSession.shared
     
@@ -33,11 +33,12 @@ class ProviderSomei {
         return "https://somei-app-server.herokuapp.com/api/v1/solicitante/login"
     }
     
-    class func ServicosAtivos(email:String, password:String,completion: @escaping (Bool) -> Void) {
+    class func ServicosAtivos(id:String, email:String, password:String,completion: @escaping (Bool) -> Void) {
         let loginString = String(format: "%@:%@", email, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
-        guard let url = URL(string:basePathLoadActivServices) else {return}
+        let completeUrl = "\(basePathLoadActivServices)\(id)"
+        guard let url = URL(string:completeUrl) else {return}
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
@@ -48,6 +49,7 @@ class ProviderSomei {
                 print(response.statusCode)
                 print("------")
                 print(response)
+                
                 if response.statusCode == 200 {
                     guard let data = data else {return}
                     do{
@@ -55,13 +57,13 @@ class ProviderSomei {
                          var orcamentos:[Orcamento] = []
                          
                          for(dict) in json{
-                             let orcamento = Orcamento.byDict(dict: dict)
+                             let orcamento = Orcamento.byDictFromActivityOrcamentosFromProfession(dict: dict)
                              orcamentos.append(orcamento)
                          }
                          
                          OrcamentoManager.sharedInstance.orcamentos = orcamentos
                          print("\n\nOrçamentos carregados no Model\n\n")
-                         
+                         completion(true)
                         }
                     }catch {
                         print(error.localizedDescription)

@@ -19,8 +19,10 @@ class ListOrcamentoViewController: ViewController, NSFetchedResultsControllerDel
         loadPerfilOnCoreData()
         readDatasFromCoreData()
         if ProfissionalManager.sharedInstance.profissional.email != nil, ProfissionalManager.sharedInstance.profissional.password != nil {
-            ProviderSomei.ServicosAtivos(email: ProfissionalManager.sharedInstance.profissional.email!, password: ProfissionalManager.sharedInstance.profissional.password!) {success in
-                self.tableView.reloadData()
+            ProviderSomei.ServicosAtivos(id: String(ProfissionalManager.sharedInstance.profissional.id!), email: ProfissionalManager.sharedInstance.profissional.email!, password: ProfissionalManager.sharedInstance.profissional.password!) {success in
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
              }
         }
     }
@@ -54,17 +56,32 @@ class ListOrcamentoViewController: ViewController, NSFetchedResultsControllerDel
 }
 extension ListOrcamentoViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return OrcamentoManager.sharedInstance.agendaArray.count
+        return OrcamentoManager.sharedInstance.orcamentos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath) as! SelectHourTableViewCell
-        let day = OrcamentoManager.sharedInstance.agendaArray[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath) as! OrcamentoAnswerTableViewCell
+        let orcamento = OrcamentoManager.sharedInstance.orcamentos[indexPath.row]
         
-        cell.hourSelected.text = "\(String(describing: day.horaInicio?.hour)):\(String(describing: day.horaInicio?.minute)) - \(day.horaFinal?.hour):\(day.horaFinal?.minute)"
-        cell.selectedDay.text = "\(day.diaSemana ?? "")"
+        cell.clipsToBounds = true
+        cell.borderView.backgroundColor = UIColor.white
+        cell.borderView.layer.shadowColor = UIColor.black.cgColor
+        cell.borderView.layer.shadowOpacity = 0.24
+        cell.borderView.layer.shadowOffset = .zero
+        cell.borderView.layer.shadowRadius = 3
+        cell.borderView.layer.cornerRadius = 10
+        
+        cell.statusLabel.layer.cornerRadius = 3
+        cell.setStatus(status: orcamento.status ?? "NOVO")
+        cell.kilometersLabel.isHidden = true
+        cell.professionalDescription.text = orcamento.profissao
+        cell.serviceDescription.text = orcamento.descricao
+        
         return cell
     }
+    private func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+       return 120
+   }
 }
 extension ListOrcamentoViewController: UITableViewDelegate {
     

@@ -41,7 +41,7 @@ class FinancialReportingViewController: UIViewController {
         actualMouthView.layer.shadowOffset = .zero
         actualMouthView.layer.shadowRadius = 3
         actualMouthView.layer.cornerRadius = 10
-        let tapMouthView = UITapGestureRecognizer(target: self, action: #selector(self.handleTapCreditAndDebit(_:)))
+        let tapMouthView = UITapGestureRecognizer(target: self, action: #selector(self.handleTapMouthReport(_:)))
         actualMouthView.addGestureRecognizer(tapMouthView)
         //profit margin view
         profitMargin.clipsToBounds = false
@@ -80,6 +80,14 @@ class FinancialReportingViewController: UIViewController {
         newVC?.modalPresentationStyle = .overCurrentContext
         self.present(newVC!, animated: true, completion: nil)
     }
+    
+    @objc func handleTapMouthReport(_ sender: UITapGestureRecognizer? = nil) {
+        let newVC = self.storyboard?.instantiateViewController(withIdentifier: "MouthResultViewController")
+        self.definesPresentationContext = true
+        newVC?.modalPresentationStyle = .overCurrentContext
+        self.present(newVC!, animated: true, completion: nil)
+    }
+    
     
 
 }
