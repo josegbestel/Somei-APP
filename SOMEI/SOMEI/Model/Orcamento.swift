@@ -52,12 +52,13 @@ class Orcamento {
     static func byDictFromActivityOrcamentosFromProfession(dict :[String : Any]) -> Orcamento {
         print("-----Dict-----")
         print(dict)
-        let profissional = dict["categoria"] as? [String : Any]
+        let orcamentoDict = dict["orcamento"] as? [String : Any]
+        let profissional = orcamentoDict?["categoria"] as? [String : Any]
         let profissao = profissional?["titulo"] as? String
-        let descricao = dict["servico"] as? String
-        let status = dict["status"] as? String
-        let fotos = dict["fotos"] as? String ?? " "
-        let localizacao = dict["localizacao"] as? [String : Any]
+        let descricao = orcamentoDict?["servico"] as? String
+        let status = orcamentoDict?["status"] as? String
+        let fotos = orcamentoDict?["fotos"] as? String ?? " "
+        let localizacao = orcamentoDict?["localizacao"] as? [String : Any]
         print("-----/Dict-----")
         var fotosLinks:[URL] = []
         let url:URL = URL(string: fotos) ?? URL(string:"failImage.com")!
