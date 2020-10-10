@@ -18,8 +18,8 @@ class ListOrcamentoViewController: ViewController, NSFetchedResultsControllerDel
         super.viewDidLoad()
         loadPerfilOnCoreData()
         readDatasFromCoreData()
-        if ProfissionalManager.sharedInstance.profissional.email != nil, ProfissionalManager.sharedInstance.profissional.password != nil {
-            ProviderSomei.ServicosAtivos(id: String(ProfissionalManager.sharedInstance.profissional.id!), email: ProfissionalManager.sharedInstance.profissional.email!, password: ProfissionalManager.sharedInstance.profissional.password!) {success in
+        if ProfissionalManager.sharedInstance.profissional.email != nil, ProfissionalManager.sharedInstance.profissional.password != nil, ProfissionalManager.sharedInstance.profissional.id != nil {
+            ProviderSomei.servicosAtivos(id: String(ProfissionalManager.sharedInstance.profissional.id!), email: ProfissionalManager.sharedInstance.profissional.email!, password: ProfissionalManager.sharedInstance.profissional.password!) {success in
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -81,6 +81,10 @@ extension ListOrcamentoViewController: UITableViewDataSource {
     }
     private func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
        return 120
+   }
+    
+   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       OrcamentoManager.sharedInstance.selectedOrcamento = OrcamentoManager.sharedInstance.orcamentos[indexPath.row]
    }
 }
 extension ListOrcamentoViewController: UITableViewDelegate {

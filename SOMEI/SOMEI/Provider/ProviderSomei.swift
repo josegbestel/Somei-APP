@@ -15,14 +15,14 @@ class ProviderSomei {
     
       private static let basePath = "https://somei-app-server.herokuapp.com/swagger-ui.html"
       private static let basePathActiveServices = "https://somei-app-server.herokuapp.com/api/v1/orcamento/solicitante/309"
-      private static let basePathLoadProfessions = ""
       private static let baseSaveNewProfessional = "https://somei-app-server.herokuapp.com/api/v1/profissional/" //Erro 400
       private static let baseSaveNewSolicitante = "https://somei-app-server.herokuapp.com/api/v1/solicitante"
       private static let baseSaveOrcamentoOnAPI = "https://somei-app-server.herokuapp.com/api/v1/orcamento/"
       private static let baseLoadOrcamentosOnAPI = "https://somei-app-server.herokuapp.com/api/v1/orcamento/profissional/307"
       private static let baseLoadCategoryOnAPI = "https://somei-app-server.herokuapp.com/api/v1/categoria-mei"
-      private static let baseLoadFreeProfession = "https://somei-app-server.herokuapp.com/api/v1/categoria-mei/ativos" //Erro 401
+      private static let baseLoadFreeProfession = "https://somei-app-server.herokuapp.com/api/v1/categoria-mei/ativos"
       private static let basePathLoadActivServices = "https://somei-app-server.herokuapp.com/api/v1/resposta-orcamento/profissional/"
+      private static let basePathLoadServicesRequested = "https://somei-app-server.herokuapp.com/api/v1/orcamento/profissional/"
     
       private static let session = URLSession.shared
     
@@ -33,7 +33,56 @@ class ProviderSomei {
         return "https://somei-app-server.herokuapp.com/api/v1/solicitante/login"
     }
     
-    class func ServicosAtivos(id:String, email:String, password:String,completion: @escaping (Bool) -> Void) {
+    class func servicesRequested(id:String, email:String, password:String,completion: @escaping (Bool) -> Void) {
+        let loginString = String(format: "%@:%@", email, password)
+        let loginData = loginString.data(using: String.Encoding.utf8)!
+        let base64LoginString = loginData.base64EncodedString()
+        let completeUrl = "\(basePathLoadServicesRequested)\(id)"
+        guard let url = URL(string:completeUrl) else {return}
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+        
+        let dataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error? ) in
+            if error == nil {
+                guard let response = response as? HTTPURLResponse else {return}
+                print(response.statusCode)
+                print("---__---")
+                print(response)
+               
+                if response.statusCode == 200 {
+                    guard let data = data else {return}
+                    do{
+                        if let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [[String : Any]] {
+                         var orcamentos:[Orcamento] = []
+                         
+                         for(dict) in json{
+                             let orcamento = Orcamento.byDictFromActivityOrcamentosFromProfession(dict: dict)
+                             orcamentos.append(orcamento)
+                         }
+                         
+                         OrcamentoManager.sharedInstance.servicesRequestArray = orcamentos
+                         print("\n\nOrçamentos carregados no Model\n\n")
+                         completion(true)
+                        }
+                    }catch {
+                        print(error.localizedDescription)
+                    }
+                }else{
+                    if let data = data {
+                        let json = String(data: data, encoding: String.Encoding.utf8)
+                        print("Failure Response: \(json)")
+                    }
+                    print("status invalido do servidor:\(response.statusCode)")
+                }
+            }else {
+                print(error?.localizedDescription as Any)
+            }
+        }
+        dataTask.resume()
+    }
+    
+    class func servicosAtivos(id:String, email:String, password:String,completion: @escaping (Bool) -> Void) {
         let loginString = String(format: "%@:%@", email, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
@@ -266,34 +315,6 @@ class ProviderSomei {
         dataTask.resume()
         
     }
-    
-    
-     class func loadProfessions() {
-         guard let url = URL(string: basePathLoadProfessions) else {return}
-        
-         let dataTask = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error? ) in
-            if error == nil {
-                guard let response = response as? HTTPURLResponse else {return}
-                if response.statusCode == 200 {
-                    guard let data = data else {return}
-                    print(data)
-                    do{
-                         let professions = try JSONDecoder().decode([ProfissionalStruct].self, from:data)
-                         for professin in professions {
-                            print(professin.name as Any)
-                         }
-                    }catch {
-                        print(error.localizedDescription)
-                    }
-                }else{
-                    print("status invalido do servidor!!")
-                }
-            } else {
-                print(error!)
-            }
-        }
-        dataTask.resume()
-     }
     
     class func sendOrcamentoToApi(orcamento: OrcamentoStruct, onComplete: @escaping (Bool) -> Void) {
          guard let url = URL(string: baseSaveOrcamentoOnAPI) else {

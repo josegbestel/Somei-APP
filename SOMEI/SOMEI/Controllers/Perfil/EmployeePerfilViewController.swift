@@ -38,7 +38,7 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
         readDatasFromCoreData()
         completeInformationsPerfil()
         fixLayout()
-        print("identifier:\(ProfissionalManager.sharedInstance.profissional.id)")
+        print("identifier:\(String(describing: ProfissionalManager.sharedInstance.profissional.id))")
     }
     
     func fixLayout() {
@@ -183,7 +183,7 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
            if image != nil {
              self?.imagesArray.insert(image!, at: 0)
              self?.collectionPhotosView.reloadData()
-             print(self?.imagesArray.count)
+             print(self?.imagesArray.count as Any)
           }
           self?.dismiss(animated: true, completion: nil)
        }

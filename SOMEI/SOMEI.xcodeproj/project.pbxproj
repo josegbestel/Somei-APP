@@ -100,6 +100,8 @@
 		D180717A25281A0E0087385E /* photosOrcamentoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D180717925281A0E0087385E /* photosOrcamentoCollectionViewCell.swift */; };
 		D180718025284D870087385E /* RequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D180717F25284D870087385E /* RequestsTableViewController.swift */; };
 		D1807188252854390087385E /* ProfissionalServicosAtivos.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1807187252854390087385E /* ProfissionalServicosAtivos.swift */; };
+		D18BE41B2531213800B32449 /* RequestedServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18BE41A2531213800B32449 /* RequestedServicesViewController.swift */; };
+		D18BE4202531276E00B32449 /* requestedServicesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18BE41F2531276E00B32449 /* requestedServicesTableViewCell.swift */; };
 		D19FB8EE2529A0A000B42211 /* FinancialReportingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19FB8ED2529A0A000B42211 /* FinancialReportingViewController.swift */; };
 		D19FB8F42529BAB000B42211 /* CreditAndDebitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19FB8F32529BAB000B42211 /* CreditAndDebitViewController.swift */; };
 		D19FB8F9252A86A300B42211 /* CreditAndDebitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19FB8F8252A86A300B42211 /* CreditAndDebitTableViewCell.swift */; };
@@ -227,6 +229,8 @@
 		D180717925281A0E0087385E /* photosOrcamentoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photosOrcamentoCollectionViewCell.swift; sourceTree = "<group>"; };
 		D180717F25284D870087385E /* RequestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsTableViewController.swift; sourceTree = "<group>"; };
 		D1807187252854390087385E /* ProfissionalServicosAtivos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfissionalServicosAtivos.swift; sourceTree = "<group>"; };
+		D18BE41A2531213800B32449 /* RequestedServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedServicesViewController.swift; sourceTree = "<group>"; };
+		D18BE41F2531276E00B32449 /* requestedServicesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = requestedServicesTableViewCell.swift; sourceTree = "<group>"; };
 		D19FB8ED2529A0A000B42211 /* FinancialReportingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialReportingViewController.swift; sourceTree = "<group>"; };
 		D19FB8F32529BAB000B42211 /* CreditAndDebitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditAndDebitViewController.swift; sourceTree = "<group>"; };
 		D19FB8F8252A86A300B42211 /* CreditAndDebitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditAndDebitTableViewCell.swift; sourceTree = "<group>"; };
@@ -414,6 +418,7 @@
 		3970B965250F5302006C36DD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D18BE419253120F700B32449 /* ProfessionalRequestedServices */,
 				D19FB8EC2529A03500B42211 /* Financial */,
 				3970B981250F5302006C36DD /* RegistersControllers */,
 				3970B969250F5302006C36DD /* Perfil */,
@@ -551,6 +556,15 @@
 				D180717F25284D870087385E /* RequestsTableViewController.swift */,
 			);
 			path = ActiveServicesProfissional;
+			sourceTree = "<group>";
+		};
+		D18BE419253120F700B32449 /* ProfessionalRequestedServices */ = {
+			isa = PBXGroup;
+			children = (
+				D18BE41A2531213800B32449 /* RequestedServicesViewController.swift */,
+				D18BE41F2531276E00B32449 /* requestedServicesTableViewCell.swift */,
+			);
+			path = ProfessionalRequestedServices;
 			sourceTree = "<group>";
 		};
 		D19FB8EC2529A03500B42211 /* Financial */ = {
@@ -780,11 +794,13 @@
 				3970B9E1250F5303006C36DD /* AgeViewController.swift in Sources */,
 				3970B9A3250F5302006C36DD /* AgendaStruct.swift in Sources */,
 				3970B9C1250F5302006C36DD /* EspecificTimeViewController.swift in Sources */,
+				D18BE4202531276E00B32449 /* requestedServicesTableViewCell.swift in Sources */,
 				3970B9B2250F5302006C36DD /* SolicitanteManagerJson.swift in Sources */,
 				3970B9A0250F5302006C36DD /* SolicitanteStruct.swift in Sources */,
 				3970B9DD250F5303006C36DD /* PasswordViewController.swift in Sources */,
 				D19FB8F9252A86A300B42211 /* CreditAndDebitTableViewCell.swift in Sources */,
 				D180718025284D870087385E /* RequestsTableViewController.swift in Sources */,
+				D18BE41B2531213800B32449 /* RequestedServicesViewController.swift in Sources */,
 				3970B9B0250F5302006C36DD /* OrcamentoManager.swift in Sources */,
 				3970B9AE250F5302006C36DD /* ProfissionalManager.swift in Sources */,
 				3970B9DC250F5303006C36DD /* ConfirmationDatasViewController.swift in Sources */,

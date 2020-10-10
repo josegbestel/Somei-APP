@@ -18,6 +18,7 @@ class OrcamentoManager {
     
     var createOrcamento = Orcamento(profissao: nil, descricao: nil, photos: [], linkPhotos: [], endereco: nil, data: nil, horario: nil, status: nil, valorMinimo: nil)
     var orcamentos :[Orcamento] = []
+    var servicesRequestArray :[Orcamento] = []
     var localizacao = Localizacao(cep: "80215-901", logradouro: "Desconhecido", numero: 1155, complemento: nil, bairro: nil, cidade: nil, uf: "PR", longitude: nil, latitude: nil)
     var agenda:Agenda = Agenda(horaInicio: nil, horaFinal: nil, diaSemana: nil, dinamica: nil)
     var agendaArray:[Agenda] = []
@@ -26,6 +27,7 @@ class OrcamentoManager {
     var profissionaisFromApi:[String] = []
     var photoArray:[URL]? = nil
     var selectedOrcamento:Orcamento? = nil
+    var selectedOrcamentoToRequestService:Orcamento? = nil
     
     func completeOrcamento(onComplete: @escaping (Bool) -> Void) {
         insertAgendaInArray()
