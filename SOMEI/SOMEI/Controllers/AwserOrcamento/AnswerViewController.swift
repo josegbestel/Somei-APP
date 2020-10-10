@@ -14,16 +14,50 @@ class AnswerViewController: ViewController {
     @IBOutlet weak var textField: UITextField!
     
     @IBOutlet weak var borderView: UIView!
+    @IBOutlet weak var profissionalLabel: UILabel!
+    @IBOutlet weak var descriptionJobLabel: UILabel!
+    
+    var imageArray:[UIImage] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fixLoyout()
-        // Do any additional setup after loading the view.
+        completeInformations()
+    }
+    
+    func completeInformations() {
+        profissionalLabel.text = OrcamentoManager.sharedInstance.selectedOrcamento?.profissao
+        descriptionJobLabel.text = OrcamentoManager.sharedInstance.selectedOrcamento?.descricao
+        if let links = OrcamentoManager.sharedInstance.selectedOrcamento?.linkPhotos {
+            for link in links {
+                downloadImage(from: link)
+            }
+        }
+    }
+    
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+    
+    func downloadImage(from url: URL) {
+        print("Download Started")
+        getData(from: url) { data, response, error in
+            if error != nil {
+                print("Erro ao baixar imagem:\(error?.localizedDescription ?? "")")
+            }
+            guard let data = data, error == nil else {print("download error"); return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            DispatchQueue.main.async() { [weak self] in
+                self?.imageArray.insert(UIImage(data: data)!, at: 0)
+                self?.collectionView.reloadData()
+            }
+        }
     }
         
     func fixLoyout() {
         
-        borderView.clipsToBounds = true
+        borderView.clipsToBounds = false
         borderView.backgroundColor = UIColor.white
         borderView.layer.shadowColor = UIColor.black.cgColor
         borderView.layer.shadowOpacity = 0.24
@@ -33,14 +67,26 @@ class AnswerViewController: ViewController {
         
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func continueButton(_ sender: Any) {
+        if textField.text?.count != 0 {
+            
+        }
     }
-    */
-
 }
+extension AnswerViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ComentsViewController
+        
+        
+        return cell
+    }
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+         1
+    }
+}
+

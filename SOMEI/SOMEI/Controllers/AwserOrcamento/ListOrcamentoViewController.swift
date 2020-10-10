@@ -52,6 +52,13 @@ class ListOrcamentoViewController: ViewController, NSFetchedResultsControllerDel
         ProfissionalManager.sharedInstance.profissional.id = Int(perfil.identifier)
       
     }
+    
+    func goesToAnswer() {
+        let newVC = self.storyboard?.instantiateViewController(withIdentifier: "AnswerViewController")
+        self.definesPresentationContext = true
+        newVC?.modalPresentationStyle = .overCurrentContext
+        self.present(newVC!, animated: true, completion: nil)
+    }
 
 }
 extension ListOrcamentoViewController: UITableViewDataSource {
@@ -85,6 +92,7 @@ extension ListOrcamentoViewController: UITableViewDataSource {
     
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        OrcamentoManager.sharedInstance.selectedOrcamento = OrcamentoManager.sharedInstance.orcamentos[indexPath.row]
+       goesToAnswer()
    }
 }
 extension ListOrcamentoViewController: UITableViewDelegate {
