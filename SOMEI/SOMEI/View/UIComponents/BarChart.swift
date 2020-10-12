@@ -18,6 +18,7 @@ class BarChart: UIView {
         context = UIGraphicsGetCurrentContext()!
         desenharOsEixos()
         desenharAsBarras()
+        escreverLegendas()
     }
     
     private func desenharOsEixos(){
@@ -63,6 +64,18 @@ class BarChart: UIView {
             }
             context.strokePath()
         
+    }
+    
+    private func escreverLegendas(){
+            
+            let font = UIFont(name: "Arial", size: 10)
+            
+            for i in 0...5{
+                let label = UILabel(frame: CGRect(x: bounds.width*0.92, y: bounds.height*0.90/5*CGFloat(i)+6.5, width: 25, height: 13))
+                label.text = String(valorMaximo()/5*(5-i))
+                label.font = font
+                self.addSubview(label)
+            }
     }
     
     private func valorMaximo() -> Int {

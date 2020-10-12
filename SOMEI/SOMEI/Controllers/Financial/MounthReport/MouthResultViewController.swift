@@ -36,10 +36,10 @@ class MouthResultViewController: UIViewController {
     
     func atualizarGrafico() {
         
-            let info1 = 0, info2 = 50, info3 = 20, info4 = 30, info5 = 10
-                
-                
-            viewGraphics.atualizar([info1,info2,info3,info4,info5])
+        let info1 = 22, info2 = 1750, info3 = 2000, info4 = 4900, info5 = 10
+            
+            
+        viewGraphics.atualizar([info1,info2,info3,info4,info5])
        
     }
     
