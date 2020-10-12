@@ -10,11 +10,9 @@ import Foundation
 
 struct OrcamentoAnswerStruct:Codable {
     
-    var categoriaMeiTitulo:String
-    var servico:String
-    var solicitanteId:Int
-    var agendas:[AgendaStruct]
-    var localizacao:LocalizacaoStruct
-    var foto:[URL]?
-    
+    var agendaId:Double
+    var orcamentoId:Double
+    var valor:Double
+    var observacao:String
+
 }

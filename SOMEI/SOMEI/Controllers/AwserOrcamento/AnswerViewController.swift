@@ -16,6 +16,8 @@ class AnswerViewController: ViewController {
     @IBOutlet weak var borderView: UIView!
     @IBOutlet weak var profissionalLabel: UILabel!
     @IBOutlet weak var descriptionJobLabel: UILabel!
+    @IBOutlet weak var streetLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
     var imageArray:[UIImage] = []
     
@@ -28,6 +30,7 @@ class AnswerViewController: ViewController {
     func completeInformations() {
         profissionalLabel.text = OrcamentoManager.sharedInstance.selectedOrcamento?.profissao
         descriptionJobLabel.text = OrcamentoManager.sharedInstance.selectedOrcamento?.descricao
+        streetLabel.text = "\(OrcamentoManager.sharedInstance.selectedOrcamento?.endereco?.logradouro ?? ""), \(OrcamentoManager.sharedInstance.selectedOrcamento?.endereco?.numero ?? 0) - \(OrcamentoManager.sharedInstance.selectedOrcamento?.endereco?.cidade ?? "")/\(OrcamentoManager.sharedInstance.selectedOrcamento?.endereco?.uf ?? "")"
         if let links = OrcamentoManager.sharedInstance.selectedOrcamento?.linkPhotos {
             for link in links {
                 downloadImage(from: link)
@@ -66,10 +69,34 @@ class AnswerViewController: ViewController {
         borderView.layer.cornerRadius = 10
         
     }
+    
+    func goesToOrcamentoRespondidoScreen() {
+        
+    }
+    
+    func constructStruct() -> OrcamentoAnswerStruct {
+        let valor:Double = Double(textField.text ?? "0")!
+        let teste = OrcamentoAnswerStruct.init(agendaId: Double(OrcamentoManager.sharedInstance.selectedOrcamento?.agendaId ?? 0), orcamentoId: Double(OrcamentoManager.sharedInstance.selectedOrcamento?.id ?? 0), valor: valor, observacao: OrcamentoManager.sharedInstance.selectedOrcamento?.descricao ?? "")
+        return teste
+    }
+    
+    func awnserOrcamento() {
+        if ProfissionalManager.sharedInstance.profissional.email != nil, ProfissionalManager.sharedInstance.profissional.password != nil, OrcamentoManager.sharedInstance.selectedOrcamento?.id != nil {
+            ProviderSomei.answerRequest(structToSend: constructStruct(), id: String(ProfissionalManager.sharedInstance.profissional.id!), email: ProfissionalManager.sharedInstance.profissional.email!, password: ProfissionalManager.sharedInstance.profissional.password!){success in
+                DispatchQueue.main.async {
+                    self.goesToOrcamentoRespondidoScreen()
+                }
+            }
+        }
+    }
 
+    @IBAction func backButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func continueButton(_ sender: Any) {
         if textField.text?.count != 0 {
-            
+            awnserOrcamento()
         }
     }
 }

@@ -33,6 +33,43 @@ class ProviderSomei {
         return "https://somei-app-server.herokuapp.com/api/v1/solicitante/login"
     }
     
+    class func answerRequest(structToSend:OrcamentoAnswerStruct,id:String, email:String, password:String,completion: @escaping (Bool) -> Void) {
+        let loginString = String(format: "%@:%@", email, password)
+        let loginData = loginString.data(using: String.Encoding.utf8)!
+        let base64LoginString = loginData.base64EncodedString()
+        let completeUrl = "https://somei-app-server.herokuapp.com/api/v1/resposta-orcamento/\(id)/responder"
+        guard let url = URL(string:completeUrl) else {return}
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+        guard let json = try? JSONEncoder().encode(structToSend) else {
+            completion(false)
+            return
+        }
+        request.httpBody = json
+        
+        let dataTask = session.dataTask(with: request) { (data, response, error) in
+            if error == nil {
+                do{
+                    let json = try JSONSerialization.jsonObject(with: data!, options: []) as? Dictionary<String, AnyObject>
+                    print("Json body error")
+                    print(json as Any)
+                }catch _{
+                    print("erro json error invalido")
+                }
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200, let _ = data else {
+                    completion(false)
+                    return
+                }
+                completion(true)
+            } else {
+                completion(false)
+            }
+        }
+        dataTask.resume()
+        
+    }
+    
     class func servicesRequested(id:String, email:String, password:String,completion: @escaping (Bool) -> Void) {
         let loginString = String(format: "%@:%@", email, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
@@ -170,7 +207,7 @@ class ProviderSomei {
                        }
                    }else{
                        print("status invalido do servidor!!")
-                   }
+                        as Any       }
                } else {
                    print(error!)
                }
@@ -194,7 +231,7 @@ class ProviderSomei {
             //Resultado
             print("Resultado login (provider)")
             print(err == nil)
-            print(err)
+            print(err as Any)
             if let res:Bool = (err == nil){
                 print("res")
                 print(res)
@@ -209,8 +246,8 @@ class ProviderSomei {
             }else{
                 //Erro
                 print("A requisição não funcionou")
-                print(err)
-                print(result)
+                print(err as Any)
+                print(result as Any)
                 completion(false, nil)
             }
         }
@@ -375,7 +412,7 @@ class ProviderSomei {
                        let json = try JSONSerialization.jsonObject(with: data!, options: []) as? Dictionary<String, AnyObject>
                         print(json as Any)
                         SolicitanteManager.sharedInstance.solicitante.id = json!["id"] as? Int
-                        print(SolicitanteManager.sharedInstance.solicitante.id)
+                        print(SolicitanteManager.sharedInstance.solicitante.id as Any)
                    }catch _{
                        print("erro json invalido")
                    }

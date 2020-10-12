@@ -16,7 +16,7 @@ class OrcamentoManager {
     var profissoes: Profissoes!
     var selectedProfission:String?
     
-    var createOrcamento = Orcamento(profissao: nil, descricao: nil, photos: [], linkPhotos: [], endereco: nil, data: nil, horario: nil, status: nil, valorMinimo: nil, id: nil)
+    var createOrcamento = Orcamento(profissao: nil, descricao: nil, photos: [], linkPhotos: [], endereco: nil, data: nil, horario: nil, status: nil, valorMinimo: nil, id: nil, agendaId: nil)
     var orcamentos :[Orcamento] = []
     var servicesRequestArray :[Orcamento] = []
     var localizacao = Localizacao(cep: "80215-901", logradouro: "Desconhecido", numero: 1155, complemento: nil, bairro: nil, cidade: nil, uf: "PR", longitude: nil, latitude: nil)
