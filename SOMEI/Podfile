@@ -11,5 +11,6 @@ target 'SOMEI' do
   pod 'ALCameraViewController'
   pod 'Firebase/Storage'
   pod 'YYCalendar'
-
+  pod 'Charts'
+  
 end
