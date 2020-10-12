@@ -50,14 +50,13 @@ class ProviderSomei {
         
         let dataTask = session.dataTask(with: request) { (data, response, error) in
             if error == nil {
-                do{
-                    let json = try JSONSerialization.jsonObject(with: data!, options: []) as? Dictionary<String, AnyObject>
-                    print("Json body error")
-                    print(json as Any)
-                }catch _{
-                    print("erro json error invalido")
-                }
+                guard let responseTeste = response as? HTTPURLResponse else {return}
+                print("status do envio para o servidor:\(responseTeste.statusCode)")
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200, let _ = data else {
+                    if let data = data {
+                        let json = String(data: data, encoding: String.Encoding.utf8)
+                        print("Failure Response: \(String(describing: json))")
+                    }
                     completion(false)
                     return
                 }

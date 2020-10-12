@@ -96,6 +96,8 @@
 		3970B9E6250F5303006C36DD /* SearchWorkersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3970B99D250F5302006C36DD /* SearchWorkersViewController.swift */; };
 		D125C38125254DB500FD8E33 /* PhotoPortfolioCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D125C38025254DB500FD8E33 /* PhotoPortfolioCollectionViewCell.swift */; };
 		D171F72025314E8000C67EA7 /* OrcamentoAnswerStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = D171F71F25314E8000C67EA7 /* OrcamentoAnswerStruct.swift */; };
+		D171F7362534CD7700C67EA7 /* FinancialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D171F7352534CD7700C67EA7 /* FinancialManager.swift */; };
+		D171F73B2534CF4D00C67EA7 /* Financial.swift in Sources */ = {isa = PBXBuildFile; fileRef = D171F73A2534CF4D00C67EA7 /* Financial.swift */; };
 		D17228B0251953CD008D129C /* AnswerOrcamentoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17228AF251953CD008D129C /* AnswerOrcamentoViewController.swift */; };
 		D17228B525195E98008D129C /* OrcamentoAnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17228B425195E98008D129C /* OrcamentoAnswerTableViewCell.swift */; };
 		D180717A25281A0E0087385E /* photosOrcamentoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D180717925281A0E0087385E /* photosOrcamentoCollectionViewCell.swift */; };
@@ -226,6 +228,8 @@
 		AF93BF6073951527603D0181 /* Pods-SOMEI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOMEI.release.xcconfig"; path = "Target Support Files/Pods-SOMEI/Pods-SOMEI.release.xcconfig"; sourceTree = "<group>"; };
 		D125C38025254DB500FD8E33 /* PhotoPortfolioCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPortfolioCollectionViewCell.swift; sourceTree = "<group>"; };
 		D171F71F25314E8000C67EA7 /* OrcamentoAnswerStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrcamentoAnswerStruct.swift; sourceTree = "<group>"; };
+		D171F7352534CD7700C67EA7 /* FinancialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialManager.swift; sourceTree = "<group>"; };
+		D171F73A2534CF4D00C67EA7 /* Financial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Financial.swift; sourceTree = "<group>"; };
 		D17228AF251953CD008D129C /* AnswerOrcamentoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerOrcamentoViewController.swift; sourceTree = "<group>"; };
 		D17228B425195E98008D129C /* OrcamentoAnswerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrcamentoAnswerTableViewCell.swift; sourceTree = "<group>"; };
 		D180717925281A0E0087385E /* photosOrcamentoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photosOrcamentoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -359,6 +363,7 @@
 				3970B956250F5302006C36DD /* Usuario.swift */,
 				3970B957250F5302006C36DD /* Comentario.swift */,
 				D1807187252854390087385E /* ProfissionalServicosAtivos.swift */,
+				D171F73A2534CF4D00C67EA7 /* Financial.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -386,6 +391,7 @@
 				3970B95B250F5302006C36DD /* OrcamentoManager.swift */,
 				3970B95F250F5302006C36DD /* AnswerOrcamentoManager.swift */,
 				3970B960250F5302006C36DD /* SolicitanteManager.swift */,
+				D171F7352534CD7700C67EA7 /* FinancialManager.swift */,
 				3970B95C250F5302006C36DD /* JsonManager */,
 			);
 			path = Manager;
@@ -832,6 +838,7 @@
 				3970B99F250F5302006C36DD /* ProfissionalStruct.swift in Sources */,
 				3970B9A6250F5302006C36DD /* Agenda.swift in Sources */,
 				3970B9CC250F5302006C36DD /* ListOrcamentoViewController.swift in Sources */,
+				D171F7362534CD7700C67EA7 /* FinancialManager.swift in Sources */,
 				3970B9A9250F5302006C36DD /* Orcamento.swift in Sources */,
 				3970B9D9250F5303006C36DD /* EmailEmployeeViewController.swift in Sources */,
 				3970B9B4250F5302006C36DD /* SolicitanteManager.swift in Sources */,
@@ -866,6 +873,7 @@
 				3970B9D7250F5302006C36DD /* MainActivityViewController.swift in Sources */,
 				D171F72025314E8000C67EA7 /* OrcamentoAnswerStruct.swift in Sources */,
 				3970B9B5250F5302006C36DD /* SomeiUserDefaults.swift in Sources */,
+				D171F73B2534CF4D00C67EA7 /* Financial.swift in Sources */,
 				3970B9D0250F5302006C36DD /* PhoneEmployeeViewController.swift in Sources */,
 				3970B9D3250F5302006C36DD /* PasswordEmployeeViewController.swift in Sources */,
 				3970B9E6250F5303006C36DD /* SearchWorkersViewController.swift in Sources */,

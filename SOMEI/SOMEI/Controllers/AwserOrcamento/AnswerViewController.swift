@@ -25,6 +25,17 @@ class AnswerViewController: ViewController {
         super.viewDidLoad()
         fixLoyout()
         completeInformations()
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AnswerViewController.dismissKeyboard)))
+    }
+    
+    @objc func dismissKeyboard() {
+          self.view.endEditing(true)
+    }
+    
+    func hideKeyboardWhenTappedAround() {
+          let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AnswerViewController.dismissKeyboard))
+          tap.cancelsTouchesInView = false
+          view.addGestureRecognizer(tap)
     }
     
     func completeInformations() {
@@ -59,7 +70,6 @@ class AnswerViewController: ViewController {
     }
         
     func fixLoyout() {
-        
         borderView.clipsToBounds = false
         borderView.backgroundColor = UIColor.white
         borderView.layer.shadowColor = UIColor.black.cgColor
@@ -67,11 +77,13 @@ class AnswerViewController: ViewController {
         borderView.layer.shadowOffset = .zero
         borderView.layer.shadowRadius = 3
         borderView.layer.cornerRadius = 10
-        
     }
     
     func goesToOrcamentoRespondidoScreen() {
-        
+        let newVC = self.storyboard?.instantiateViewController(withIdentifier: "orcamentoRespondido")
+        self.definesPresentationContext = true
+        newVC?.modalPresentationStyle = .overCurrentContext
+        self.present(newVC!, animated: true, completion: nil)
     }
     
     func constructStruct() -> OrcamentoAnswerStruct {
@@ -89,6 +101,14 @@ class AnswerViewController: ViewController {
             }
         }
     }
+    
+    func wrongData() {
+        let alert = UIAlertController(title: "Ops! Falta inserir o valor", message: "Campo valor vazio", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok!", style: .default, handler: { action in
+        })
+        alert.addAction(ok)
+        self.present(alert, animated: true)
+    }
 
     @IBAction func backButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -97,6 +117,8 @@ class AnswerViewController: ViewController {
     @IBAction func continueButton(_ sender: Any) {
         if textField.text?.count != 0 {
             awnserOrcamento()
+        }else{
+            wrongData()
         }
     }
 }
