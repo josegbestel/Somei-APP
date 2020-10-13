@@ -95,11 +95,25 @@ class AnswerViewController: ViewController {
     func awnserOrcamento() {
         if ProfissionalManager.sharedInstance.profissional.email != nil, ProfissionalManager.sharedInstance.profissional.password != nil, OrcamentoManager.sharedInstance.selectedOrcamento?.id != nil {
             ProviderSomei.answerRequest(structToSend: constructStruct(), id: String(ProfissionalManager.sharedInstance.profissional.id!), email: ProfissionalManager.sharedInstance.profissional.email!, password: ProfissionalManager.sharedInstance.profissional.password!){success in
-                DispatchQueue.main.async {
-                    self.goesToOrcamentoRespondidoScreen()
+                if success == true{
+                    DispatchQueue.main.async {
+                        self.goesToOrcamentoRespondidoScreen()
+                    }
+                }else{
+                    DispatchQueue.main.async {
+                        self.errorPopUp()
+                    }
                 }
             }
         }
+    }
+    
+    func errorPopUp() {
+        let alert = UIAlertController(title: "Algo deu errado", message: "Por favor tente novamento mais tarde", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok!", style: .default, handler: { action in
+        })
+        alert.addAction(ok)
+        self.present(alert, animated: true)
     }
     
     func wrongData() {

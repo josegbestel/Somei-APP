@@ -46,21 +46,23 @@ class ProviderSomei {
             completion(false)
             return
         }
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = json
         
         let dataTask = session.dataTask(with: request) { (data, response, error) in
             if error == nil {
-                guard let responseTeste = response as? HTTPURLResponse else {return}
-                print("status do envio para o servidor:\(responseTeste.statusCode)")
-                guard let response = response as? HTTPURLResponse, response.statusCode == 200, let _ = data else {
+                guard let response = response as? HTTPURLResponse else {return}
+                if response.statusCode == 200 {
+                    completion(true)
+                } else {
                     if let data = data {
-                        let json = String(data: data, encoding: String.Encoding.utf8)
-                        print("Failure Response: \(String(describing: json))")
+                        print("Status code error:\(response.statusCode)")
+                        let jsonError = String(data: data, encoding: String.Encoding.utf8)
+                        print("Failure Response: \(String(describing: jsonError))")
                     }
                     completion(false)
-                    return
                 }
-                completion(true)
+               
             } else {
                 completion(false)
             }
@@ -177,18 +179,10 @@ class ProviderSomei {
         let dataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error? ) in
             if error == nil {
                guard let response = response as? HTTPURLResponse else {return}
-//               print(response)
-               do{
-                   let json = try JSONSerialization.jsonObject(with: data!, options: [])
-//                   print(json)
-               }catch _{
-                   print("erro json invalido")
-               }
                  if response.statusCode == 200 {
                        guard let data = data else {return}
                        do{
                            if let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [[String : Any]] {
-//                              print(json)
                             //Popular dados os orçamentos
                             var orcamentos :[Orcamento] = []
                             
@@ -205,8 +199,13 @@ class ProviderSomei {
                            print(error.localizedDescription)
                        }
                    }else{
-                       print("status invalido do servidor!!")
-                        as Any       }
+                        do{
+                            let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                            print("Status invalido do servido \(json)")
+                        }catch _{
+                            print("erro json invalido")
+                        }
+                   }
                } else {
                    print(error!)
                }
