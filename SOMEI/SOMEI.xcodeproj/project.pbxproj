@@ -95,6 +95,7 @@
 		3970B9E5250F5303006C36DD /* LoginCadastroViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3970B99C250F5302006C36DD /* LoginCadastroViewControlller.swift */; };
 		3970B9E6250F5303006C36DD /* SearchWorkersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3970B99D250F5302006C36DD /* SearchWorkersViewController.swift */; };
 		D125C38125254DB500FD8E33 /* PhotoPortfolioCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D125C38025254DB500FD8E33 /* PhotoPortfolioCollectionViewCell.swift */; };
+		D15E1A2625391C2600E0F7E3 /* TypeAgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15E1A2525391C2600E0F7E3 /* TypeAgendaViewController.swift */; };
 		D171F72025314E8000C67EA7 /* OrcamentoAnswerStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = D171F71F25314E8000C67EA7 /* OrcamentoAnswerStruct.swift */; };
 		D171F7362534CD7700C67EA7 /* FinancialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D171F7352534CD7700C67EA7 /* FinancialManager.swift */; };
 		D171F73B2534CF4D00C67EA7 /* Financial.swift in Sources */ = {isa = PBXBuildFile; fileRef = D171F73A2534CF4D00C67EA7 /* Financial.swift */; };
@@ -228,6 +229,7 @@
 		4814DA91DCEE3BDD98942C8E /* Pods_SOMEI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOMEI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF93BF6073951527603D0181 /* Pods-SOMEI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOMEI.release.xcconfig"; path = "Target Support Files/Pods-SOMEI/Pods-SOMEI.release.xcconfig"; sourceTree = "<group>"; };
 		D125C38025254DB500FD8E33 /* PhotoPortfolioCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPortfolioCollectionViewCell.swift; sourceTree = "<group>"; };
+		D15E1A2525391C2600E0F7E3 /* TypeAgendaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAgendaViewController.swift; sourceTree = "<group>"; };
 		D171F71F25314E8000C67EA7 /* OrcamentoAnswerStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrcamentoAnswerStruct.swift; sourceTree = "<group>"; };
 		D171F7352534CD7700C67EA7 /* FinancialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialManager.swift; sourceTree = "<group>"; };
 		D171F73A2534CF4D00C67EA7 /* Financial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Financial.swift; sourceTree = "<group>"; };
@@ -491,6 +493,7 @@
 				3970B975250F5302006C36DD /* FlexibleHourViewController.swift */,
 				3970B976250F5302006C36DD /* SelectMultiHourViewController.swift */,
 				3970B977250F5302006C36DD /* SelectHourTableViewCell.swift */,
+				D15E1A2525391C2600E0F7E3 /* TypeAgendaViewController.swift */,
 			);
 			path = HourSelect;
 			sourceTree = "<group>";
@@ -806,6 +809,7 @@
 				3970B9E1250F5303006C36DD /* AgeViewController.swift in Sources */,
 				3970B9A3250F5302006C36DD /* AgendaStruct.swift in Sources */,
 				3970B9C1250F5302006C36DD /* EspecificTimeViewController.swift in Sources */,
+				D15E1A2625391C2600E0F7E3 /* TypeAgendaViewController.swift in Sources */,
 				D18BE4202531276E00B32449 /* requestedServicesTableViewCell.swift in Sources */,
 				3970B9B2250F5302006C36DD /* SolicitanteManagerJson.swift in Sources */,
 				3970B9A0250F5302006C36DD /* SolicitanteStruct.swift in Sources */,

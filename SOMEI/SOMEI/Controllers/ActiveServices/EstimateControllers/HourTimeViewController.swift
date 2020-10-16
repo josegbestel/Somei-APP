@@ -12,40 +12,21 @@ class HourTimeViewController: UIViewController {
 
     @IBOutlet weak var professionalLabel: UILabel!
     
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak var containerViewEspecifico: UIView!
-    @IBOutlet weak var containerViewDinamico: UIView!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ComplementEstimateViewController.dismissKeyboard)))
         if OrcamentoManager.sharedInstance.selectedProfission != nil {
            professionalLabel.text = OrcamentoManager.sharedInstance.selectedProfission
         }
     }
     
-    func hideKeyboardWhenTappedAround() {
-         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ComplementEstimateViewController.dismissKeyboard))
-         tap.cancelsTouchesInView = false
-         view.addGestureRecognizer(tap)
-     }
-    
     @objc func dismissKeyboard() {
         self.view.endEditing(true)
     }
     
-    @IBAction func indexChanged(_ sender: Any) {
-       switch segmentedControl.selectedSegmentIndex {
-            case 0:
-                containerViewEspecifico.isHidden = true
-                containerViewDinamico.isHidden = false
-            case 1:
-                containerViewEspecifico.isHidden = false
-                containerViewDinamico.isHidden = true
-            default:
-                break;
-            }
+    @IBAction func newHour(_ sender: Any) {
+
     }
     
     @IBAction func backButton(_ sender: Any) {
@@ -65,4 +46,36 @@ class HourTimeViewController: UIViewController {
             }
         }
     }
+}
+extension HourTimeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return OrcamentoManager.sharedInstance.agendaArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath) as! requestedServicesTableViewCell
+        let orcamento = OrcamentoManager.sharedInstance.servicesRequestArray[indexPath.row]
+        
+        cell.clipsToBounds = true
+        cell.borderView.backgroundColor = UIColor.white
+        cell.borderView.layer.shadowColor = UIColor.black.cgColor
+        cell.borderView.layer.shadowOpacity = 0.24
+        cell.borderView.layer.shadowOffset = .zero
+        cell.borderView.layer.shadowRadius = 3
+        cell.borderView.layer.cornerRadius = 10
+        
+        cell.dateLabel.isHidden = true
+        cell.descriptionLabel.text = orcamento.descricao
+        cell.setStatus(status: orcamento.status ?? "")
+        cell.professionalLabel.text = orcamento.profissao
+        
+        return cell
+    }
+    
+   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       OrcamentoManager.sharedInstance.selectedOrcamentoToRequestService = OrcamentoManager.sharedInstance.servicesRequestArray[indexPath.row]
+   }
+}
+extension HourTimeViewController: UITableViewDelegate {
+    
 }

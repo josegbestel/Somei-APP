@@ -26,11 +26,11 @@ class SelectMultiHourViewController: ViewController, UITextFieldDelegate {
     override func viewWillDisappear(_ animated: Bool) {
        super.viewWillDisappear(animated)
 
-       if let firstVC = presentingViewController as? FlexibleHourViewController {
-           DispatchQueue.main.async {
-               firstVC.tableView.reloadData()
-           }
-       }
+//       if let firstVC = presentingViewController as? FlexibleHourViewController {
+//           DispatchQueue.main.async {
+//               firstVC.tableView.reloadData()
+//           }
+//       }
      }
     
     @IBAction func selctDay(_ sender: Any) {

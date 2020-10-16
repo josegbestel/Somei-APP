@@ -53,6 +53,7 @@ class ProviderSomei {
             if error == nil {
                 guard let response = response as? HTTPURLResponse else {return}
                 if response.statusCode == 200 {
+                    print("Status sucesso code:\(response.statusCode)")
                     completion(true)
                 } else {
                     if let data = data {

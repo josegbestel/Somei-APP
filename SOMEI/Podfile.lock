@@ -1,8 +1,5 @@
 PODS:
   - ALCameraViewController (3.1)
-  - Charts (3.6.0):
-    - Charts/Core (= 3.6.0)
-  - Charts/Core (3.6.0)
   - Cosmos (22.1.0)
   - CPF-CNPJ-Validator (1.0.2)
   - Firebase/CoreOnly (6.32.0):
@@ -39,7 +36,6 @@ PODS:
 
 DEPENDENCIES:
   - ALCameraViewController
-  - Charts
   - Cosmos (~> 22.1)
   - CPF-CNPJ-Validator
   - Firebase/Storage
@@ -48,7 +44,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - ALCameraViewController
-    - Charts
     - Cosmos
     - CPF-CNPJ-Validator
     - Firebase
@@ -64,7 +59,6 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   ALCameraViewController: 144dea45fd749a623aafd8cb7b10cea88499fcc3
-  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   Cosmos: 2795b36ad4bbea1af3050d6d65576ed63875f86a
   CPF-CNPJ-Validator: 0b08069595da2c4b20e964b743bfc0a7334d5347
   Firebase: afa030f17f5421810f379a42b0e5d3302d27eb26
@@ -78,6 +72,6 @@ SPEC CHECKSUMS:
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   YYCalendar: 1a6bbbd2190392edf9209da898b029ce4e5e734b
 
-PODFILE CHECKSUM: 0756f50542623ce431ea85ba6e18edba560ab105
+PODFILE CHECKSUM: 992bb2354adf6bb68d5ee24cc6e7d2f870f01384
 
 COCOAPODS: 1.9.3
