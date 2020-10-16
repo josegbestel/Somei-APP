@@ -53,8 +53,8 @@ extension HourTimeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath) as! requestedServicesTableViewCell
-        let orcamento = OrcamentoManager.sharedInstance.servicesRequestArray[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath) as! SelectHourTableViewCell
+        let agenda = OrcamentoManager.sharedInstance.agendaArray[indexPath.row]
         
         cell.clipsToBounds = true
         cell.borderView.backgroundColor = UIColor.white
@@ -64,17 +64,18 @@ extension HourTimeViewController: UITableViewDataSource {
         cell.borderView.layer.shadowRadius = 3
         cell.borderView.layer.cornerRadius = 10
         
-        cell.dateLabel.isHidden = true
-        cell.descriptionLabel.text = orcamento.descricao
-        cell.setStatus(status: orcamento.status ?? "")
-        cell.professionalLabel.text = orcamento.profissao
+        guard let hora1 = agenda.horaInicio?.hour else {return cell}
+        guard let minute1 = agenda.horaInicio?.minute else {return cell}
         
+        guard let hora2 = agenda.horaFinal?.hour else {return cell}
+        guard let minute2 = agenda.horaFinal?.minute else {return cell}
+
+        cell.selectedDay.text = agenda.diaSemana
+        cell.hourSelected.text = "\(hora1):\(minute1) - \(hora2):\(minute2)"
+    
         return cell
     }
-    
-   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       OrcamentoManager.sharedInstance.selectedOrcamentoToRequestService = OrcamentoManager.sharedInstance.servicesRequestArray[indexPath.row]
-   }
+
 }
 extension HourTimeViewController: UITableViewDelegate {
     

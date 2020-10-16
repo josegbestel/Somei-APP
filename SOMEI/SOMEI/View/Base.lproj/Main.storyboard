@@ -6785,6 +6785,7 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
+                                                    <outlet property="borderView" destination="kG0-bV-93r" id="y5k-4g-Flt"/>
                                                     <outlet property="hourSelected" destination="ApG-EK-Ocy" id="Uei-wd-1Ty"/>
                                                     <outlet property="selectedDay" destination="BjV-xV-Pt0" id="F0R-QS-nnN"/>
                                                 </connections>

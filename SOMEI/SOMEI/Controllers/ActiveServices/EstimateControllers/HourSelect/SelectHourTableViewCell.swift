@@ -13,6 +13,8 @@ class SelectHourTableViewCell: UITableViewCell {
     @IBOutlet weak var selectedDay: UILabel!
     @IBOutlet weak var hourSelected: UILabel!
     
+    @IBOutlet weak var borderView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
