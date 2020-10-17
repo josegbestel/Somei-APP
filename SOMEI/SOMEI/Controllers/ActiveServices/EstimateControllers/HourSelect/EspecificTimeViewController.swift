@@ -15,7 +15,7 @@ class EspecificTimeViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textFieldHour: UITextField!
     @IBOutlet weak var textFieldMinute: UITextField!
     
-    var agenda:Agenda = Agenda(horaInicio: nil, horaFinal: nil, diaSemana: nil, dinamica: nil)
+    var agenda:Agenda = Agenda(horaInicio: nil, horaFinal: nil, diaSemana: nil, dinamica: nil, id: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()

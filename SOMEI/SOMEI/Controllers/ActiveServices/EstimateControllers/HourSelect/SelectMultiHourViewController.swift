@@ -14,7 +14,7 @@ class SelectMultiHourViewController: ViewController, UITextFieldDelegate {
     @IBOutlet weak var firstHourTextField: UITextField!
     @IBOutlet weak var secondHourTextField: UITextField!
     
-    var agendaDay:Agenda = Agenda(horaInicio: nil, horaFinal: nil, diaSemana: nil, dinamica: nil)
+    var agendaDay:Agenda = Agenda(horaInicio: nil, horaFinal: nil, diaSemana: nil, dinamica: nil, id: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()

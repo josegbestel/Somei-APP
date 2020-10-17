@@ -16,13 +16,13 @@ class OrcamentoManager {
     var profissoes: Profissoes!
     var selectedProfission:String?
     
-    var createOrcamento = Orcamento(profissao: nil, descricao: nil, photos: [], linkPhotos: [], endereco: nil, data: nil, horario: nil, status: nil, valorMinimo: nil, id: nil, agendaId: nil)
+    var createOrcamento = Orcamento(profissao: nil, descricao: nil, photos: [], linkPhotos: [], endereco: nil, data: nil, horario: nil, status: nil, valorMinimo: nil, id: nil, agendaId: nil, agendaArray: nil)
     var orcamentos :[Orcamento] = []
     var servicesRequestArray :[Orcamento] = []
     var localizacao = Localizacao(cep: "80215-901", logradouro: "Desconhecido", numero: 1155, complemento: nil, bairro: nil, cidade: nil, uf: "PR", longitude: nil, latitude: nil)
-    var agenda:Agenda = Agenda(horaInicio: nil, horaFinal: nil, diaSemana: nil, dinamica: nil)
+    var agenda:Agenda = Agenda(horaInicio: nil, horaFinal: nil, diaSemana: nil, dinamica: nil, id: nil)
     var agendaArray:[Agenda] = []
-    var AgendaStructArray:[AgendaStruct]?
+    var AgendaStructArray:[AgendaStruct] = []
     var agendaFixa:AgendaStruct = AgendaStruct(horaInicio:nil,horaFinal:nil,diaSemana:nil,dinamica:nil)
     var profissionaisFromApi:[String] = []
     var photoArray:[URL]? = nil
@@ -30,7 +30,7 @@ class OrcamentoManager {
     var selectedOrcamentoToRequestService:Orcamento? = nil
     
     func completeOrcamento(onComplete: @escaping (Bool) -> Void) {
-        insertAgendaInArray()
+//        insertAgendaInArray()
         guard let structForApi = createStruct() else {onComplete(false); return}
         print(structForApi)
         ProviderSomei.sendOrcamentoToApi(orcamento: structForApi){(error) -> Void in
@@ -47,7 +47,7 @@ class OrcamentoManager {
     
     func insertAgendaInArray() {
         let agendaStructTransf = AgendaStruct.init(horaInicio: agenda.horaInicio, horaFinal: agenda.horaFinal, diaSemana: agenda.diaSemana, dinamica: false)
-        AgendaStructArray?.insert(agendaStructTransf, at: 0)
+        AgendaStructArray.insert(agendaStructTransf, at: 0)
     }
     
     func createStruct() -> OrcamentoStruct? {
@@ -57,13 +57,12 @@ class OrcamentoManager {
         
         for datas in agendaArray {
             let datasStruct:AgendaStruct = AgendaStruct.init(horaInicio: datas.horaInicio, horaFinal: datas.horaFinal, diaSemana: datas.diaSemana, dinamica: datas.dinamica)
-            AgendaStructArray?.insert(datasStruct, at: 0)
+            AgendaStructArray.insert(datasStruct, at: 0)
         }
-        let idUser = SolicitanteManager.sharedInstance.solicitante.id
-         print(photoArray?.count)
-        print("Orçamento -> idSuser = \(idUser)")
-        let orcamentoStruct:OrcamentoStruct = OrcamentoStruct.init(categoriaMeiTitulo: selectedProfission ?? "profissao", servico: createOrcamento.descricao ?? "não foi possivel obter descricao", solicitanteId: idUser ?? 00, agendas: AgendaStructArray ?? [], localizacao: localicaoStruct, foto: createOrcamento.linkPhotos)
         
+        let idUser = SolicitanteManager.sharedInstance.solicitante.id
+        print("Orçamento -> idSuser = \(String(describing: idUser))")
+        let orcamentoStruct:OrcamentoStruct = OrcamentoStruct.init(categoriaMeiTitulo: selectedProfission ?? "profissao", servico: createOrcamento.descricao ?? "não foi possivel obter descricao", solicitanteId: idUser ?? 00, agendas: AgendaStructArray , localizacao: localicaoStruct, foto: createOrcamento.linkPhotos)
         return orcamentoStruct
     }
     

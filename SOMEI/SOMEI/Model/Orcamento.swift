@@ -22,8 +22,9 @@ class Orcamento {
     var valorMinimo:Int?
     var id:Int?
     var agendaId:Int?
+    var agendaArray:[Agenda]?
     
-    init(profissao:String?,descricao:String?,photos:[UIImage]?,linkPhotos:[URL]?,endereco:Localizacao?,data:String?,horario:String?, status :String?, valorMinimo:Int?, id:Int?, agendaId:Int?) {
+    init(profissao:String?,descricao:String?,photos:[UIImage]?,linkPhotos:[URL]?,endereco:Localizacao?,data:String?,horario:String?, status :String?, valorMinimo:Int?, id:Int?, agendaId:Int?,agendaArray:[Agenda]?) {
         self.profissao = profissao
         self.descricao = descricao
         self.photos = photos
@@ -35,6 +36,7 @@ class Orcamento {
         self.valorMinimo = valorMinimo
         self.id = id
         self.agendaId = agendaId
+        self.agendaArray = agendaArray
     }
     
     static func byDict(dict :[String : Any]) -> Orcamento {
@@ -48,7 +50,7 @@ class Orcamento {
         let data = ""
         let localizacao = dict["localizacao"] as! [String : Any]
         let endereco:Localizacao = Localizacao(cep: localizacao["cep"] as? String, logradouro: localizacao["logradouro"] as? String, numero: localizacao["numero"] as? Int, complemento: localizacao["complemento"] as? String, bairro: localizacao["bairro"] as? String, cidade: localizacao["cidade"] as? String, uf: localizacao["uf"] as? String, longitude: localizacao["longitude"] as? String, latitude: localizacao["latitude"] as? String)
-        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos: nil, endereco: endereco, data: data, horario: nil, status: status, valorMinimo: valorMinimo, id: nil, agendaId: nil)
+        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos: nil, endereco: endereco, data: data, horario: nil, status: status, valorMinimo: valorMinimo, id: nil, agendaId: nil, agendaArray: nil)
         
         return orcamento
     }
@@ -64,12 +66,36 @@ class Orcamento {
         let fotos = orcamentoDict?["fotos"] as? String ?? " "
         let localizacao = orcamentoDict?["localizacao"] as? [String : Any]
         let id = orcamentoDict?["id"] as? Int
+        let agendaDict = orcamentoDict?["agendas"] as? [[String: AnyObject]]
+        print(agendaDict as Any)
         print("-----/Dict-----")
+        //instanciando as imagens
         var fotosLinks:[URL] = []
         let url:URL = URL(string: fotos) ?? URL(string:"failImage.com")!
         fotosLinks.insert(url, at: 0)
+        //Fim do bloco de instancia das imagens
+        //instancia das agendas com horarios
+        var agendaArray:[Agenda] = []
+        if let agendaArrayFromLib = agendaDict {
+            for agenda in agendaArrayFromLib {
+                let dinamica = agenda["dinamica"] as? Int
+                let horaInicio = agenda["horaInicio"] as? [String: Any]
+                let horaFinal = agenda["horaFinal"] as? [String: Any]
+                let hourBeggin = HourStruct.init(hour: String((horaInicio?["hour"] as? Int)!), minute: String((horaInicio?["minute"] as? Int)!))
+                let hourEnd = HourStruct.init(hour: String((horaFinal?["hour"] as? Int)!), minute: String((horaFinal?["minute"] as? Int)!))
+                var isDinamic = false
+                if dinamica == 1 {
+                    isDinamic = true
+                }
+                let agendaInsert:Agenda = Agenda(horaInicio: hourBeggin, horaFinal: hourEnd, diaSemana: agenda["diaSemana"] as? String, dinamica: isDinamic, id: agenda["id"] as? Int)
+                agendaArray.insert(agendaInsert, at: 0)
+            }
+        }
+        print(agendaArray)
+        
+        //fim das instancia das agendas com horarios
         let endereco:Localizacao = Localizacao(cep: localizacao?["cep"] as? String, logradouro: localizacao?["logradouro"] as? String, numero: localizacao?["numero"] as? Int, complemento: localizacao?["complemento"] as? String, bairro: localizacao?["bairro"] as? String, cidade: localizacao?["cidade"] as? String, uf: localizacao?["uf"] as? String, longitude: localizacao?["longitude"] as? String, latitude: localizacao?["latitude"] as? String)
-        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos:fotosLinks , endereco: endereco, data: nil, horario: nil, status: status, valorMinimo: nil, id: id, agendaId: nil)
+        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos:fotosLinks , endereco: endereco, data: nil, horario: nil, status: status, valorMinimo: nil, id: id, agendaId: nil, agendaArray: agendaArray)
         return orcamento
     }
     

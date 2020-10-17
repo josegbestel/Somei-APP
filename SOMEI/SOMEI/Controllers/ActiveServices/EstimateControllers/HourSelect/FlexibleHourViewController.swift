@@ -12,7 +12,7 @@ class FlexibleHourViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var segmentedDayControl: UISegmentedControl!
     
-    var agenda:Agenda = Agenda(horaInicio: nil, horaFinal: nil, diaSemana: nil, dinamica: nil)
+    var agenda:Agenda = Agenda(horaInicio: nil, horaFinal: nil, diaSemana: nil, dinamica: nil, id: nil)
     
     @IBOutlet weak var tfFirstHour: UITextField!
     @IBOutlet weak var tfSecondHour: UITextField!

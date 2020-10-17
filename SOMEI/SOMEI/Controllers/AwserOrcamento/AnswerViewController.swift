@@ -47,6 +47,15 @@ class AnswerViewController: ViewController {
                 downloadImage(from: link)
             }
         }
+        if let horario = OrcamentoManager.sharedInstance.selectedOrcamento?.agendaArray?[0] {
+            print(horario.horaFinal)
+            if let horaInicio = horario.horaInicio {
+                if let horaFinal = horario.horaFinal {
+                    timeLabel.text = "\(horario.diaSemana ?? ""),\(horaInicio.hour ?? ""):\(horaInicio.minute ?? "") - \(horaFinal.hour ?? ""):\(horaFinal.minute ?? "") "
+                }
+            }
+        }
+        
     }
     
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {

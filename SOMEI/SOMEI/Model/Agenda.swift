@@ -14,13 +14,15 @@ class Agenda {
     var horaFinal:HourStruct?
     var diaSemana:String?
     var dinamica:Bool?
+    var id:Int?
     
-    init(horaInicio:HourStruct?, horaFinal:HourStruct?,diaSemana:String?,dinamica:Bool?) {
+    init(horaInicio:HourStruct?, horaFinal:HourStruct?,diaSemana:String?,dinamica:Bool?,id:Int?) {
         
         self.horaInicio = horaInicio
         self.horaFinal = horaFinal
         self.diaSemana = diaSemana
         self.dinamica = dinamica
+        self.id = id
     
     }
 }
