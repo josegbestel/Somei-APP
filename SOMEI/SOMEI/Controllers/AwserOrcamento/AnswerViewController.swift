@@ -48,13 +48,13 @@ class AnswerViewController: ViewController {
             }
         }
         if let horario = OrcamentoManager.sharedInstance.selectedOrcamento?.agendaArray?[0] {
-            print(horario.horaFinal)
             if let horaInicio = horario.horaInicio {
                 if let horaFinal = horario.horaFinal {
                     timeLabel.text = "\(horario.diaSemana ?? ""),\(horaInicio.hour ?? ""):\(horaInicio.minute ?? "") - \(horaFinal.hour ?? ""):\(horaFinal.minute ?? "") "
                 }
             }
         }
+        foundAgendaId()
         
     }
     
@@ -101,6 +101,12 @@ class AnswerViewController: ViewController {
         return teste
     }
     
+    func foundAgendaId() {
+        if let agenda = OrcamentoManager.sharedInstance.selectedOrcamento?.agendaArray?[0] {
+            OrcamentoManager.sharedInstance.selectedOrcamento?.agendaId = agenda.id
+        }
+    }
+
     func awnserOrcamento() {
         if ProfissionalManager.sharedInstance.profissional.email != nil, ProfissionalManager.sharedInstance.profissional.password != nil, OrcamentoManager.sharedInstance.selectedOrcamento?.id != nil {
             ProviderSomei.answerRequest(structToSend: constructStruct(), id: String((OrcamentoManager.sharedInstance.selectedOrcamento?.id)!), email: ProfissionalManager.sharedInstance.profissional.email!, password: ProfissionalManager.sharedInstance.profissional.password!){success in

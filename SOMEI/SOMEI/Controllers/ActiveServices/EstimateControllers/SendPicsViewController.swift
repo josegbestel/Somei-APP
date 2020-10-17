@@ -17,7 +17,7 @@ class SendPicsViewController: UIViewController {
     @IBOutlet weak var continueButton: UIButton!
     
     var photos:[UIImage] = []
-    var photosLinks:[UIImage]?
+    var photosLinks:[UIImage] = []
     var linkImage:URL?
     var imageReceived:UIImage?
     
@@ -68,7 +68,7 @@ class SendPicsViewController: UIViewController {
                     OrcamentoManager.sharedInstance.createOrcamento.linkPhotos?.insert(downloadURL, at: 0)
                 }
                 
-//                print("Sucesso ao obter link da imagem:\(downloadURL)")
+                print("Sucesso ao obter link da imagem:\(downloadURL)")
                 print(OrcamentoManager.sharedInstance.photoArray as Any)
             }
         }
