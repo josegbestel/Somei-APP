@@ -59,13 +59,13 @@ class Orcamento {
         print("-----Dict-----")
         print(dict)
         let orcamentoDict = dict["orcamento"] as? [String : Any]
+        let id = dict["id"] as? Int
         let profissional = orcamentoDict?["categoria"] as? [String : Any]
         let profissao = profissional?["titulo"] as? String
         let descricao = orcamentoDict?["servico"] as? String
         let status = orcamentoDict?["status"] as? String
         let fotos = orcamentoDict?["fotos"] as? String ?? " "
         let localizacao = orcamentoDict?["localizacao"] as? [String : Any]
-        let id = orcamentoDict?["id"] as? Int
         let agendaDict = orcamentoDict?["agendas"] as? [[String: AnyObject]]
         print(agendaDict as Any)
         print("-----/Dict-----")

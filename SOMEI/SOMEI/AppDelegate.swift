@@ -9,14 +9,22 @@
 import UIKit
 import CoreData
 import FirebaseCore
+import SendBirdSDK
+import SendBirdUIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, SBDChannelDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
+        let APP_ID = "57300459-ED93-4EA8-B8BA-4A462060572D"
+        let USER_ID = "Suporte"
+//        let CHANNEL_URL = "sendbird_open_channel_9586_ba2109976fc07f43e75e64050bda9a01d0709a38"
+        
+        SBDMain.initWithApplicationId(APP_ID)
+        SBUGlobals.CurrentUser = SBUUser(userId: USER_ID)
         //case createdProfessionalPerfil = "createdProfessionalPerfil"
         //case createdSolicitantePerfil = "createdSolicitantePerfil"
         

@@ -32,6 +32,9 @@ PODS:
   - nanopb/decode (1.30906.0)
   - nanopb/encode (1.30906.0)
   - PromisesObjC (1.2.10)
+  - SendBirdSDK (3.0.203)
+  - SendBirdUIKit (1.2.3):
+    - SendBirdSDK (~> 3.0.202)
   - YYCalendar (1.3.3)
 
 DEPENDENCIES:
@@ -39,6 +42,8 @@ DEPENDENCIES:
   - Cosmos (~> 22.1)
   - CPF-CNPJ-Validator
   - Firebase/Storage
+  - SendBirdSDK
+  - SendBirdUIKit
   - YYCalendar
 
 SPEC REPOS:
@@ -55,6 +60,8 @@ SPEC REPOS:
     - GTMSessionFetcher
     - nanopb
     - PromisesObjC
+    - SendBirdSDK
+    - SendBirdUIKit
     - YYCalendar
 
 SPEC CHECKSUMS:
@@ -70,8 +77,10 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
+  SendBirdSDK: 362b502853a901b0d6d32d591912c365b2aa997b
+  SendBirdUIKit: 3d7b969bbd99fba145448e0f58ced493c0f79952
   YYCalendar: 1a6bbbd2190392edf9209da898b029ce4e5e734b
 
-PODFILE CHECKSUM: 992bb2354adf6bb68d5ee24cc6e7d2f870f01384
+PODFILE CHECKSUM: d13ec1e18ebf3aeb54604283bf3ae9278feb1746
 
 COCOAPODS: 1.9.3

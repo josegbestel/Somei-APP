@@ -11,6 +11,7 @@ import Cosmos
 import CoreData
 import FirebaseStorage
 import ALCameraViewController
+import SendBirdUIKit
 
 class EmployeePerfilViewController: UIViewController, NSFetchedResultsControllerDelegate {
 
@@ -31,6 +32,8 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
     var linkImage:URL?
     var imagesArray:[UIImage] = []
     var fetchedResultsController: NSFetchedResultsController<ProfissionalEntity>!
+    
+    var window: UIWindow?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -151,6 +154,13 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
     
     func updateImage() {
        photoPerfil.image = ProfissionalManager.sharedInstance.profissional.photo
+    }
+    
+    @IBAction func supportButton(_ sender: Any) {
+        
+        let channelListVC = SBUChannelListViewController()
+        let naviVC = UINavigationController(rootViewController: channelListVC)
+        self.window?.rootViewController = naviVC
     }
     
     func uploadImage(image:UIImage) {
