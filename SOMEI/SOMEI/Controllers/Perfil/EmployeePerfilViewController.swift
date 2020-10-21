@@ -160,7 +160,8 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
         
         let channelListVC = SBUChannelListViewController()
         let naviVC = UINavigationController(rootViewController: channelListVC)
-        self.window?.rootViewController = naviVC
+        present(naviVC, animated: true, completion: nil)
+//        self.window?.rootViewController = naviVC
     }
     
     func uploadImage(image:UIImage) {
