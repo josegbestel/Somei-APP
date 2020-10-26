@@ -22,7 +22,7 @@ class ConfirmDatasEmployeeViewController: UIViewController {
     @IBOutlet weak var complementlabel: UILabel!
     @IBOutlet weak var neighborhoodLabel: UILabel!
     @IBOutlet weak var ufLabel: UILabel!
-    
+    @IBOutlet weak var mouthGoal: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +45,7 @@ class ConfirmDatasEmployeeViewController: UIViewController {
         emailLabel.text = ProfissionalManager.sharedInstance.profissional.email
         phoneLabel.text = ProfissionalManager.sharedInstance.profissional.phone
         mainActivityLabel.text = ProfissionalManager.sharedInstance.profissional.mainActivity
+        mouthGoal.text = String(ProfissionalManager.sharedInstance.profissional.metaMensal ?? 0)
         
         cepLabel.text = ProfissionalManager.sharedInstance.endereco.cep
         logradouroLabel.text = ProfissionalManager.sharedInstance.endereco.logradouro
@@ -52,7 +53,9 @@ class ConfirmDatasEmployeeViewController: UIViewController {
         complementlabel.text = ProfissionalManager.sharedInstance.endereco.complemento
         neighborhoodLabel.text = ProfissionalManager.sharedInstance.endereco.bairro
         ufLabel.text = ProfissionalManager.sharedInstance.endereco.uf
+        
     }
+    
     func goesToConfirmFlow() {
         DispatchQueue.main.async {
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -79,15 +82,4 @@ class ConfirmDatasEmployeeViewController: UIViewController {
             }
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

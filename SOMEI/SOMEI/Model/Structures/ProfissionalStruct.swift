@@ -20,6 +20,7 @@ struct ProfissionalStruct:Codable {
        var telefone:String?
        var email:String?
        var senha:String?
+       var metaMensal:Double?
        var localizacao:LocalizacaoStruct?
       
  

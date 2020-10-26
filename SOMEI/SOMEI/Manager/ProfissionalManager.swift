@@ -17,7 +17,7 @@ class ProfissionalManager {
     var profissionalPerfil: ProfissionalEntity!
     var categoriasSomei: CategoriasProfissionais!
     
-    var profissional = Profissional(cnpj:nil,profissao:nil, name:nil, age:0, phone:nil, email:nil, photo:nil, password:nil,endereço:nil, photoLink: nil, ownerName: nil,portifolio:nil, nota: nil, services: nil, id: nil)
+    var profissional = Profissional(cnpj:nil,profissao:nil, name:nil, age:0, phone:nil, email:nil, photo:nil, password:nil,endereço:nil, photoLink: nil, ownerName: nil,portifolio:nil, nota: nil, services: nil, id: nil, metaMensal: nil)
     var endereco = Localizacao(cep: nil, logradouro: nil, numero: nil, complemento: nil, bairro: "Curitiba", cidade: nil, uf: nil, longitude: "-25.433075", latitude: "-49.275830")
     var Street:String = ""
     
@@ -87,7 +87,7 @@ class ProfissionalManager {
         let latitude = Double("\(endereco.latitude ?? "-49.275830")")
         let localizacaoStruct:LocalizacaoStruct = LocalizacaoStruct.init(cep: endereco.cep, logradouro: endereco.logradouro, numero: endereco.numero, bairro: endereco.bairro, cidade: endereco.cidade, uf: endereco.uf, longitude:longitude , latitude:latitude, complemento: endereco.complemento)
         
-        let profissionalStruct:ProfissionalStruct = ProfissionalStruct.init(cnpj: profissional.cnpj, age: profissional.age, nomeFantasia:profissional.name, categoriaTitulo: profissional.mainActivity, nome: profissional.ownerName, avatar: profissional.photoLink, name: profissional.name, telefone: profissional.phone, email: profissional.email, senha: profissional.password, localizacao: localizacaoStruct)
+        let profissionalStruct:ProfissionalStruct = ProfissionalStruct.init(cnpj: profissional.cnpj, age: profissional.age, nomeFantasia:profissional.name, categoriaTitulo: profissional.mainActivity, nome: profissional.ownerName, avatar: profissional.photoLink, name: profissional.name, telefone: profissional.phone, email: profissional.email, senha: profissional.password, metaMensal:profissional.metaMensal ,localizacao: localizacaoStruct)
 
      
         return profissionalStruct
@@ -105,6 +105,8 @@ class ProfissionalManager {
             profissionalPerfil.ownerName = profissional.ownerName
             profissionalPerfil.password = profissional.password
             profissionalPerfil.photoLink = "\(profissional.photoLink)"
+            profissionalPerfil.metaMensal = profissional.metaMensal ?? 0
+        
             if profissional.photo != nil {
                 profissionalPerfil.photo = profissional.photo!.pngData() as NSData? as Data?
             }

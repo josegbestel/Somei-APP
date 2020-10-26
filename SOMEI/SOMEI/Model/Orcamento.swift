@@ -60,6 +60,7 @@ class Orcamento {
         print(dict)
         let orcamentoDict = dict["orcamento"] as? [String : Any]
         let id = dict["id"] as? Int
+        print("id teste:\(String(describing: id))")
         let profissional = orcamentoDict?["categoria"] as? [String : Any]
         let profissao = profissional?["titulo"] as? String
         let descricao = orcamentoDict?["servico"] as? String

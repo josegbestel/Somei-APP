@@ -47,12 +47,17 @@ class AnswerViewController: ViewController {
                 downloadImage(from: link)
             }
         }
-        if let horario = OrcamentoManager.sharedInstance.selectedOrcamento?.agendaArray?[0] {
-            if let horaInicio = horario.horaInicio {
-                if let horaFinal = horario.horaFinal {
-                    timeLabel.text = "\(horario.diaSemana ?? ""),\(horaInicio.hour ?? ""):\(horaInicio.minute ?? "") - \(horaFinal.hour ?? ""):\(horaFinal.minute ?? "") "
+        if OrcamentoManager.sharedInstance.selectedOrcamento?.agendaArray?.count ?? 0 > 0 {
+            if let horario = OrcamentoManager.sharedInstance.selectedOrcamento?.agendaArray?[0] {
+                if let horaInicio = horario.horaInicio {
+                    if let horaFinal = horario.horaFinal {
+                        timeLabel.text = "\(horario.diaSemana ?? ""),\(horaInicio.hour ?? ""):\(horaInicio.minute ?? "") - \(horaFinal.hour ?? ""):\(horaFinal.minute ?? "") "
+                    }
                 }
             }
+        }else {
+            timeLabel.isHidden = true
+            print("ALERTA ORCAMENTO SEM AGENDAMENTO")
         }
         foundAgendaId()
         
@@ -102,8 +107,10 @@ class AnswerViewController: ViewController {
     }
     
     func foundAgendaId() {
-        if let agenda = OrcamentoManager.sharedInstance.selectedOrcamento?.agendaArray?[0] {
-            OrcamentoManager.sharedInstance.selectedOrcamento?.agendaId = agenda.id
+        if OrcamentoManager.sharedInstance.selectedOrcamento?.agendaArray?.count ?? 0 > 0 {
+            if let agenda = OrcamentoManager.sharedInstance.selectedOrcamento?.agendaArray?[0] {
+                OrcamentoManager.sharedInstance.selectedOrcamento?.agendaId = agenda.id
+            }
         }
     }
 
