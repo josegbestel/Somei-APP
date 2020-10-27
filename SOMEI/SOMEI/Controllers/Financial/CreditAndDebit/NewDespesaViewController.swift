@@ -80,10 +80,32 @@ class NewDespesaViewController: UIViewController {
         return value
     }
     
+    func errorWhenTrySave() {
+        let alert = UIAlertController(title: "Algo deu errado", message: "Por favor tente novamente mais tarde", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok!", style: .default, handler: { action in
+        })
+        alert.addAction(ok)
+        self.present(alert, animated: true)
+    }
+    
+    func successWhenTrySave() {
+        let alert = UIAlertController(title: "Concluido", message: "Valor salvo com sucesso", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok!", style: .default, handler: { action in
+        })
+        alert.addAction(ok)
+        self.present(alert, animated: true)
+    }
+    
     func completeSaveLib() {
         if ProfissionalManager.sharedInstance.profissional.email != nil, ProfissionalManager.sharedInstance.profissional.password != nil, ProfissionalManager.sharedInstance.profissional.id != nil {
             ProviderSomei.sendNewLancamento(lancamento: createStruct(), id: String(ProfissionalManager.sharedInstance.profissional.id!), email: ProfissionalManager.sharedInstance.profissional.email!, password: ProfissionalManager.sharedInstance.profissional.password!) {success in
                 //complete flow
+                if success == true {
+                    self.successWhenTrySave()
+                    self.dismiss(animated: true, completion: nil)
+                }else {
+                    self.errorWhenTrySave()
+                }
              }
         }
     }
