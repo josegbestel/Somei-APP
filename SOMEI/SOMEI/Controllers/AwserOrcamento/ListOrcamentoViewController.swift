@@ -50,7 +50,8 @@ class ListOrcamentoViewController: ViewController, NSFetchedResultsControllerDel
         ProfissionalManager.sharedInstance.profissional.email = perfil.email
         ProfissionalManager.sharedInstance.profissional.password = perfil.password
         ProfissionalManager.sharedInstance.profissional.id = Int(perfil.identifier)
-      
+        ProfissionalManager.sharedInstance.profissional.metaMensal = Double(perfil.metaMensal)
+        
     }
     
     func goesToAnswer() {

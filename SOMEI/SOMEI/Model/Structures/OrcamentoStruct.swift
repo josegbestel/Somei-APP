@@ -11,7 +11,7 @@ import Foundation
 struct OrcamentoStruct:Codable {
     
     var categoriaMeiTitulo:String
-    var servico:String
+    var descricao:String
     var solicitanteId:Int
     var agendas:[AgendaStruct]
     var localizacao:LocalizacaoStruct

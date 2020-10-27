@@ -75,25 +75,29 @@ class NewDespesaViewController: UIViewController {
         
         let vencimentoStruct:DtVencimentoStruct = DtVencimentoStruct.init(day: dayOfVencimento() ,mounth:mounthOfVencimento() ,year: yearOfVencimento())
         
-        let value:PostingValueStruct = PostingValueStruct.init(valor:valorToLib, descricao:despesaDescription.text, fixa:false, dtVencimento:vencimentoStruct)
+        let value:PostingValueStruct = PostingValueStruct.init(valor:valorToLib, descricao:despesaDescription.text!, fixa:false, dtVencimento:vencimentoStruct)
         
         return value
     }
     
     func errorWhenTrySave() {
-        let alert = UIAlertController(title: "Algo deu errado", message: "Por favor tente novamente mais tarde", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Ok!", style: .default, handler: { action in
-        })
-        alert.addAction(ok)
-        self.present(alert, animated: true)
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Algo deu errado", message: "Por favor tente novamente mais tarde", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "Ok!", style: .default, handler: { action in
+            })
+            alert.addAction(ok)
+            self.present(alert, animated: true)
+        }
     }
     
     func successWhenTrySave() {
-        let alert = UIAlertController(title: "Concluido", message: "Valor salvo com sucesso", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Ok!", style: .default, handler: { action in
-        })
-        alert.addAction(ok)
-        self.present(alert, animated: true)
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Concluido", message: "Valor salvo com sucesso", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "Ok!", style: .default, handler: { action in
+            })
+            alert.addAction(ok)
+            self.present(alert, animated: true)
+        }
     }
     
     func completeSaveLib() {

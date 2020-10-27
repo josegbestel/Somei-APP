@@ -43,7 +43,7 @@ class Orcamento {
         print(dict)
         let categoria = dict["categoria"] as! [String : Any]
         let profissao = categoria["titulo"] as! String
-        let descricao = dict["servico"] as! String
+        let descricao = dict["descricao"] as! String
         let status = dict["status"] as! String
         let valorMinimo = dict["valorMinimo"] as! Int
         //TODO: Implementar data de criação no back
@@ -63,7 +63,7 @@ class Orcamento {
         print("id teste:\(String(describing: id))")
         let profissional = orcamentoDict?["categoria"] as? [String : Any]
         let profissao = profissional?["titulo"] as? String
-        let descricao = orcamentoDict?["servico"] as? String
+        let descricao = orcamentoDict?["descricao"] as? String
         let status = orcamentoDict?["status"] as? String
         let fotos = orcamentoDict?["fotos"] as? String ?? " "
         let localizacao = orcamentoDict?["localizacao"] as? [String : Any]

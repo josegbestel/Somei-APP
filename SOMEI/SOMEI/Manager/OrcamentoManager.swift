@@ -62,7 +62,7 @@ class OrcamentoManager {
         let idUser = SolicitanteManager.sharedInstance.solicitante.id
         print("Orçamento -> idSuser = \(String(describing: idUser))")
         print(createOrcamento.linkPhotos?.count)
-        let orcamentoStruct:OrcamentoStruct = OrcamentoStruct.init(categoriaMeiTitulo: selectedProfission ?? "profissao", servico: createOrcamento.descricao ?? "não foi possivel obter descricao", solicitanteId: idUser ?? 00, agendas: AgendaStructArray , localizacao: localicaoStruct, foto: createOrcamento.linkPhotos)
+        let orcamentoStruct:OrcamentoStruct = OrcamentoStruct.init(categoriaMeiTitulo: selectedProfission ?? "profissao", descricao: createOrcamento.descricao ?? "não foi possivel obter descricao", solicitanteId: idUser ?? 00, agendas: AgendaStructArray , localizacao: localicaoStruct, foto: createOrcamento.linkPhotos)
         return orcamentoStruct
     }
     

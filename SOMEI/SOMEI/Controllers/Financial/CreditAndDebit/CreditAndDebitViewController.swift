@@ -60,7 +60,7 @@ class CreditAndDebitViewController: ViewController {
         borderView.layer.shadowColor = UIColor.black.cgColor
         borderView.layer.shadowOpacity = 2.14
         borderView.layer.shadowOffset = .zero
-        borderView.layer.shadowRadius = 3
+        borderView.layer.shadowRadius = 0.5
         borderView.layer.cornerRadius = 10
     }
     

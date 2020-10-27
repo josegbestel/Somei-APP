@@ -10,10 +10,10 @@ import Foundation
 
 struct PostingValueStruct:Codable {
     
-    var valor:Double?
-    var descricao:String?
-    var fixa:Bool?
-    var dtVencimento:DtVencimentoStruct?
+    var valor:Double
+    var descricao:String
+    var fixa:Bool
+    var dtVencimento:DtVencimentoStruct
     
 }
 

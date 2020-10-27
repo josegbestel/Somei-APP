@@ -73,7 +73,11 @@ class ClientePerfilViewController: UIViewController, NSFetchedResultsControllerD
         
         if SolicitanteManager.sharedInstance.solicitante.services != nil {
             firstServiceLabel.isHidden = false
-            firstServiceLabel.text = SolicitanteManager.sharedInstance.solicitante.services?[0]
+            if SolicitanteManager.sharedInstance.solicitante.services?.count ?? 0 > 0 {
+                firstServiceLabel.text = SolicitanteManager.sharedInstance.solicitante.services?[0]
+            }else {
+                firstServiceLabel.isHidden = true
+            }
         }
     }
     

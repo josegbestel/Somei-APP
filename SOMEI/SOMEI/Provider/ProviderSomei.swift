@@ -17,7 +17,7 @@ class ProviderSomei {
       private static let basePathActiveServices = "https://somei-app-server.herokuapp.com/api/v1/orcamento/solicitante/309"
       private static let baseSaveNewProfessional = "https://somei-app-server.herokuapp.com/api/v1/profissional/" 
       private static let baseSaveNewSolicitante = "https://somei-app-server.herokuapp.com/api/v1/solicitante"
-      private static let baseSaveOrcamentoOnAPI = "https://somei-app-server.herokuapp.com/api/v1/orcamento/"
+      private static let baseSaveOrcamentoOnAPI = "https://somei-app-server.herokuapp.com/api/v1/servico/"//aqui
       private static let baseLoadOrcamentosOnAPI = "https://somei-app-server.herokuapp.com/api/v1/orcamento/profissional/307"
       private static let baseLoadCategoryOnAPI = "https://somei-app-server.herokuapp.com/api/v1/categoria-mei"
       private static let baseLoadFreeProfession = "https://somei-app-server.herokuapp.com/api/v1/categoria-mei/ativos"
@@ -202,7 +202,12 @@ class ProviderSomei {
                         print(error.localizedDescription)
                     }
                 }else{
-                    print("status invalido do servidor:\(response.statusCode)")
+                    do{
+                        let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                        print("Status invalido do servido \(json)")
+                    }catch _{
+                        print("erro json invalido")
+                    }
                 }
             }else {
                 print(error?.localizedDescription as Any)
@@ -402,7 +407,7 @@ class ProviderSomei {
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
         let completeUrl = "https://somei-app-server.herokuapp.com/api/v1/profissional/\(id)/financeiro/lancamento"
-        guard let url = URL(string:completeUrl) else {return}
+        guard let url = URL(string:completeUrl) else {onComplete(false); return}
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
@@ -411,6 +416,7 @@ class ProviderSomei {
             onComplete(false)
             return
         }
+        print("Lancamento Struct:\(lancamento)")
         request.httpBody = json
         
         let dataTask = session.dataTask(with: request) { (data, response, error) in
@@ -420,12 +426,14 @@ class ProviderSomei {
                     onComplete(true)
                 }else {
                     do{
-                      let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                      let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any]
                        print("Problema ao salvar na API:")
                        print(json as Any)
+                       onComplete(false)
                     }catch _{
                       print("Problema ao salvar na API")
                       print("json de erro invalido")
+                      onComplete(false)
                     }
                 }
             }
