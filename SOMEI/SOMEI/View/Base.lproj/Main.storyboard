@@ -6246,20 +6246,20 @@
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="LBu-uM-EeO" customClass="CreditAndDebitTableViewCell" customModule="SOMEI" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="374" height="84"/>
+                                                        <rect key="frame" x="0.0" y="28" width="374" height="83.5"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LBu-uM-EeO" id="GMR-nq-eor">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="84"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="83.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="NOME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCS-9c-TRy">
-                                                                    <rect key="frame" x="25" y="16" width="64" height="27.5"/>
+                                                                    <rect key="frame" x="25" y="16" width="64" height="27"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHU-Eu-9BP">
-                                                                    <rect key="frame" x="25" y="47.5" width="41.5" height="20.5"/>
+                                                                    <rect key="frame" x="25" y="47" width="41.5" height="20.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20.5" id="bba-vN-TEJ"/>
                                                                     </constraints>
@@ -6456,7 +6456,7 @@
                                             <color key="titleColor" red="0.074509803920000006" green="0.37647058820000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="continueButton:" destination="M2D-ol-IcF" eventType="touchUpInside" id="bbe-ci-OOT"/>
+                                            <action selector="saveButton:" destination="M2D-ol-IcF" eventType="touchUpInside" id="C8B-hR-vrP"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ex: Despesa com Mercado" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PTA-7V-qc4">
@@ -6484,10 +6484,22 @@
                                             <action selector="dateSelectedButton:" destination="M2D-ol-IcF" eventType="editingDidBegin" id="ZUc-0c-IMv"/>
                                         </connections>
                                     </textField>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tRf-6m-euc">
+                                        <rect key="frame" x="25" y="317" width="364" height="32"/>
+                                        <segments>
+                                            <segment title="Debito"/>
+                                            <segment title="Credito"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="debitAndCreditSelected:" destination="M2D-ol-IcF" eventType="valueChanged" id="VYM-Hy-3JB"/>
+                                        </connections>
+                                    </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="chJ-BF-GDi" firstAttribute="top" secondItem="PTA-7V-qc4" secondAttribute="bottom" constant="17.5" id="2BT-NJ-JL8"/>
+                                    <constraint firstAttribute="trailing" secondItem="tRf-6m-euc" secondAttribute="trailing" constant="25" id="3BX-5e-mId"/>
+                                    <constraint firstItem="tRf-6m-euc" firstAttribute="top" secondItem="Fd0-aX-iom" secondAttribute="bottom" constant="40" id="8gS-Gf-tBD"/>
                                     <constraint firstItem="8FA-72-kNJ" firstAttribute="leading" secondItem="apW-us-lxY" secondAttribute="leading" constant="35" id="8wQ-Z6-qQd"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PAB-KN-eod" secondAttribute="trailing" constant="20" symbolic="YES" id="9SA-AE-OeD"/>
                                     <constraint firstItem="uS9-uh-9xj" firstAttribute="top" secondItem="apW-us-lxY" secondAttribute="top" constant="35" id="HC9-nF-yG1"/>
@@ -6499,6 +6511,7 @@
                                     <constraint firstAttribute="bottom" secondItem="43S-Vg-XB2" secondAttribute="bottom" constant="150" id="Zjr-Xz-QQe"/>
                                     <constraint firstItem="PAB-KN-eod" firstAttribute="top" secondItem="uS9-uh-9xj" secondAttribute="bottom" constant="22" id="bAW-nz-oEI"/>
                                     <constraint firstItem="Fd0-aX-iom" firstAttribute="leading" secondItem="chJ-BF-GDi" secondAttribute="leading" id="bXl-r4-9GA"/>
+                                    <constraint firstItem="tRf-6m-euc" firstAttribute="leading" secondItem="apW-us-lxY" secondAttribute="leading" constant="25" id="cGq-pW-1uJ"/>
                                     <constraint firstItem="43S-Vg-XB2" firstAttribute="leading" secondItem="apW-us-lxY" secondAttribute="leading" constant="20" symbolic="YES" id="cav-8N-BH5"/>
                                     <constraint firstItem="Fd0-aX-iom" firstAttribute="top" secondItem="chJ-BF-GDi" secondAttribute="bottom" constant="8" symbolic="YES" id="ccU-VT-cfx"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8FA-72-kNJ" secondAttribute="trailing" constant="20" symbolic="YES" id="fdW-g1-mWc"/>
@@ -6549,6 +6562,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
+                        <outlet property="choiceDebitOrCredit" destination="tRf-6m-euc" id="O7D-9c-a7e"/>
                         <outlet property="dateSelected" destination="Fd0-aX-iom" id="T2w-au-owC"/>
                         <outlet property="despesaDescription" destination="PTA-7V-qc4" id="PJz-Uz-pZu"/>
                         <outlet property="despesaValue" destination="PAB-KN-eod" id="pIb-Pf-GQw"/>
@@ -6949,7 +6963,6 @@
                                             <color key="titleColor" red="0.074509803920000006" green="0.37647058820000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="continueButton:" destination="YVU-47-vfG" eventType="touchUpInside" id="gzl-i0-YfU"/>
                                             <action selector="nextButton:" destination="YVU-47-vfG" eventType="touchUpInside" id="XVq-rd-vNg"/>
                                         </connections>
                                     </button>
@@ -6991,7 +7004,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="6x1-z5-BNB"/>
                     <connections>
-                        <outlet property="textField" destination="gqK-tw-2ZF" id="IRY-vo-eiG"/>
                         <outlet property="tfMouthGoel" destination="gqK-tw-2ZF" id="eFx-oC-cLj"/>
                     </connections>
                 </viewController>
@@ -7025,7 +7037,7 @@
         <image name="Plus" width="31" height="31"/>
         <image name="avatar" width="105" height="105"/>
         <image name="backgroud" width="304" height="99"/>
-        <image name="bubble.left" catalog="system" width="32" height="32"/>
+        <image name="bubble.left" catalog="system" width="128" height="110"/>
         <image name="finished" width="120" height="149"/>
         <image name="imageIcon" width="136" height="100"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>

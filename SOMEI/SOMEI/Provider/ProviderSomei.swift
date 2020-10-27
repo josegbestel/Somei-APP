@@ -397,6 +397,42 @@ class ProviderSomei {
         
     }
     
+    class func sendNewLancamento(lancamento:PostingValueStruct,id:String,email:String, password:String, onComplete: @escaping (Bool) -> Void) {
+        let loginString = String(format: "%@:%@", email, password)
+        let loginData = loginString.data(using: String.Encoding.utf8)!
+        let base64LoginString = loginData.base64EncodedString()
+        let completeUrl = "https://somei-app-server.herokuapp.com/api/v1/profissional/\(id)/financeiro/lancamento"
+        guard let url = URL(string:completeUrl) else {return}
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        guard let json = try? JSONEncoder().encode(lancamento) else {
+            onComplete(false)
+            return
+        }
+        request.httpBody = json
+        
+        let dataTask = session.dataTask(with: request) { (data, response, error) in
+            if error == nil {
+                guard let response = response as? HTTPURLResponse else {return}
+                if response.statusCode == 200 {
+                    onComplete(true)
+                }else {
+                    do{
+                      let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                       print("Problema ao salvar na API:")
+                       print(json as Any)
+                    }catch _{
+                      print("Problema ao salvar na API")
+                      print("json de erro invalido")
+                    }
+                }
+            }
+        }
+        dataTask.resume()
+    }
+    
     class func sendOrcamentoToApi(orcamento: OrcamentoStruct, onComplete: @escaping (Bool) -> Void) {
          guard let url = URL(string: baseSaveOrcamentoOnAPI) else {
             onComplete(false)
