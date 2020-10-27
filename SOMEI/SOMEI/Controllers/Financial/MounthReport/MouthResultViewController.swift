@@ -24,6 +24,10 @@ class MouthResultViewController: UIViewController {
         atualizarGrafico()
     }
     
+    func completeInformation() {
+        metaMensalNumber.text = "R$ \(ProfissionalManager.sharedInstance.profissional.metaMensal ?? 0)"
+    }
+    
     func configureLayoutView() {
         borderView.clipsToBounds = false
         borderView.backgroundColor = UIColor.white

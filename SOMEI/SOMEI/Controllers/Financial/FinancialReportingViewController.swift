@@ -29,7 +29,15 @@ class FinancialReportingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLayoutView()
-        
+        completeInformation()
+    }
+    
+    func completeInformation() {
+        completeInformationMouthsResults()
+    }
+    
+    func completeInformationMouthsResults() {
+        metaMensalNumber.text = "R$ \(ProfissionalManager.sharedInstance.profissional.metaMensal ?? 0)"
     }
     
     func configureLayoutView() {

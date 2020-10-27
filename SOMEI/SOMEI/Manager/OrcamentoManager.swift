@@ -30,7 +30,6 @@ class OrcamentoManager {
     var selectedOrcamentoToRequestService:Orcamento? = nil
     
     func completeOrcamento(onComplete: @escaping (Bool) -> Void) {
-//        insertAgendaInArray()
         guard let structForApi = createStruct() else {onComplete(false); return}
         print(structForApi)
         ProviderSomei.sendOrcamentoToApi(orcamento: structForApi){(error) -> Void in

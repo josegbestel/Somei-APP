@@ -12,7 +12,7 @@ class FinancialManager {
     
     static var sharedInstance = FinancialManager()
     
-    
+    var extractRequestArray:[ExtractValue] = []
     
 }
 
