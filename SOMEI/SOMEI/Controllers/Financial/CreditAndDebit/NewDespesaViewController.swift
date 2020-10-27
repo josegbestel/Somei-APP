@@ -56,15 +56,19 @@ class NewDespesaViewController: UIViewController {
     }
     
     func dayOfVencimento() -> Int {
-        
+        let dropStringForDay:String = String(dateSelected.text?.dropLast(8) ?? "")
+        return Int(dropStringForDay) ?? 26
     }
     
     func mounthOfVencimento() -> Int {
-        
+        let dropFirstWord:String = String(dateSelected.text?.dropLast(5) ?? "")
+        let clearDropString:String = String(dropFirstWord.dropFirst(3))
+        return Int(clearDropString) ?? 11
     }
     
     func yearOfVencimento() -> Int {
-        
+        let clearDropString:String = String(dateSelected.text?.dropFirst(6) ?? "")
+        return Int(clearDropString) ?? 2020
     }
     
     func createStruct() -> PostingValueStruct {
