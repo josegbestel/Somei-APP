@@ -17,8 +17,7 @@ class ProviderSomei {
       private static let basePathActiveServices = "https://somei-app-server.herokuapp.com/api/v1/servico/solicitante/"
       private static let baseSaveNewProfessional = "https://somei-app-server.herokuapp.com/api/v1/profissional/" 
       private static let baseSaveNewSolicitante = "https://somei-app-server.herokuapp.com/api/v1/solicitante"
-      private static let baseSaveOrcamentoOnAPI = "https://somei-app-server.herokuapp.com/api/v1/servico/"//aqui
-      private static let baseLoadOrcamentosOnAPI = "https://somei-app-server.herokuapp.com/api/v1/orcamento/profissional/307"
+      private static let baseSaveOrcamentoOnAPI = "https://somei-app-server.herokuapp.com/api/v1/servico/"
       private static let baseLoadCategoryOnAPI = "https://somei-app-server.herokuapp.com/api/v1/categoria-mei"
       private static let baseLoadFreeProfession = "https://somei-app-server.herokuapp.com/api/v1/categoria-mei/ativos"
       private static let basePathLoadActivServices = "https://somei-app-server.herokuapp.com/api/v1/resposta-orcamento/profissional/"
@@ -370,37 +369,6 @@ class ProviderSomei {
                 }
             }
             dataTask.resume()
-    }
-    
-    class func loadOrcamentos(user:String, password:String) {
-        let baseLoadOrcamentosOnAPI2 = "https://somei-app-server.herokuapp.com/api/v1/profissional/login"
-        let completUrl = "\(baseLoadOrcamentosOnAPI2)/\(user)/\(password)"
-        print(completUrl)
-        guard let url = URL(string: completUrl) else {return}
-        
-        let dataTask = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error? ) in
-            if error == nil {
-                guard let response = response as? HTTPURLResponse else {return}
-                print(response)
-                if response.statusCode == 200 {
-                    guard let data = data else {return}
-                    print(data)
-                    do{
-                        let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? Dictionary<String, AnyObject>
-                        //completeJson
- 
-                    }catch {
-                        print(error.localizedDescription)
-                    }
-                }else{
-                    print("status invalido do servidor!!")
-                }
-            } else {
-                print(error!)
-            }
-        }
-        dataTask.resume()
-        
     }
     
     class func sendNewLancamento(lancamento:PostingValueStruct,id:String,email:String, password:String, onComplete: @escaping (Bool) -> Void) {

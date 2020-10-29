@@ -201,6 +201,7 @@ class ClientePerfilViewController: UIViewController, NSFetchedResultsControllerD
     }
     
     func downloadImage(from url: URL) {
+        SomeiManager.sharedInstance.clearCache()
         print("Download Started")
         getData(from: url) { data, response, error in
             if error != nil {

@@ -17,10 +17,11 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //clear cache
+        SomeiManager.sharedInstance.clearCache()
         //Le as categorias para o profissional
         ProviderSomei.loadCategory()
-        
+       
         //Le as categorias ativas para o solicitante
         if(!ProviderSomei.professionalRequired){
             print("Já foi requisitado os ativos? \(ProviderSomei.professionalRequired)")

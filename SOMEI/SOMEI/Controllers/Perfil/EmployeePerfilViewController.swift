@@ -140,6 +140,7 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
     }
     
     func downloadImage(from url: URL) {
+        SomeiManager.sharedInstance.clearCache()
         print("Download Started")
         getData(from: url) { data, response, error in
             guard let data = data, error == nil else { return }
