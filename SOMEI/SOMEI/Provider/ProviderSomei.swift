@@ -14,7 +14,7 @@ class ProviderSomei {
       static var professionalRequired :Bool = false
     
       private static let basePath = "https://somei-app-server.herokuapp.com/swagger-ui.html"
-      private static let basePathActiveServices = "https://somei-app-server.herokuapp.com/api/v1/orcamento/solicitante/309"
+      private static let basePathActiveServices = "https://somei-app-server.herokuapp.com/api/v1/servico/solicitante/"
       private static let baseSaveNewProfessional = "https://somei-app-server.herokuapp.com/api/v1/profissional/" 
       private static let baseSaveNewSolicitante = "https://somei-app-server.herokuapp.com/api/v1/solicitante"
       private static let baseSaveOrcamentoOnAPI = "https://somei-app-server.herokuapp.com/api/v1/servico/"//aqui
@@ -216,12 +216,12 @@ class ProviderSomei {
         dataTask.resume()
     }
     
-    class func openOrcamentos(email:String, password:String,
-                              completion: @escaping (Bool) -> Void){
+    class func openOrcamentos(id:String, email:String, password:String,
+                              completion: @escaping (Bool) -> Void) {
         let loginString = String(format: "%@:%@", email, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
-        guard let url = URL(string:basePathActiveServices) else {return}
+        guard let url = URL(string:"\(basePathActiveServices)\(id)") else {return}
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
@@ -230,6 +230,7 @@ class ProviderSomei {
         let dataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error? ) in
             if error == nil {
                guard let response = response as? HTTPURLResponse else {return}
+                print("statusCode: \(response.statusCode)")
                  if response.statusCode == 200 {
                        guard let data = data else {return}
                        do{
@@ -249,12 +250,12 @@ class ProviderSomei {
                        }catch {
                            print(error.localizedDescription)
                        }
-                   }else{
+                   }else {
                         do{
                             let json = try JSONSerialization.jsonObject(with: data!, options: [])
                             print("Status invalido do servido \(json)")
-                        }catch _{
-                            print("erro json invalido")
+                        }catch let parseError {
+                            print("erro json invalido: \(parseError)")
                         }
                    }
                } else {

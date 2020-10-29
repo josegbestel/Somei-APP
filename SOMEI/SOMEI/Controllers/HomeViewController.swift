@@ -36,14 +36,14 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
         readDatasFromCoreData()
         //Carregar orçamentos criados
         if(SolicitanteManager.sharedInstance.solicitante != nil) {
-            ProviderSomei.openOrcamentos(email: SolicitanteManager.sharedInstance.solicitante.email ?? "", password: SolicitanteManager.sharedInstance.solicitante.password ?? ""){ succes in
+            ProviderSomei.openOrcamentos(id: String(SolicitanteManager.sharedInstance.solicitante.id ?? 310), email: SolicitanteManager.sharedInstance.solicitante.email ?? "", password: SolicitanteManager.sharedInstance.solicitante.password ?? ""){ succes in
                 print("Solicitação orçamentos criados: ")
             }
         }
         
         
 //        ProviderSomei.loadOrcamentos(user: "jose@somei.com.br", password:"123456" )
-        // Do any additional setup after loading the view.
+     
     }
     
     @IBAction func iAmProfessionalButton(_ sender: Any) {
