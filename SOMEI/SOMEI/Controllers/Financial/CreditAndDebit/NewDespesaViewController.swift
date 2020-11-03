@@ -106,7 +106,9 @@ class NewDespesaViewController: UIViewController {
                 //complete flow
                 if success == true {
                     self.successWhenTrySave()
-                    self.dismiss(animated: true, completion: nil)
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: nil)
+                    }
                 }else {
                     self.errorWhenTrySave()
                 }
