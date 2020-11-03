@@ -7011,10 +7011,10 @@
             </objects>
             <point key="canvasLocation" x="-14988" y="1023"/>
         </scene>
-        <!--Answer Orcamento View Controller-->
+        <!--Detail Orcamento List View Controller-->
         <scene sceneID="f9q-Xe-OWk">
             <objects>
-                <viewController modalPresentationStyle="currentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GO0-65-ap0" customClass="AnswerOrcamentoViewController" customModule="SOMEI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailOrcamentoListViewController" modalPresentationStyle="currentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GO0-65-ap0" customClass="DetailOrcamentoListViewController" customModule="SOMEI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3dH-5s-Veg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -7230,6 +7230,7 @@
                                     <constraint firstAttribute="trailing" secondItem="MLg-1t-199" secondAttribute="trailing" constant="15" id="g7H-SE-2mH"/>
                                     <constraint firstItem="NO1-gY-2cn" firstAttribute="top" secondItem="hZP-Eq-oc8" secondAttribute="top" constant="45" id="hSq-PO-7ak"/>
                                     <constraint firstItem="NO1-gY-2cn" firstAttribute="top" secondItem="fwF-8C-Npi" secondAttribute="bottom" constant="8" symbolic="YES" id="j0V-0T-prA"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Mol-3w-QQn" secondAttribute="trailing" constant="20" symbolic="YES" id="k0g-l2-za6"/>
                                     <constraint firstItem="hK8-8r-Wue" firstAttribute="leading" secondItem="fwF-8C-Npi" secondAttribute="leading" id="oYQ-Bo-gRc"/>
                                     <constraint firstItem="hK8-8r-Wue" firstAttribute="top" secondItem="NO1-gY-2cn" secondAttribute="bottom" constant="5" id="urG-zL-xrF"/>
                                     <constraint firstItem="NO1-gY-2cn" firstAttribute="leading" secondItem="hZP-Eq-oc8" secondAttribute="leading" constant="15" id="vCC-nQ-PtN"/>
@@ -7248,7 +7249,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButton:" destination="GO0-65-ap0" eventType="touchUpInside" id="2pn-n3-elf"/>
+                                    <action selector="backButton:" destination="GO0-65-ap0" eventType="touchUpInside" id="v80-J7-ou6"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybq-9j-N52">
@@ -7284,14 +7285,29 @@
                     </view>
                     <navigationItem key="navigationItem" id="mbb-Uq-gac"/>
                     <connections>
+                        <outlet property="clientNameLabel" destination="PCA-uH-xwa" id="4ls-DP-6AE"/>
                         <outlet property="descriptionInformationToSecondView" destination="c3V-yX-6Id" id="6J0-HY-Qbn"/>
                         <outlet property="descriptionLabel" destination="Ybq-9j-N52" id="v8n-Hw-v5g"/>
+                        <outlet property="descriptionTitle" destination="Ybq-9j-N52" id="S66-qK-KfO"/>
+                        <outlet property="descriptionTitleSolicitationView" destination="c3V-yX-6Id" id="REy-sP-qxQ"/>
                         <outlet property="enderecoLabel" destination="CUy-ql-aOc" id="yJS-7J-SQc"/>
+                        <outlet property="esderecoLabel" destination="CUy-ql-aOc" id="1ta-rw-PGt"/>
+                        <outlet property="imageOrcamentoCollection" destination="96h-Tn-hw6" id="AHV-5G-8Pl"/>
+                        <outlet property="imageViewStatus" destination="ndA-Xa-vEX" id="rPJ-dJ-T5Y"/>
+                        <outlet property="mainStatusLabel" destination="ATT-6s-QSS" id="gIT-Aa-Uel"/>
                         <outlet property="orcamentosPhotosCollection" destination="96h-Tn-hw6" id="pUV-Ko-77D"/>
+                        <outlet property="priceLabel" destination="Gi3-Iv-Kr6" id="Oba-35-Keo"/>
+                        <outlet property="professionTitle" destination="ryR-FO-3Dm" id="GYD-rl-68f"/>
+                        <outlet property="professionalTitleSolicitationView" destination="tBI-en-9qV" id="Unz-iS-Inc"/>
                         <outlet property="profissaoLabel" destination="ryR-FO-3Dm" id="734-Td-E0a"/>
                         <outlet property="profissionalLabel" destination="tBI-en-9qV" id="KFO-W8-vLv"/>
+                        <outlet property="serviceDatasView" destination="RHi-ad-dce" id="vho-Vv-XU8"/>
                         <outlet property="solicitacaoView" destination="NO1-gY-2cn" id="AKv-Za-uXa"/>
+                        <outlet property="solicitationView" destination="NO1-gY-2cn" id="UG6-UD-S78"/>
+                        <outlet property="starView" destination="7QN-Z7-blS" id="3H0-SC-ELB"/>
                         <outlet property="statusLabel" destination="ATT-6s-QSS" id="DRx-bu-JFf"/>
+                        <outlet property="statusLabelStatusView" destination="zp9-aq-PXo" id="KKI-KK-94E"/>
+                        <outlet property="statusView" destination="MLg-1t-199" id="gEt-ez-xH7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HYz-qJ-2Xl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

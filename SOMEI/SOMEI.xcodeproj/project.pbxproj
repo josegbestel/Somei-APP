@@ -115,6 +115,7 @@
 		D19FB8F9252A86A300B42211 /* CreditAndDebitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19FB8F8252A86A300B42211 /* CreditAndDebitTableViewCell.swift */; };
 		D1B75A2E2547903D006F614A /* ExtractValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B75A2D2547903D006F614A /* ExtractValue.swift */; };
 		D1B75A3325479097006F614A /* DtVencimento.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B75A3225479097006F614A /* DtVencimento.swift */; };
+		D1D09037254CE54500AF69FB /* DetailOrcamentoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D09036254CE54500AF69FB /* DetailOrcamentoListViewController.swift */; };
 		D1ECE68B252A94BB00F70CE4 /* NewDespesaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ECE68A252A94BB00F70CE4 /* NewDespesaViewController.swift */; };
 		D1ECE694252BB04000F70CE4 /* MouthResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ECE693252BB04000F70CE4 /* MouthResultViewController.swift */; };
 		D2F70AC9666561AA392EA1E3 /* Pods_SOMEI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4814DA91DCEE3BDD98942C8E /* Pods_SOMEI.framework */; };
@@ -254,6 +255,7 @@
 		D19FB8F8252A86A300B42211 /* CreditAndDebitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditAndDebitTableViewCell.swift; sourceTree = "<group>"; };
 		D1B75A2D2547903D006F614A /* ExtractValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractValue.swift; sourceTree = "<group>"; };
 		D1B75A3225479097006F614A /* DtVencimento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DtVencimento.swift; sourceTree = "<group>"; };
+		D1D09036254CE54500AF69FB /* DetailOrcamentoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOrcamentoListViewController.swift; sourceTree = "<group>"; };
 		D1ECE68A252A94BB00F70CE4 /* NewDespesaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDespesaViewController.swift; sourceTree = "<group>"; };
 		D1ECE693252BB04000F70CE4 /* MouthResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouthResultViewController.swift; sourceTree = "<group>"; };
 		D6929F95C8DA35D5736F1289 /* Pods-SOMEI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOMEI.debug.xcconfig"; path = "Target Support Files/Pods-SOMEI/Pods-SOMEI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -514,6 +516,7 @@
 		3970B97D250F5302006C36DD /* AwserOrcamento */ = {
 			isa = PBXGroup;
 			children = (
+				D1D09035254CE52900AF69FB /* ProfissionalAwnser */,
 				3970B97E250F5302006C36DD /* OrcamentosTableViewCell.swift */,
 				3970B97F250F5302006C36DD /* AnswerViewController.swift */,
 				3970B980250F5302006C36DD /* ListOrcamentoViewController.swift */,
@@ -631,6 +634,14 @@
 				D1B75A3225479097006F614A /* DtVencimento.swift */,
 			);
 			path = MouthResults;
+			sourceTree = "<group>";
+		};
+		D1D09035254CE52900AF69FB /* ProfissionalAwnser */ = {
+			isa = PBXGroup;
+			children = (
+				D1D09036254CE54500AF69FB /* DetailOrcamentoListViewController.swift */,
+			);
+			path = ProfissionalAwnser;
 			sourceTree = "<group>";
 		};
 		D1ECE68F252BAFA800F70CE4 /* MounthReport */ = {
@@ -848,6 +859,7 @@
 				3970B9DD250F5303006C36DD /* PasswordViewController.swift in Sources */,
 				D19FB8F9252A86A300B42211 /* CreditAndDebitTableViewCell.swift in Sources */,
 				D180718025284D870087385E /* RequestsTableViewController.swift in Sources */,
+				D1D09037254CE54500AF69FB /* DetailOrcamentoListViewController.swift in Sources */,
 				D18BE41B2531213800B32449 /* RequestedServicesViewController.swift in Sources */,
 				3970B9B0250F5302006C36DD /* OrcamentoManager.swift in Sources */,
 				3970B9AE250F5302006C36DD /* ProfissionalManager.swift in Sources */,

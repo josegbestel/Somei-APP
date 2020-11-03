@@ -22,6 +22,13 @@ class RequestedServicesViewController: UIViewController {
              }
         }
     }
+    
+    func goesToDetailOrcamento() {
+        let newVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailOrcamentoListViewController")
+        self.definesPresentationContext = true
+        newVC?.modalPresentationStyle = .overCurrentContext
+        self.present(newVC!, animated: true, completion: nil)
+    }
 
 }
 extension RequestedServicesViewController: UITableViewDataSource {
@@ -54,6 +61,7 @@ extension RequestedServicesViewController: UITableViewDataSource {
     
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        OrcamentoManager.sharedInstance.selectedOrcamentoToRequestService = OrcamentoManager.sharedInstance.servicesRequestArray[indexPath.row]
+       goesToDetailOrcamento()
    }
 }
 extension RequestedServicesViewController: UITableViewDelegate {
