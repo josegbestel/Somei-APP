@@ -63,7 +63,32 @@ class DetailOrcamentoListViewController: UIViewController {
     }
     
     func configureImageView() {
-        //imageViewStatus
+        let status = OrcamentoManager.sharedInstance.selectedOrcamentoToRequestService?.status
+        switch status {
+          case "SOLICITADO":
+            statusLabelStatusView.text = "Solicitado"
+            statusLabelStatusView.backgroundColor = UIColor(red: 46/255, green: 75/255, blue: 113/255, alpha:1)
+          case "RESPONDIDO":
+            statusLabelStatusView.text = "Respondido"
+            statusLabelStatusView.backgroundColor = UIColor(red: 126/255, green: 142/255, blue: 156/255, alpha:1)
+          case "CONFIRMADO":
+            statusLabelStatusView.text = "Aguardando resposta do cliente"
+            statusLabelStatusView.backgroundColor = UIColor(red: 255/255, green: 187/255, blue: 22/255, alpha:1)
+            imageViewStatus.image = UIImage(named: "ConfirmadoStatus")
+          case "PENDENTE":
+            statusLabelStatusView.text = "Confirmar conclusão"
+            statusLabelStatusView.backgroundColor = UIColor(red: 148/255, green: 62/255, blue: 255/255, alpha:1)
+            imageViewStatus.image = UIImage(named: "PendenteStatus")
+          case "FINALIZADO":
+            statusLabelStatusView.text = "Serviço realizado"
+            statusLabelStatusView.backgroundColor = UIColor(red: 6/255, green: 221/255, blue: 112/255, alpha:1)
+            imageViewStatus.image = UIImage(named: "FinalizadoStatus")
+          case "CANCELADO":
+            statusLabelStatusView.text = "Cancelado"
+            statusLabelStatusView.backgroundColor = UIColor(red: 255/255, green: 92/255, blue: 83/255, alpha:1)
+          default:
+            print("No status found:\(status ?? "")")
+          }
     }
     
     func completeOrcamentoEndereco() -> String {
