@@ -19,39 +19,13 @@ class CreditAndDebitViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewLaout()
-        if ProfissionalManager.sharedInstance.profissional.email != nil, ProfissionalManager.sharedInstance.profissional.password != nil, ProfissionalManager.sharedInstance.profissional.id != nil {
-            ProviderSomei.requestMouthExtract(id: String(ProfissionalManager.sharedInstance.profissional.id!), email: ProfissionalManager.sharedInstance.profissional.email!, password: ProfissionalManager.sharedInstance.profissional.password!) {success in
-                DispatchQueue.main.async {
-                    self.completeInformation()
-                }
-             }
-        }
+        completeInformation()
     }
     
     func completeInformation() {
         tableView.reloadData()
-        debitNumberView.text = "R$ \(calculateDebit())"
-        creditNumberLabel.text = "R$ \(calculateCredit())"
-    }
-    
-    func calculateDebit() -> Double {
-        var valor:Double = 0
-        for extract in FinancialManager.sharedInstance.extractRequestArray {
-            if extract.valor ?? 0 > 0 {
-                valor += extract.valor ?? 0
-            }
-        }
-        return valor
-    }
-    
-    func calculateCredit() -> Double {
-        var valor:Double = 0
-        for extract in FinancialManager.sharedInstance.extractRequestArray {
-            if extract.valor ?? 0 < 0 {
-                valor += extract.valor ?? 0
-            }
-        }
-        return valor
+        debitNumberView.text = "R$ \(FinancialManager.sharedInstance.calculateDebit())"
+        creditNumberLabel.text = "R$ \(FinancialManager.sharedInstance.calculateCredit())"
     }
     
     func configureViewLaout() {

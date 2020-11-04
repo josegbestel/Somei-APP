@@ -34,10 +34,38 @@ class FinancialReportingViewController: UIViewController {
     
     func completeInformation() {
         completeInformationMouthsResults()
+        completeProfitMargin()
+        completeBankDeposit()
+    }
+    
+    func completeBankDeposit() {
+        let lastDeposit = FinancialManager.sharedInstance.lastDeposit()
+        if let lastDeposit = lastDeposit {
+            if let day = lastDeposit.dtVencimento?.day, let mounth = lastDeposit.dtVencimento?.mounth, let year = lastDeposit.dtVencimento?.year {
+                dateLabel.text = "\(day)/\(mounth)/\(year)"
+            }else{
+                dateLabel.isHidden = true
+            }
+            if let valor = lastDeposit.valor {
+                priceLabel.text = "R$\(valor)"
+            }else{
+                priceLabel.isHidden = true
+            }
+        }else{
+            bankDepositView.isHidden = true
+        }
+    }
+    
+    func completeProfitMargin() {
+        if let percent = FinancialManager.sharedInstance.calculatePercentProfitMargin() {
+            percentlabel.text = "\(percent)%"
+        }
     }
     
     func completeInformationMouthsResults() {
         metaMensalNumber.text = "R$ \(ProfissionalManager.sharedInstance.profissional.metaMensal ?? 0)"
+        saldoAtualNumber.text = "R$ \(FinancialManager.sharedInstance.calculateSaldo())"
+        previsaoMensal.text = "R$ \(FinancialManager.sharedInstance.calculatePrevisao())"
     }
     
     func configureLayoutView() {

@@ -14,5 +14,57 @@ class FinancialManager {
     
     var extractRequestArray:[ExtractValue] = []
     
+    func calculateDebit() -> Double {
+        var valor:Double = 0
+        for extract in FinancialManager.sharedInstance.extractRequestArray {
+            if extract.valor ?? 0 > 0 {
+                valor += extract.valor ?? 0
+            }
+        }
+        return valor
+    }
+    
+    func calculateCredit() -> Double {
+        var valor:Double = 0
+        for extract in FinancialManager.sharedInstance.extractRequestArray {
+            if extract.valor ?? 0 < 0 {
+                valor += extract.valor ?? 0
+            }
+        }
+        return valor
+    }
+    
+    func calculateSaldo() -> Double {
+        let valor = calculateDebit() - calculateCredit()
+        return valor
+    }
+    
+    func calculatePrevisao() -> Double {
+        var valor:Double = 0
+        for extract in FinancialManager.sharedInstance.extractRequestArray {
+            if extract.dtVencimento?.mounth ?? 0 > actualMouthInt() {
+                valor += extract.valor ?? 0
+            }
+        }
+        return valor
+    }
+    
+    func calculatePercentProfitMargin() -> Int? {
+        let percent = ((calculateCredit() - calculateDebit()) / calculateCredit()) * 100
+        return Int(percent)
+    }
+    
+    func actualMouthInt() -> Int {
+        let date: Date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM"
+        let mouthDate = dateFormatter.string(from: date)
+        print(Int(mouthDate))
+        return Int(mouthDate) ?? 0
+    }
+    
+    func lastDeposit() -> ExtractValue? {
+        return extractRequestArray.last
+    }
 }
 

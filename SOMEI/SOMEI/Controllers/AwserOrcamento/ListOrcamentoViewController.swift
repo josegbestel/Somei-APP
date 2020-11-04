@@ -24,6 +24,11 @@ class ListOrcamentoViewController: ViewController, NSFetchedResultsControllerDel
                     self.tableView.reloadData()
                 }
              }
+            ProviderSomei.requestMouthExtract(id: String(ProfissionalManager.sharedInstance.profissional.id!), email: ProfissionalManager.sharedInstance.profissional.email!, password: ProfissionalManager.sharedInstance.profissional.password!) {success in
+                if success == true {
+                    print("sucesso ao carregar as finanças")
+                }
+             }
         }
     }
     
