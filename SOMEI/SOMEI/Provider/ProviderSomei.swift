@@ -21,7 +21,7 @@ class ProviderSomei {
       private static let baseLoadCategoryOnAPI = "https://somei-app-server.herokuapp.com/api/v1/categoria-mei"
       private static let baseLoadFreeProfession = "https://somei-app-server.herokuapp.com/api/v1/categoria-mei/ativos"
       private static let basePathLoadActivServices = "https://somei-app-server.herokuapp.com/api/v1/resposta-orcamento/profissional/"
-      private static let basePathLoadServicesRequested = "https://somei-app-server.herokuapp.com/api/v1/orcamento/profissional/"
+      private static let basePathLoadServicesRequested = "https://somei-app-server.herokuapp.com/api/v1/servico/profissional/"
     
       private static let session = URLSession.shared
     
