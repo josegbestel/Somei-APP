@@ -87,8 +87,6 @@ class FinancialReportingViewController: UIViewController {
         profitMargin.layer.shadowOffset = .zero
         profitMargin.layer.shadowRadius = 3
         profitMargin.layer.cornerRadius = 10
-        let tapProfitMargin = UITapGestureRecognizer(target: self, action: #selector(self.handleTapCreditAndDebit(_:)))
-        profitMargin.addGestureRecognizer(tapProfitMargin)
         //Bank deposit View
         bankDepositView.clipsToBounds = false
         bankDepositView.backgroundColor = UIColor.white
@@ -97,8 +95,6 @@ class FinancialReportingViewController: UIViewController {
         bankDepositView.layer.shadowOffset = .zero
         bankDepositView.layer.shadowRadius = 3
         bankDepositView.layer.cornerRadius = 10
-        let tapDepositView = UITapGestureRecognizer(target: self, action: #selector(self.handleTapCreditAndDebit(_:)))
-        bankDepositView.addGestureRecognizer(tapDepositView)
         //Credit And Debit view
         creditAndDebitView.clipsToBounds = false
         creditAndDebitView.backgroundColor = UIColor.white
@@ -123,7 +119,5 @@ class FinancialReportingViewController: UIViewController {
         newVC?.modalPresentationStyle = .overCurrentContext
         self.present(newVC!, animated: true, completion: nil)
     }
-    
-    
 
 }

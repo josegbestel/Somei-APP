@@ -64,6 +64,11 @@ class FinancialManager {
     }
     
     func lastDeposit() -> ExtractValue? {
+        for extract in extractRequestArray {
+            if extract.valor ?? 0 > 0 {
+                return extract
+            }
+        }
         return extractRequestArray.last
     }
 }
