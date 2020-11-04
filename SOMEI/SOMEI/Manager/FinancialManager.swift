@@ -59,7 +59,6 @@ class FinancialManager {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM"
         let mouthDate = dateFormatter.string(from: date)
-        print(Int(mouthDate))
         return Int(mouthDate) ?? 0
     }
     
@@ -71,5 +70,17 @@ class FinancialManager {
         }
         return extractRequestArray.last
     }
+    
+    func graphicDatas() -> [ExtractValue] {
+        var extractArray:[ExtractValue] = []
+        
+        for extract in FinancialManager.sharedInstance.extractRequestArray {
+            if extract.valor ?? 0 > 0 {
+                extractArray.insert(extract, at: 0)
+            }
+        }
+        return extractArray
+    }
+    
 }
 
