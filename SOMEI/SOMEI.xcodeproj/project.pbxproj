@@ -113,6 +113,8 @@
 		D19FB8EE2529A0A000B42211 /* FinancialReportingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19FB8ED2529A0A000B42211 /* FinancialReportingViewController.swift */; };
 		D19FB8F42529BAB000B42211 /* CreditAndDebitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19FB8F32529BAB000B42211 /* CreditAndDebitViewController.swift */; };
 		D19FB8F9252A86A300B42211 /* CreditAndDebitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19FB8F8252A86A300B42211 /* CreditAndDebitTableViewCell.swift */; };
+		D1B1D1A525535BF40030FFBB /* BankDepositsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B1D1A425535BF40030FFBB /* BankDepositsViewController.swift */; };
+		D1B1D1AD25535EE20030FFBB /* DepositsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B1D1AC25535EE20030FFBB /* DepositsTableViewCell.swift */; };
 		D1B75A2E2547903D006F614A /* ExtractValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B75A2D2547903D006F614A /* ExtractValue.swift */; };
 		D1B75A3325479097006F614A /* DtVencimento.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B75A3225479097006F614A /* DtVencimento.swift */; };
 		D1D09037254CE54500AF69FB /* DetailOrcamentoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D09036254CE54500AF69FB /* DetailOrcamentoListViewController.swift */; };
@@ -253,6 +255,8 @@
 		D19FB8ED2529A0A000B42211 /* FinancialReportingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialReportingViewController.swift; sourceTree = "<group>"; };
 		D19FB8F32529BAB000B42211 /* CreditAndDebitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditAndDebitViewController.swift; sourceTree = "<group>"; };
 		D19FB8F8252A86A300B42211 /* CreditAndDebitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditAndDebitTableViewCell.swift; sourceTree = "<group>"; };
+		D1B1D1A425535BF40030FFBB /* BankDepositsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankDepositsViewController.swift; sourceTree = "<group>"; };
+		D1B1D1AC25535EE20030FFBB /* DepositsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositsTableViewCell.swift; sourceTree = "<group>"; };
 		D1B75A2D2547903D006F614A /* ExtractValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractValue.swift; sourceTree = "<group>"; };
 		D1B75A3225479097006F614A /* DtVencimento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DtVencimento.swift; sourceTree = "<group>"; };
 		D1D09036254CE54500AF69FB /* DetailOrcamentoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOrcamentoListViewController.swift; sourceTree = "<group>"; };
@@ -602,6 +606,7 @@
 		D19FB8EC2529A03500B42211 /* Financial */ = {
 			isa = PBXGroup;
 			children = (
+				D1B1D1A325535BD50030FFBB /* BanksDeposits */,
 				D1ECE68F252BAFA800F70CE4 /* MounthReport */,
 				D19FB8F22529BA9200B42211 /* CreditAndDebit */,
 				D19FB8ED2529A0A000B42211 /* FinancialReportingViewController.swift */,
@@ -617,6 +622,15 @@
 				D1ECE68A252A94BB00F70CE4 /* NewDespesaViewController.swift */,
 			);
 			path = CreditAndDebit;
+			sourceTree = "<group>";
+		};
+		D1B1D1A325535BD50030FFBB /* BanksDeposits */ = {
+			isa = PBXGroup;
+			children = (
+				D1B1D1A425535BF40030FFBB /* BankDepositsViewController.swift */,
+				D1B1D1AC25535EE20030FFBB /* DepositsTableViewCell.swift */,
+			);
+			path = BanksDeposits;
 			sourceTree = "<group>";
 		};
 		D1B75A2B25478FF1006F614A /* FinancialModel */ = {
@@ -873,6 +887,7 @@
 				3970B9A2250F5302006C36DD /* hour.swift in Sources */,
 				3970B9AB250F5302006C36DD /* Solicitante .swift in Sources */,
 				D1ECE694252BB04000F70CE4 /* MouthResultViewController.swift in Sources */,
+				D1B1D1A525535BF40030FFBB /* BankDepositsViewController.swift in Sources */,
 				3970B9E4250F5303006C36DD /* PhoneViewController.swift in Sources */,
 				3970B9CB250F5302006C36DD /* AnswerViewController.swift in Sources */,
 				D180717A25281A0E0087385E /* photosOrcamentoCollectionViewCell.swift in Sources */,
@@ -909,6 +924,7 @@
 				3970B9BB250F5302006C36DD /* SendPhotosCollectionViewCell.swift in Sources */,
 				3970B9B8250F5302006C36DD /* WorkersCollectionViewCell.swift in Sources */,
 				D17228B0251953CD008D129C /* AnswerOrcamentoViewController.swift in Sources */,
+				D1B1D1AD25535EE20030FFBB /* DepositsTableViewCell.swift in Sources */,
 				3970B9C8250F5302006C36DD /* SendPicsViewController.swift in Sources */,
 				D1B75A3325479097006F614A /* DtVencimento.swift in Sources */,
 				3970B9AF250F5302006C36DD /* SomeiManager.swift in Sources */,

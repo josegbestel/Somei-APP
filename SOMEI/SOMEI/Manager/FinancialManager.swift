@@ -14,6 +14,8 @@ class FinancialManager {
     
     var extractRequestArray:[ExtractValue] = []
     
+    var bankDeposits:[ExtractValue] = []
+    
     func calculateDebit() -> Double {
         var valor:Double = 0
         for extract in FinancialManager.sharedInstance.extractRequestArray {
@@ -22,6 +24,14 @@ class FinancialManager {
             }
         }
         return valor
+    }
+    
+    func completeDepositsBanks() {
+        for extract in FinancialManager.sharedInstance.extractRequestArray {
+            if extract.valor ?? 0 > 0 {
+                bankDeposits.insert(extract, at: 0)
+            }
+        }
     }
     
     func calculateCredit() -> Double {

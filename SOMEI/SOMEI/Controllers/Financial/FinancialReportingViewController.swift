@@ -95,6 +95,8 @@ class FinancialReportingViewController: UIViewController {
         bankDepositView.layer.shadowOffset = .zero
         bankDepositView.layer.shadowRadius = 3
         bankDepositView.layer.cornerRadius = 10
+        let tapBankDepositView = UITapGestureRecognizer(target: self, action: #selector(self.handleTapBankDeposits(_:)))
+        bankDepositView.addGestureRecognizer(tapBankDepositView)
         //Credit And Debit view
         creditAndDebitView.clipsToBounds = false
         creditAndDebitView.backgroundColor = UIColor.white
@@ -106,6 +108,14 @@ class FinancialReportingViewController: UIViewController {
         let tapCreditAndDebitView = UITapGestureRecognizer(target: self, action: #selector(self.handleTapCreditAndDebit(_:)))
         creditAndDebitView.addGestureRecognizer(tapCreditAndDebitView)
     }
+    
+    @objc func handleTapBankDeposits(_ sender: UITapGestureRecognizer? = nil) {
+        let newVC = self.storyboard?.instantiateViewController(withIdentifier: "BankDepositsViewController")
+        self.definesPresentationContext = true
+        newVC?.modalPresentationStyle = .overCurrentContext
+        self.present(newVC!, animated: true, completion: nil)
+    }
+    
     @objc func handleTapCreditAndDebit(_ sender: UITapGestureRecognizer? = nil) {
         let newVC = self.storyboard?.instantiateViewController(withIdentifier: "CreditAndDebitViewController")
         self.definesPresentationContext = true
