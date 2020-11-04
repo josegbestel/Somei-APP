@@ -7286,26 +7286,18 @@
                     <navigationItem key="navigationItem" id="mbb-Uq-gac"/>
                     <connections>
                         <outlet property="clientNameLabel" destination="PCA-uH-xwa" id="4ls-DP-6AE"/>
-                        <outlet property="descriptionInformationToSecondView" destination="c3V-yX-6Id" id="6J0-HY-Qbn"/>
-                        <outlet property="descriptionLabel" destination="Ybq-9j-N52" id="v8n-Hw-v5g"/>
                         <outlet property="descriptionTitle" destination="Ybq-9j-N52" id="S66-qK-KfO"/>
                         <outlet property="descriptionTitleSolicitationView" destination="c3V-yX-6Id" id="REy-sP-qxQ"/>
-                        <outlet property="enderecoLabel" destination="CUy-ql-aOc" id="yJS-7J-SQc"/>
                         <outlet property="esderecoLabel" destination="CUy-ql-aOc" id="1ta-rw-PGt"/>
                         <outlet property="imageOrcamentoCollection" destination="96h-Tn-hw6" id="AHV-5G-8Pl"/>
                         <outlet property="imageViewStatus" destination="ndA-Xa-vEX" id="rPJ-dJ-T5Y"/>
                         <outlet property="mainStatusLabel" destination="ATT-6s-QSS" id="gIT-Aa-Uel"/>
-                        <outlet property="orcamentosPhotosCollection" destination="96h-Tn-hw6" id="pUV-Ko-77D"/>
                         <outlet property="priceLabel" destination="Gi3-Iv-Kr6" id="Oba-35-Keo"/>
                         <outlet property="professionTitle" destination="ryR-FO-3Dm" id="GYD-rl-68f"/>
                         <outlet property="professionalTitleSolicitationView" destination="tBI-en-9qV" id="Unz-iS-Inc"/>
-                        <outlet property="profissaoLabel" destination="ryR-FO-3Dm" id="734-Td-E0a"/>
-                        <outlet property="profissionalLabel" destination="tBI-en-9qV" id="KFO-W8-vLv"/>
                         <outlet property="serviceDatasView" destination="RHi-ad-dce" id="vho-Vv-XU8"/>
-                        <outlet property="solicitacaoView" destination="NO1-gY-2cn" id="AKv-Za-uXa"/>
                         <outlet property="solicitationView" destination="NO1-gY-2cn" id="UG6-UD-S78"/>
                         <outlet property="starView" destination="7QN-Z7-blS" id="3H0-SC-ELB"/>
-                        <outlet property="statusLabel" destination="ATT-6s-QSS" id="DRx-bu-JFf"/>
                         <outlet property="statusLabelStatusView" destination="zp9-aq-PXo" id="KKI-KK-94E"/>
                         <outlet property="statusView" destination="MLg-1t-199" id="gEt-ez-xH7"/>
                     </connections>
