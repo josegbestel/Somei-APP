@@ -55,11 +55,11 @@ class DetailOrcamentoListViewController: UIViewController {
         
         //Dados do servico
         //TODO: mudar orcamento para receber o solicitante
-        //clientNameLabel.text = OrcamentoManager.sharedInstance.selectedOrcamentoToRequestService?
-        
+        clientNameLabel.text = OrcamentoManager.sharedInstance.selectedOrcamentoToRequestService?.solicitante?.name
+        starView.rating = Double(OrcamentoManager.sharedInstance.selectedOrcamentoToRequestService?.solicitante?.nota ?? 5)
+        priceLabel.text = "R$ \(OrcamentoManager.sharedInstance.selectedOrcamentoToRequestService?.valorMinimo ?? 0)"
         //Status View
         configureImageView()
-        
     }
     
     func configureImageView() {
