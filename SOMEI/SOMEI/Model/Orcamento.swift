@@ -23,8 +23,9 @@ class Orcamento {
     var id:Int?
     var agendaId:Int?
     var agendaArray:[Agenda]?
+    var solicitante:Solicitante?
     
-    init(profissao:String?,descricao:String?,photos:[UIImage]?,linkPhotos:[URL]?,endereco:Localizacao?,data:String?,horario:String?, status :String?, valorMinimo:Int?, id:Int?, agendaId:Int?,agendaArray:[Agenda]?) {
+    init(profissao:String?,descricao:String?,photos:[UIImage]?,linkPhotos:[URL]?,endereco:Localizacao?,data:String?,horario:String?, status :String?, valorMinimo:Int?, id:Int?, agendaId:Int?,agendaArray:[Agenda]?,solicitante:Solicitante?) {
         self.profissao = profissao
         self.descricao = descricao
         self.photos = photos
@@ -37,6 +38,7 @@ class Orcamento {
         self.id = id
         self.agendaId = agendaId
         self.agendaArray = agendaArray
+        self.solicitante = solicitante
     }
     
     static func byDict(dict :[String : Any]) -> Orcamento {
@@ -50,7 +52,7 @@ class Orcamento {
         let data = ""
         let localizacao = dict["localizacao"] as! [String : Any]
         let endereco:Localizacao = Localizacao(cep: localizacao["cep"] as? String, logradouro: localizacao["logradouro"] as? String, numero: localizacao["numero"] as? Int, complemento: localizacao["complemento"] as? String, bairro: localizacao["bairro"] as? String, cidade: localizacao["cidade"] as? String, uf: localizacao["uf"] as? String, longitude: localizacao["longitude"] as? String, latitude: localizacao["latitude"] as? String)
-        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos: nil, endereco: endereco, data: data, horario: nil, status: status, valorMinimo: valorMinimo, id: nil, agendaId: nil, agendaArray: nil)
+        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos: nil, endereco: endereco, data: data, horario: nil, status: status, valorMinimo: valorMinimo, id: nil, agendaId: nil, agendaArray: nil, solicitante: nil)
         
         return orcamento
     }
@@ -67,6 +69,7 @@ class Orcamento {
         let status = orcamentoDict?["status"] as? String
         let fotos = orcamentoDict?["fotos"] as? String ?? " "
         let localizacao = orcamentoDict?["localizacao"] as? [String : Any]
+        let solicitanteDict = orcamentoDict?["solicitante"] as? [String : Any]
         let agendaDict = orcamentoDict?["agendas"] as? [[String: AnyObject]]
         print(agendaDict as Any)
         print("-----/Dict-----")
@@ -92,11 +95,21 @@ class Orcamento {
                 agendaArray.insert(agendaInsert, at: 0)
             }
         }
-        print(agendaArray)
-        
         //fim das instancia das agendas com horarios
+        //Convert Json to create a solicitante
+        let cpf = solicitanteDict?["cpf"] as? String
+        let nota = solicitanteDict?["rating"] as? Int
+        let name = solicitanteDict?["nome"] as? String
+        let age = solicitanteDict?["anoNascimento"] as? Int
+        let phone = solicitanteDict?["telefone"] as? String
+        let email = solicitanteDict?["email"] as? String
+        let photoLink = solicitanteDict?["avatar"] as? String ?? ""
+        let idSolicitante = solicitanteDict?["id"] as? Int
+  
+        let solicitante:Solicitante = Solicitante(cpf: cpf, nota: nota, name: name, age: age, phone: phone, email: email, photo: nil, password: nil, photoLink: URL(string: photoLink), services: nil, comentarios: nil, id: idSolicitante)
+        //end of convert solicitante
         let endereco:Localizacao = Localizacao(cep: localizacao?["cep"] as? String, logradouro: localizacao?["logradouro"] as? String, numero: localizacao?["numero"] as? Int, complemento: localizacao?["complemento"] as? String, bairro: localizacao?["bairro"] as? String, cidade: localizacao?["cidade"] as? String, uf: localizacao?["uf"] as? String, longitude: localizacao?["longitude"] as? String, latitude: localizacao?["latitude"] as? String)
-        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos:fotosLinks , endereco: endereco, data: nil, horario: nil, status: status, valorMinimo: nil, id: id, agendaId: nil, agendaArray: agendaArray)
+        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos:fotosLinks , endereco: endereco, data: nil, horario: nil, status: status, valorMinimo: nil, id: id, agendaId: nil, agendaArray: agendaArray, solicitante: solicitante)
         return orcamento
     }
     
