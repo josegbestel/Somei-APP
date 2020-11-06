@@ -11,7 +11,7 @@ import Foundation
 struct OrcamentoAnswerStruct:Codable {
     
     var agendaId:Double
-    var orcamentoId:Double
+    var servicoId:Double
     var valor:Double
     var observacao:String
 

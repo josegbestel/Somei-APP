@@ -103,7 +103,8 @@ class AnswerViewController: ViewController {
     
     func constructStruct() -> OrcamentoAnswerStruct {
         let valor:Double = Double(textField.text ?? "0")!
-        let teste = OrcamentoAnswerStruct.init(agendaId: Double(OrcamentoManager.sharedInstance.selectedOrcamento?.agendaId ?? 0), orcamentoId: Double(OrcamentoManager.sharedInstance.selectedOrcamento?.id ?? 0), valor: valor, observacao: OrcamentoManager.sharedInstance.selectedOrcamento?.descricao ?? "")
+        //Double(OrcamentoManager.sharedInstance.selectedOrcamento?.id ?? 0)
+        let teste = OrcamentoAnswerStruct.init(agendaId: Double(OrcamentoManager.sharedInstance.selectedOrcamento?.agendaId ?? 0), servicoId:Double(OrcamentoManager.sharedInstance.selectedOrcamento?.serviceId ?? 0) , valor: valor, observacao: OrcamentoManager.sharedInstance.selectedOrcamento?.descricao ?? "")
         return teste
     }
     

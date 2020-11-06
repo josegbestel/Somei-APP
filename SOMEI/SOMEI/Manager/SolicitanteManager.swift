@@ -41,7 +41,12 @@ class SolicitanteManager {
     
     func createSolicitanteStruct() -> SolicitanteStruct? {
         
-        let solicitanteStruct:SolicitanteStruct = SolicitanteStruct.init(cpf: solicitante.cpf, nome: solicitante.name, email: solicitante.email, senha: solicitante.password, anoNascimento: solicitante.age, telefone: solicitante.phone, avatar: solicitante.photoLink!)
+        guard let photoLink = solicitante.photoLink else {
+            print("Falha ao salvar o avatar");
+            let solicitanteStruct:SolicitanteStruct = SolicitanteStruct.init(cpf: solicitante.cpf, nome: solicitante.name, email: solicitante.email, senha: solicitante.password, anoNascimento: solicitante.age, telefone: solicitante.phone, avatar: nil)
+            return solicitanteStruct
+        }
+        let solicitanteStruct:SolicitanteStruct = SolicitanteStruct.init(cpf: solicitante.cpf, nome: solicitante.name, email: solicitante.email, senha: solicitante.password, anoNascimento: solicitante.age, telefone: solicitante.phone, avatar: photoLink)
      
         return solicitanteStruct
     }
