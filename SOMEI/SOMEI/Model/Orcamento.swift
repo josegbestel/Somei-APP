@@ -52,7 +52,7 @@ class Orcamento {
         let profissao = categoria["titulo"] as! String
         let descricao = dict["descricao"] as! String
         let status = dict["status"] as! String
-        let valorMinimo = dict["valorMinimo"] as? Int
+        var valorMinimo = 0.0
         
         //pegar profissional do json
         var profissionalArray:[Profissional] = []
@@ -65,6 +65,8 @@ class Orcamento {
             let nomeOwner = profissional?["nome"] as? String
             let rating = profissional?["rating"] as? Int
             
+            valorMinimo = resposta["valor"] as? Double ?? 0.0
+            
             let profissionalModel = Profissional(cnpj: nil, profissao: nil, name: nomeFantasia, age: nil, phone: nil, email: email, photo: nil, password: nil, endereço: nil, photoLink: URL(string: avatarProfissional), ownerName: nomeOwner, portifolio: nil, nota: rating, services: nil, id: idProfissional, metaMensal: nil)
             
             profissionalArray.insert(profissionalModel, at: 0)
@@ -73,7 +75,7 @@ class Orcamento {
 
         let localizacao = dict["localizacao"] as! [String : Any]
         let endereco:Localizacao = Localizacao(cep: localizacao["cep"] as? String, logradouro: localizacao["logradouro"] as? String, numero: localizacao["numero"] as? Int, complemento: localizacao["complemento"] as? String, bairro: localizacao["bairro"] as? String, cidade: localizacao["cidade"] as? String, uf: localizacao["uf"] as? String, longitude: localizacao["longitude"] as? String, latitude: localizacao["latitude"] as? String)
-        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos: nil, endereco: endereco, data: nil, horario: nil, status: status, valorMinimo: valorMinimo, id: nil, serviceId: nil, agendaId: nil, agendaArray: nil, solicitante: nil, profissional: profissionalArray)
+        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos: nil, endereco: endereco, data: nil, horario: nil, status: status, valorMinimo: Int(valorMinimo), id: nil, serviceId: nil, agendaId: nil, agendaArray: nil, solicitante: nil, profissional: profissionalArray)
         
         return orcamento
     }

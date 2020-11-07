@@ -117,6 +117,22 @@ class AnswerOrcamentoViewController: UIViewController {
         orcamentosPhotosCollection.reloadData()
     }
     
+    func goesToConfirmChoice() {
+        
+    }
+    
+    func popUpSelected() {
+        let alert = UIAlertController(title: "Confirmar escolha", message: "Deseja confirmar a escolha desde orçamento?", preferredStyle: .alert)
+        let cancelar = UIAlertAction(title: "Cancelar", style: .default, handler: { action in  })
+        let confirmar = UIAlertAction(title: "Confirmar", style: .default, handler: { action in
+            self.goesToConfirmChoice()
+        })
+        alert.addAction(cancelar)
+        alert.addAction(confirmar)
+        self.present(alert, animated: true)
+    }
+    
+    
     @IBAction func backButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -138,6 +154,11 @@ extension AnswerOrcamentoViewController: UITableViewDataSource, UITableViewDeleg
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        popUpSelected()
+    }
+    
 }
 extension AnswerOrcamentoViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
