@@ -22,8 +22,10 @@ class ProviderSomei {
       private static let baseLoadFreeProfession = "https://somei-app-server.herokuapp.com/api/v1/categoria-mei/ativos"
       private static let basePathLoadActivServices = "https://somei-app-server.herokuapp.com/api/v1/resposta-orcamento/profissional/"
       private static let basePathLoadServicesRequested = "https://somei-app-server.herokuapp.com/api/v1/servico/profissional/"
+      
+    //"https://somei-app-server.herokuapp.com/api/v1/servico/solicitante/"
     
-      private static let session = URLSession.shared
+    private static let session = URLSession.shared
     
     func basePathLogin() -> String {
         if SomeiManager.sharedInstance.isProfession {
@@ -120,7 +122,7 @@ class ProviderSomei {
         let loginString = String(format: "%@:%@", email, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
-        let completeUrl = "\(basePathLoadServicesRequested)\(id)"
+        let completeUrl = "https://somei-app-server.herokuapp.com/api/v1/servico/profissional/\(id)"
         guard let url = URL(string:completeUrl) else {return}
         var request = URLRequest(url: url)
         request.httpMethod = "GET"

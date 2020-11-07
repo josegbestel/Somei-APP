@@ -39,7 +39,6 @@ class DetailOrcamentoListViewController: UIViewController {
         configureViewLayout()
         configureStatus()
         completeInformations()
-//        OrcamentoManager.sharedInstance.selectedOrcamentoToRequestService
         
     }
     
