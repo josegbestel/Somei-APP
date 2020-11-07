@@ -28,16 +28,7 @@ class AnswerOrcamentoViewController: UIViewController {
         configureLayout()
         completeInformation()
         downloadImages()
-//        print("orcamento carregado:")
-//        print(OrcamentoManager.sharedInstance.selectedOrcamento?.data)
-//        print(OrcamentoManager.sharedInstance.selectedOrcamento?.descricao)
-//        print(OrcamentoManager.sharedInstance.selectedOrcamento?.endereco)
-//        print(OrcamentoManager.sharedInstance.selectedOrcamento?.horario)
-//        print(OrcamentoManager.sharedInstance.selectedOrcamento?.linkPhotos)
-//        print(OrcamentoManager.sharedInstance.selectedOrcamento?.profissao)
-//        print(OrcamentoManager.sharedInstance.selectedOrcamento?.status)
-//        print(OrcamentoManager.sharedInstance.selectedOrcamento?.valorMinimo)
-//        print(OrcamentoManager.sharedInstance.selectedOrcamento as Any)
+        
     }
     
     func configureLayout() {
@@ -133,12 +124,18 @@ class AnswerOrcamentoViewController: UIViewController {
 }
 extension AnswerOrcamentoViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return OrcamentoManager.sharedInstance.agendaArray.count
+        return OrcamentoManager.sharedInstance.selectedOrcamento?.profissional?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath) as! SelectHourTableViewCell
-      
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath) as! OrcamentosTableViewCell
+        let orcamentoProfissional = OrcamentoManager.sharedInstance.selectedOrcamento?.profissional?[indexPath.row]
+        
+        cell.cosmosView.rating = Double(orcamentoProfissional?.nota ?? 5)
+        cell.fantasyNameLabel.text = orcamentoProfissional?.name
+        cell.moneyLabel.text = "R$ \(OrcamentoManager.sharedInstance.selectedOrcamento?.valorMinimo ?? 0)"
+        cell.nameProfileLabel.text = orcamentoProfissional?.ownerName
+        
         return cell
     }
 }

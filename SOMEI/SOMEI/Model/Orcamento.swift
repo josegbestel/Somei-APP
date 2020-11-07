@@ -25,9 +25,9 @@ class Orcamento {
     var agendaId:Int?
     var agendaArray:[Agenda]?
     var solicitante:Solicitante?
-    var profissional:Profissional?
+    var profissional:[Profissional]?
     
-    init(profissao:String?,descricao:String?,photos:[UIImage]?,linkPhotos:[URL]?,endereco:Localizacao?,data:String?,horario:String?, status :String?, valorMinimo:Int?, id:Int?,serviceId:Int?, agendaId:Int?,agendaArray:[Agenda]?,solicitante:Solicitante?,profissional:Profissional?) {
+    init(profissao:String?,descricao:String?,photos:[UIImage]?,linkPhotos:[URL]?,endereco:Localizacao?,data:String?,horario:String?, status :String?, valorMinimo:Int?, id:Int?,serviceId:Int?, agendaId:Int?,agendaArray:[Agenda]?,solicitante:Solicitante?,profissional:[Profissional]?) {
         self.profissao = profissao
         self.descricao = descricao
         self.photos = photos
@@ -55,23 +55,25 @@ class Orcamento {
         let valorMinimo = dict["valorMinimo"] as? Int
         
         //pegar profissional do json
-        var profissional:[String: Any]?
+        var profissionalArray:[Profissional] = []
         for resposta in respostas {
-            profissional = resposta["profissional"] as? [String: Any]
+            let profissional = resposta["profissional"] as? [String: Any]
+            let email = profissional?["email"] as? String
+            let idProfissional = profissional?["id"] as? Int
+            let avatarProfissional = (profissional?["avatar"] as? String)!
+            let nomeFantasia = profissional?["nomeFantasia"] as? String
+            let nomeOwner = profissional?["nome"] as? String
+            let rating = profissional?["rating"] as? Int
+            
+            let profissionalModel = Profissional(cnpj: nil, profissao: nil, name: nomeFantasia, age: nil, phone: nil, email: email, photo: nil, password: nil, endereço: nil, photoLink: URL(string: avatarProfissional), ownerName: nomeOwner, portifolio: nil, nota: rating, services: nil, id: idProfissional, metaMensal: nil)
+            
+            profissionalArray.insert(profissionalModel, at: 0)
         }
-        let email = profissional?["email"] as? String
-        let idProfissional = profissional?["id"] as? Int
-        let avatarProfissional = (profissional?["avatar"] as? String)!
-        let nomeFantasia = profissional?["nomeFantasia"] as? String
-        let nomeOwner = profissional?["nome"] as? String
-        let rating = profissional?["rating"] as? Int
-        
-        let profissionalModel = Profissional(cnpj: nil, profissao: nil, name: nomeFantasia, age: nil, phone: nil, email: email, photo: nil, password: nil, endereço: nil, photoLink: URL(string: avatarProfissional), ownerName: nomeOwner, portifolio: nil, nota: rating, services: nil, id: idProfissional, metaMensal: nil)
         //fim do profissional
 
         let localizacao = dict["localizacao"] as! [String : Any]
         let endereco:Localizacao = Localizacao(cep: localizacao["cep"] as? String, logradouro: localizacao["logradouro"] as? String, numero: localizacao["numero"] as? Int, complemento: localizacao["complemento"] as? String, bairro: localizacao["bairro"] as? String, cidade: localizacao["cidade"] as? String, uf: localizacao["uf"] as? String, longitude: localizacao["longitude"] as? String, latitude: localizacao["latitude"] as? String)
-        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos: nil, endereco: endereco, data: nil, horario: nil, status: status, valorMinimo: valorMinimo, id: nil, serviceId: nil, agendaId: nil, agendaArray: nil, solicitante: nil, profissional: profissionalModel)
+        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos: nil, endereco: endereco, data: nil, horario: nil, status: status, valorMinimo: valorMinimo, id: nil, serviceId: nil, agendaId: nil, agendaArray: nil, solicitante: nil, profissional: profissionalArray)
         
         return orcamento
     }
