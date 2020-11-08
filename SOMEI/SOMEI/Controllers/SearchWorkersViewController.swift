@@ -147,7 +147,7 @@ extension SearchWorkersViewController: UICollectionViewDataSource, UICollectionV
         OrcamentoManager.sharedInstance.selectedProfission = selectedProfession?.profissao
         saveStringOnCoreData(job: OrcamentoManager.sharedInstance.selectedProfission ?? "")
         goesToContinueFlow()
-        print(selectedProfession?.profissao)
+        print(selectedProfession?.profissao as Any)
     }
     
 }
