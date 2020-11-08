@@ -117,6 +117,9 @@
 		D1B1D1AD25535EE20030FFBB /* DepositsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B1D1AC25535EE20030FFBB /* DepositsTableViewCell.swift */; };
 		D1B75A2E2547903D006F614A /* ExtractValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B75A2D2547903D006F614A /* ExtractValue.swift */; };
 		D1B75A3325479097006F614A /* DtVencimento.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B75A3225479097006F614A /* DtVencimento.swift */; };
+		D1C7054E25577F31008C9C3F /* EvaluateServiceSolicitanteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C7054D25577F31008C9C3F /* EvaluateServiceSolicitanteViewController.swift */; };
+		D1C7055625577FD5008C9C3F /* EvaluateServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C7055525577FD5008C9C3F /* EvaluateServiceManager.swift */; };
+		D1C7055E255785A9008C9C3F /* FinishServiceStructSolicitante.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C7055D255785A9008C9C3F /* FinishServiceStructSolicitante.swift */; };
 		D1D09037254CE54500AF69FB /* DetailOrcamentoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D09036254CE54500AF69FB /* DetailOrcamentoListViewController.swift */; };
 		D1ECE68B252A94BB00F70CE4 /* NewDespesaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ECE68A252A94BB00F70CE4 /* NewDespesaViewController.swift */; };
 		D1ECE694252BB04000F70CE4 /* MouthResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ECE693252BB04000F70CE4 /* MouthResultViewController.swift */; };
@@ -259,6 +262,9 @@
 		D1B1D1AC25535EE20030FFBB /* DepositsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositsTableViewCell.swift; sourceTree = "<group>"; };
 		D1B75A2D2547903D006F614A /* ExtractValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractValue.swift; sourceTree = "<group>"; };
 		D1B75A3225479097006F614A /* DtVencimento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DtVencimento.swift; sourceTree = "<group>"; };
+		D1C7054D25577F31008C9C3F /* EvaluateServiceSolicitanteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluateServiceSolicitanteViewController.swift; sourceTree = "<group>"; };
+		D1C7055525577FD5008C9C3F /* EvaluateServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluateServiceManager.swift; sourceTree = "<group>"; };
+		D1C7055D255785A9008C9C3F /* FinishServiceStructSolicitante.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishServiceStructSolicitante.swift; sourceTree = "<group>"; };
 		D1D09036254CE54500AF69FB /* DetailOrcamentoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOrcamentoListViewController.swift; sourceTree = "<group>"; };
 		D1ECE68A252A94BB00F70CE4 /* NewDespesaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDespesaViewController.swift; sourceTree = "<group>"; };
 		D1ECE693252BB04000F70CE4 /* MouthResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouthResultViewController.swift; sourceTree = "<group>"; };
@@ -402,6 +408,7 @@
 				D171F71F25314E8000C67EA7 /* OrcamentoAnswerStruct.swift */,
 				D16B06922547B45F0057974A /* PostingValueStruct.swift */,
 				D16B069A2547B5230057974A /* DtVencimentoStruct.swift */,
+				D1C7055D255785A9008C9C3F /* FinishServiceStructSolicitante.swift */,
 			);
 			path = Structures;
 			sourceTree = "<group>";
@@ -415,6 +422,7 @@
 				3970B95F250F5302006C36DD /* AnswerOrcamentoManager.swift */,
 				3970B960250F5302006C36DD /* SolicitanteManager.swift */,
 				D171F7352534CD7700C67EA7 /* FinancialManager.swift */,
+				D1C7055525577FD5008C9C3F /* EvaluateServiceManager.swift */,
 				3970B95C250F5302006C36DD /* JsonManager */,
 			);
 			path = Manager;
@@ -451,6 +459,7 @@
 		3970B965250F5302006C36DD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D1C7054925577EEE008C9C3F /* EvaluateService */,
 				D18BE419253120F700B32449 /* ProfessionalRequestedServices */,
 				D19FB8EC2529A03500B42211 /* Financial */,
 				3970B981250F5302006C36DD /* RegistersControllers */,
@@ -648,6 +657,14 @@
 				D1B75A3225479097006F614A /* DtVencimento.swift */,
 			);
 			path = MouthResults;
+			sourceTree = "<group>";
+		};
+		D1C7054925577EEE008C9C3F /* EvaluateService */ = {
+			isa = PBXGroup;
+			children = (
+				D1C7054D25577F31008C9C3F /* EvaluateServiceSolicitanteViewController.swift */,
+			);
+			path = EvaluateService;
 			sourceTree = "<group>";
 		};
 		D1D09035254CE52900AF69FB /* ProfissionalAwnser */ = {
@@ -864,6 +881,7 @@
 				3970B9BC250F5302006C36DD /* ComentsViewController.swift in Sources */,
 				3970B9E1250F5303006C36DD /* AgeViewController.swift in Sources */,
 				3970B9A3250F5302006C36DD /* AgendaStruct.swift in Sources */,
+				D1C7055625577FD5008C9C3F /* EvaluateServiceManager.swift in Sources */,
 				3970B9C1250F5302006C36DD /* EspecificTimeViewController.swift in Sources */,
 				D15E1A2625391C2600E0F7E3 /* TypeAgendaViewController.swift in Sources */,
 				D18BE4202531276E00B32449 /* requestedServicesTableViewCell.swift in Sources */,
@@ -928,6 +946,7 @@
 				3970B9C8250F5302006C36DD /* SendPicsViewController.swift in Sources */,
 				D1B75A3325479097006F614A /* DtVencimento.swift in Sources */,
 				3970B9AF250F5302006C36DD /* SomeiManager.swift in Sources */,
+				D1C7054E25577F31008C9C3F /* EvaluateServiceSolicitanteViewController.swift in Sources */,
 				3970B9BA250F5302006C36DD /* EmployeePerfilViewController.swift in Sources */,
 				3970B9C3250F5302006C36DD /* SelectMultiHourViewController.swift in Sources */,
 				3970B9E0250F5303006C36DD /* EmailScreenViewController.swift in Sources */,
@@ -944,6 +963,7 @@
 				D171F7582534F2A400C67EA7 /* BarChart.swift in Sources */,
 				D171F72025314E8000C67EA7 /* OrcamentoAnswerStruct.swift in Sources */,
 				3970B9B5250F5302006C36DD /* SomeiUserDefaults.swift in Sources */,
+				D1C7055E255785A9008C9C3F /* FinishServiceStructSolicitante.swift in Sources */,
 				D171F73B2534CF4D00C67EA7 /* Financial.swift in Sources */,
 				D16B06932547B45F0057974A /* PostingValueStruct.swift in Sources */,
 				3970B9D0250F5302006C36DD /* PhoneEmployeeViewController.swift in Sources */,

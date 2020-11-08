@@ -520,6 +520,47 @@ class ProviderSomei {
         dataTask.resume()
     }
     
+    class func finishServiceSolicitante(serviceId: String, solicitanteId: String, resposta: FinishServiceStructSolicitante, onComplete: @escaping (Bool) -> Void) {
+        guard let url = URL(string: "https://somei-app-server.herokuapp.com/api/v1/servico/\(serviceId)/finalizar/solicitante/\(solicitanteId)") else {
+            onComplete(false)
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        guard let json = try? JSONEncoder().encode(resposta) else {
+            onComplete(false)
+            return
+        }
+        request.httpBody = json
+        let dataTask = session.dataTask(with: request) { (data, response, error) in
+            if error == nil {
+                guard let response = response as? HTTPURLResponse else {return}
+                if response.statusCode == 200 {
+                    onComplete(true)
+                }else{
+                    do{
+                        let json = try JSONSerialization.jsonObject(with: data!, options: []) as? Dictionary<String, AnyObject>
+                        print(json as Any)
+                    }catch _{
+                        print("erro json invalido")
+                    }
+                    onComplete(false)
+                }
+            } else {
+                do{
+                    let json = try JSONSerialization.jsonObject(with: data!, options: []) as? Dictionary<String, AnyObject>
+                    print(json as Any)
+                }catch _{
+                    print("erro json invalido")
+                }
+                onComplete(false)
+            }
+        }
+        dataTask.resume()
+    }
+    
+    
     func searchDadosCnpj(cnpj:String, onComplete: @escaping (() -> Void)) {
         //"https://www.receitaws.com.br/v1/cnpj/29.783.738.0001-54" invalido
         //"https://www.receitaws.com.br/v1/cnpj/34.998.923/0001-04"
@@ -579,6 +620,7 @@ class ProviderSomei {
         }
         task.resume()
     }
+
 }
 
 
