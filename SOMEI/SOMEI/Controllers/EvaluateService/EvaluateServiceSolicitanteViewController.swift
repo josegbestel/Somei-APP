@@ -28,6 +28,24 @@ class EvaluateServiceSolicitanteViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+    func goesToPerfil() {
+        DispatchQueue.main.async {
+            let newVC = self.storyboard?.instantiateViewController(withIdentifier: "SearchWorkersViewController")
+            self.definesPresentationContext = true
+            newVC?.modalPresentationStyle = .overCurrentContext
+            self.present(newVC!, animated: true, completion: nil)
+        }
+    }
+    
+    func successToSavePopUp() {
+        let alert = UIAlertController(title: "Sucesso!!", message: "Sucesso ao avaliar serviço", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok!", style: .default, handler: { action in
+            self.goesToPerfil()
+        })
+        alert.addAction(ok)
+        self.present(alert, animated: true)
+    }
+    
     func returnStructForSolicitante() -> FinishServiceStructSolicitante {
         let structAvaluateForSolicitante = FinishServiceStructSolicitante.init(nota: ratingCosmosView.rating,comentario: tfDescription.text)
         return structAvaluateForSolicitante
@@ -38,7 +56,16 @@ class EvaluateServiceSolicitanteViewController: UIViewController {
          let solicitanteId:String = "\(SolicitanteManager.sharedInstance.solicitante.id ?? 0)"
          let structToApi = returnStructForSolicitante()
          ProviderSomei.finishServiceSolicitante(serviceId: serviceId, solicitanteId: solicitanteId, resposta: structToApi){ (error) -> Void in
-            print("passou aqui")
+            if error == false {
+                print("problema ao salvar na API:\(error)")
+                DispatchQueue.main.async {
+                    self.errorPopUp()
+                }
+            }else {
+                DispatchQueue.main.async {
+                    self.successToSavePopUp()
+                }
+            }
          }
     }
 
