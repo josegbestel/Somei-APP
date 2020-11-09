@@ -10,9 +10,10 @@ import Foundation
 
 struct AccountStruct:Codable {
     
-    var codigoBanco:String?
-    var agencia:String?
-    var contaCorrente:String?
-    var digitoConta:String?
+    var nBanco:String?
+    var nAgencia:String?
+    var nConta:String?
+    var nComplementarConta:String?
     var tipoConta:String?
+    
 }

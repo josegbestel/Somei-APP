@@ -15,7 +15,7 @@ class EmployeePhotoViewController: UIViewController {
     @IBOutlet weak var photoButton: UICornerableButton!
     var imageReceived:UIImage?
     let storage = Storage.storage()
-    var linkImage:URL?
+    var linkImage:URL? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,14 +48,20 @@ class EmployeePhotoViewController: UIViewController {
                 return
               }
                 self.linkImage = downloadURL
-                ProfissionalManager.sharedInstance.profissional.photoLink = self.linkImage!
+                ProfissionalManager.sharedInstance.profissional.photoLink = downloadURL
+                print(ProfissionalManager.sharedInstance.profissional.photoLink as Any)
+                self.saveProfessionalPhoto()
                 print("Sucesso ao obter link da imagem:\(downloadURL)")
             }
         }
         uploadTask.resume()
     }
     
-    
+    func saveProfessionalPhoto() {
+        if linkImage != nil {
+            ProfissionalManager.sharedInstance.profissional.photoLink = linkImage
+        }
+    }
 
     @IBAction func backButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)

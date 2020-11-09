@@ -76,7 +76,7 @@ class AccountRegisterViewController: UIViewController, UIPickerViewDelegate, UIP
     }
     
     func createStruct() -> AccountStruct {
-        let account:AccountStruct = AccountStruct.init(codigoBanco:numberAccountType, agencia:agenciaTf.text!, contaCorrente:returnConta(), digitoConta:returnDigt(), tipoConta:typeAccount)
+        let account:AccountStruct = AccountStruct.init(nBanco:numberAccountType, nAgencia:agenciaTf.text!, nConta:returnConta(), nComplementarConta:returnDigt(), tipoConta:typeAccount)
         return account
     }
     
@@ -89,8 +89,6 @@ class AccountRegisterViewController: UIViewController, UIPickerViewDelegate, UIP
         }else {
             failurePopUp()
         }
-       
-        
     }
     
     override func didReceiveMemoryWarning() {

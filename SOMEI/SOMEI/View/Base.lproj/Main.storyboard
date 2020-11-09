@@ -7887,7 +7887,7 @@
                                             <constraint firstAttribute="height" constant="31" id="0b1-hp-Ybk"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eNl-P8-2Qa">
                                         <rect key="frame" x="10" y="233" width="394" height="216"/>
