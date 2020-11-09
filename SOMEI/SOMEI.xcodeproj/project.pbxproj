@@ -124,6 +124,9 @@
 		D1C7058B255867C4008C9C3F /* CardInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C7058A255867C4008C9C3F /* CardInformationsViewController.swift */; };
 		D1C7059025586BDC008C9C3F /* ConfirmPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C7058F25586BDC008C9C3F /* ConfirmPaymentViewController.swift */; };
 		D1D09037254CE54500AF69FB /* DetailOrcamentoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D09036254CE54500AF69FB /* DetailOrcamentoListViewController.swift */; };
+		D1E51A1C2558A520004FE02C /* AccountStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E51A1B2558A520004FE02C /* AccountStruct.swift */; };
+		D1E51A212558B5BF004FE02C /* AccountRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E51A202558B5BF004FE02C /* AccountRegisterViewController.swift */; };
+		D1E51A352558B793004FE02C /* TypeAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E51A342558B793004FE02C /* TypeAccountManager.swift */; };
 		D1ECE68B252A94BB00F70CE4 /* NewDespesaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ECE68A252A94BB00F70CE4 /* NewDespesaViewController.swift */; };
 		D1ECE694252BB04000F70CE4 /* MouthResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ECE693252BB04000F70CE4 /* MouthResultViewController.swift */; };
 		D2F70AC9666561AA392EA1E3 /* Pods_SOMEI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4814DA91DCEE3BDD98942C8E /* Pods_SOMEI.framework */; };
@@ -272,6 +275,9 @@
 		D1C7058A255867C4008C9C3F /* CardInformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInformationsViewController.swift; sourceTree = "<group>"; };
 		D1C7058F25586BDC008C9C3F /* ConfirmPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPaymentViewController.swift; sourceTree = "<group>"; };
 		D1D09036254CE54500AF69FB /* DetailOrcamentoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOrcamentoListViewController.swift; sourceTree = "<group>"; };
+		D1E51A1B2558A520004FE02C /* AccountStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStruct.swift; sourceTree = "<group>"; };
+		D1E51A202558B5BF004FE02C /* AccountRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRegisterViewController.swift; sourceTree = "<group>"; };
+		D1E51A342558B793004FE02C /* TypeAccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAccountManager.swift; sourceTree = "<group>"; };
 		D1ECE68A252A94BB00F70CE4 /* NewDespesaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDespesaViewController.swift; sourceTree = "<group>"; };
 		D1ECE693252BB04000F70CE4 /* MouthResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouthResultViewController.swift; sourceTree = "<group>"; };
 		D6929F95C8DA35D5736F1289 /* Pods-SOMEI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOMEI.debug.xcconfig"; path = "Target Support Files/Pods-SOMEI/Pods-SOMEI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -415,6 +421,7 @@
 				D16B06922547B45F0057974A /* PostingValueStruct.swift */,
 				D16B069A2547B5230057974A /* DtVencimentoStruct.swift */,
 				D1C7055D255785A9008C9C3F /* FinishServiceStructSolicitante.swift */,
+				D1E51A1B2558A520004FE02C /* AccountStruct.swift */,
 			);
 			path = Structures;
 			sourceTree = "<group>";
@@ -429,6 +436,7 @@
 				3970B960250F5302006C36DD /* SolicitanteManager.swift */,
 				D171F7352534CD7700C67EA7 /* FinancialManager.swift */,
 				D1C7057F25586664008C9C3F /* PaymentManager.swift */,
+				D1E51A342558B793004FE02C /* TypeAccountManager.swift */,
 				D1C7055525577FD5008C9C3F /* EvaluateServiceManager.swift */,
 				3970B95C250F5302006C36DD /* JsonManager */,
 			);
@@ -575,6 +583,7 @@
 				3970B990250F5302006C36DD /* ConfirmDatasEmployeeViewController.swift */,
 				3970B991250F5302006C36DD /* LogradouroViewController.swift */,
 				D1067F72254781880080DA33 /* MouthGoalViewController.swift */,
+				D1E51A202558B5BF004FE02C /* AccountRegisterViewController.swift */,
 			);
 			path = EmployeesControllers;
 			sourceTree = "<group>";
@@ -933,12 +942,14 @@
 				3970B9A8250F5302006C36DD /* Place.swift in Sources */,
 				3970B9A5250F5302006C36DD /* OrcamentoStruct.swift in Sources */,
 				3970B9D8250F5303006C36DD /* EmployeePhotoViewController.swift in Sources */,
+				D1E51A1C2558A520004FE02C /* AccountStruct.swift in Sources */,
 				39498D7A250F5C6D0043F97A /* UICornerableButton.swift in Sources */,
 				D1C7058B255867C4008C9C3F /* CardInformationsViewController.swift in Sources */,
 				D1807188252854390087385E /* ProfissionalServicosAtivos.swift in Sources */,
 				3970B9CD250F5302006C36DD /* CategoriasTableViewCell.swift in Sources */,
 				D17228B525195E98008D129C /* OrcamentoAnswerTableViewCell.swift in Sources */,
 				3970B9D6250F5302006C36DD /* ComplementViewController.swift in Sources */,
+				D1E51A212558B5BF004FE02C /* AccountRegisterViewController.swift in Sources */,
 				3970B99F250F5302006C36DD /* ProfissionalStruct.swift in Sources */,
 				3970B9A6250F5302006C36DD /* Agenda.swift in Sources */,
 				3970B9CC250F5302006C36DD /* ListOrcamentoViewController.swift in Sources */,
@@ -972,6 +983,7 @@
 				3970B9E0250F5303006C36DD /* EmailScreenViewController.swift in Sources */,
 				3970B9D5250F5302006C36DD /* NumberViewController.swift in Sources */,
 				3970B9AC250F5302006C36DD /* Usuario.swift in Sources */,
+				D1E51A352558B793004FE02C /* TypeAccountManager.swift in Sources */,
 				3970B9B7250F5302006C36DD /* ActiveServicesViewController.swift in Sources */,
 				3970B9CA250F5302006C36DD /* OrcamentosTableViewCell.swift in Sources */,
 				3970B918250F52D1006C36DD /* SceneDelegate.swift in Sources */,
