@@ -46,7 +46,7 @@ class MouthGoalViewController: UIViewController {
         if tfMouthGoel.text!.count > 0 {
             ProfissionalManager.sharedInstance.profissional.metaMensal = Double(tfMouthGoel.text!)
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let newNavigation = storyBoard.instantiateViewController(withIdentifier: "ConfirmDatasEmployeeViewController")
+            let newNavigation = storyBoard.instantiateViewController(withIdentifier: "AccountRegisterViewController")
             self.present(newNavigation, animated: true, completion: nil)
         }else{
             failurePopUp()
