@@ -11,23 +11,23 @@ import CoreData
 import FirebaseCore
 import SendBirdSDK
 import SendBirdUIKit
+import DirectCheckout
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, SBDChannelDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        //Configuração do firebase para salvar as imagens
         FirebaseApp.configure()
-        
+        //Configuração Sendbird para uso do chat //Necessario troca de App_id para apresentação
         let APP_ID = "57300459-ED93-4EA8-B8BA-4A462060572D"
         let USER_ID = "Suporte"
 //        let CHANNEL_URL = "sendbird_open_channel_9586_ba2109976fc07f43e75e64050bda9a01d0709a38"
-        
         SBDMain.initWithApplicationId(APP_ID)
         SBUGlobals.CurrentUser = SBUUser(userId: USER_ID)
-        //case createdProfessionalPerfil = "createdProfessionalPerfil"
-        //case createdSolicitantePerfil = "createdSolicitantePerfil"
         
+        //configuração do checkout usado no fluxo de pagamento
+        DirectCheckout.initialize(publicToken: "0DC3AD1B8E164B7C75D91CEB79CDED7D0DC9F06A80A23B6FA83F89203009FD32", environment: .sandbox)
         return true
     }
 

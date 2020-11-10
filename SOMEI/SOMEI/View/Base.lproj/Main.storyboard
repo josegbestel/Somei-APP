@@ -7984,10 +7984,10 @@
             </objects>
             <point key="canvasLocation" x="-15772.463768115944" y="1022.5446428571428"/>
         </scene>
-        <!--View Controller-->
+        <!--Active Service Solicitante Detail View Controller-->
         <scene sceneID="Jx0-8L-07S">
             <objects>
-                <viewController modalPresentationStyle="currentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0zy-I4-d9m" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ActiveServiceSolicitanteDetailViewController" modalPresentationStyle="currentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0zy-I4-d9m" customClass="ActiveServiceSolicitanteDetailViewController" customModule="SOMEI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hoy-Kh-MaH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

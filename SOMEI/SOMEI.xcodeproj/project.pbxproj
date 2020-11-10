@@ -95,6 +95,7 @@
 		3970B9E5250F5303006C36DD /* LoginCadastroViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3970B99C250F5302006C36DD /* LoginCadastroViewControlller.swift */; };
 		3970B9E6250F5303006C36DD /* SearchWorkersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3970B99D250F5302006C36DD /* SearchWorkersViewController.swift */; };
 		D1067F73254781880080DA33 /* MouthGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1067F72254781880080DA33 /* MouthGoalViewController.swift */; };
+		D11378B7255B4BD5000E764E /* ActiveServiceSolicitanteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11378B6255B4BD5000E764E /* ActiveServiceSolicitanteDetailViewController.swift */; };
 		D1184F14255A0D0000D566CE /* MagemDeLucro.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1184F13255A0D0000D566CE /* MagemDeLucro.swift */; };
 		D1184F19255A149C00D566CE /* Prevision.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1184F18255A149C00D566CE /* Prevision.swift */; };
 		D1184F22255A181C00D566CE /* MouthsResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1184F21255A181C00D566CE /* MouthsResults.swift */; };
@@ -251,6 +252,7 @@
 		4814DA91DCEE3BDD98942C8E /* Pods_SOMEI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SOMEI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF93BF6073951527603D0181 /* Pods-SOMEI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOMEI.release.xcconfig"; path = "Target Support Files/Pods-SOMEI/Pods-SOMEI.release.xcconfig"; sourceTree = "<group>"; };
 		D1067F72254781880080DA33 /* MouthGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouthGoalViewController.swift; sourceTree = "<group>"; };
+		D11378B6255B4BD5000E764E /* ActiveServiceSolicitanteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveServiceSolicitanteDetailViewController.swift; sourceTree = "<group>"; };
 		D1184F13255A0D0000D566CE /* MagemDeLucro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagemDeLucro.swift; sourceTree = "<group>"; };
 		D1184F18255A149C00D566CE /* Prevision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prevision.swift; sourceTree = "<group>"; };
 		D1184F21255A181C00D566CE /* MouthsResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouthsResults.swift; sourceTree = "<group>"; };
@@ -626,6 +628,7 @@
 		D11378A1255B4A57000E764E /* ActiveServiceSolicitante */ = {
 			isa = PBXGroup;
 			children = (
+				D11378B6255B4BD5000E764E /* ActiveServiceSolicitanteDetailViewController.swift */,
 			);
 			path = ActiveServiceSolicitante;
 			sourceTree = "<group>";
@@ -990,6 +993,7 @@
 				3970B9DB250F5303006C36DD /* LogradouroViewController.swift in Sources */,
 				3970B9DE250F5303006C36DD /* CPFScreenViewController.swift in Sources */,
 				D1067F73254781880080DA33 /* MouthGoalViewController.swift in Sources */,
+				D11378B7255B4BD5000E764E /* ActiveServiceSolicitanteDetailViewController.swift in Sources */,
 				3970B9C5250F5302006C36DD /* LocationViewController.swift in Sources */,
 				D1ECE68B252A94BB00F70CE4 /* NewDespesaViewController.swift in Sources */,
 				3970B9BD250F5302006C36DD /* InternetErrorViewController.swift in Sources */,
