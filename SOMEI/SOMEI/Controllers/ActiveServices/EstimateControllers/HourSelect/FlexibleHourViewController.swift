@@ -30,17 +30,17 @@ class FlexibleHourViewController: UIViewController, UITextFieldDelegate {
     @IBAction func seletedDayAction(_ sender: Any) {
         switch segmentedDayControl.selectedSegmentIndex {
        
-         case 6:
-            agenda.diaSemana = "SEG"
-         case 5:
-            agenda.diaSemana = "TER"
-         case 4:
-            agenda.diaSemana = "QUA"
-         case 3:
-            agenda.diaSemana = "QUI"
-         case 2:
-            agenda.diaSemana = "SEX"
          case 1:
+            agenda.diaSemana = "SEG"
+         case 2:
+            agenda.diaSemana = "TER"
+         case 3:
+            agenda.diaSemana = "QUA"
+         case 4:
+            agenda.diaSemana = "QUI"
+         case 5:
+            agenda.diaSemana = "SEX"
+         case 6:
             agenda.diaSemana = "SAB"
          case 0:
             agenda.diaSemana = "DOM"
