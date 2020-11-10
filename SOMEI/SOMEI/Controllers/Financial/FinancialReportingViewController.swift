@@ -47,21 +47,17 @@ class FinancialReportingViewController: UIViewController {
     }
     
     func completeBankDeposit() {
-//        let lastDeposit = FinancialManager.sharedInstance.lastDeposit()
-//        if let lastDeposit = lastDeposit {
-//            if let day = lastDeposit.dtVencimento?.day, let mounth = lastDeposit.dtVencimento?.mounth, let year = lastDeposit.dtVencimento?.year {
-//                dateLabel.text = "\(day)/\(mounth)/\(year)"
-//            }else{
-//                dateLabel.isHidden = true
-//            }
-//            if let valor = lastDeposit.valor {
-//                priceLabel.text = "R$\(valor)"
-//            }else{
-//                priceLabel.isHidden = true
-//            }
-//        }else{
-//            bankDepositView.isHidden = true
-//        }
+        let lastDeposit = FinancialManager.sharedInstance.lastDeposit()
+        if lastDeposit.historico?.last != nil {
+            dateLabel.text = lastDeposit.historico?.last?.dia
+        }else{
+            dateLabel.isHidden = true
+        }
+        if lastDeposit.historico?.last != nil {
+            priceLabel.text = "R$\(lastDeposit.historico?.last?.valor ?? 0)"
+        }else{
+            priceLabel.isHidden = true
+        }
     }
     
     func completeProfitMargin() {

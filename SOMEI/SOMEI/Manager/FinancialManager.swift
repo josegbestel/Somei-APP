@@ -37,5 +37,9 @@ class FinancialManager {
         return valor
     }
     
+    func lastDeposit() -> DepositosBancarios {
+        return depositosBancarios
+    }
+    
 }
 
