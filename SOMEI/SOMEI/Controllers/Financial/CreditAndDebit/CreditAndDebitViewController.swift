@@ -24,7 +24,7 @@ class CreditAndDebitViewController: ViewController {
     
     func completeInformation() {
         tableView.reloadData()
-        debitNumberView.text = "R$ \(FinancialManager.sharedInstance.calculateDebit())"
+        debitNumberView.text = "R$ \(FinancialManager.sharedInstance.calculateDedit())"
         creditNumberLabel.text = "R$ \(FinancialManager.sharedInstance.calculateCredit())"
     }
     

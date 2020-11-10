@@ -24,6 +24,8 @@ class FinancialReportingViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     //Credit and debit
     @IBOutlet weak var creditAndDebitView: UIView!
+    @IBOutlet weak var creditLabel: UILabel!
+    @IBOutlet weak var debitLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -36,36 +38,40 @@ class FinancialReportingViewController: UIViewController {
         completeInformationMouthsResults()
         completeProfitMargin()
         completeBankDeposit()
+        completeCreditAndDebit()
+    }
+    
+    func completeCreditAndDebit() {
+        creditLabel.text = "R$ \(FinancialManager.sharedInstance.calculateCredit())"
+        debitLabel.text = "R$ \(FinancialManager.sharedInstance.calculateDedit())"
     }
     
     func completeBankDeposit() {
-        let lastDeposit = FinancialManager.sharedInstance.lastDeposit()
-        if let lastDeposit = lastDeposit {
-            if let day = lastDeposit.dtVencimento?.day, let mounth = lastDeposit.dtVencimento?.mounth, let year = lastDeposit.dtVencimento?.year {
-                dateLabel.text = "\(day)/\(mounth)/\(year)"
-            }else{
-                dateLabel.isHidden = true
-            }
-            if let valor = lastDeposit.valor {
-                priceLabel.text = "R$\(valor)"
-            }else{
-                priceLabel.isHidden = true
-            }
-        }else{
-            bankDepositView.isHidden = true
-        }
+//        let lastDeposit = FinancialManager.sharedInstance.lastDeposit()
+//        if let lastDeposit = lastDeposit {
+//            if let day = lastDeposit.dtVencimento?.day, let mounth = lastDeposit.dtVencimento?.mounth, let year = lastDeposit.dtVencimento?.year {
+//                dateLabel.text = "\(day)/\(mounth)/\(year)"
+//            }else{
+//                dateLabel.isHidden = true
+//            }
+//            if let valor = lastDeposit.valor {
+//                priceLabel.text = "R$\(valor)"
+//            }else{
+//                priceLabel.isHidden = true
+//            }
+//        }else{
+//            bankDepositView.isHidden = true
+//        }
     }
     
     func completeProfitMargin() {
-        if let percent = FinancialManager.sharedInstance.calculatePercentProfitMargin() {
-            percentlabel.text = "\(percent)%"
-        }
+        percentlabel.text = "\(FinancialManager.sharedInstance.margemDeLucro.porcentagem ?? 0)%"
     }
     
     func completeInformationMouthsResults() {
-        metaMensalNumber.text = "R$ \(ProfissionalManager.sharedInstance.profissional.metaMensal ?? 0)"
-        saldoAtualNumber.text = "R$ \(FinancialManager.sharedInstance.calculateSaldo())"
-        previsaoMensal.text = "R$ \(FinancialManager.sharedInstance.calculatePrevisao())"
+        metaMensalNumber.text = "R$ \(FinancialManager.sharedInstance.mouthsResults.metaMensal ?? 0)"
+        saldoAtualNumber.text = "R$ \(FinancialManager.sharedInstance.mouthsResults.saldoAtual ?? 0)"
+        previsaoMensal.text = "R$ \(FinancialManager.sharedInstance.mouthsResults.valorPrevisao ?? 0)"
     }
     
     func configureLayoutView() {

@@ -524,7 +524,9 @@
                         <outlet property="actualMouthView" destination="sGT-c0-A58" id="nIP-c4-a7u"/>
                         <outlet property="bankDepositView" destination="p0K-dd-GoJ" id="6gm-1h-MDI"/>
                         <outlet property="creditAndDebitView" destination="BFG-uj-4hn" id="Bqv-VL-yMh"/>
+                        <outlet property="creditLabel" destination="gKi-dX-36h" id="vld-bR-qPf"/>
                         <outlet property="dateLabel" destination="XZc-YP-9fQ" id="O0V-qK-RXa"/>
+                        <outlet property="debitLabel" destination="bhf-u7-cFU" id="Fci-yd-I48"/>
                         <outlet property="metaMensalNumber" destination="5Ma-IV-cwb" id="ioa-hm-0As"/>
                         <outlet property="percentlabel" destination="S1e-5Y-bcy" id="6wb-ga-w84"/>
                         <outlet property="previsaoMensal" destination="vZi-ae-okT" id="YDQ-ux-MSU"/>
@@ -2987,7 +2989,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CdM-Vz-fQW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3609" y="1233"/>
+            <point key="canvasLocation" x="5158" y="1233"/>
         </scene>
         <!--Internet Error View Controller-->
         <scene sceneID="2j1-qZ-FMH">
@@ -4255,7 +4257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5AK-Me-E0F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5399" y="1071"/>
+            <point key="canvasLocation" x="5399" y="-413"/>
         </scene>
         <!--Serviços-->
         <scene sceneID="W1l-0E-P2i">
@@ -5267,7 +5269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZYU-1R-Wad" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4741" y="1622"/>
+            <point key="canvasLocation" x="4939" y="-1272"/>
         </scene>
         <!--Flexible Hour View Controller-->
         <scene sceneID="qMZ-0m-e5I">
@@ -5362,7 +5364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q9Q-2P-IBC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6131.884057971015" y="1621.875"/>
+            <point key="canvasLocation" x="5859" y="-1272"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="SCo-7U-WNl">
@@ -6217,7 +6219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AYk-FA-e9b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1742.0289855072465" y="1232.8125"/>
+            <point key="canvasLocation" x="1578" y="1233"/>
         </scene>
         <!--Credit And Debit View Controller-->
         <scene sceneID="g3q-gh-Ouo">
@@ -7626,7 +7628,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWx-m3-bM7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="718.84057971014499" y="2955.8035714285711"/>
+            <point key="canvasLocation" x="3365" y="1233"/>
         </scene>
         <!--Confirm Payment View Controller-->
         <scene sceneID="5XE-TI-cTd">
@@ -7810,7 +7812,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OgR-SA-9j4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1560.8695652173915" y="2955.8035714285711"/>
+            <point key="canvasLocation" x="4229" y="1233"/>
         </scene>
         <!--Account Register View Controller-->
         <scene sceneID="9jI-nQ-Qni">

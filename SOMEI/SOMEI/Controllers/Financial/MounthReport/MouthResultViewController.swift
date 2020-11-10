@@ -28,8 +28,8 @@ class MouthResultViewController: UIViewController {
     
     func completeInformation() {
         metaMensalNumber.text = "R$ \(ProfissionalManager.sharedInstance.profissional.metaMensal ?? 0)"
-        previsaoMensalNumber.text = "R$ \(FinancialManager.sharedInstance.calculatePrevisao())"
-        saldoAtualNumber.text = "R$ \(FinancialManager.sharedInstance.calculateSaldo())"
+//        previsaoMensalNumber.text = "R$ \(FinancialManager.sharedInstance.calculatePrevisao())"
+//        saldoAtualNumber.text = "R$ \(FinancialManager.sharedInstance.calculateSaldo())"
     }
     
     func configureLayoutView() {
@@ -43,27 +43,27 @@ class MouthResultViewController: UIViewController {
     }
     
     func atualizarGrafico() {
-        let extracts = FinancialManager.sharedInstance.graphicDatas()
-        if let info1 = extracts[0].valor {
-            if let info2 = extracts[1].valor {
-                if let info3 = extracts[2].valor {
-                    if let info4 = extracts[3].valor {
-                        if let info5 = extracts[4].valor {
-                            viewGraphics.atualizar([Int(info1),Int(info2),Int(info3),Int(info4),Int(info5)])
-                        }else {
-                            viewGraphics.atualizar([Int(info1),Int(info2),Int(info3),Int(info4),0])
-                        }
-                    }else {
-                        viewGraphics.atualizar([Int(info1),Int(info2),0,0,0])
-                    }
-                }
-            }else {
-                viewGraphics.atualizar([Int(info1),0,0,0,0])
-            }
-        }else {
-            viewGraphics.atualizar([0,0,0,0,0])
-        }
-      
+//        let extracts = FinancialManager.sharedInstance.graphicDatas()
+//        if let info1 = extracts[0].valor {
+//            if let info2 = extracts[1].valor {
+//                if let info3 = extracts[2].valor {
+//                    if let info4 = extracts[3].valor {
+//                        if let info5 = extracts[4].valor {
+//                            viewGraphics.atualizar([Int(info1),Int(info2),Int(info3),Int(info4),Int(info5)])
+//                        }else {
+//                            viewGraphics.atualizar([Int(info1),Int(info2),Int(info3),Int(info4),0])
+//                        }
+//                    }else {
+//                        viewGraphics.atualizar([Int(info1),Int(info2),0,0,0])
+//                    }
+//                }
+//            }else {
+//                viewGraphics.atualizar([Int(info1),0,0,0,0])
+//            }
+//        }else {
+//            viewGraphics.atualizar([0,0,0,0,0])
+//        }
+//      
     }
     
     @IBAction func backButton(_ sender: Any) {

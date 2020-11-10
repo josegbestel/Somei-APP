@@ -73,7 +73,54 @@ class ProviderSomei {
         
     }
     
-    class func requestMouthExtract(id:String,email:String, password:String,completion: @escaping (Bool) -> Void) {
+    class func requestReportValues(id:String,email:String, password:String,completion: @escaping (Bool) -> Void) {
+        let loginString = String(format: "%@:%@", email, password)
+        let loginData = loginString.data(using: String.Encoding.utf8)!
+        let base64LoginString = loginData.base64EncodedString()
+        let completeUrl = "https://somei-app-server.herokuapp.com/api/v1/profissional/\(id)/financeiro/relatorio"
+        guard let url = URL(string:completeUrl) else {return}
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+        
+        let dataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error? ) in
+            if error == nil {
+                guard let response = response as? HTTPURLResponse else {return}
+                print(response.statusCode)
+                if response.statusCode == 200 {
+                    guard let data = data else {return}
+                    do{
+                        if let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? Dictionary<String, AnyObject> {
+                            print(json)
+                            let extract = MargemDeLucro.byDict(dict: json)
+                            FinancialManager.sharedInstance.margemDeLucro = extract
+                            let mouthsResults = MouthsResults.byDict(dict: json)
+                            FinancialManager.sharedInstance.mouthsResults = mouthsResults
+                            let depositos = DepositosBancarios.byDict(dict: json)
+                            FinancialManager.sharedInstance.depositosBancarios = depositos
+                            print("\n\nOrçamentos carregados no Model\n\n")
+                            completion(true)
+                        }
+                    }catch {
+                        print(error.localizedDescription)
+                    }
+                }else{
+                    if let data = data {
+                        let json = String(data: data, encoding: String.Encoding.utf8)
+                        print("Failure Response: \(String(describing: json))")
+                    }else {
+                        print("status invalido do servidor:\(response.statusCode)")
+                    }
+                }
+            }else {
+                print(error?.localizedDescription as Any)
+            }
+        }
+        dataTask.resume()
+    }
+    
+    
+    class func requestMouthReleases(id:String,email:String, password:String,completion: @escaping (Bool) -> Void) {
         let loginString = String(format: "%@:%@", email, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
@@ -91,9 +138,10 @@ class ProviderSomei {
                     guard let data = data else {return}
                     do{
                         if let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [[String : Any]] {
-                            var extractValuesArray:[ExtractValue] = []
+                            print(json)
+                            var extractValuesArray:[ReleasesValue] = []
                             for(dict) in json{
-                                let extract = ExtractValue.byDict(dict: dict)
+                                let extract = ReleasesValue.byDict(dict: dict)
                                 extractValuesArray.append(extract)
                             }
                             FinancialManager.sharedInstance.extractRequestArray = extractValuesArray
