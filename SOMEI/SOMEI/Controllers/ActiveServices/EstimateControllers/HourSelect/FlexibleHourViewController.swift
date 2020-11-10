@@ -52,7 +52,6 @@ class FlexibleHourViewController: UIViewController, UITextFieldDelegate {
     func separeString(horario:String) -> HourStruct {
         let newHour = String(horario.prefix(2))
         let newMinute = String(horario.suffix(2))
-//        let hour = HourStruct(hour: Double(newHour),minute: Double(newMinute))
         let hour = HourStruct(hour: newHour, minute: newMinute)
         return hour
     }

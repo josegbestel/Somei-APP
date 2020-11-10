@@ -508,6 +508,7 @@
 		3970B966250F5302006C36DD /* ActiveServices */ = {
 			isa = PBXGroup;
 			children = (
+				D11378A1255B4A57000E764E /* ActiveServiceSolicitante */,
 				D180717E25284D3A0087385E /* ActiveServicesProfissional */,
 				3970B972250F5302006C36DD /* EstimateControllers */,
 				3970B967250F5302006C36DD /* ActiveServicesViewController.swift */,
@@ -620,6 +621,13 @@
 				4814DA91DCEE3BDD98942C8E /* Pods_SOMEI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D11378A1255B4A57000E764E /* ActiveServiceSolicitante */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ActiveServiceSolicitante;
 			sourceTree = "<group>";
 		};
 		D1184F04255A0BA600D566CE /* Relatorio */ = {

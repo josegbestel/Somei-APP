@@ -13,5 +13,6 @@ target 'SOMEI' do
   pod 'YYCalendar'
   pod 'SendBirdSDK'
   pod 'SendBirdUIKit'
+  pod 'DirectCheckout'
   
 end

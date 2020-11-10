@@ -2,6 +2,7 @@ PODS:
   - ALCameraViewController (3.1)
   - Cosmos (22.1.0)
   - CPF-CNPJ-Validator (1.0.2)
+  - DirectCheckout (0.0.3)
   - Firebase/CoreOnly (6.32.0):
     - FirebaseCore (= 6.10.2)
   - Firebase/Storage (6.32.0):
@@ -41,6 +42,7 @@ DEPENDENCIES:
   - ALCameraViewController
   - Cosmos (~> 22.1)
   - CPF-CNPJ-Validator
+  - DirectCheckout
   - Firebase/Storage
   - SendBirdSDK
   - SendBirdUIKit
@@ -51,6 +53,7 @@ SPEC REPOS:
     - ALCameraViewController
     - Cosmos
     - CPF-CNPJ-Validator
+    - DirectCheckout
     - Firebase
     - FirebaseCore
     - FirebaseCoreDiagnostics
@@ -68,6 +71,7 @@ SPEC CHECKSUMS:
   ALCameraViewController: 144dea45fd749a623aafd8cb7b10cea88499fcc3
   Cosmos: 2795b36ad4bbea1af3050d6d65576ed63875f86a
   CPF-CNPJ-Validator: 0b08069595da2c4b20e964b743bfc0a7334d5347
+  DirectCheckout: 0912fc266e29394464cfe8488e4511634386db08
   Firebase: afa030f17f5421810f379a42b0e5d3302d27eb26
   FirebaseCore: 1d697bb944bf2af5fc248f1a66e165c9dd88bf97
   FirebaseCoreDiagnostics: 7415bfb3883b3500c5a95c42b6ba66baae78f600
@@ -81,6 +85,6 @@ SPEC CHECKSUMS:
   SendBirdUIKit: 3d7b969bbd99fba145448e0f58ced493c0f79952
   YYCalendar: 1a6bbbd2190392edf9209da898b029ce4e5e734b
 
-PODFILE CHECKSUM: d13ec1e18ebf3aeb54604283bf3ae9278feb1746
+PODFILE CHECKSUM: c1fa7d8aa1b8aa62c25956328c9c5737fa14f99c
 
 COCOAPODS: 1.9.3
