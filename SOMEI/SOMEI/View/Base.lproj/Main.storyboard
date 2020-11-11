@@ -8222,7 +8222,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButton:" destination="0zy-I4-d9m" eventType="touchUpInside" id="H5X-Ko-qdV"/>
+                                    <action selector="back:" destination="0zy-I4-d9m" eventType="touchUpInside" id="2nw-Uc-IAZ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocs-VB-8O2">
@@ -8258,21 +8258,21 @@
                     </view>
                     <navigationItem key="navigationItem" id="Tg1-LT-z9m"/>
                     <connections>
-                        <outlet property="clientNameLabel" destination="192-sf-yOf" id="bjp-hy-fc1"/>
-                        <outlet property="descriptionTitle" destination="ocs-VB-8O2" id="Mwv-uT-bkz"/>
-                        <outlet property="descriptionTitleSolicitationView" destination="ocu-VX-yFq" id="ZAI-Jn-IQS"/>
-                        <outlet property="esderecoLabel" destination="88I-8f-CWF" id="qdw-wt-cdS"/>
-                        <outlet property="imageOrcamentoCollection" destination="C4F-x9-KRw" id="Ig5-cd-KNA"/>
-                        <outlet property="imageViewStatus" destination="8w6-H6-6LZ" id="Zwh-CV-dAv"/>
-                        <outlet property="mainStatusLabel" destination="TsP-Fp-UBV" id="qEO-dv-yU1"/>
-                        <outlet property="priceLabel" destination="16R-aP-IUK" id="qGr-We-2of"/>
-                        <outlet property="professionTitle" destination="CTG-4F-mZx" id="fZc-dY-TWz"/>
-                        <outlet property="professionalTitleSolicitationView" destination="CU9-A0-w0c" id="9de-wH-vfK"/>
-                        <outlet property="serviceDatasView" destination="rI3-Xb-rBZ" id="SMQ-l1-Brj"/>
-                        <outlet property="solicitationView" destination="dEj-dC-JZf" id="TOj-lz-dam"/>
-                        <outlet property="starView" destination="zB4-CA-ogf" id="jPj-Dd-Fl2"/>
-                        <outlet property="statusLabelStatusView" destination="19v-Xt-wGj" id="GRO-fn-sVe"/>
-                        <outlet property="statusView" destination="vts-l7-v4J" id="j1q-cW-jX1"/>
+                        <outlet property="addresslabel" destination="88I-8f-CWF" id="iGZ-OB-Iio"/>
+                        <outlet property="collectionView" destination="C4F-x9-KRw" id="d2y-Vk-yJF"/>
+                        <outlet property="cosmosRate" destination="zB4-CA-ogf" id="T9l-sN-aV8"/>
+                        <outlet property="descriptionLabel" destination="ocs-VB-8O2" id="8yn-Yz-jeF"/>
+                        <outlet property="descriptionSolicitationView" destination="ocu-VX-yFq" id="Izi-Oc-YHR"/>
+                        <outlet property="imageView" destination="8w6-H6-6LZ" id="uzp-Mx-UEZ"/>
+                        <outlet property="mainStatusLabel" destination="TsP-Fp-UBV" id="Fbb-LN-gET"/>
+                        <outlet property="nomeService" destination="192-sf-yOf" id="9SS-JQ-5i6"/>
+                        <outlet property="price" destination="16R-aP-IUK" id="x6A-in-IVm"/>
+                        <outlet property="professionalLabel" destination="CU9-A0-w0c" id="jGW-q4-Wgs"/>
+                        <outlet property="profissionalLabel" destination="CTG-4F-mZx" id="UJ5-2t-aD2"/>
+                        <outlet property="servicoView" destination="rI3-Xb-rBZ" id="nWO-ov-zqz"/>
+                        <outlet property="solicitationView" destination="dEj-dC-JZf" id="9WS-VB-8So"/>
+                        <outlet property="statusLabelStatus" destination="19v-Xt-wGj" id="FkE-6F-aZb"/>
+                        <outlet property="statusView" destination="vts-l7-v4J" id="sGa-Qb-PPx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PQI-rL-8kN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
