@@ -35,7 +35,7 @@ class ActiveServiceSolicitanteDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewLayout()
-     
+        completeInformations()
     }
     
     func completeInformations() {

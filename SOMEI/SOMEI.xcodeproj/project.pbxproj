@@ -96,6 +96,7 @@
 		3970B9E6250F5303006C36DD /* SearchWorkersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3970B99D250F5302006C36DD /* SearchWorkersViewController.swift */; };
 		D1067F73254781880080DA33 /* MouthGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1067F72254781880080DA33 /* MouthGoalViewController.swift */; };
 		D11378B7255B4BD5000E764E /* ActiveServiceSolicitanteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11378B6255B4BD5000E764E /* ActiveServiceSolicitanteDetailViewController.swift */; };
+		D11378BC255B7063000E764E /* OwnerCpfRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11378BB255B7063000E764E /* OwnerCpfRegisterViewController.swift */; };
 		D1184F14255A0D0000D566CE /* MagemDeLucro.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1184F13255A0D0000D566CE /* MagemDeLucro.swift */; };
 		D1184F19255A149C00D566CE /* Prevision.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1184F18255A149C00D566CE /* Prevision.swift */; };
 		D1184F22255A181C00D566CE /* MouthsResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1184F21255A181C00D566CE /* MouthsResults.swift */; };
@@ -253,6 +254,7 @@
 		AF93BF6073951527603D0181 /* Pods-SOMEI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOMEI.release.xcconfig"; path = "Target Support Files/Pods-SOMEI/Pods-SOMEI.release.xcconfig"; sourceTree = "<group>"; };
 		D1067F72254781880080DA33 /* MouthGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouthGoalViewController.swift; sourceTree = "<group>"; };
 		D11378B6255B4BD5000E764E /* ActiveServiceSolicitanteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveServiceSolicitanteDetailViewController.swift; sourceTree = "<group>"; };
+		D11378BB255B7063000E764E /* OwnerCpfRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerCpfRegisterViewController.swift; sourceTree = "<group>"; };
 		D1184F13255A0D0000D566CE /* MagemDeLucro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagemDeLucro.swift; sourceTree = "<group>"; };
 		D1184F18255A149C00D566CE /* Prevision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prevision.swift; sourceTree = "<group>"; };
 		D1184F21255A181C00D566CE /* MouthsResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouthsResults.swift; sourceTree = "<group>"; };
@@ -597,6 +599,7 @@
 				3970B991250F5302006C36DD /* LogradouroViewController.swift */,
 				D1067F72254781880080DA33 /* MouthGoalViewController.swift */,
 				D1E51A202558B5BF004FE02C /* AccountRegisterViewController.swift */,
+				D11378BB255B7063000E764E /* OwnerCpfRegisterViewController.swift */,
 			);
 			path = EmployeesControllers;
 			sourceTree = "<group>";
@@ -1033,6 +1036,7 @@
 				3970B9C9250F5302006C36DD /* DescriptionScreenViewController.swift in Sources */,
 				3970B9A1250F5302006C36DD /* HourStruct.swift in Sources */,
 				3970B9AD250F5302006C36DD /* Comentario.swift in Sources */,
+				D11378BC255B7063000E764E /* OwnerCpfRegisterViewController.swift in Sources */,
 				3970B9A4250F5302006C36DD /* LocalizacaoStruct.swift in Sources */,
 				3970B99E250F5302006C36DD /* ProviderSomei.swift in Sources */,
 				D19FB8EE2529A0A000B42211 /* FinancialReportingViewController.swift in Sources */,

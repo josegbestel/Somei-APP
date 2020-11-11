@@ -19,7 +19,7 @@ class CPFScreenViewController: UIViewController,UITextFieldDelegate {
         self.hideKeyboardWhenTappedAround()
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(CPFScreenViewController.dismissKeyboard)))
     }
-//MARK: Função de controle do teclado
+   //MARK: Função de controle do teclado
    func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CPFScreenViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false

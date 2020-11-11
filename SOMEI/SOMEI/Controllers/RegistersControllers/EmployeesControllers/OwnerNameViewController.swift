@@ -50,7 +50,7 @@ class OwnerNameViewController: UIViewController {
         }else{
             ProfissionalManager.sharedInstance.profissional.ownerName = textField.text!
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let newNavigation = storyBoard.instantiateViewController(withIdentifier: "MainActivityViewController")
+            let newNavigation = storyBoard.instantiateViewController(withIdentifier: "OwnerCpfRegisterViewController")
             self.present(newNavigation, animated: true, completion: nil)
         }
     }
