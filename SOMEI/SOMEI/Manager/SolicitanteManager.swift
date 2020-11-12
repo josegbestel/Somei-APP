@@ -53,10 +53,7 @@ class SolicitanteManager {
     
     
     func completeRegister(onComplete: @escaping (Bool) -> Void) {
-    
-        //Define no Defaults que foi criado um perfil solicitante
-       SomeiUserDefaults.shared.defaults.set(true, forKey: UserDefaultsKeys.createdSolicitantePerfil.rawValue)
-        
+
         //Transforma o objeto em struct
        guard let structForApi = createSolicitanteStruct() else {onComplete(false); return}
 //       print(structForApi)
@@ -72,6 +69,9 @@ class SolicitanteManager {
             
                 //Se deu boa, salva o solicitante no coredata
                self.saveSolicitantePerfilOnCoreData()
+            
+               //Define no Defaults que foi criado um perfil solicitante
+               SomeiUserDefaults.shared.defaults.set(true, forKey: UserDefaultsKeys.createdSolicitantePerfil.rawValue)
                onComplete(true)
            }
        }

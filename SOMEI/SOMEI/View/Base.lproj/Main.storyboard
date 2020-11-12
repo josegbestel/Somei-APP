@@ -7482,7 +7482,7 @@
         <!--Card Informations View Controller-->
         <scene sceneID="H2Q-Fh-tTo">
             <objects>
-                <viewController modalPresentationStyle="currentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hqw-4a-x6m" customClass="CardInformationsViewController" customModule="SOMEI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CardInformationsViewController" modalPresentationStyle="currentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hqw-4a-x6m" customClass="CardInformationsViewController" customModule="SOMEI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sMF-q7-HOt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -7623,7 +7623,6 @@
                         <outlet property="digtCard" destination="P3W-Ey-asr" id="VSn-6H-WCW"/>
                         <outlet property="nameCard" destination="ciO-h7-XIT" id="zxV-Ej-Hpa"/>
                         <outlet property="numberCard" destination="wzc-mT-a7A" id="tmW-cW-BUh"/>
-                        <outlet property="textField" destination="ciO-h7-XIT" id="MRq-BY-1ua"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWx-m3-bM7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -118,7 +118,10 @@ class AnswerOrcamentoViewController: UIViewController {
     }
     
     func goesToConfirmChoice() {
-        
+        let newVC = self.storyboard?.instantiateViewController(withIdentifier: "CardInformationsViewController")
+        self.definesPresentationContext = true
+        newVC?.modalPresentationStyle = .overCurrentContext
+        self.present(newVC!, animated: true, completion: nil)
     }
     
     func popUpSelected() {
@@ -129,6 +132,13 @@ class AnswerOrcamentoViewController: UIViewController {
         })
         alert.addAction(cancelar)
         alert.addAction(confirmar)
+        self.present(alert, animated: true)
+    }
+    
+    func errorToSelectedProfessional() {
+        let alert = UIAlertController(title: "Algo deu errado", message: "Erro ao selecionar profissional: Profissional não disponivel", preferredStyle: .alert)
+        let Ok = UIAlertAction(title: "Ok", style: .default, handler: { action in  })
+        alert.addAction(Ok)
         self.present(alert, animated: true)
     }
     
@@ -156,9 +166,13 @@ extension AnswerOrcamentoViewController: UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        popUpSelected()
+        if let profissional = OrcamentoManager.sharedInstance.selectedOrcamento?.profissional?[indexPath.row] {
+            OrcamentoManager.sharedInstance.profissionalEscolhidoRespostaOrcamento = profissional
+            popUpSelected()
+        }else{
+            errorToSelectedProfessional()
+        }
     }
-    
 }
 extension AnswerOrcamentoViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     

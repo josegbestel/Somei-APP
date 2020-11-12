@@ -265,8 +265,7 @@ class ProviderSomei {
         dataTask.resume()
     }
     
-    class func openOrcamentos(id:String, email:String, password:String,
-                              completion: @escaping (Bool) -> Void) {
+    class func openOrcamentos(id:String, email:String, password:String,completion: @escaping (Bool) -> Void) {
         let loginString = String(format: "%@:%@", email, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()

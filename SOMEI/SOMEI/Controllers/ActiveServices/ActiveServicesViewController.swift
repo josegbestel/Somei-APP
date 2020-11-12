@@ -14,16 +14,32 @@ class ActiveServicesViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ProviderSomei.openOrcamentos(id: String(SolicitanteManager.sharedInstance.solicitante.id ?? 310), email: SolicitanteManager.sharedInstance.solicitante.email ?? "", password: SolicitanteManager.sharedInstance.solicitante.password ?? ""){ success in
-            self.tableView.reloadData()
+        if SolicitanteManager.sharedInstance.solicitante.id != nil,SolicitanteManager.sharedInstance.solicitante.email != nil,SolicitanteManager.sharedInstance.solicitante.password != nil {
+            ProviderSomei.openOrcamentos(id: String(SolicitanteManager.sharedInstance.solicitante.id ?? 0), email: SolicitanteManager.sharedInstance.solicitante.email ?? "", password: SolicitanteManager.sharedInstance.solicitante.password ?? ""){ success in
+                self.tableView.reloadData()
+            }
+        }else{
+            print("informações do solucitante faltando:")
+            print("Id:\(String(describing: SolicitanteManager.sharedInstance.solicitante.id))")
+            print("Email:\(String(describing: SolicitanteManager.sharedInstance.solicitante.email))")
+            print("Senha:\(String(describing: SolicitanteManager.sharedInstance.solicitante.password))")
+           
         }
     }
     
     func goesToOrcamentoList() {
-        let newVC = self.storyboard?.instantiateViewController(withIdentifier: "AnswerOrcamentoViewController")
-        self.definesPresentationContext = true
-        newVC?.modalPresentationStyle = .overCurrentContext
-        self.present(newVC!, animated: true, completion: nil)
+        print(OrcamentoManager.sharedInstance.selectedOrcamento?.status as Any)
+        if OrcamentoManager.sharedInstance.selectedOrcamento?.status == "RESPONDIDO" {
+            let newVC = self.storyboard?.instantiateViewController(withIdentifier: "AnswerOrcamentoViewController")
+            self.definesPresentationContext = true
+            newVC?.modalPresentationStyle = .overCurrentContext
+            self.present(newVC!, animated: true, completion: nil)
+        }else{
+            let newVC = self.storyboard?.instantiateViewController(withIdentifier: "ActiveServiceSolicitanteDetailViewController")
+            self.definesPresentationContext = true
+            newVC?.modalPresentationStyle = .overCurrentContext
+            self.present(newVC!, animated: true, completion: nil)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
