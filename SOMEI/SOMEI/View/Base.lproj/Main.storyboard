@@ -7475,6 +7475,9 @@
                                                         <real key="value" value="20"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="resgatarSaldoButton:" destination="bXp-lJ-zsM" eventType="touchUpInside" id="QyX-BL-Ovz"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -7546,6 +7549,8 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
+                        <outlet property="aLiberarSaldoNumber" destination="TW2-2X-XMR" id="CrW-Kp-xGi"/>
+                        <outlet property="saldoDisponivelNumberLabel" destination="2T1-l0-cFi" id="6Rc-In-Wv0"/>
                         <outlet property="tableView" destination="Bvc-N7-nfq" id="sNu-5Y-Byu"/>
                     </connections>
                 </viewController>

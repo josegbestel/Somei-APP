@@ -11,6 +11,8 @@ import UIKit
 class BankDepositsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var saldoDisponivelNumberLabel: UILabel!
+    @IBOutlet weak var aLiberarSaldoNumber: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +24,11 @@ class BankDepositsViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-
+    @IBAction func resgatarSaldoButton(_ sender: Any) {
+        
+        
+    }
+    
 }
 extension BankDepositsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
