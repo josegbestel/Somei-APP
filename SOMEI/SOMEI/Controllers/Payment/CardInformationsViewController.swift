@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import DirectCheckout
+ 
 class CardInformationsViewController: UIViewController {
 
     @IBOutlet weak var nameCard: UITextField!
@@ -36,15 +37,41 @@ class CardInformationsViewController: UIViewController {
         }
     }
     
+    func completeInformationCard() {
+        PaymentManager.sharedInstance.nameCard = nameCard.text!
+        PaymentManager.sharedInstance.cardNumber = numberCard.text!
+        PaymentManager.sharedInstance.digitCard = digtCard.text!
+        hashCartao()
+    }
+    
+    func hashCartao() {
+        let card = Card(cardNumber: numberCard.text!,
+                        holderName: nameCard.text!,
+                        securityCode: digtCard.text!,
+                        expirationMonth: "01",
+                        expirationYear: "2028")
+
+        DirectCheckout.getCardHash(card) { result in
+            do {
+                let hash = try result.get()
+                /* Sucesso - A variável hash conterá o hash do cartão de crédito */
+                print("Codigo hash do cartão:\(hash)")
+                print(hash)
+
+            } catch let error {
+                /* Erro - A variável error conterá o erro ocorrido ao obter o hash */
+                print("Tivemos um erro ao obter o hash:\(error)")
+            }
+        }
+    }
+    
     @IBAction func backButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func continueButton(_ sender: Any) {
         if nameCard.hasText, numberCard.hasText, digtCard.hasText {
-            PaymentManager.sharedInstance.nameCard = nameCard.text!
-            PaymentManager.sharedInstance.cardNumber = numberCard.text!
-            PaymentManager.sharedInstance.digitCard = digtCard.text!
+            completeInformationCard()
             goesToConfirmDatas()
         }else{
             errorPopUp()

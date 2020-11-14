@@ -36,6 +36,7 @@ class AgeViewController: UIViewController, UITextFieldDelegate {
         let newSTR2 = str.dropFirst(6)
         let stringRepresentation = String(newSTR2)
         SolicitanteManager.sharedInstance.solicitante.age = Int(stringRepresentation)
+        print(SolicitanteManager.sharedInstance.solicitante.age)
     }
     
     @IBAction func backButton(_ sender: Any) {
