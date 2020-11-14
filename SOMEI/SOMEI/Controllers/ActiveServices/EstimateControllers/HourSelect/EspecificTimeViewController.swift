@@ -36,12 +36,8 @@ class EspecificTimeViewController: UIViewController, UITextFieldDelegate {
     
       @objc func dismissKeyboard() {
             self.view.endEditing(true)
+            shouldSaveData()
       }
-    
-    @objc func dissmisKeyboardAndSaveDate(){
-        self.view.endEditing(true)
-        shoulSaveData()
-    }
     
     @IBAction func dateActionCalendar() {
         DispatchQueue.main.async {
@@ -83,16 +79,11 @@ class EspecificTimeViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
-    func shoulSaveData() {
-        print(dateTextField.text?.count)
-        print(textFieldHour.text?.count)
-        print(textFieldMinute.text?.count)
+    func shouldSaveData() {
         if dateTextField.text?.count == 10,textFieldHour.text?.count == 5, textFieldMinute.text?.count == 5 {
             if !saveAgendaSuccess() {
                 informationError()
             }
-        }else{
-            informationError()
         }
     }
 
@@ -101,9 +92,7 @@ class EspecificTimeViewController: UIViewController, UITextFieldDelegate {
             agenda.diaSemana = dateTextField.text!
             agenda.horaInicio = separeString(horario: textFieldHour.text!)
             agenda.horaFinal = separeString(horario: textFieldMinute.text!)
-            shoulSaveData()
-        }else{
-            informationError()
+            shouldSaveData()
         }
     }
     
@@ -117,7 +106,7 @@ class EspecificTimeViewController: UIViewController, UITextFieldDelegate {
                 case 2:
                     appendString = ":"
                 case 5:
-                    dissmisKeyboardAndSaveDate()
+                    dismissKeyboard()
                 default:
                     break
                 }
@@ -135,7 +124,7 @@ class EspecificTimeViewController: UIViewController, UITextFieldDelegate {
                     case 5:
                         appendString = "/"
                     case 10:
-                        dissmisKeyboardAndSaveDate()
+                        dismissKeyboard()
                     default:
                         break
                     }
