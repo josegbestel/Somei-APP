@@ -8503,6 +8503,149 @@
             </objects>
             <point key="canvasLocation" x="-7335" y="1023"/>
         </scene>
+        <!--Evaluate Service Professional View Controller-->
+        <scene sceneID="Mtr-GX-znA">
+            <objects>
+                <viewController storyboardIdentifier="EvaluateServiceProfessionalViewController" modalPresentationStyle="currentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1sN-dj-f5d" customClass="EvaluateServiceProfessionalViewController" customModule="SOMEI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kmu-U6-WfA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avaliar Serviço" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iw-ij-8eV">
+                                <rect key="frame" x="14" y="20" width="386" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="195" id="LuZ-wq-VWu"/>
+                                    <constraint firstAttribute="height" constant="40" id="qMa-e1-Vlp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t3g-j2-5US" customClass="UICornerableView" customModule="SOMEI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="127" width="414" height="715"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comentário sobre o serviço" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7X0-zJ-3YH">
+                                        <rect key="frame" x="35" y="35" width="258" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="Mnj-7i-f6e"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ex; Serviço muito bem aplicado..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="noj-kZ-3ic">
+                                        <rect key="frame" x="35" y="81" width="300" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="De uma pontuação para o cliente" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dp-p9-XZW">
+                                        <rect key="frame" x="35" y="133" width="288" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LwU-SL-NNS" customClass="CosmosView" customModule="Cosmos">
+                                        <rect key="frame" x="122" y="165" width="170" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                <real key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                                <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="emptyBorderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
+                                                <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
+                                                <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQw-dN-1Rw">
+                                        <rect key="frame" x="20" y="529" width="374" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <state key="normal" title="CONTINUAR">
+                                            <color key="titleColor" red="0.074509803920000006" green="0.37647058820000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="continueButton:" destination="1sN-dj-f5d" eventType="touchUpInside" id="biC-d3-hsc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="LwU-SL-NNS" firstAttribute="top" secondItem="2dp-p9-XZW" secondAttribute="bottom" constant="8" id="73l-Ky-B38"/>
+                                    <constraint firstItem="7X0-zJ-3YH" firstAttribute="top" secondItem="t3g-j2-5US" secondAttribute="top" constant="35" id="93y-JL-hz1"/>
+                                    <constraint firstItem="noj-kZ-3ic" firstAttribute="leading" secondItem="t3g-j2-5US" secondAttribute="leading" constant="35" id="9d9-eb-0bi"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2dp-p9-XZW" secondAttribute="trailing" constant="20" symbolic="YES" id="CKH-jt-qOs"/>
+                                    <constraint firstAttribute="bottom" secondItem="tQw-dN-1Rw" secondAttribute="bottom" constant="150" id="Dox-sn-ebz"/>
+                                    <constraint firstItem="2dp-p9-XZW" firstAttribute="top" secondItem="noj-kZ-3ic" secondAttribute="bottom" constant="25" id="NDe-rL-oVy"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="noj-kZ-3ic" secondAttribute="trailing" constant="20" symbolic="YES" id="ZtM-5n-Zak"/>
+                                    <constraint firstItem="7X0-zJ-3YH" firstAttribute="leading" secondItem="t3g-j2-5US" secondAttribute="leading" constant="35" id="Zxs-6q-lxF"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7X0-zJ-3YH" secondAttribute="trailing" constant="20" symbolic="YES" id="duP-q9-TsN"/>
+                                    <constraint firstAttribute="trailing" secondItem="tQw-dN-1Rw" secondAttribute="trailing" constant="20" symbolic="YES" id="egX-4U-8yw"/>
+                                    <constraint firstItem="tQw-dN-1Rw" firstAttribute="leading" secondItem="t3g-j2-5US" secondAttribute="leading" constant="20" symbolic="YES" id="hy8-vG-ic3"/>
+                                    <constraint firstItem="LwU-SL-NNS" firstAttribute="centerX" secondItem="t3g-j2-5US" secondAttribute="centerX" id="ioy-ds-cVy"/>
+                                    <constraint firstItem="2dp-p9-XZW" firstAttribute="leading" secondItem="t3g-j2-5US" secondAttribute="leading" constant="35" id="nea-LG-3fW"/>
+                                    <constraint firstItem="noj-kZ-3ic" firstAttribute="top" secondItem="7X0-zJ-3YH" secondAttribute="bottom" constant="22" id="tRB-3U-868"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPV-jA-4Dw">
+                                <rect key="frame" x="14" y="25" width="54" height="30"/>
+                                <state key="normal" title="&lt; Voltar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButton:" destination="1sN-dj-f5d" eventType="touchUpInside" id="gUf-IN-1ur"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="eeZ-5K-yAG"/>
+                        <color key="backgroundColor" red="0.074509803920000006" green="0.37647058820000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="eeZ-5K-yAG" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0iw-ij-8eV" secondAttribute="trailing" id="4pH-2R-NBa"/>
+                            <constraint firstItem="0iw-ij-8eV" firstAttribute="leading" secondItem="eeZ-5K-yAG" secondAttribute="leading" constant="14" id="A6I-Vc-nX9"/>
+                            <constraint firstItem="oPV-jA-4Dw" firstAttribute="centerY" secondItem="0iw-ij-8eV" secondAttribute="centerY" id="Ake-TF-Wr4"/>
+                            <constraint firstItem="t3g-j2-5US" firstAttribute="trailing" secondItem="eeZ-5K-yAG" secondAttribute="trailing" id="Btf-Gk-kQ8"/>
+                            <constraint firstItem="0iw-ij-8eV" firstAttribute="centerX" secondItem="eeZ-5K-yAG" secondAttribute="centerX" id="Lrc-hv-wSl"/>
+                            <constraint firstAttribute="bottom" secondItem="t3g-j2-5US" secondAttribute="bottom" id="Ncr-Bc-NWH"/>
+                            <constraint firstItem="oPV-jA-4Dw" firstAttribute="leading" secondItem="eeZ-5K-yAG" secondAttribute="leading" constant="14" id="kbN-UJ-5h9"/>
+                            <constraint firstItem="t3g-j2-5US" firstAttribute="top" secondItem="0iw-ij-8eV" secondAttribute="bottom" constant="67" id="lPz-lc-rHQ"/>
+                            <constraint firstItem="eeZ-5K-yAG" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oPV-jA-4Dw" secondAttribute="trailing" symbolic="YES" id="nRX-J9-2Yd"/>
+                            <constraint firstItem="0iw-ij-8eV" firstAttribute="top" secondItem="eeZ-5K-yAG" secondAttribute="top" constant="20" id="oar-Tc-YXF"/>
+                            <constraint firstItem="t3g-j2-5US" firstAttribute="leading" secondItem="eeZ-5K-yAG" secondAttribute="leading" id="yAR-v3-roc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="hpf-Cx-jZE"/>
+                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="view.backgroundColor">
+                            <color key="value" red="0.074509803920000006" green="0.37647058820000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="comentTextField" destination="noj-kZ-3ic" id="2E0-Fm-n96"/>
+                        <outlet property="cosmosRating" destination="LwU-SL-NNS" id="M5T-Q5-nV4"/>
+                        <outlet property="ratingCosmosView" destination="LwU-SL-NNS" id="WEB-o0-1pv"/>
+                        <outlet property="tfDescription" destination="noj-kZ-3ic" id="kZM-6x-sF7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ENG-gq-wMa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5491" y="1767"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="0Ft-CP-8yD">
@@ -8513,6 +8656,9 @@
         </designable>
         <designable name="AQ4-SB-9dr">
             <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="LwU-SL-NNS">
+            <size key="intrinsicContentSize" width="170" height="30"/>
         </designable>
         <designable name="Mth-VX-TS9">
             <size key="intrinsicContentSize" width="170" height="30"/>

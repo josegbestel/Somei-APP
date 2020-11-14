@@ -124,6 +124,9 @@
 		D1B1D1AD25535EE20030FFBB /* DepositsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B1D1AC25535EE20030FFBB /* DepositsTableViewCell.swift */; };
 		D1B75A2E2547903D006F614A /* ReleasesValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B75A2D2547903D006F614A /* ReleasesValue.swift */; };
 		D1B75A3325479097006F614A /* DtVencimento.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B75A3225479097006F614A /* DtVencimento.swift */; };
+		D1C2A2AD25609CDE00302883 /* EvaluateServiceProfessionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C2A2AC25609CDE00302883 /* EvaluateServiceProfessionalViewController.swift */; };
+		D1C2A2B525609FC400302883 /* FinishServiceStructProfissional.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C2A2B425609FC400302883 /* FinishServiceStructProfissional.swift */; };
+		D1C2A2BA2560A15D00302883 /* Avaliacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C2A2B92560A15D00302883 /* Avaliacao.swift */; };
 		D1C7054E25577F31008C9C3F /* EvaluateServiceSolicitanteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C7054D25577F31008C9C3F /* EvaluateServiceSolicitanteViewController.swift */; };
 		D1C7055625577FD5008C9C3F /* EvaluateServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C7055525577FD5008C9C3F /* EvaluateServiceManager.swift */; };
 		D1C7055E255785A9008C9C3F /* FinishServiceStructSolicitante.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C7055D255785A9008C9C3F /* FinishServiceStructSolicitante.swift */; };
@@ -283,6 +286,9 @@
 		D1B1D1AC25535EE20030FFBB /* DepositsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositsTableViewCell.swift; sourceTree = "<group>"; };
 		D1B75A2D2547903D006F614A /* ReleasesValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleasesValue.swift; sourceTree = "<group>"; };
 		D1B75A3225479097006F614A /* DtVencimento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DtVencimento.swift; sourceTree = "<group>"; };
+		D1C2A2AC25609CDE00302883 /* EvaluateServiceProfessionalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluateServiceProfessionalViewController.swift; sourceTree = "<group>"; };
+		D1C2A2B425609FC400302883 /* FinishServiceStructProfissional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishServiceStructProfissional.swift; sourceTree = "<group>"; };
+		D1C2A2B92560A15D00302883 /* Avaliacao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avaliacao.swift; sourceTree = "<group>"; };
 		D1C7054D25577F31008C9C3F /* EvaluateServiceSolicitanteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluateServiceSolicitanteViewController.swift; sourceTree = "<group>"; };
 		D1C7055525577FD5008C9C3F /* EvaluateServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluateServiceManager.swift; sourceTree = "<group>"; };
 		D1C7055D255785A9008C9C3F /* FinishServiceStructSolicitante.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishServiceStructSolicitante.swift; sourceTree = "<group>"; };
@@ -439,6 +445,8 @@
 				D1C7055D255785A9008C9C3F /* FinishServiceStructSolicitante.swift */,
 				D1E51A1B2558A520004FE02C /* AccountStruct.swift */,
 				D1FF5DA725604FA60084E937 /* DateStruct.swift */,
+				D1C2A2B425609FC400302883 /* FinishServiceStructProfissional.swift */,
+				D1C2A2B92560A15D00302883 /* Avaliacao.swift */,
 			);
 			path = Structures;
 			sourceTree = "<group>";
@@ -752,6 +760,7 @@
 			isa = PBXGroup;
 			children = (
 				D1C7054D25577F31008C9C3F /* EvaluateServiceSolicitanteViewController.swift */,
+				D1C2A2AC25609CDE00302883 /* EvaluateServiceProfessionalViewController.swift */,
 			);
 			path = EvaluateService;
 			sourceTree = "<group>";
@@ -1053,6 +1062,7 @@
 				3970B9C8250F5302006C36DD /* SendPicsViewController.swift in Sources */,
 				D1184F22255A181C00D566CE /* MouthsResults.swift in Sources */,
 				D1B75A3325479097006F614A /* DtVencimento.swift in Sources */,
+				D1C2A2AD25609CDE00302883 /* EvaluateServiceProfessionalViewController.swift in Sources */,
 				3970B9AF250F5302006C36DD /* SomeiManager.swift in Sources */,
 				D1C7054E25577F31008C9C3F /* EvaluateServiceSolicitanteViewController.swift in Sources */,
 				3970B9BA250F5302006C36DD /* EmployeePerfilViewController.swift in Sources */,
@@ -1071,6 +1081,7 @@
 				D1184F3A255A255800D566CE /* Deposit.swift in Sources */,
 				3970B9B9250F5302006C36DD /* ClientePerfilViewController.swift in Sources */,
 				3970B9D7250F5302006C36DD /* MainActivityViewController.swift in Sources */,
+				D1C2A2B525609FC400302883 /* FinishServiceStructProfissional.swift in Sources */,
 				D171F7582534F2A400C67EA7 /* BarChart.swift in Sources */,
 				D171F72025314E8000C67EA7 /* OrcamentoAnswerStruct.swift in Sources */,
 				3970B9B5250F5302006C36DD /* SomeiUserDefaults.swift in Sources */,
@@ -1088,6 +1099,7 @@
 				3970B9B6250F5302006C36DD /* UIBackgroundCorner.swift in Sources */,
 				3970B9DA250F5303006C36DD /* ConfirmDatasEmployeeViewController.swift in Sources */,
 				3970B9A7250F5302006C36DD /* Profissional.swift in Sources */,
+				D1C2A2BA2560A15D00302883 /* Avaliacao.swift in Sources */,
 				3970B9CE250F5302006C36DD /* OwnerNameViewController.swift in Sources */,
 				3970B9E3250F5303006C36DD /* NameScreenViewController.swift in Sources */,
 			);
