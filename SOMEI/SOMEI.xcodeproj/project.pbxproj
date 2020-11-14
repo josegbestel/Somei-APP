@@ -136,6 +136,7 @@
 		D1E51A352558B793004FE02C /* TypeAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E51A342558B793004FE02C /* TypeAccountManager.swift */; };
 		D1ECE68B252A94BB00F70CE4 /* NewDespesaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ECE68A252A94BB00F70CE4 /* NewDespesaViewController.swift */; };
 		D1ECE694252BB04000F70CE4 /* MouthResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ECE693252BB04000F70CE4 /* MouthResultViewController.swift */; };
+		D1FF5DA825604FA60084E937 /* DateStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FF5DA725604FA60084E937 /* DateStruct.swift */; };
 		D2F70AC9666561AA392EA1E3 /* Pods_SOMEI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4814DA91DCEE3BDD98942C8E /* Pods_SOMEI.framework */; };
 /* End PBXBuildFile section */
 
@@ -294,6 +295,7 @@
 		D1E51A342558B793004FE02C /* TypeAccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAccountManager.swift; sourceTree = "<group>"; };
 		D1ECE68A252A94BB00F70CE4 /* NewDespesaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDespesaViewController.swift; sourceTree = "<group>"; };
 		D1ECE693252BB04000F70CE4 /* MouthResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouthResultViewController.swift; sourceTree = "<group>"; };
+		D1FF5DA725604FA60084E937 /* DateStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateStruct.swift; sourceTree = "<group>"; };
 		D6929F95C8DA35D5736F1289 /* Pods-SOMEI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SOMEI.debug.xcconfig"; path = "Target Support Files/Pods-SOMEI/Pods-SOMEI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -436,6 +438,7 @@
 				D16B069A2547B5230057974A /* DtVencimentoStruct.swift */,
 				D1C7055D255785A9008C9C3F /* FinishServiceStructSolicitante.swift */,
 				D1E51A1B2558A520004FE02C /* AccountStruct.swift */,
+				D1FF5DA725604FA60084E937 /* DateStruct.swift */,
 			);
 			path = Structures;
 			sourceTree = "<group>";
@@ -1009,6 +1012,7 @@
 				D180717A25281A0E0087385E /* photosOrcamentoCollectionViewCell.swift in Sources */,
 				3970B9C2250F5302006C36DD /* FlexibleHourViewController.swift in Sources */,
 				3970B9C4250F5302006C36DD /* SelectHourTableViewCell.swift in Sources */,
+				D1FF5DA825604FA60084E937 /* DateStruct.swift in Sources */,
 				3970B9B3250F5302006C36DD /* AnswerOrcamentoManager.swift in Sources */,
 				3970B9A8250F5302006C36DD /* Place.swift in Sources */,
 				3970B9A5250F5302006C36DD /* OrcamentoStruct.swift in Sources */,

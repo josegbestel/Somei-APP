@@ -87,10 +87,41 @@ class ProfissionalManager {
         let latitude = Double("\(endereco.latitude ?? "-49.275830")")
         let localizacaoStruct:LocalizacaoStruct = LocalizacaoStruct.init(cep: endereco.cep, logradouro: endereco.logradouro, numero: endereco.numero, bairro: endereco.bairro, cidade: endereco.cidade, uf: endereco.uf, longitude:longitude , latitude:latitude, complemento: endereco.complemento)
         
-        let profissionalStruct:ProfissionalStruct = ProfissionalStruct.init(cnpj: profissional.cnpj, age: profissional.age, nomeFantasia:profissional.name, categoriaTitulo: profissional.mainActivity, nome: profissional.ownerName, avatar: profissional.photoLink, name: profissional.name, telefone: profissional.phone, email: profissional.email, senha: profissional.password, metaMensal:profissional.metaMensal ,localizacao: localizacaoStruct,contaBanco:profissional.account)
+        let dtNascimento:DateStruct = createDateStruct(data: profissional.dataNasc)
+        
+        let profissionalStruct:ProfissionalStruct = ProfissionalStruct.init(cnpj: profissional.cnpj, age: profissional.age, nomeFantasia:profissional.name, categoriaTitulo: profissional.mainActivity, nome: profissional.ownerName, avatar: profissional.photoLink, name: profissional.name, telefone: profissional.phone, email: profissional.email, senha: profissional.password, metaMensal:profissional.metaMensal ,localizacao: localizacaoStruct,contaBanco:profissional.account, cpf: profissional.ownerCpf,dtNascimento:dtNascimento)
 
      
         return profissionalStruct
+    }
+    
+    func createDateStruct(data:String?) -> DateStruct {
+        
+        var year:Int? = nil
+        var day:Int? = nil
+        var mouth:Int? = nil
+        
+        if let date = data {
+            let newSTR2 = date.dropFirst(6)
+            let stringRepresentation:String = String(newSTR2)
+            year = Int(stringRepresentation)
+        }
+        
+        if let dataDay = data {
+            let newSTR2 = dataDay.dropLast(8)
+            let stringRepresentation:String = String(newSTR2)
+            day = Int(stringRepresentation)
+        }
+        
+        if let dataMouth = data {
+            let newSTR2 = dataMouth.dropLast(5)
+            let newSTR3 = newSTR2.dropFirst(3)
+            let stringRepresentation:String = String(newSTR3)
+            mouth = Int(stringRepresentation)
+        }
+       
+        let date:DateStruct = DateStruct.init(day: day, mounth: mouth, year: year)
+        return date
     }
     
     //save Professional profile on Core Data after register

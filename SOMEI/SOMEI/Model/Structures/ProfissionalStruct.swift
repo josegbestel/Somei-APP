@@ -23,5 +23,7 @@ struct ProfissionalStruct:Codable {
        var metaMensal:Double?
        var localizacao:LocalizacaoStruct?
        var contaBanco:AccountStruct?
- 
+       var cpf:String?
+       var dtNascimento:DateStruct?
+    
 }
