@@ -67,9 +67,11 @@ class DetailOrcamentoListViewController: UIViewController {
           case "SOLICITADO":
             statusLabelStatusView.text = "Solicitado"
             statusLabelStatusView.backgroundColor = UIColor(red: 46/255, green: 75/255, blue: 113/255, alpha:1)
+            imageViewStatus.image = UIImage(named: "solicitadoStatus")
           case "RESPONDIDO":
             statusLabelStatusView.text = "Respondido"
             statusLabelStatusView.backgroundColor = UIColor(red: 126/255, green: 142/255, blue: 156/255, alpha:1)
+            imageViewStatus.image = UIImage(named: "respondidoStatus")
           case "CONFIRMADO":
             statusLabelStatusView.text = "Aguardando resposta do cliente"
             statusLabelStatusView.backgroundColor = UIColor(red: 255/255, green: 187/255, blue: 22/255, alpha:1)

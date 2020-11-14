@@ -105,18 +105,23 @@ class ActiveServiceSolicitanteDetailViewController: UIViewController {
           case "SOLICITADO":
             mainStatusLabel.text = "Solicitado"
             mainStatusLabel.backgroundColor = UIColor(red: 46/255, green: 75/255, blue: 113/255, alpha:1)
+            imageView.image = UIImage(named: "solicitadoStatus")
           case "RESPONDIDO":
             mainStatusLabel.text = "Respondido"
             mainStatusLabel.backgroundColor = UIColor(red: 126/255, green: 142/255, blue: 156/255, alpha:1)
+            imageView.image = UIImage(named: "respondidoStatus")
           case "CONFIRMADO":
             mainStatusLabel.text = "Confirmado"
             mainStatusLabel.backgroundColor = UIColor(red: 255/255, green: 187/255, blue: 22/255, alpha:1)
+            imageView.image = UIImage(named: "ConfirmadoStatus")
           case "PENDENTE":
             mainStatusLabel.text = "Pendente"
             mainStatusLabel.backgroundColor = UIColor(red: 148/255, green: 62/255, blue: 255/255, alpha:1)
+            imageView.image = UIImage(named: "PendenteStatus")
           case "FINALIZADO":
             mainStatusLabel.text = "Finalizado"
             mainStatusLabel.backgroundColor = UIColor(red: 6/255, green: 221/255, blue: 112/255, alpha:1)
+            imageView.image = UIImage(named: "FinalizadoStatus")
           case "CANCELADO":
             mainStatusLabel.text = "Cancelado"
             mainStatusLabel.backgroundColor = UIColor(red: 255/255, green: 92/255, blue: 83/255, alpha:1)
