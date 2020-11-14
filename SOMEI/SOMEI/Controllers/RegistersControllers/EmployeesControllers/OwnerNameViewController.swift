@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import YYCalendar
 
 class OwnerNameViewController: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var dateTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +41,14 @@ class OwnerNameViewController: UIViewController {
          alert.addAction(ok)
          self.present(alert, animated: true)
       }
+    
+    @IBAction func insideDate(_ sender: Any) {
+        let calendar = YYCalendar(normalCalendarLangType: .ENG, date: "14/11/2020", format: "dd/mm/yyyy") { date in
+            self.dateTextField.text = date
+            ProfissionalManager.sharedInstance.profissional.dataNasc = date
+        }
+       calendar.show()
+    }
     
     @IBAction func backButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
