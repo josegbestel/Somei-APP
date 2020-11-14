@@ -60,7 +60,7 @@ class LoginInformationViewController: UIViewController {
                         self.loginErrorText.isHidden = false;
                         
                         //Pegar response, transformar em objeto
-                        print("Senha do login: \(self.passwordLogin)")
+                        print("Senha do login: \(String(describing: self.passwordLogin))")
                         let solicitante = Solicitante.byDict(dict: result!, password: self.passwordLogin.text!)
                         
                         
@@ -75,12 +75,10 @@ class LoginInformationViewController: UIViewController {
                         SolicitanteManager.sharedInstance.saveSolicitantePerfilOnCoreData()
                         //Set true to perfilSolicitante
                         SomeiUserDefaults.shared.defaults.set(true, forKey: UserDefaultsKeys.createdSolicitantePerfil.rawValue)
-                        
                         //Retornar para a pagina anterior
-                        let newVC = self.storyboard?.instantiateViewController(withIdentifier: "SearchWorkersViewController")
-                        self.definesPresentationContext = true
-                        newVC?.modalPresentationStyle = .overCurrentContext
-                        self.present(newVC!, animated: true, completion: nil)
+                        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                        let newNavigation = storyBoard.instantiateViewController(withIdentifier: "SolicitanteHome")
+                        self.present(newNavigation, animated: true, completion: nil)
                         
                     }else{
                         print("Login falhou")
@@ -117,10 +115,9 @@ class LoginInformationViewController: UIViewController {
                         SomeiUserDefaults.shared.defaults.set(true, forKey: UserDefaultsKeys.createdProfessionalPerfil.rawValue)
                         
                         //Retornar para a pagina anterior
-                        let newVC = self.storyboard?.instantiateViewController(withIdentifier: "perfilHomeEmployee")
-                        self.definesPresentationContext = true
-                        newVC?.modalPresentationStyle = .overCurrentContext
-                        self.present(newVC!, animated: true, completion: nil)
+                        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                        let newNavigation = storyBoard.instantiateViewController(withIdentifier: "perfilHomeEmployee")
+                        self.present(newNavigation, animated: true, completion: nil)
                         
                     }else{
                         print("Login falhou")
