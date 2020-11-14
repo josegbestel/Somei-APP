@@ -7389,24 +7389,24 @@
                                         <rect key="frame" x="10" y="30" width="394" height="492"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bvc-N7-nfq">
-                                                <rect key="frame" x="10" y="45.5" width="374" height="520.5"/>
+                                                <rect key="frame" x="10" y="178.5" width="374" height="387.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="SHL-Bi-f45" customClass="DepositsTableViewCell" customModule="SOMEI" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="374" height="59"/>
+                                                        <rect key="frame" x="0.0" y="28" width="374" height="59.5"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SHL-Bi-f45" id="Gp5-Xg-uLF">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="59"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="59.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="17/sep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvK-Ul-66S">
-                                                                    <rect key="frame" x="25" y="16" width="65.5" height="27"/>
+                                                                    <rect key="frame" x="25" y="16" width="65.5" height="27.5"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZS-7s-DcF">
-                                                                    <rect key="frame" x="299.5" y="11" width="54.5" height="37"/>
+                                                                    <rect key="frame" x="299.5" y="11" width="54.5" height="37.5"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -7434,21 +7434,71 @@
                                                 </connections>
                                             </tableView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Historico de depósitos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmf-9b-WN5">
-                                                <rect key="frame" x="10" y="10" width="204.5" height="25.5"/>
+                                                <rect key="frame" x="10" y="143" width="204.5" height="25.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saldo disponivel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tk3-Ya-0NL">
+                                                <rect key="frame" x="40" y="8" width="139.5" height="23"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saldo a liberar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkd-VX-HZg">
+                                                <rect key="frame" x="245.5" y="8" width="108.5" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 480,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TW2-2X-XMR">
+                                                <rect key="frame" x="245.5" y="39" width="105.5" height="25.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 480,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2T1-l0-cFi">
+                                                <rect key="frame" x="40" y="39" width="105.5" height="25.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v57-l3-Kyi" customClass="UICornerableButton" customModule="SOMEI" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="87" width="354" height="36"/>
+                                                <color key="backgroundColor" red="0.074509803920000006" green="0.37647058820000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <state key="normal" title="Resgatar saldo disponivel">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="gmf-9b-WN5" firstAttribute="leading" secondItem="MqM-EW-eXa" secondAttribute="leading" constant="10" id="4Q2-JE-8SP"/>
                                             <constraint firstAttribute="trailing" secondItem="Bvc-N7-nfq" secondAttribute="trailing" constant="10" id="Aa6-j1-gvh"/>
+                                            <constraint firstAttribute="trailing" secondItem="TW2-2X-XMR" secondAttribute="trailing" constant="43" id="CYv-eT-AaM"/>
                                             <constraint firstItem="Bvc-N7-nfq" firstAttribute="leading" secondItem="MqM-EW-eXa" secondAttribute="leading" constant="10" id="FSs-11-8uA"/>
+                                            <constraint firstItem="gmf-9b-WN5" firstAttribute="top" secondItem="v57-l3-Kyi" secondAttribute="bottom" constant="20" id="Fpe-j0-fUv"/>
                                             <constraint firstItem="Bvc-N7-nfq" firstAttribute="top" secondItem="gmf-9b-WN5" secondAttribute="bottom" constant="10" id="Kp2-92-NdH"/>
-                                            <constraint firstItem="gmf-9b-WN5" firstAttribute="top" secondItem="MqM-EW-eXa" secondAttribute="top" constant="10" id="Paz-0l-IxN"/>
+                                            <constraint firstItem="v57-l3-Kyi" firstAttribute="top" secondItem="tk3-Ya-0NL" secondAttribute="bottom" constant="56" id="Mi0-zt-k9Y"/>
+                                            <constraint firstAttribute="trailing" secondItem="v57-l3-Kyi" secondAttribute="trailing" constant="20" id="PyG-9K-SAQ"/>
+                                            <constraint firstItem="tk3-Ya-0NL" firstAttribute="leading" secondItem="MqM-EW-eXa" secondAttribute="leading" constant="40" id="Qbe-e3-1gB"/>
+                                            <constraint firstItem="2T1-l0-cFi" firstAttribute="baseline" secondItem="TW2-2X-XMR" secondAttribute="baseline" id="Wfz-p8-bBy"/>
+                                            <constraint firstItem="lkd-VX-HZg" firstAttribute="top" secondItem="MqM-EW-eXa" secondAttribute="top" constant="8" id="Yg6-Bu-Rmg"/>
+                                            <constraint firstAttribute="trailing" secondItem="lkd-VX-HZg" secondAttribute="trailing" constant="40" id="cTL-bS-4BA"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gmf-9b-WN5" secondAttribute="trailing" constant="20" symbolic="YES" id="eCz-Qv-kXV"/>
+                                            <constraint firstItem="TW2-2X-XMR" firstAttribute="top" secondItem="lkd-VX-HZg" secondAttribute="bottom" constant="10" id="eYh-vi-EVD"/>
+                                            <constraint firstItem="2T1-l0-cFi" firstAttribute="centerX" secondItem="tk3-Ya-0NL" secondAttribute="centerX" constant="-17" id="ejc-Q5-I0h"/>
+                                            <constraint firstItem="v57-l3-Kyi" firstAttribute="leading" secondItem="MqM-EW-eXa" secondAttribute="leading" constant="20" id="ggQ-d2-aic"/>
+                                            <constraint firstItem="TW2-2X-XMR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lkd-VX-HZg" secondAttribute="leading" id="i8V-tn-1o0"/>
                                             <constraint firstAttribute="bottom" secondItem="Bvc-N7-nfq" secondAttribute="bottom" constant="-74" id="k4X-B8-0OU"/>
+                                            <constraint firstItem="tk3-Ya-0NL" firstAttribute="top" secondItem="MqM-EW-eXa" secondAttribute="top" constant="8" id="kK7-9g-YnE"/>
+                                            <constraint firstItem="2T1-l0-cFi" firstAttribute="leading" secondItem="tk3-Ya-0NL" secondAttribute="leading" id="lTU-DV-NCl"/>
                                         </constraints>
                                     </view>
                                 </subviews>
