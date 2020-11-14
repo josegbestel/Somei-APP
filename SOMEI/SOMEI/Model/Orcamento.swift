@@ -124,13 +124,15 @@ class Orcamento {
         let cpf = solicitanteDict?["cpf"] as? String
         let nota = solicitanteDict?["rating"] as? Int
         let name = solicitanteDict?["nome"] as? String
-        let age = solicitanteDict?["anoNascimento"] as? Int
+        let age = dict["dtNascimento"] as? [String : Any]
         let phone = solicitanteDict?["telefone"] as? String
         let email = solicitanteDict?["email"] as? String
         let photoLink = solicitanteDict?["avatar"] as? String ?? ""
         let idSolicitante = solicitanteDict?["id"] as? Int
   
-        let solicitante:Solicitante = Solicitante(cpf: cpf, nota: nota, name: name, age: age, phone: phone, email: email, photo: nil, password: nil, photoLink: URL(string: photoLink), services: nil, comentarios: nil, id: idSolicitante)
+        let bornDate = DateStruct.init(day: age?["day"] as? Int, mounth: age?["mounth"] as? Int, year: age?["year"] as? Int)
+        
+        let solicitante:Solicitante = Solicitante(cpf: cpf, nota: nota, name: name, age: age?["year"] as? Int, phone: phone, email: email, photo: nil, password: nil, photoLink: URL(string: photoLink), services: nil, comentarios: nil, id: idSolicitante, dtNasc: bornDate)
         //end of convert solicitante
         let endereco:Localizacao = Localizacao(cep: localizacao?["cep"] as? String, logradouro: localizacao?["logradouro"] as? String, numero: localizacao?["numero"] as? Int, complemento: localizacao?["complemento"] as? String, bairro: localizacao?["bairro"] as? String, cidade: localizacao?["cidade"] as? String, uf: localizacao?["uf"] as? String, longitude: localizacao?["longitude"] as? String, latitude: localizacao?["latitude"] as? String)
         let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos:fotosLinks , endereco: endereco, data: nil, horario: nil, status: status, valorMinimo: nil, id: id, serviceId: serviceId, agendaId: nil, agendaArray: agendaArray, solicitante: solicitante, profissional: nil)

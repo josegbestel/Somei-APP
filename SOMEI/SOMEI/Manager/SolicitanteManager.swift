@@ -13,7 +13,7 @@ class SolicitanteManager {
   
     static var sharedInstance = SolicitanteManager()
     
-    var solicitante = Solicitante(cpf:nil,nota:nil,name:nil,age:0,phone:nil,email:nil,photo:nil,password:nil, photoLink: nil,services:[], comentarios: nil, id: nil)
+    var solicitante = Solicitante(cpf:nil,nota:nil,name:nil,age:0,phone:nil,email:nil,photo:nil,password:nil, photoLink: nil,services:[], comentarios: nil, id: nil, dtNasc: nil)
     
     var solicitantePerfil:SolicitanteUser!
     
