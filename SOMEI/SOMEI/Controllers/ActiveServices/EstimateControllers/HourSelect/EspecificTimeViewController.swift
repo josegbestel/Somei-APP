@@ -20,6 +20,7 @@ class EspecificTimeViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         agenda.dinamica = false
+        dateTextField.delegate = self
         textFieldHour.delegate = self
         textFieldMinute.delegate = self
         self.hideKeyboardWhenTappedAround()
@@ -32,9 +33,15 @@ class EspecificTimeViewController: UIViewController, UITextFieldDelegate {
             tap.cancelsTouchesInView = false
             view.addGestureRecognizer(tap)
       }
+    
       @objc func dismissKeyboard() {
             self.view.endEditing(true)
       }
+    
+    @objc func dissmisKeyboardAndSaveDate(){
+        self.view.endEditing(true)
+        shoulSaveData()
+    }
     
     @IBAction func dateActionCalendar() {
         DispatchQueue.main.async {
@@ -75,11 +82,12 @@ class EspecificTimeViewController: UIViewController, UITextFieldDelegate {
         }
         return false
     }
-
-    @IBAction func minuteEndEdition(_ sender: Any) {
-        if textFieldMinute.text!.count > 0, textFieldHour.text!.count > 0 {
-            agenda.horaInicio = separeString(horario: textFieldHour.text!)
-            agenda.horaFinal = separeString(horario: textFieldMinute.text!)
+    
+    func shoulSaveData() {
+        print(dateTextField.text?.count)
+        print(textFieldHour.text?.count)
+        print(textFieldMinute.text?.count)
+        if dateTextField.text?.count == 10,textFieldHour.text?.count == 5, textFieldMinute.text?.count == 5 {
             if !saveAgendaSuccess() {
                 informationError()
             }
@@ -87,23 +95,55 @@ class EspecificTimeViewController: UIViewController, UITextFieldDelegate {
             informationError()
         }
     }
+
+    @IBAction func minuteEndEdition(_ sender: Any) {
+        if textFieldMinute.text!.count > 0, textFieldHour.text!.count > 0 {
+            agenda.diaSemana = dateTextField.text!
+            agenda.horaInicio = separeString(horario: textFieldHour.text!)
+            agenda.horaFinal = separeString(horario: textFieldMinute.text!)
+            shoulSaveData()
+        }else{
+            informationError()
+        }
+    }
     
     //MARK:UITextFieldDelegate
      func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        var appendString = ""
-        if range.length == 0 {
-            switch range.location {
-            case 2:
-                appendString = ":"
-            case 5:
-                dismissKeyboard()
-            default:
-                break
+        if textField == textFieldHour || textField == textFieldMinute {
+            
+            var appendString = ""
+            if range.length == 0 {
+                switch range.location {
+                case 2:
+                    appendString = ":"
+                case 5:
+                    dissmisKeyboardAndSaveDate()
+                default:
+                    break
+                }
+            }
+
+            textField.text?.append(appendString)
+        }else{
+            //"dd/mm/yyyy"
+            if textField == dateTextField {
+                var appendString = ""
+                if range.length == 0 {
+                    switch range.location {
+                    case 2:
+                        appendString = "/"
+                    case 5:
+                        appendString = "/"
+                    case 10:
+                        dissmisKeyboardAndSaveDate()
+                    default:
+                        break
+                    }
+                }
+
+                textField.text?.append(appendString)
             }
         }
-
-        textField.text?.append(appendString)
-
         return true
     }
 
