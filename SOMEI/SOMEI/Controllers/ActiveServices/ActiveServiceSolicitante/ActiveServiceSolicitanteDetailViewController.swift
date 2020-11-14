@@ -122,12 +122,21 @@ class ActiveServiceSolicitanteDetailViewController: UIViewController {
             mainStatusLabel.text = "Finalizado"
             mainStatusLabel.backgroundColor = UIColor(red: 6/255, green: 221/255, blue: 112/255, alpha:1)
             imageView.image = UIImage(named: "FinalizadoStatus")
+            let tapFinalizadoStatusView = UITapGestureRecognizer(target: self, action: #selector(self.goesToAvaliete(_:)))
+            imageView.addGestureRecognizer(tapFinalizadoStatusView)
           case "CANCELADO":
             mainStatusLabel.text = "Cancelado"
             mainStatusLabel.backgroundColor = UIColor(red: 255/255, green: 92/255, blue: 83/255, alpha:1)
           default:
             print("No status found:\(status ?? "")")
           }
+    }
+    
+    @objc func goesToAvaliete(_ sender: UITapGestureRecognizer? = nil) {
+        let newVC = self.storyboard?.instantiateViewController(withIdentifier: "EvaluateServiceSolicitanteViewController")
+        self.definesPresentationContext = true
+        newVC?.modalPresentationStyle = .overCurrentContext
+        self.present(newVC!, animated: true, completion: nil)
     }
     
     func configureImageView() {
