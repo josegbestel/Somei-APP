@@ -14,6 +14,8 @@ class CardInformationsViewController: UIViewController {
     @IBOutlet weak var nameCard: UITextField!
     @IBOutlet weak var numberCard: UITextField!
     @IBOutlet weak var digtCard: UITextField!
+    @IBOutlet weak var mesValidadeTextField: UITextField!
+    @IBOutlet weak var yearTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,8 +50,8 @@ class CardInformationsViewController: UIViewController {
         let card = Card(cardNumber: numberCard.text!,
                         holderName: nameCard.text!,
                         securityCode: digtCard.text!,
-                        expirationMonth: "01",
-                        expirationYear: "2028")
+                        expirationMonth: mesValidadeTextField.text!,
+                        expirationYear: yearTextField.text!)
 
         DirectCheckout.getCardHash(card) { result in
             do {
