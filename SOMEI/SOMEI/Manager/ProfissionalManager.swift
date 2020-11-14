@@ -129,7 +129,6 @@ class ProfissionalManager {
            if profissionalPerfil == nil {
                profissionalPerfil = ProfissionalEntity(context: SomeiManager.sharedInstance.context)
            }
-            profissionalPerfil.age = Int32(truncating: profissional.age! as NSNumber)
             profissionalPerfil.cnpj = profissional.cnpj
             profissionalPerfil.email = profissional.email
             profissionalPerfil.name = profissional.name
