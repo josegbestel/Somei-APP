@@ -92,10 +92,15 @@ class Orcamento {
         let avatarSolicitante = solicitante?["avatar"] as? String
         
         let solicitanteModel:Solicitante = Solicitante(cpf: cpfSolicitante, nota: ratingSolicitante, name: nomeSolicitante, age: 0, phone: telefoneSolicitante, email: emailSolicitante, photo: nil, password: nil, photoLink: URL(string: avatarSolicitante ?? ""), services: nil, comentarios: nil, id: idSolicitante, dtNasc: nil)
-        
         //end solicitante model
         
-        let orcamento = Orcamento(profissao: profissao, descricao: nil, photos: nil, linkPhotos:nil , endereco: nil, data: nil, horario: nil, status: nil, valorMinimo: nil, id: nil, serviceId: nil, agendaId: nil, agendaArray: nil, solicitante: solicitanteModel, profissional: professionalArray)
+        //orcamento
+        let descricaoOrcamento = dict["descricao"] as? String
+        let statusOrcamento = dict["status"] as? String
+        let valorOrcamento = dict["valorContratado"] as? Double
+        let idOrcamento = dict["id"] as? Int
+        
+        let orcamento = Orcamento(profissao: profissao, descricao: descricaoOrcamento, photos: nil, linkPhotos:nil , endereco: nil, data: nil, horario: nil, status: statusOrcamento, valorMinimo: Int(valorOrcamento ?? 0.0), id: idOrcamento, serviceId: idOrcamento, agendaId: nil, agendaArray: nil, solicitante: solicitanteModel, profissional: professionalArray)
         
         return orcamento
     }
