@@ -46,32 +46,36 @@ class Orcamento {
     }
     
     static func byDict(dict :[String : Any]) -> Orcamento {
+        print("Dicionario:")
         print(dict)
-        let categoria = dict["categoria"] as! [String : Any]
-        let respostas = dict["respostas"] as! [[String : Any]]
-        let profissao = categoria["titulo"] as! String
-        let descricao = dict["descricao"] as! String
-        let status = dict["status"] as! String
+        let categoria = dict["categoria"] as? [String : Any]
+        let profissao = categoria?["titulo"] as? String
+        let descricao = dict["descricao"] as? String
+        let status = dict["status"] as? String
         var valorMinimo = 0.0
-        
-        //pegar profissional do json
         var profissionalArray:[Profissional] = []
-        for resposta in respostas {
-            let profissional = resposta["profissional"] as? [String: Any]
-            let email = profissional?["email"] as? String
-            let idProfissional = profissional?["id"] as? Int
-            let avatarProfissional = (profissional?["avatar"] as? String)!
-            let nomeFantasia = profissional?["nomeFantasia"] as? String
-            let nomeOwner = profissional?["nome"] as? String
-            let rating = profissional?["rating"] as? Int
+        
+        if let respostas = dict["respostas"] as? [[String : Any]] {
+            //pegar profissional do json
             
-            valorMinimo = resposta["valor"] as? Double ?? 0.0
-            
-            let profissionalModel = Profissional(cnpj: nil, profissao: nil, name: nomeFantasia, age: nil, phone: nil, email: email, photo: nil, password: nil, endereço: nil, photoLink: URL(string: avatarProfissional), ownerName: nomeOwner, portifolio: nil, nota: rating, services: nil, id: idProfissional, metaMensal: nil, account: nil, ownerCpf: nil, dataNasc: nil)
-            
-            profissionalArray.insert(profissionalModel, at: 0)
+            for resposta in respostas {
+                let profissional = resposta["profissional"] as? [String: Any]
+                let email = profissional?["email"] as? String
+                let idProfissional = profissional?["id"] as? Int
+                let avatarProfissional = (profissional?["avatar"] as? String)!
+                let nomeFantasia = profissional?["nomeFantasia"] as? String
+                let nomeOwner = profissional?["nome"] as? String
+                let rating = profissional?["rating"] as? Int
+                
+                valorMinimo = resposta["valor"] as? Double ?? 0.0
+                
+                let profissionalModel = Profissional(cnpj: nil, profissao: nil, name: nomeFantasia, age: nil, phone: nil, email: email, photo: nil, password: nil, endereço: nil, photoLink: URL(string: avatarProfissional), ownerName: nomeOwner, portifolio: nil, nota: rating, services: nil, id: idProfissional, metaMensal: nil, account: nil, ownerCpf: nil, dataNasc: nil)
+                
+                profissionalArray.insert(profissionalModel, at: 0)
+            }
+            //fim do profissional
         }
-        //fim do profissional
+       
 
         let localizacao = dict["localizacao"] as! [String : Any]
         let endereco:Localizacao = Localizacao(cep: localizacao["cep"] as? String, logradouro: localizacao["logradouro"] as? String, numero: localizacao["numero"] as? Int, complemento: localizacao["complemento"] as? String, bairro: localizacao["bairro"] as? String, cidade: localizacao["cidade"] as? String, uf: localizacao["uf"] as? String, longitude: localizacao["longitude"] as? String, latitude: localizacao["latitude"] as? String)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ActiveServicesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class ActiveServicesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,6 +24,12 @@ class ActiveServicesViewController: UIViewController, UITableViewDelegate, UITab
             print("Email:\(String(describing: SolicitanteManager.sharedInstance.solicitante.email))")
             print("Senha:\(String(describing: SolicitanteManager.sharedInstance.solicitante.password))")
            
+        }
+    }
+    
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        ProviderSomei.openOrcamentos(id: String(SolicitanteManager.sharedInstance.solicitante.id ?? 0), email: SolicitanteManager.sharedInstance.solicitante.email ?? "", password: SolicitanteManager.sharedInstance.solicitante.password ?? ""){ success in
+            self.tableView.reloadData()
         }
     }
     

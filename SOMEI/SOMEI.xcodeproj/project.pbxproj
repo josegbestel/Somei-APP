@@ -134,6 +134,7 @@
 		D1C7058B255867C4008C9C3F /* CardInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C7058A255867C4008C9C3F /* CardInformationsViewController.swift */; };
 		D1C7059025586BDC008C9C3F /* ConfirmPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C7058F25586BDC008C9C3F /* ConfirmPaymentViewController.swift */; };
 		D1CB809E256185F400BCB584 /* CartaoModelStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CB809D256185F400BCB584 /* CartaoModelStruct.swift */; };
+		D1CB80A725619A1F00BCB584 /* ConfirmOrcamentoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CB80A625619A1F00BCB584 /* ConfirmOrcamentoViewController.swift */; };
 		D1D09037254CE54500AF69FB /* DetailOrcamentoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D09036254CE54500AF69FB /* DetailOrcamentoListViewController.swift */; };
 		D1E51A1C2558A520004FE02C /* AccountStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E51A1B2558A520004FE02C /* AccountStruct.swift */; };
 		D1E51A212558B5BF004FE02C /* AccountRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E51A202558B5BF004FE02C /* AccountRegisterViewController.swift */; };
@@ -297,6 +298,7 @@
 		D1C7058A255867C4008C9C3F /* CardInformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInformationsViewController.swift; sourceTree = "<group>"; };
 		D1C7058F25586BDC008C9C3F /* ConfirmPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPaymentViewController.swift; sourceTree = "<group>"; };
 		D1CB809D256185F400BCB584 /* CartaoModelStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartaoModelStruct.swift; sourceTree = "<group>"; };
+		D1CB80A625619A1F00BCB584 /* ConfirmOrcamentoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmOrcamentoViewController.swift; sourceTree = "<group>"; };
 		D1D09036254CE54500AF69FB /* DetailOrcamentoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOrcamentoListViewController.swift; sourceTree = "<group>"; };
 		D1E51A1B2558A520004FE02C /* AccountStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStruct.swift; sourceTree = "<group>"; };
 		D1E51A202558B5BF004FE02C /* AccountRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRegisterViewController.swift; sourceTree = "<group>"; };
@@ -502,6 +504,7 @@
 		3970B965250F5302006C36DD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D1CB80A525619A0700BCB584 /* ConfirmControllers */,
 				D1C7057E2558664C008C9C3F /* Payment */,
 				D1C7054925577EEE008C9C3F /* EvaluateService */,
 				D18BE419253120F700B32449 /* ProfessionalRequestedServices */,
@@ -775,6 +778,14 @@
 				D1C7058F25586BDC008C9C3F /* ConfirmPaymentViewController.swift */,
 			);
 			path = Payment;
+			sourceTree = "<group>";
+		};
+		D1CB80A525619A0700BCB584 /* ConfirmControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D1CB80A625619A1F00BCB584 /* ConfirmOrcamentoViewController.swift */,
+			);
+			path = ConfirmControllers;
 			sourceTree = "<group>";
 		};
 		D1D09035254CE52900AF69FB /* ProfissionalAwnser */ = {
@@ -1081,6 +1092,7 @@
 				3970B9B1250F5302006C36DD /* ProfissionalManagerJson.swift in Sources */,
 				3970B9CF250F5302006C36DD /* FantasyNameViewController.swift in Sources */,
 				D1184F19255A149C00D566CE /* Prevision.swift in Sources */,
+				D1CB80A725619A1F00BCB584 /* ConfirmOrcamentoViewController.swift in Sources */,
 				3970B9E5250F5303006C36DD /* LoginCadastroViewControlller.swift in Sources */,
 				D1184F3A255A255800D566CE /* Deposit.swift in Sources */,
 				3970B9B9250F5302006C36DD /* ClientePerfilViewController.swift in Sources */,

@@ -232,7 +232,7 @@ class ProviderSomei {
                          }
                          
                          OrcamentoManager.sharedInstance.servicesRequestArray = orcamentos
-                         print("\n\nOrçamentos carregados no Model\n\n")
+                         print("\n\nOrçamentos solicitados do profissional carregados no Model\n\n")
                          completion(true)
                         }
                     }catch {
