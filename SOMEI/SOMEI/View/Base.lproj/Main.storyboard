@@ -4868,6 +4868,17 @@
                                     <action selector="logOutButtonSolicitante:" destination="pXh-md-kp6" eventType="touchUpInside" id="m9v-a1-ygt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0p-wb-O7o">
+                                <rect key="frame" x="360" y="20" width="22" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="person.crop.circle.fill.badge.exclam" catalog="system">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="chatButton:" destination="pXh-md-kp6" eventType="touchUpInside" id="EtG-Rf-sYn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fW8-Bb-zwC"/>
                         <color key="backgroundColor" red="0.074509803920000006" green="0.37647058820000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4881,6 +4892,8 @@
                             <constraint firstItem="hPj-e1-OhA" firstAttribute="leading" secondItem="h8E-Xu-zd4" secondAttribute="leading" id="UM7-wQ-GtC"/>
                             <constraint firstItem="Wfd-fq-hPs" firstAttribute="leading" secondItem="fW8-Bb-zwC" secondAttribute="leading" constant="20" id="bf3-OW-vu4"/>
                             <constraint firstItem="fS9-xJ-Xs0" firstAttribute="centerX" secondItem="fW8-Bb-zwC" secondAttribute="centerX" id="h2X-cr-7Rs"/>
+                            <constraint firstItem="D0p-wb-O7o" firstAttribute="top" secondItem="fW8-Bb-zwC" secondAttribute="top" constant="20" id="k4Y-n4-rIo"/>
+                            <constraint firstItem="fW8-Bb-zwC" firstAttribute="trailing" secondItem="D0p-wb-O7o" secondAttribute="trailing" constant="32" id="mqS-8h-Ra4"/>
                             <constraint firstItem="fS9-xJ-Xs0" firstAttribute="top" secondItem="fW8-Bb-zwC" secondAttribute="top" constant="43" id="uCt-Ue-ORu"/>
                         </constraints>
                     </view>

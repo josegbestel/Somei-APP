@@ -9,6 +9,7 @@
 import UIKit
 import Cosmos
 import CoreData
+import SendBirdUIKit
 
 class ClientePerfilViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
@@ -231,6 +232,12 @@ class ClientePerfilViewController: UIViewController, NSFetchedResultsControllerD
     @IBAction func logOutButtonSolicitante(_ sender: Any) {
         SolicitanteManager.sharedInstance.logOut()
         view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func chatButton(_ sender: Any) {
+        let channelListVC = SBUChannelListViewController()
+        let naviVC = UINavigationController(rootViewController: channelListVC)
+        present(naviVC, animated: true, completion: nil)
     }
     
 }
