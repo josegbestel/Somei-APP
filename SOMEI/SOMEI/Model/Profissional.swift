@@ -56,6 +56,8 @@ class Profissional: Usuario {
         let profissao = dict["ocupacao"] as? String
         let descricao = dict["descricao"] as? String ?? ""
         let nomeFantasia = dict["nomeFantasia"] as? String
+        let financeiro = dict["financeiro"] as? [String : Any]
+        let metaMensal = financeiro?["metaMensal"] as? Double
         var services:[String]? = []
         services?.insert(descricao, at: 0)
         
@@ -63,7 +65,7 @@ class Profissional: Usuario {
         let localizacao = dict["localizacao"] as! [String : Any]
         let endereco:Localizacao = Localizacao(cep: localizacao["cep"] as? String, logradouro: localizacao["logradouro"] as? String, numero: localizacao["numero"] as? Int, complemento: localizacao["complemento"] as? String, bairro: localizacao["bairro"] as? String, cidade: localizacao["cidade"] as? String, uf: localizacao["uf"] as? String, longitude: localizacao["longitude"] as? String, latitude: localizacao["latitude"] as? String)
         
-        let profissional = Profissional(cnpj: cnpj, profissao: profissao, name: nomeFantasia, age: age, phone: phone, email: email, photo: nil, password: password, endereço: endereco, photoLink: URL(string: photoLink ?? ""), ownerName: ownerName, portifolio: nil, nota: nota, services: services, id: id, metaMensal: nil, account: nil, ownerCpf: nil, dataNasc: nil)
+        let profissional = Profissional(cnpj: cnpj, profissao: profissao, name: nomeFantasia, age: age, phone: phone, email: email, photo: nil, password: password, endereço: endereco, photoLink: URL(string: photoLink ?? ""), ownerName: ownerName, portifolio: nil, nota: nota, services: services, id: id, metaMensal: metaMensal, account: nil, ownerCpf: nil, dataNasc: nil)
         
         return profissional
     }
