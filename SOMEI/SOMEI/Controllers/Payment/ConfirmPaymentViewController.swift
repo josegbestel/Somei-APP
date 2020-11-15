@@ -25,8 +25,63 @@ class ConfirmPaymentViewController: UIViewController {
     }
     
     func completeInformations(){
-//        imageViewPerfil.image = 
+        completePhoto()
+        fantasyNameLabel.text = OrcamentoManager.sharedInstance.profissionalEscolhidoRespostaOrcamento.name
+        cnpjLabel.text = OrcamentoManager.sharedInstance.profissionalEscolhidoRespostaOrcamento.cnpj
+        priceLabel.text = "\(OrcamentoManager.sharedInstance.selectedOrcamento?.valorMinimo ?? 0)"
+        enterpriseLabel.text = OrcamentoManager.sharedInstance.profissionalEscolhidoRespostaOrcamento.name
+        categoriaLabel.text = OrcamentoManager.sharedInstance.profissionalEscolhidoRespostaOrcamento.mainActivity
+        descriptionLabel.text = OrcamentoManager.sharedInstance.selectedOrcamento?.descricao
     }
+    
+    func completePhoto() {
+        if OrcamentoManager.sharedInstance.profissionalEscolhidoRespostaOrcamento.photo != nil {
+            imageViewPerfil.image = OrcamentoManager.sharedInstance.profissionalEscolhidoRespostaOrcamento.photo
+        }else{
+            if OrcamentoManager.sharedInstance.profissionalEscolhidoRespostaOrcamento.photoLink != nil {
+                downloadImage(from: cleanString(url:OrcamentoManager.sharedInstance.profissionalEscolhidoRespostaOrcamento.photoLink!))
+            }
+        }
+    }
+    
+    func updateImage(){
+        imageViewPerfil.image = OrcamentoManager.sharedInstance.profissionalEscolhidoRespostaOrcamento.photo
+    }
+    
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+    
+    func downloadImage(from url: URL) {
+        SomeiManager.sharedInstance.clearCache()
+        print("Download Started")
+        getData(from: url) { data, response, error in
+            if error != nil {
+                print("Erro ao baixar imagem:\(error?.localizedDescription ?? "")")
+            }
+            guard let data = data, error == nil else {print("download error"); return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            DispatchQueue.main.async() { [weak self] in
+                OrcamentoManager.sharedInstance.profissionalEscolhidoRespostaOrcamento.photo = UIImage(data: data)
+                self?.updateImage()
+            }
+        }
+    }
+    
+    //funcao necessario pois a lib retorna "OPTINAL(link)"
+    func cleanString(url:URL) -> URL {
+        print(url)
+        let convertoToString = "\(url)"
+        let dropLastWord = String(convertoToString.dropLast())
+        let dropFirstWord:String = String(dropLastWord.dropFirst(9))
+        let urlStr : String = dropFirstWord.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        if let cleanUrl = URL(string: urlStr){
+            return cleanUrl
+        }
+        return url
+    }
+    
     
     func configureLayoutImageView() {
         imageViewPerfil.layer.borderWidth = 1
