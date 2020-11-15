@@ -219,7 +219,7 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
     func savaImageAndSendToApi(image:UIImage) {
         imagesArray.insert(image, at: 0)
         collectionPhotosView.reloadData()
-//        uploadImageToApi(image: image)
+        uploadImageToApi(image: image)
         print(imagesArray.count as Any)
         print("teste")
     }
