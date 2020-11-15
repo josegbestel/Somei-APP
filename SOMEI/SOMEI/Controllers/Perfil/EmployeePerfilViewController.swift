@@ -41,6 +41,8 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
         readDatasFromCoreData()
         completeInformationsPerfil()
         fixLayout()
+        let imagem:UIImage = UIImage(named: "download")!
+        imagesArray.insert(imagem, at: 0)
         print("identifier:\(String(describing: ProfissionalManager.sharedInstance.profissional.id))")
     }
     
@@ -217,9 +219,9 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
     func savaImageAndSendToApi(image:UIImage) {
         imagesArray.insert(image, at: 0)
         collectionPhotosView.reloadData()
-        collectionPhotosView.reloadData()
-        uploadImageToApi(image: image)
+//        uploadImageToApi(image: image)
         print(imagesArray.count as Any)
+        print("teste")
     }
     
     @IBAction func takePhotoPortfolio(_ sender: Any) {
@@ -257,7 +259,6 @@ extension EmployeePerfilViewController: UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //TODO: corrigir com os dados vindos da lib
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PhotoPortfolioCollectionViewCell
         cell.imageView.image = imagesArray[indexPath.row]
         return cell
