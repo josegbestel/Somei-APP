@@ -129,6 +129,7 @@ class ProviderSomei {
                     do{
                         if let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? Dictionary<String, AnyObject> {
                             print(json)
+                            FinancialManager.sharedInstance.depositosBancarios = DepositosBancarios(historico: nil, saldoALiberar: nil, saldoDisponivel: nil)
                             let extract = MargemDeLucro.byDict(dict: json)
                             FinancialManager.sharedInstance.margemDeLucro = extract
                             let mouthsResults = MouthsResults.byDict(dict: json)
