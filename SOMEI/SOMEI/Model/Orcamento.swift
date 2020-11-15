@@ -120,10 +120,22 @@ class Orcamento {
         //end agenda
         //localização
         let localizacao = dict["localizacao"] as? [String : Any]
-        //end localizacao
         let endereco:Localizacao = Localizacao(cep: localizacao?["cep"] as? String, logradouro: localizacao?["logradouro"] as? String, numero: localizacao?["numero"] as? Int, complemento: localizacao?["complemento"] as? String, bairro: localizacao?["bairro"] as? String, cidade: localizacao?["cidade"] as? String, uf: localizacao?["uf"] as? String, longitude: localizacao?["longitude"] as? String, latitude: localizacao?["latitude"] as? String)
+        //end localizacao
         
-        let orcamento = Orcamento(profissao: profissao, descricao: descricaoOrcamento, photos: nil, linkPhotos:nil , endereco: endereco, data: nil, horario: nil, status: statusOrcamento, valorMinimo: Int(valorOrcamento ?? 0.0), id: idOrcamento, serviceId: idOrcamento, agendaId: nil, agendaArray: agendaArray, solicitante: solicitanteModel, profissional: professionalArray)
+        //instanciando as imagens
+        let fotosDict = dict["fotos"] as? [String]
+        var fotosLinks:[URL] = []
+        if let fotosArralyFromLib = fotosDict {
+            for fotoArrayFromLib in fotosArralyFromLib {
+                if let photoLink:URL = URL(string: fotoArrayFromLib ) ?? URL(string:"failImage.com") {
+                    fotosLinks.insert(photoLink, at: 0)
+                }
+            }
+        }
+        //Fim do bloco de instancia das imagens
+        
+        let orcamento = Orcamento(profissao: profissao, descricao: descricaoOrcamento, photos: nil, linkPhotos:fotosLinks , endereco: endereco, data: nil, horario: nil, status: statusOrcamento, valorMinimo: Int(valorOrcamento ?? 0.0), id: idOrcamento, serviceId: idOrcamento, agendaId: nil, agendaArray: agendaArray, solicitante: solicitanteModel, profissional: professionalArray)
         
         return orcamento
     }
