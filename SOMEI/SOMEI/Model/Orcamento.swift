@@ -80,7 +80,22 @@ class Orcamento {
         var professionalArray:[Profissional]? = []
         professionalArray?.insert(profissionalModel, at: 0)
         //fim Profissional
-        let orcamento = Orcamento(profissao: profissao, descricao: nil, photos: nil, linkPhotos:nil , endereco: nil, data: nil, horario: nil, status: nil, valorMinimo: nil, id: nil, serviceId: nil, agendaId: nil, agendaArray: nil, solicitante: nil, profissional: professionalArray)
+        
+        //solicitante model
+        let solicitante = dict["solicitante"] as? [String : Any]
+        let cpfSolicitante = solicitante?["cpf"] as? String
+        let idSolicitante = solicitante?["id"] as? Int
+        let nomeSolicitante = solicitante?["nome"] as? String
+        let ratingSolicitante = solicitante?["rating"] as? Int
+        let emailSolicitante = solicitante?["email"] as? String
+        let telefoneSolicitante = solicitante?["telefone"] as? String
+        let avatarSolicitante = solicitante?["avatar"] as? String
+        
+        let solicitanteModel:Solicitante = Solicitante(cpf: cpfSolicitante, nota: ratingSolicitante, name: nomeSolicitante, age: 0, phone: telefoneSolicitante, email: emailSolicitante, photo: nil, password: nil, photoLink: URL(string: avatarSolicitante ?? ""), services: nil, comentarios: nil, id: idSolicitante, dtNasc: nil)
+        
+        //end solicitante model
+        
+        let orcamento = Orcamento(profissao: profissao, descricao: nil, photos: nil, linkPhotos:nil , endereco: nil, data: nil, horario: nil, status: nil, valorMinimo: nil, id: nil, serviceId: nil, agendaId: nil, agendaArray: nil, solicitante: solicitanteModel, profissional: professionalArray)
         
         return orcamento
     }
