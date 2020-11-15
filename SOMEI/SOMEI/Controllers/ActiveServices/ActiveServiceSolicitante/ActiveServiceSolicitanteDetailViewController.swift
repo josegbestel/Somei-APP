@@ -31,11 +31,13 @@ class ActiveServiceSolicitanteDetailViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var statusLabelStatus: UILabel!
     
+    var imagesArray:[UIImage] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewLayout()
         completeInformations()
+        configureStatus()
     }
     
     func completeInformations() {
@@ -100,30 +102,23 @@ class ActiveServiceSolicitanteDetailViewController: UIViewController {
     }
     
     func configureStatus() {
-        let status = OrcamentoManager.sharedInstance.selectedOrcamentoToRequestService?.status
+        let status = OrcamentoManager.sharedInstance.selectedOrcamento?.status
         switch status {
           case "SOLICITADO":
             mainStatusLabel.text = "Solicitado"
             mainStatusLabel.backgroundColor = UIColor(red: 46/255, green: 75/255, blue: 113/255, alpha:1)
-            imageView.image = UIImage(named: "solicitadoStatus")
           case "RESPONDIDO":
             mainStatusLabel.text = "Respondido"
             mainStatusLabel.backgroundColor = UIColor(red: 126/255, green: 142/255, blue: 156/255, alpha:1)
-            imageView.image = UIImage(named: "respondidoStatus")
           case "CONFIRMADO":
             mainStatusLabel.text = "Confirmado"
             mainStatusLabel.backgroundColor = UIColor(red: 255/255, green: 187/255, blue: 22/255, alpha:1)
-            imageView.image = UIImage(named: "ConfirmadoStatus")
           case "PENDENTE":
             mainStatusLabel.text = "Pendente"
             mainStatusLabel.backgroundColor = UIColor(red: 148/255, green: 62/255, blue: 255/255, alpha:1)
-            imageView.image = UIImage(named: "PendenteStatus")
           case "FINALIZADO":
             mainStatusLabel.text = "Finalizado"
             mainStatusLabel.backgroundColor = UIColor(red: 6/255, green: 221/255, blue: 112/255, alpha:1)
-            imageView.image = UIImage(named: "FinalizadoStatus")
-            let tapFinalizadoStatusView = UITapGestureRecognizer(target: self, action: #selector(self.goesToAvaliete(_:)))
-            imageView.addGestureRecognizer(tapFinalizadoStatusView)
           case "CANCELADO":
             mainStatusLabel.text = "Cancelado"
             mainStatusLabel.backgroundColor = UIColor(red: 255/255, green: 92/255, blue: 83/255, alpha:1)
@@ -145,9 +140,11 @@ class ActiveServiceSolicitanteDetailViewController: UIViewController {
           case "SOLICITADO":
             statusLabelStatus.text = "Solicitado"
             statusLabelStatus.backgroundColor = UIColor(red: 46/255, green: 75/255, blue: 113/255, alpha:1)
+            imageView.image = UIImage(named: "solicitadoStatus")
           case "RESPONDIDO":
             statusLabelStatus.text = "Respondido"
             statusLabelStatus.backgroundColor = UIColor(red: 126/255, green: 142/255, blue: 156/255, alpha:1)
+            imageView.image = UIImage(named: "respondidoStatus")
           case "CONFIRMADO":
             statusLabelStatus.text = "Aguardando resposta do cliente"
             statusLabelStatus.backgroundColor = UIColor(red: 255/255, green: 187/255, blue: 22/255, alpha:1)
@@ -160,6 +157,8 @@ class ActiveServiceSolicitanteDetailViewController: UIViewController {
             statusLabelStatus.text = "Serviço realizado"
             statusLabelStatus.backgroundColor = UIColor(red: 6/255, green: 221/255, blue: 112/255, alpha:1)
             imageView.image = UIImage(named: "FinalizadoStatus")
+            let tapFinalizadoStatusView = UITapGestureRecognizer(target: self, action: #selector(self.goesToAvaliete(_:)))
+            imageView.addGestureRecognizer(tapFinalizadoStatusView)
           case "CANCELADO":
             statusLabelStatus.text = "Cancelado"
             statusLabelStatus.backgroundColor = UIColor(red: 255/255, green: 92/255, blue: 83/255, alpha:1)
@@ -168,9 +167,54 @@ class ActiveServiceSolicitanteDetailViewController: UIViewController {
           }
     }
     
+    func downloadImages() {
+        let linkPhotos:[URL] = OrcamentoManager.sharedInstance.selectedOrcamento?.linkPhotos ?? []
+        for imageLink in linkPhotos {
+            downloadImage(from: imageLink)
+        }
+    }
+    func updateImages(){
+        collectionView.reloadData()
+    }
+    
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+    
+    func downloadImage(from url: URL) {
+        print("Download Started images from Orcamento")
+        getData(from: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished images from Orcamento")
+            DispatchQueue.main.async() { [weak self] in
+                self?.imagesArray.insert(UIImage(data: data)!, at: 0)
+                self?.updateImages()
+            }
+        }
+    }
+    
     
     @IBAction func back(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+}
+extension ActiveServiceSolicitanteDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return imagesArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! photosOrcamentoCollectionViewCell
+        cell.imageView.image = imagesArray[indexPath.row]
+        
+        return cell
     }
     
 }
