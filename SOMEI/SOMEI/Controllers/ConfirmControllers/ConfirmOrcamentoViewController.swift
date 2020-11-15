@@ -15,5 +15,10 @@ class ConfirmOrcamentoViewController: UIViewController {
 
        
     }
-
+    @IBAction func okButton(_ sender: Any) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let newNavigation = storyBoard.instantiateViewController(withIdentifier: "SolicitanteHome")
+        self.present(newNavigation, animated: true, completion: nil)
+    }
+    
 }

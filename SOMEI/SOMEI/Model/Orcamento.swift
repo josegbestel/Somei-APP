@@ -45,6 +45,46 @@ class Orcamento {
         self.profissional = profissional
     }
     
+    static func byDictFromProfessionalRequest(dict :[String : Any]) -> Orcamento {
+        print("Dicionario para conversão:")
+        print(dict)
+        //Leitura do profissional
+        let profissional = dict["profissional"] as? [String : Any]
+        let profissionalCategoria = profissional?["categoria"] as? [String : Any]
+        let profissao = profissionalCategoria?["titulo"] as? String
+        let workDescription = profissionalCategoria?["ocupacao"] as? String
+        var worksArray:[String] = []
+        worksArray.insert(workDescription ?? "", at: 0)
+        let cnpjProfissional = profissional?["cnpj"] as? String
+        let name = profissional?["nomeFantasia"] as? String
+        let phone = profissional?["telefone"] as? String
+        let email = profissional?["email"] as? String
+        let ownerName = profissional?["nome"] as? String
+        let nota = profissional?["rating"] as? Int
+        let idProfessional =  profissional?["id"] as? Int
+        let ownerCpf = profissional?["cpf"] as? String
+        let professionalAvatar = profissional?["avatar"] as? String
+        //financeiro for professional
+        let financeiro = profissional?["financeiro"] as? [String : Any]
+        let contaBanco = financeiro?["contaBanco"] as? [String : Any]
+        let agencia = contaBanco?["nAgencia"] as? String
+        let banco = contaBanco?["nBanco"] as? String
+        let complementoAccount = contaBanco?["nComplementarConta"] as? String
+        let numeroConta = contaBanco?["nConta"] as? String
+        let tipoContaCorrentePoupanca = contaBanco?["tipoConta"] as? String
+        let accountProfessional = AccountStruct.init(nBanco: banco, nAgencia: agencia, nConta: numeroConta, nComplementarConta: complementoAccount, tipoConta: tipoContaCorrentePoupanca)
+        //end of financial professional
+        
+        let profissionalModel:Profissional = Profissional(cnpj: cnpjProfissional, profissao: profissao, name: name, age: nil, phone: phone, email: email, photo: nil, password: nil, endereço: nil, photoLink: URL(string: professionalAvatar ?? ""), ownerName: ownerName, portifolio: nil, nota: nota, services: worksArray, id: idProfessional, metaMensal: nil, account: accountProfessional, ownerCpf: ownerCpf, dataNasc: nil)
+        
+        var professionalArray:[Profissional]? = []
+        professionalArray?.insert(profissionalModel, at: 0)
+        //fim Profissional
+        let orcamento = Orcamento(profissao: profissao, descricao: nil, photos: nil, linkPhotos:nil , endereco: nil, data: nil, horario: nil, status: nil, valorMinimo: nil, id: nil, serviceId: nil, agendaId: nil, agendaArray: nil, solicitante: nil, profissional: professionalArray)
+        
+        return orcamento
+    }
+    
     static func byDict(dict :[String : Any]) -> Orcamento {
         print("Dicionario:")
         print(dict)

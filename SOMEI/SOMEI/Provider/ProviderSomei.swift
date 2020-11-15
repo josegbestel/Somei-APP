@@ -227,7 +227,7 @@ class ProviderSomei {
                          var orcamentos:[Orcamento] = []
                          
                          for(dict) in json{
-                             let orcamento = Orcamento.byDictFromActivityOrcamentosFromProfession(dict: dict)
+                             let orcamento = Orcamento.byDictFromProfessionalRequest(dict: dict)
                              orcamentos.append(orcamento)
                          }
                          
