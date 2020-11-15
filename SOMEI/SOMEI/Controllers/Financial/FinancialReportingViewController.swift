@@ -22,6 +22,7 @@ class FinancialReportingViewController: UIViewController {
     @IBOutlet weak var bankDepositView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var NoDepositsLabel: UILabel!
     //Credit and debit
     @IBOutlet weak var creditAndDebitView: UIView!
     @IBOutlet weak var creditLabel: UILabel!
@@ -47,6 +48,7 @@ class FinancialReportingViewController: UIViewController {
     }
     
     func completeBankDeposit() {
+        NoDepositsLabel.isHidden = true
         let lastDeposit = FinancialManager.sharedInstance.lastDeposit()
         if lastDeposit.historico?.last != nil {
             dateLabel.text = lastDeposit.historico?.last?.dia
@@ -57,6 +59,11 @@ class FinancialReportingViewController: UIViewController {
             priceLabel.text = "R$\(lastDeposit.historico?.last?.valor ?? 0)"
         }else{
             priceLabel.isHidden = true
+        }
+        
+        if priceLabel.isHidden == true, dateLabel.isHidden == true {
+            NoDepositsLabel.isHidden = false
+            NoDepositsLabel.text = "Sem novos depositos, Saldo disponivel: R$ \(FinancialManager.sharedInstance.depositosBancarios.saldoDisponivel ?? 0)"
         }
     }
     

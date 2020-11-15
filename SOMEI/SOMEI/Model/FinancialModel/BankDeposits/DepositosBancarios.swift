@@ -11,11 +11,15 @@ import Foundation
 class DepositosBancarios {
     
     var historico:[Deposit]?
-    var proximo:[Deposit]?
+    var saldoALiberar:Double?
+    var saldoDisponivel:Double?
     
-    init(historico:[Deposit]?,proximo:[Deposit]?) {
+    init(historico:[Deposit]?,saldoALiberar:Double?, saldoDisponivel:Double?) {
+       
         self.historico = historico
-        self.proximo = proximo
+        self.saldoALiberar = saldoALiberar
+        self.saldoDisponivel = saldoDisponivel
+        
     }
     
     static func byDict(dict :[String : Any]) -> DepositosBancarios {
@@ -31,18 +35,13 @@ class DepositosBancarios {
                 historicoDeposits.insert(deposit, at: 0)
             }
         }
-        var proximoDeposits:[Deposit] = []
-        if let proximo = depositos?["proximo"] as? [[String : Any]] {
-            for next in proximo {
-                let dia = next["dia"] as? String
-                let valor = next["valor"] as? Double
-                
-                let deposit:Deposit = Deposit(dia: dia, valor: valor)
-                proximoDeposits.insert(deposit, at: 0)
-            }
-        }
         
-        let deposit:DepositosBancarios = DepositosBancarios(historico: historicoDeposits, proximo: proximoDeposits)
+        let saldoConta = depositos?["saldoConta"] as? [String : Any]
+        let saldoALiberar = saldoConta?["saldoALiberar"] as? Double
+        let saldoDisponivel = saldoConta?["saldoDisponivel"] as? Double
+        
+        let deposit:DepositosBancarios = DepositosBancarios(historico: historicoDeposits, saldoALiberar:saldoALiberar, saldoDisponivel:saldoDisponivel)
+        
         return deposit
     }
     

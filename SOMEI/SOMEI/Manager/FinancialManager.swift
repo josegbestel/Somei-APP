@@ -15,7 +15,7 @@ class FinancialManager {
     var extractRequestArray:[ReleasesValue] = []
     var margemDeLucro:MargemDeLucro = MargemDeLucro(ganhos: nil, gastos: nil, porcentagem: nil)
     var mouthsResults:MouthsResults = MouthsResults(metaMensal: nil, saldoAtual: nil, valorPrevisao: nil)
-    var depositosBancarios:DepositosBancarios = DepositosBancarios(historico: nil, proximo: nil)
+    var depositosBancarios:DepositosBancarios = DepositosBancarios(historico: nil, saldoALiberar: nil, saldoDisponivel: nil)
     
     func calculateCredit() -> Double {
         var valor:Double = 0

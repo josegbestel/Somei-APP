@@ -469,6 +469,12 @@
                                             <constraint firstAttribute="trailing" secondItem="bhf-u7-cFU" secondAttribute="trailing" constant="15" id="zVb-hA-hUz"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Hy-8h-sBJ">
+                                        <rect key="frame" x="5" y="416.5" width="404" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -476,12 +482,15 @@
                                     <constraint firstAttribute="bottom" secondItem="uGS-Hx-bcJ" secondAttribute="bottom" constant="355" id="4Zs-4J-Oj3"/>
                                     <constraint firstItem="993-ki-X73" firstAttribute="top" secondItem="GfN-aX-2sL" secondAttribute="top" constant="15" id="5Ud-lx-o3J"/>
                                     <constraint firstAttribute="trailing" secondItem="BFG-uj-4hn" secondAttribute="trailing" constant="15" id="5X9-eO-1ud"/>
+                                    <constraint firstAttribute="trailing" secondItem="0Hy-8h-sBJ" secondAttribute="trailing" constant="5" id="7GP-3d-9WW"/>
                                     <constraint firstAttribute="trailing" secondItem="uGS-Hx-bcJ" secondAttribute="trailing" constant="15" id="7iu-d4-DsL"/>
                                     <constraint firstItem="sGT-c0-A58" firstAttribute="top" secondItem="993-ki-X73" secondAttribute="bottom" constant="10" id="7sq-t4-VTI"/>
                                     <constraint firstItem="uGS-Hx-bcJ" firstAttribute="top" secondItem="Qp5-jd-h65" secondAttribute="bottom" constant="10" id="C06-VG-7DA"/>
                                     <constraint firstAttribute="trailing" secondItem="p0K-dd-GoJ" secondAttribute="trailing" constant="15" id="DLA-R1-gQM"/>
                                     <constraint firstItem="Qp5-jd-h65" firstAttribute="top" secondItem="sGT-c0-A58" secondAttribute="bottom" constant="10" id="JWb-5Q-zPL"/>
                                     <constraint firstItem="uGS-Hx-bcJ" firstAttribute="leading" secondItem="GfN-aX-2sL" secondAttribute="leading" constant="15" id="KQZ-Z5-3X2"/>
+                                    <constraint firstItem="0Hy-8h-sBJ" firstAttribute="centerX" secondItem="p0K-dd-GoJ" secondAttribute="centerX" id="LAF-X6-6lC"/>
+                                    <constraint firstItem="0Hy-8h-sBJ" firstAttribute="leading" secondItem="GfN-aX-2sL" secondAttribute="leading" constant="5" id="LkG-bc-yfT"/>
                                     <constraint firstItem="p0K-dd-GoJ" firstAttribute="top" secondItem="9xn-35-ojx" secondAttribute="bottom" constant="10" id="QEf-Fa-Smz"/>
                                     <constraint firstItem="BFG-uj-4hn" firstAttribute="top" secondItem="zVF-nn-58G" secondAttribute="bottom" constant="10" id="U25-na-QYc"/>
                                     <constraint firstItem="Qp5-jd-h65" firstAttribute="leading" secondItem="993-ki-X73" secondAttribute="leading" id="XMa-Ck-Vhu"/>
@@ -494,6 +503,7 @@
                                     <constraint firstAttribute="bottom" secondItem="sGT-c0-A58" secondAttribute="bottom" constant="533" id="pgs-F2-f7X"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="993-ki-X73" secondAttribute="trailing" constant="20" symbolic="YES" id="pnq-Wq-pRa"/>
                                     <constraint firstItem="zVF-nn-58G" firstAttribute="leading" secondItem="9xn-35-ojx" secondAttribute="leading" id="pr6-Gm-1dj"/>
+                                    <constraint firstItem="0Hy-8h-sBJ" firstAttribute="centerY" secondItem="p0K-dd-GoJ" secondAttribute="centerY" id="qHA-Na-Yoc"/>
                                     <constraint firstItem="993-ki-X73" firstAttribute="leading" secondItem="GfN-aX-2sL" secondAttribute="leading" constant="15" id="y1X-Wg-7nI"/>
                                     <constraint firstItem="zVF-nn-58G" firstAttribute="top" secondItem="p0K-dd-GoJ" secondAttribute="bottom" constant="10" id="yAE-xK-XEO"/>
                                     <constraint firstItem="9xn-35-ojx" firstAttribute="leading" secondItem="Qp5-jd-h65" secondAttribute="leading" id="z8M-zf-a6O"/>
@@ -521,6 +531,7 @@
                     <tabBarItem key="tabBarItem" title="Financeiro" image="percent" catalog="system" id="jQ2-1O-yOY"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="NoDepositsLabel" destination="0Hy-8h-sBJ" id="ERq-J7-NNd"/>
                         <outlet property="actualMouthView" destination="sGT-c0-A58" id="nIP-c4-a7u"/>
                         <outlet property="bankDepositView" destination="p0K-dd-GoJ" id="6gm-1h-MDI"/>
                         <outlet property="creditAndDebitView" destination="BFG-uj-4hn" id="Bqv-VL-yMh"/>
@@ -7393,20 +7404,20 @@
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="SHL-Bi-f45" customClass="DepositsTableViewCell" customModule="SOMEI" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="374" height="59"/>
+                                                        <rect key="frame" x="0.0" y="28" width="374" height="59.5"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SHL-Bi-f45" id="Gp5-Xg-uLF">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="59"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="59.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="17/sep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvK-Ul-66S">
-                                                                    <rect key="frame" x="25" y="16" width="65.5" height="27"/>
+                                                                    <rect key="frame" x="25" y="16" width="65.5" height="27.5"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZS-7s-DcF">
-                                                                    <rect key="frame" x="299.5" y="11" width="54.5" height="37"/>
+                                                                    <rect key="frame" x="299.5" y="11" width="54.5" height="37.5"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -7472,7 +7483,7 @@
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="20"/>
+                                                        <real key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
