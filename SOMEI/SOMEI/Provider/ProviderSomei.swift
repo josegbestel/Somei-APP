@@ -10,7 +10,7 @@ import Foundation
 
 class ProviderSomei {
     
-      static let  sharedInstance = ProviderSomei()
+      static let sharedInstance = ProviderSomei()
       static var professionalRequired :Bool = false
     
       private static let basePath = "https://somei-app-server.herokuapp.com/swagger-ui.html"
@@ -22,16 +22,53 @@ class ProviderSomei {
       private static let baseLoadFreeProfession = "https://somei-app-server.herokuapp.com/api/v1/categoria-mei/ativos"
       private static let basePathLoadActivServices = "https://somei-app-server.herokuapp.com/api/v1/resposta-orcamento/profissional/"
       private static let basePathLoadServicesRequested = "https://somei-app-server.herokuapp.com/api/v1/servico/profissional/"
-      
-    //"https://somei-app-server.herokuapp.com/api/v1/servico/solicitante/"
     
-    private static let session = URLSession.shared
+      private static let session = URLSession.shared
     
     func basePathLogin() -> String {
         if SomeiManager.sharedInstance.isProfession {
            return "https://somei-app-server.herokuapp.com/api/v1/profissional/login"
         }
         return "https://somei-app-server.herokuapp.com/api/v1/solicitante/login"
+    }
+    
+    class func awnserWithCreditCard(structToSend:CartaoModelStruct,idAwser:String ,idServico:String, email:String, password:String,completion: @escaping (Bool) -> Void) {
+        let loginString = String(format: "%@:%@", email, password)
+        let loginData = loginString.data(using: String.Encoding.utf8)!
+        let base64LoginString = loginData.base64EncodedString()
+        let completeUrl = "https://somei-app-server.herokuapp.com/api/v1/servico/\(idServico)/resposta/\(idAwser)/escolher"
+        guard let url = URL(string:completeUrl) else {return}
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+        guard let json = try? JSONEncoder().encode(structToSend) else {
+            completion(false)
+            return
+        }
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = json
+        
+        let dataTask = session.dataTask(with: request) { (data, response, error) in
+            if error == nil {
+                guard let response = response as? HTTPURLResponse else {return}
+                if response.statusCode == 200 {
+                    print("Status sucesso code:\(response.statusCode)")
+                    completion(true)
+                } else {
+                    if let data = data {
+                        print("Status code error:\(response.statusCode)")
+                        let jsonError = String(data: data, encoding: String.Encoding.utf8)
+                        print("Failure Response: \(String(describing: jsonError))")
+                    }
+                    completion(false)
+                }
+               
+            } else {
+                completion(false)
+            }
+        }
+        dataTask.resume()
+        
     }
     
     class func answerRequest(structToSend:OrcamentoAnswerStruct,id:String, email:String, password:String,completion: @escaping (Bool) -> Void) {

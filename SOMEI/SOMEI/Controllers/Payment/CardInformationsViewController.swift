@@ -44,7 +44,6 @@ class CardInformationsViewController: UIViewController {
         PaymentManager.sharedInstance.digitCard = digtCard.text!
         hashCartao()
     }
-    
     func hashCartao() {
         let card = Card(cardNumber: numberCard.text!,
                         holderName: nameCard.text!,
@@ -57,11 +56,13 @@ class CardInformationsViewController: UIViewController {
                 let hash = try result.get()
                 /* Sucesso - A variável hash conterá o hash do cartão de crédito */
                 print("Codigo hash do cartão:\(hash)")
-                print(hash)
-
+                PaymentManager.sharedInstance.hash = hash
+                self.goesToConfirmDatas()
+              
             } catch let error {
                 /* Erro - A variável error conterá o erro ocorrido ao obter o hash */
                 print("Tivemos um erro ao obter o hash:\(error)")
+                self.errorPopUp()
             }
         }
     }

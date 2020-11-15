@@ -35,9 +35,41 @@ class ConfirmPaymentViewController: UIViewController {
         imageViewPerfil.layer.cornerRadius = imageViewPerfil.frame.height/2
         imageViewPerfil.clipsToBounds = true
     }
+    
+    func sucessoPopUp() {
+        let alert = UIAlertController(title: "Tudo certo!", message: "Serviço pago e enviado ao profissional", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok!", style: .default, handler: { action in
+            self.goesToConfirm()
+        })
+        alert.addAction(ok)
+        self.present(alert, animated: true)
+    }
+    
+    func goesToConfirm() {
+        DispatchQueue.main.async {
+            let newVC = self.storyboard?.instantiateViewController(withIdentifier: "SolicitanteHome")
+            self.definesPresentationContext = true
+            newVC?.modalPresentationStyle = .overCurrentContext
+            self.present(newVC!, animated: true, completion: nil)
+        }
+    }
+    
+    func errorPopUp() {
+        let alert = UIAlertController(title: "Algo deu errado", message: "Por favor tente novamente mais tarde", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok!", style: .default, handler: { action in
+        })
+        alert.addAction(ok)
+        self.present(alert, animated: true)
+    }
 
     @IBAction func confirmButton(_ sender: Any) {
-        PaymentManager.sharedInstance.completePayment()
+        PaymentManager.sharedInstance.completePayment() { success in
+            if success {
+                self.sucessoPopUp()
+            }else {
+                self.errorPopUp()
+            }
+        }
     }
     
 }
