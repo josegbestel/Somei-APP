@@ -22,6 +22,10 @@ class SearchWorkersViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        ProviderSomei.openOrcamentos(id: String(SolicitanteManager.sharedInstance.solicitante.id ?? 0), email: SolicitanteManager.sharedInstance.solicitante.email ?? "", password: SolicitanteManager.sharedInstance.solicitante.password ?? ""){ success in
+            
+        }
+        
         //Atualizar o data
         OrcamentoManager.sharedInstance.loadApiAndSaveCoreData()
         
