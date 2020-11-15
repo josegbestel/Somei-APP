@@ -32,7 +32,7 @@ class PasswordEmployeeViewController: UIViewController {
     }
     
     func showEmptyText() {
-        let alert = UIAlertController(title: "", message: "Campo vazio!", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Verifique as informações", message: "Campo vazio ou senha muito curta", preferredStyle: .alert)
         let ok = UIAlertAction(title: "Ok!", style: .default, handler: { action in
         })
         alert.addAction(ok)
@@ -43,7 +43,7 @@ class PasswordEmployeeViewController: UIViewController {
          dismiss(animated: true, completion: nil)
     }
     @IBAction func continueButton(_ sender: Any) {
-        if (textField.text?.count)! == 0 {
+        if (textField.text?.count)! == 0 || (textField.text?.count)! < 8 {
            showEmptyText()
        }else {
            ProfissionalManager.sharedInstance.profissional.password = textField.text!
@@ -52,15 +52,4 @@ class PasswordEmployeeViewController: UIViewController {
            self.present(newNavigation, animated: true, completion: nil)
        }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
