@@ -13,12 +13,14 @@ class MargemDeLucro {
     var ganhos:Double?
     var gastos:Double?
     var porcentagem:Double?
+    var ganhosArray:[Double]?
     
-    init(ganhos:Double?,gastos:Double?,porcentagem:Double?) {
+    init(ganhos:Double?,gastos:Double?,porcentagem:Double?, ganhosArray:[Double]?) {
         
         self.ganhos = ganhos
         self.gastos = gastos
         self.porcentagem = porcentagem
+        self.ganhosArray = ganhosArray
         
     }
     
@@ -29,7 +31,17 @@ class MargemDeLucro {
         let gastos = margemLucro?["gastos"] as? Double
         let porcentagem = margemLucro?["porcentagem"] as? Double
         
-        let lucro:MargemDeLucro = MargemDeLucro(ganhos: ganhos, gastos: gastos, porcentagem: porcentagem)
+        //ganhos list
+        let ganhosDict = dict["resultadoMes"] as? [String : Any]
+        var valoresArray:[Double]? = []
+        let detalhes = ganhosDict?["detalhes"] as? [String : Any]
+        let ganhosArrayFromLib = detalhes?["ganhos"] as! [[String : Any]]
+        for ganhosArray in ganhosArrayFromLib {
+            let ganhoValor = ganhosArray["valor"] as? Double ?? 0
+            valoresArray?.insert(ganhoValor, at: 0)
+        }
+        
+        let lucro:MargemDeLucro = MargemDeLucro(ganhos: ganhos, gastos: gastos, porcentagem: porcentagem, ganhosArray: valoresArray)
         
         return lucro
     }

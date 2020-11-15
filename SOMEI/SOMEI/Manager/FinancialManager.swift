@@ -13,7 +13,7 @@ class FinancialManager {
     static var sharedInstance = FinancialManager()
     
     var extractRequestArray:[ReleasesValue] = []
-    var margemDeLucro:MargemDeLucro = MargemDeLucro(ganhos: nil, gastos: nil, porcentagem: nil)
+    var margemDeLucro:MargemDeLucro = MargemDeLucro(ganhos: nil, gastos: nil, porcentagem: nil, ganhosArray: nil)
     var mouthsResults:MouthsResults = MouthsResults(metaMensal: nil, saldoAtual: nil, valorPrevisao: nil)
     var depositosBancarios:DepositosBancarios = DepositosBancarios(historico: nil, saldoALiberar: nil, saldoDisponivel: nil)
     
@@ -39,6 +39,18 @@ class FinancialManager {
     
     func lastDeposit() -> DepositosBancarios {
         return depositosBancarios
+    }
+    
+    func graphicDatas() -> [Double] {
+        var extractArray:[Double] = []
+        if let array = margemDeLucro.ganhosArray {
+            for values in array {
+               if values > 0 {
+                   extractArray.insert(values, at: 0)
+               }
+            }
+        }
+        return extractArray
     }
     
 }
