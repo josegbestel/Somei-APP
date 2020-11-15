@@ -118,7 +118,12 @@ class Orcamento {
             }
         }
         //end agenda
-        let orcamento = Orcamento(profissao: profissao, descricao: descricaoOrcamento, photos: nil, linkPhotos:nil , endereco: nil, data: nil, horario: nil, status: statusOrcamento, valorMinimo: Int(valorOrcamento ?? 0.0), id: idOrcamento, serviceId: idOrcamento, agendaId: nil, agendaArray: agendaArray, solicitante: solicitanteModel, profissional: professionalArray)
+        //localização
+        let localizacao = dict["localizacao"] as? [String : Any]
+        //end localizacao
+        let endereco:Localizacao = Localizacao(cep: localizacao?["cep"] as? String, logradouro: localizacao?["logradouro"] as? String, numero: localizacao?["numero"] as? Int, complemento: localizacao?["complemento"] as? String, bairro: localizacao?["bairro"] as? String, cidade: localizacao?["cidade"] as? String, uf: localizacao?["uf"] as? String, longitude: localizacao?["longitude"] as? String, latitude: localizacao?["latitude"] as? String)
+        
+        let orcamento = Orcamento(profissao: profissao, descricao: descricaoOrcamento, photos: nil, linkPhotos:nil , endereco: endereco, data: nil, horario: nil, status: statusOrcamento, valorMinimo: Int(valorOrcamento ?? 0.0), id: idOrcamento, serviceId: idOrcamento, agendaId: nil, agendaArray: agendaArray, solicitante: solicitanteModel, profissional: professionalArray)
         
         return orcamento
     }
