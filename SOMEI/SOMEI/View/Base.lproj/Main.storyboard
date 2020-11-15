@@ -8589,6 +8589,17 @@
                                             <action selector="continueButton:" destination="1sN-dj-f5d" eventType="touchUpInside" id="biC-d3-hsc"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Codigo do serviço Municipal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIo-hB-Po1">
+                                        <rect key="frame" x="35" y="227" width="248" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="xx.xx" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="65G-UY-B7l">
+                                        <rect key="frame" x="35" y="259" width="369" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -8597,13 +8608,19 @@
                                     <constraint firstItem="noj-kZ-3ic" firstAttribute="leading" secondItem="t3g-j2-5US" secondAttribute="leading" constant="35" id="9d9-eb-0bi"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2dp-p9-XZW" secondAttribute="trailing" constant="20" symbolic="YES" id="CKH-jt-qOs"/>
                                     <constraint firstAttribute="bottom" secondItem="tQw-dN-1Rw" secondAttribute="bottom" constant="150" id="Dox-sn-ebz"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TIo-hB-Po1" secondAttribute="trailing" constant="20" symbolic="YES" id="LKe-bp-SwS"/>
                                     <constraint firstItem="2dp-p9-XZW" firstAttribute="top" secondItem="noj-kZ-3ic" secondAttribute="bottom" constant="25" id="NDe-rL-oVy"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="noj-kZ-3ic" secondAttribute="trailing" constant="20" symbolic="YES" id="ZtM-5n-Zak"/>
+                                    <constraint firstItem="TIo-hB-Po1" firstAttribute="top" secondItem="LwU-SL-NNS" secondAttribute="bottom" constant="32" id="O4r-67-anr"/>
+                                    <constraint firstItem="65G-UY-B7l" firstAttribute="top" secondItem="TIo-hB-Po1" secondAttribute="bottom" constant="8" id="TxX-0r-XZT"/>
+                                    <constraint firstItem="65G-UY-B7l" firstAttribute="leading" secondItem="noj-kZ-3ic" secondAttribute="leading" id="TyC-1n-dRT"/>
+                                    <constraint firstAttribute="trailing" secondItem="65G-UY-B7l" secondAttribute="trailing" constant="10" id="WYt-FE-gU1"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="noj-kZ-3ic" secondAttribute="trailing" constant="10" id="ZtM-5n-Zak"/>
                                     <constraint firstItem="7X0-zJ-3YH" firstAttribute="leading" secondItem="t3g-j2-5US" secondAttribute="leading" constant="35" id="Zxs-6q-lxF"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7X0-zJ-3YH" secondAttribute="trailing" constant="20" symbolic="YES" id="duP-q9-TsN"/>
                                     <constraint firstAttribute="trailing" secondItem="tQw-dN-1Rw" secondAttribute="trailing" constant="20" symbolic="YES" id="egX-4U-8yw"/>
                                     <constraint firstItem="tQw-dN-1Rw" firstAttribute="leading" secondItem="t3g-j2-5US" secondAttribute="leading" constant="20" symbolic="YES" id="hy8-vG-ic3"/>
                                     <constraint firstItem="LwU-SL-NNS" firstAttribute="centerX" secondItem="t3g-j2-5US" secondAttribute="centerX" id="ioy-ds-cVy"/>
+                                    <constraint firstItem="TIo-hB-Po1" firstAttribute="leading" secondItem="2dp-p9-XZW" secondAttribute="leading" id="kjY-6W-J2r"/>
                                     <constraint firstItem="2dp-p9-XZW" firstAttribute="leading" secondItem="t3g-j2-5US" secondAttribute="leading" constant="35" id="nea-LG-3fW"/>
                                     <constraint firstItem="noj-kZ-3ic" firstAttribute="top" secondItem="7X0-zJ-3YH" secondAttribute="bottom" constant="22" id="tRB-3U-868"/>
                                 </constraints>
@@ -8647,6 +8664,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
+                        <outlet property="codigoServicoMunicipal" destination="65G-UY-B7l" id="qFn-yY-DpE"/>
                         <outlet property="comentTextField" destination="noj-kZ-3ic" id="2E0-Fm-n96"/>
                         <outlet property="cosmosRating" destination="LwU-SL-NNS" id="M5T-Q5-nV4"/>
                         <outlet property="ratingCosmosView" destination="LwU-SL-NNS" id="WEB-o0-1pv"/>
