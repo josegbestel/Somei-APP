@@ -28,9 +28,20 @@ class BankDepositsViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    func errorPopUP() {
+        let alert = UIAlertController(title: "Algo deu errado", message: "Por favor tente novamente mais tarde", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok!", style: .default, handler: { action in
+        })
+        alert.addAction(ok)
+        self.present(alert, animated: true)
+    }
+    
     @IBAction func resgatarSaldoButton(_ sender: Any) {
-        
-        
+        ProviderSomei.transferBankMoney(valor: "\(FinancialManager.sharedInstance.depositosBancarios.saldoDisponivel ?? 0)" ,idProfissional:"\(ProfissionalManager.sharedInstance.profissional.id ?? 0)", email:"\(ProfissionalManager.sharedInstance.profissional.email ?? "")", password:"\(ProfissionalManager.sharedInstance.profissional.password ?? "")" ) {success in
+            if success != true {
+                self.errorPopUP()
+            }
+        }
     }
     
 }
