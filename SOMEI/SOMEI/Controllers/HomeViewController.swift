@@ -69,8 +69,25 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
     }
     
     @IBAction func contratarButton(_ sender: Any) {
-//        ProviderSomei.loadFreeProfessional()
-        print("Clicou em 'Quero contratar'")
+        if !SomeiManager.sharedInstance.isConnectedToNetwork() {
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let newNavigation = storyBoard.instantiateViewController(withIdentifier: "InternetErrorViewController")
+            self.present(newNavigation, animated: true, completion: nil)
+            return
+        }
+        if SomeiUserDefaults.shared.defaults.bool(forKey: UserDefaultsKeys.createdSolicitantePerfil.rawValue) {
+            //Go to perfil usuario
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let newNavigation = storyBoard.instantiateViewController(withIdentifier: "SolicitanteHome")
+            self.present(newNavigation, animated: true, completion: nil)
+        }else {
+            //cadastro flow
+            SomeiManager.sharedInstance.isProfession = false
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let newNavigation = storyBoard.instantiateViewController(withIdentifier: "LoginCadastroViewControlller")
+            self.present(newNavigation, animated: true, completion: nil)
+        }
+        
     }
     
     func loadPerfilOnCoreData() {
