@@ -4858,16 +4858,28 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wfd-fq-hPs">
+                                <rect key="frame" x="20" y="20" width="81" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="LogOut">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="logOutButtonSolicitante:" destination="pXh-md-kp6" eventType="touchUpInside" id="m9v-a1-ygt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fW8-Bb-zwC"/>
                         <color key="backgroundColor" red="0.074509803920000006" green="0.37647058820000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="hPj-e1-OhA" firstAttribute="top" secondItem="fW8-Bb-zwC" secondAttribute="top" constant="218" id="2zb-RB-xNS"/>
+                            <constraint firstItem="Wfd-fq-hPs" firstAttribute="top" secondItem="fW8-Bb-zwC" secondAttribute="top" constant="20" id="4Aa-DJ-d92"/>
                             <constraint firstAttribute="bottom" secondItem="hPj-e1-OhA" secondAttribute="bottom" id="9GN-dv-lx2"/>
                             <constraint firstItem="hPj-e1-OhA" firstAttribute="top" secondItem="fS9-xJ-Xs0" secondAttribute="bottom" constant="76" id="Efs-Gz-XN3"/>
                             <constraint firstItem="fW8-Bb-zwC" firstAttribute="trailing" secondItem="hPj-e1-OhA" secondAttribute="trailing" id="Kog-lK-xlK"/>
                             <constraint firstItem="fS9-xJ-Xs0" firstAttribute="leading" secondItem="fW8-Bb-zwC" secondAttribute="leading" constant="150" id="U0j-3t-ExU"/>
                             <constraint firstItem="hPj-e1-OhA" firstAttribute="leading" secondItem="h8E-Xu-zd4" secondAttribute="leading" id="UM7-wQ-GtC"/>
+                            <constraint firstItem="Wfd-fq-hPs" firstAttribute="leading" secondItem="fW8-Bb-zwC" secondAttribute="leading" constant="20" id="bf3-OW-vu4"/>
                             <constraint firstItem="fS9-xJ-Xs0" firstAttribute="centerX" secondItem="fW8-Bb-zwC" secondAttribute="centerX" id="h2X-cr-7Rs"/>
                             <constraint firstItem="fS9-xJ-Xs0" firstAttribute="top" secondItem="fW8-Bb-zwC" secondAttribute="top" constant="43" id="uCt-Ue-ORu"/>
                         </constraints>

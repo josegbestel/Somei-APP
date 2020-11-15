@@ -227,6 +227,12 @@ class ClientePerfilViewController: UIViewController, NSFetchedResultsControllerD
            newVC?.modalPresentationStyle = .overCurrentContext
            self.present(newVC!, animated: true, completion: nil)
     }
+    
+    @IBAction func logOutButtonSolicitante(_ sender: Any) {
+        SolicitanteManager.sharedInstance.logOut()
+        view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+    }
+    
 }
 extension ClientePerfilViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

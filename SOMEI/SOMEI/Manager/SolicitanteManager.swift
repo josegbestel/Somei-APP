@@ -51,6 +51,25 @@ class SolicitanteManager {
         return solicitanteStruct
     }
     
+    func cleanSolicitanteInCoreData() {
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "SolicitanteUser")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        do
+        {
+            try SomeiManager.sharedInstance.context.execute(deleteRequest)
+            try SomeiManager.sharedInstance.context.save()
+        }
+        catch {
+            print ("There was an error")
+        }
+    }
+    
+    func logOut() {
+        cleanSolicitanteInCoreData()
+        OrcamentoManager.sharedInstance.cleanProfessionOnCoreData()
+        SomeiUserDefaults.shared.defaults.set(false, forKey: UserDefaultsKeys.createdSolicitantePerfil.rawValue)
+    }
+    
     
     func completeRegister(onComplete: @escaping (Bool) -> Void) {
 
