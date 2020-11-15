@@ -101,9 +101,16 @@ class AnswerViewController: ViewController {
         self.present(newVC!, animated: true, completion: nil)
     }
     
+    func cleanStringComa(string:String) -> Int {
+        let noComa = string.replacingOccurrences(of: ",", with: "", options: NSString.CompareOptions.literal, range:nil)
+        return Int(noComa) ?? 0
+    }
+    
     func constructStruct() -> OrcamentoAnswerStruct {
-        let valor:Double = Double(textField.text ?? "0")!
-        //Double(OrcamentoManager.sharedInstance.selectedOrcamento?.id ?? 0)
+        let str = textField.text!
+        
+        let valor:Int = Int(cleanStringComa(string: str))
+        
         let teste = OrcamentoAnswerStruct.init(agendaId: Double(OrcamentoManager.sharedInstance.selectedOrcamento?.agendaId ?? 0), servicoId:Double(OrcamentoManager.sharedInstance.selectedOrcamento?.serviceId ?? 0) , valor: valor, observacao: OrcamentoManager.sharedInstance.selectedOrcamento?.descricao ?? "")
         return teste
     }

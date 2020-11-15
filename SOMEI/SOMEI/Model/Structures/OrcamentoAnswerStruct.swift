@@ -12,7 +12,7 @@ struct OrcamentoAnswerStruct:Codable {
     
     var agendaId:Double
     var servicoId:Double
-    var valor:Double
+    var valor:Int
     var observacao:String
 
 }
