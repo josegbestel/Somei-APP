@@ -35,7 +35,7 @@ class ActiveServicesViewController: UIViewController, UITableViewDelegate, UITab
     
     func goesToOrcamentoList() {
         print(OrcamentoManager.sharedInstance.selectedOrcamento?.status as Any)
-        if OrcamentoManager.sharedInstance.selectedOrcamento?.status == "RESPONDIDO" {
+        if OrcamentoManager.sharedInstance.selectedOrcamento?.status == "RESPONDIDO" || OrcamentoManager.sharedInstance.selectedOrcamento?.status == "SOLICITADO" {
             let newVC = self.storyboard?.instantiateViewController(withIdentifier: "AnswerOrcamentoViewController")
             self.definesPresentationContext = true
             newVC?.modalPresentationStyle = .overCurrentContext
