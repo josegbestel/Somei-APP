@@ -21,6 +21,7 @@ class RequestedServicesViewController: UIViewController {
                 }
              }
         }
+        print("numero de servicos ativos: \(OrcamentoManager.sharedInstance.servicesRequestArray.count)")
     }
     
     func goesToDetailOrcamento() {
@@ -55,9 +56,6 @@ extension RequestedServicesViewController: UITableViewDataSource {
         
         return cell
     }
-    private func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-       return 120
-   }
     
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        OrcamentoManager.sharedInstance.selectedOrcamentoToRequestService = OrcamentoManager.sharedInstance.servicesRequestArray[indexPath.row]

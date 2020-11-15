@@ -34,6 +34,8 @@ class DetailOrcamentoListViewController: UIViewController {
     
     @IBOutlet weak var mainStatusLabel: UILabel!
     
+    var imagesArray:[UIImage] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewLayout()
@@ -159,9 +161,54 @@ class DetailOrcamentoListViewController: UIViewController {
             print("No status found:\(status ?? "")")
           }
     }
+    
+    func downloadImages() {
+        let linkPhotos:[URL] = OrcamentoManager.sharedInstance.selectedOrcamento?.linkPhotos ?? []
+        for imageLink in linkPhotos {
+            downloadImage(from: imageLink)
+        }
+    }
+    func updateImages(){
+        imageOrcamentoCollection.reloadData()
+    }
+    
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+    
+    func downloadImage(from url: URL) {
+        print("Download Started images from Orcamento")
+        getData(from: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished images from Orcamento")
+            DispatchQueue.main.async() { [weak self] in
+                self?.imagesArray.insert(UIImage(data: data)!, at: 0)
+                self?.updateImages()
+            }
+        }
+    }
 
     @IBAction func backButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+}
+extension DetailOrcamentoListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return imagesArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! photosOrcamentoCollectionViewCell
+        cell.imageView.image = imagesArray[indexPath.row]
+        
+        return cell
     }
     
 }
