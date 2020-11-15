@@ -34,6 +34,10 @@ class ListOrcamentoViewController: ViewController, NSFetchedResultsControllerDel
                     print("sucesso ao carregar os relatorios de financas")
                 }
              }
+            
+            ProviderSomei.requestPerfil(id: String(ProfissionalManager.sharedInstance.profissional.id!), email: ProfissionalManager.sharedInstance.profissional.email!, password: ProfissionalManager.sharedInstance.profissional.password!) {success in
+                
+            }
         }
     }
     

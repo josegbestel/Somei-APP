@@ -17,7 +17,7 @@ class ProfissionalManager {
     var profissionalPerfil: ProfissionalEntity!
     var categoriasSomei: CategoriasProfissionais!
     
-    var profissional = Profissional(cnpj:nil,profissao:nil, name:nil, age:0, phone:nil, email:nil, photo:nil, password:nil,endereço:nil, photoLink:URL(string: ""), ownerName: nil,portifolio:nil, nota: nil, services: nil, id: nil, metaMensal: nil, account: nil, ownerCpf: nil, dataNasc: nil)
+    var profissional = Profissional(cnpj:nil,profissao:nil, name:nil, age:0, phone:nil, email:nil, photo:nil, password:nil,endereço:nil, photoLink:URL(string: ""), ownerName: nil,portifolio:nil, nota: nil, services: nil, id: nil, metaMensal: nil, account: nil, ownerCpf: nil, dataNasc: nil, linksPortfolio: nil)
     var endereco = Localizacao(cep: nil, logradouro: nil, numero: nil, complemento: nil, bairro: "Curitiba", cidade: nil, uf: nil, longitude: "-25.433075", latitude: "-49.275830")
     var Street:String = ""
     
@@ -25,6 +25,21 @@ class ProfissionalManager {
     
     func setEndereco() {
         profissional.endereço = endereco
+    }
+    
+    func receivedPerfil(perfil:Profissional){
+        if perfil.name != nil {
+            profissional.name = perfil.name
+        }
+        if perfil.nota != nil {
+            profissional.nota = perfil.nota
+        }
+        if perfil.services != nil {
+            profissional.services = perfil.services
+        }
+        if perfil.linksPortfolio != nil {
+            profissional.linksPortfolio = perfil.linksPortfolio
+        }
     }
     
     func completeRegister(onComplete: @escaping (Bool) -> Void) {
