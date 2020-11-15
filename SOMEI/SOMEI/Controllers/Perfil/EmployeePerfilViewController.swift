@@ -208,6 +208,11 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
         self.present(activityViewController, animated: true, completion: nil)
     }
     
+    @IBAction func logOutButtonProfissional(_ sender: Any) {
+        ProfissionalManager.sharedInstance.logOut()
+        view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+    }
+    
 }
 extension EmployeePerfilViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func numberOfSections(in collectionView: UICollectionView) -> Int {

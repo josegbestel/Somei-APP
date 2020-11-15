@@ -44,6 +44,7 @@ class ProfissionalManager {
             }
         }
     }
+    
     func cleanCategoriasOnCoreData() {
            let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CategoriasProfissionais")
            let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
@@ -56,6 +57,7 @@ class ProfissionalManager {
                print ("There was an error")
            }
        }
+    
     func updateCoreDataWithCategories() {
         if categories != [] {
             cleanCategoriasOnCoreData()
@@ -148,6 +150,25 @@ class ProfissionalManager {
                print(error.localizedDescription)
            }
        }
+    
+    func cleanProfessionalOnCoreData() {
+           let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ProfissionalEntity")
+           let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+           do
+           {
+               try SomeiManager.sharedInstance.context.execute(deleteRequest)
+               try SomeiManager.sharedInstance.context.save()
+           }
+           catch {
+               print ("There was an error")
+           }
+       }
+    
+    func logOut() {
+        cleanProfessionalOnCoreData()
+        SomeiUserDefaults.shared.defaults.set(false, forKey: UserDefaultsKeys.createdProfessionalPerfil.rawValue)
+        
+    }
     
     
 }

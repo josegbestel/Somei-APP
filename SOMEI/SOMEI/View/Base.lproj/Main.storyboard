@@ -862,6 +862,16 @@
                                     <action selector="supportButton:" destination="Q2g-EJ-bTO" eventType="touchUpInside" id="p2K-iz-JHL"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wap-GX-GUg">
+                                <rect key="frame" x="20" y="64" width="81" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="LogOut">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="logOutButtonProfissional:" destination="Q2g-EJ-bTO" eventType="touchUpInside" id="3QR-tT-pvH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="l8f-e4-aWu"/>
                         <color key="backgroundColor" red="0.074509803920000006" green="0.37647058820000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -873,8 +883,10 @@
                             <constraint firstItem="5aa-lh-BVR" firstAttribute="top" secondItem="l8f-e4-aWu" secondAttribute="top" constant="43" id="AbU-z2-D9f"/>
                             <constraint firstItem="Smo-C0-N5m" firstAttribute="top" secondItem="l8f-e4-aWu" secondAttribute="top" constant="218" id="BGc-ZX-BpE"/>
                             <constraint firstItem="Smo-C0-N5m" firstAttribute="top" secondItem="5aa-lh-BVR" secondAttribute="bottom" constant="76" id="DXY-bi-qe3"/>
+                            <constraint firstItem="Wap-GX-GUg" firstAttribute="top" secondItem="l8f-e4-aWu" secondAttribute="top" constant="20" id="GbA-8b-Cbv"/>
                             <constraint firstAttribute="bottom" secondItem="Smo-C0-N5m" secondAttribute="bottom" id="JqF-mt-8yS"/>
                             <constraint firstItem="Smo-C0-N5m" firstAttribute="leading" secondItem="0qh-V7-ATq" secondAttribute="leading" id="VGr-00-gTx"/>
+                            <constraint firstItem="Wap-GX-GUg" firstAttribute="leading" secondItem="l8f-e4-aWu" secondAttribute="leading" constant="20" id="uFw-9E-VQT"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Meu Perfil" image="person" catalog="system" id="6f9-zx-60V"/>
