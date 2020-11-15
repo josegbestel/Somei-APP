@@ -69,6 +69,7 @@ class ActiveServicesViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        OrcamentoManager.sharedInstance.selectedOrcamento = nil
         OrcamentoManager.sharedInstance.selectedOrcamento = OrcamentoManager.sharedInstance.orcamentos[indexPath.row]
         goesToOrcamentoList()
     }
