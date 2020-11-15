@@ -99,8 +99,26 @@ class Orcamento {
         let statusOrcamento = dict["status"] as? String
         let valorOrcamento = dict["valorContratado"] as? Double
         let idOrcamento = dict["id"] as? Int
-        
-        let orcamento = Orcamento(profissao: profissao, descricao: descricaoOrcamento, photos: nil, linkPhotos:nil , endereco: nil, data: nil, horario: nil, status: statusOrcamento, valorMinimo: Int(valorOrcamento ?? 0.0), id: idOrcamento, serviceId: idOrcamento, agendaId: nil, agendaArray: nil, solicitante: solicitanteModel, profissional: professionalArray)
+        //agendaOrcamento
+        let agendaDict = dict["agendas"] as? [[String: AnyObject]]
+        var agendaArray:[Agenda] = []
+        if let agendaArrayFromLib = agendaDict {
+            for agenda in agendaArrayFromLib {
+                let dinamica = agenda["dinamica"] as? Int
+                let horaInicio = agenda["horaInicio"] as? [String: Any]
+                let horaFinal = agenda["horaFinal"] as? [String: Any]
+                let hourBeggin = HourStruct.init(hour: String((horaInicio?["hour"] as? Int)!), minute: String((horaInicio?["minute"] as? Int)!))
+                let hourEnd = HourStruct.init(hour: String((horaFinal?["hour"] as? Int)!), minute: String((horaFinal?["minute"] as? Int)!))
+                var isDinamic = false
+                if dinamica == 1 {
+                    isDinamic = true
+                }
+                let agendaInsert:Agenda = Agenda(horaInicio: hourBeggin, horaFinal: hourEnd, diaSemana: agenda["diaSemana"] as? String, dinamica: isDinamic, id: agenda["id"] as? Int)
+                agendaArray.insert(agendaInsert, at: 0)
+            }
+        }
+        //end agenda
+        let orcamento = Orcamento(profissao: profissao, descricao: descricaoOrcamento, photos: nil, linkPhotos:nil , endereco: nil, data: nil, horario: nil, status: statusOrcamento, valorMinimo: Int(valorOrcamento ?? 0.0), id: idOrcamento, serviceId: idOrcamento, agendaId: nil, agendaArray: agendaArray, solicitante: solicitanteModel, profissional: professionalArray)
         
         return orcamento
     }
