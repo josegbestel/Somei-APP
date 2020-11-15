@@ -25,6 +25,15 @@ class NewDespesaViewController: UIViewController {
        
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+       super.viewWillDisappear(animated)
+        if let firstVC = presentingViewController as? CreditAndDebitViewController {
+             DispatchQueue.main.async {
+                 firstVC.tableView.reloadData()
+             }
+         }
+     }
+    
     func inputInformationPopUp() {
         let alert = UIAlertController(title: "", message: "Por favor verifique os dados informados", preferredStyle: .alert)
         let ok = UIAlertAction(title: "Ok!", style: .default, handler: { action in
@@ -107,6 +116,9 @@ class NewDespesaViewController: UIViewController {
                 if success == true {
                     self.successWhenTrySave()
                     DispatchQueue.main.async {
+                        if let firstVC = self.presentingViewController as? CreditAndDebitViewController {
+                                 firstVC.reloadInfos()
+                         }
                         self.dismiss(animated: true, completion: nil)
                     }
                 }else {

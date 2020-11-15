@@ -38,6 +38,16 @@ class CreditAndDebitViewController: ViewController {
         borderView.layer.cornerRadius = 10
     }
     
+    func reloadInfos(){
+        ProviderSomei.requestMouthReleases(id: String(ProfissionalManager.sharedInstance.profissional.id!), email: ProfissionalManager.sharedInstance.profissional.email!, password: ProfissionalManager.sharedInstance.profissional.password!) {success in
+            if success == true {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+         }
+    }
+    
     func setColor(valor:Double) -> UIColor {
         if valor > 0 {
             return UIColor.init(red: 93.0/255.0, green: 199.0/255.0, blue: 112.0/255.0, alpha: 1.0)
