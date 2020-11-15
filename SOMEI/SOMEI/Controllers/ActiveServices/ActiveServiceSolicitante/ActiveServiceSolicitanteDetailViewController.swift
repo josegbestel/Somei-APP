@@ -157,8 +157,8 @@ class ActiveServiceSolicitanteDetailViewController: UIViewController {
             statusLabelStatus.text = "Serviço realizado"
             statusLabelStatus.backgroundColor = UIColor(red: 6/255, green: 221/255, blue: 112/255, alpha:1)
             imageView.image = UIImage(named: "FinalizadoStatus")
-            let tapFinalizadoStatusView = UITapGestureRecognizer(target: self, action: #selector(self.goesToAvaliete(_:)))
-            imageView.addGestureRecognizer(tapFinalizadoStatusView)
+            let statusViewGesture = UITapGestureRecognizer(target: self, action: #selector(self.goesToAvaliete(_:)))
+            statusView.addGestureRecognizer(statusViewGesture)
           case "CANCELADO":
             statusLabelStatus.text = "Cancelado"
             statusLabelStatus.backgroundColor = UIColor(red: 255/255, green: 92/255, blue: 83/255, alpha:1)
