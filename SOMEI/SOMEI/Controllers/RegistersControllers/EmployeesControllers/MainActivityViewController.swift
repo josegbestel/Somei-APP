@@ -46,12 +46,6 @@ class MainActivityViewController: UIViewController, NSFetchedResultsControllerDe
     @objc func dismissKeyboard() {
         self.view.endEditing(true)
     }
-  
-//    func filterContentForSearchText(searchText: String) {
-//        filterdTerms = ProfissionalManager.sharedInstance.categories.filter { term in
-//            return term.lowercased().contains(searchText.lowercased())
-//        }
-//    }
     
     //Mark: funçÃo de leitura dos dados
     func loadDatas(filtering: String = "") {
@@ -94,6 +88,7 @@ class MainActivityViewController: UIViewController, NSFetchedResultsControllerDe
 extension MainActivityViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         loadDatas(filtering: textField.text ?? "")
+        tableView.isHidden = false
         tableView.reloadData()
         return true
     }
@@ -127,6 +122,7 @@ extension MainActivityViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          guard let categoria = fetchedResultsController?.fetchedObjects?[indexPath.row] else {return}
          textField.text = categoria.categoria
+         tableView.isHidden = true
     }
 }
 extension MainActivityViewController: UITableViewDelegate {
