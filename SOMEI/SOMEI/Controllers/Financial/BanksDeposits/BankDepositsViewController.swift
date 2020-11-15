@@ -23,6 +23,14 @@ class BankDepositsViewController: UIViewController {
         saldoDisponivelNumberLabel.text = "R$ \(FinancialManager.sharedInstance.depositosBancarios.saldoDisponivel ?? 0)"
         aLiberarSaldoNumber.text = "R$ \(FinancialManager.sharedInstance.depositosBancarios.saldoALiberar ?? 0)"
     }
+    
+    func updateTableView() {
+        ProviderSomei.requestReportValues(id: String(ProfissionalManager.sharedInstance.profissional.id!), email: ProfissionalManager.sharedInstance.profissional.email!, password: ProfissionalManager.sharedInstance.profissional.password!) {success in
+            if success == true {
+                self.tableView.reloadData()
+            }
+         }
+    }
 
     @IBAction func backButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -39,10 +47,16 @@ class BankDepositsViewController: UIViewController {
     @IBAction func resgatarSaldoButton(_ sender: Any) {
         ProviderSomei.transferBankMoney(valor: "\(FinancialManager.sharedInstance.depositosBancarios.saldoDisponivel ?? 0)" ,idProfissional:"\(ProfissionalManager.sharedInstance.profissional.id ?? 0)", email:"\(ProfissionalManager.sharedInstance.profissional.email ?? "")", password:"\(ProfissionalManager.sharedInstance.profissional.password ?? "")" ) {success in
             if success != true {
-                self.errorPopUP()
+                DispatchQueue.main.async {
+                    self.errorPopUP()
+                }
+                }else{
+                    DispatchQueue.main.async {
+                        self.updateTableView()
+                    }
+                }
             }
         }
-    }
     
 }
 extension BankDepositsViewController: UITableViewDataSource {

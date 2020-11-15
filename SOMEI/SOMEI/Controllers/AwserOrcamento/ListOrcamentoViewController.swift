@@ -34,8 +34,6 @@ class ListOrcamentoViewController: ViewController, NSFetchedResultsControllerDel
                     print("sucesso ao carregar os relatorios de financas")
                 }
              }
-            
-            
         }
     }
     
