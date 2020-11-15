@@ -189,12 +189,45 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
         uploadTask.resume()
     }
     
+    func uploadImageToApi(image: UIImage) {
+        let storageRef = storage.reference()
+        let imagesRef = storageRef.child("images")
+        let imageData: NSData = image.pngData()! as NSData
+        let uploadTask = imagesRef.putData(imageData as Data, metadata: nil) { (metadata, error) in
+            if error != nil {
+                print("falhou")
+                print(error?.localizedDescription as Any)
+            }
+            imagesRef.downloadURL { (url, error) in
+              guard let downloadURL = url else {
+                print("Erro ao obter link da imagem")
+                return
+              }
+                ProviderSomei.sendImageToAPI(photoURL: "\(downloadURL)", id: "\(ProfissionalManager.sharedInstance.profissional.id ?? 0)", email: ProfissionalManager.sharedInstance.profissional.email ?? "", password: ProfissionalManager.sharedInstance.profissional.password ?? "") { success in
+                    if success {
+                        print("sucesso ao salvar imagem na lib")
+                    }
+                }
+                print("Sucesso ao obter link da imagem:\(downloadURL)")
+            }
+        }
+        uploadTask.resume()
+    }
+    
+    func savaImageAndSendToApi(image:UIImage) {
+        imagesArray.insert(image, at: 0)
+        collectionPhotosView.reloadData()
+        collectionPhotosView.reloadData()
+        uploadImageToApi(image: image)
+        print(imagesArray.count as Any)
+    }
+    
     @IBAction func takePhotoPortfolio(_ sender: Any) {
         let cameraViewController = CameraViewController { [weak self] image, asset in
            if image != nil {
-             self?.imagesArray.insert(image!, at: 0)
-             self?.collectionPhotosView.reloadData()
-             print(self?.imagesArray.count as Any)
+            if let image = image {
+                self?.savaImageAndSendToApi(image: image)
+            }
           }
           self?.dismiss(animated: true, completion: nil)
        }
