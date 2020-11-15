@@ -27,7 +27,9 @@ class BankDepositsViewController: UIViewController {
     func updateTableView() {
         ProviderSomei.requestReportValues(id: String(ProfissionalManager.sharedInstance.profissional.id!), email: ProfissionalManager.sharedInstance.profissional.email!, password: ProfissionalManager.sharedInstance.profissional.password!) {success in
             if success == true {
-                self.tableView.reloadData()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
          }
     }
@@ -45,7 +47,8 @@ class BankDepositsViewController: UIViewController {
     }
     
     @IBAction func resgatarSaldoButton(_ sender: Any) {
-        ProviderSomei.transferBankMoney(valor: "\(FinancialManager.sharedInstance.depositosBancarios.saldoDisponivel ?? 0)" ,idProfissional:"\(ProfissionalManager.sharedInstance.profissional.id ?? 0)", email:"\(ProfissionalManager.sharedInstance.profissional.email ?? "")", password:"\(ProfissionalManager.sharedInstance.profissional.password ?? "")" ) {success in
+        let saldo:Int = Int(FinancialManager.sharedInstance.depositosBancarios.saldoDisponivel ?? 0.0)
+        ProviderSomei.transferBankMoney(valor: "\(saldo)" ,idProfissional:"\(ProfissionalManager.sharedInstance.profissional.id ?? 0)", email:"\(ProfissionalManager.sharedInstance.profissional.email ?? "")", password:"\(ProfissionalManager.sharedInstance.profissional.password ?? "")" ) {success in
             if success != true {
                 DispatchQueue.main.async {
                     self.errorPopUP()

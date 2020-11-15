@@ -459,7 +459,7 @@ class ProviderSomei {
         let loginString = String(format: "%@:%@", email, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!
         let base64LoginString = loginData.base64EncodedString()
-        let completeUrl = "https://somei-app-server.herokuapp.com/api/v1/profissional/\(idProfissional)/financeiro/transferir?\(valor)"
+        let completeUrl = "https://somei-app-server.herokuapp.com/api/v1/profissional/\(idProfissional)/financeiro/transferir?valor=\(valor)"
         guard let url = URL(string:completeUrl) else {onComplete(false); return}
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -469,6 +469,7 @@ class ProviderSomei {
         let dataTask = session.dataTask(with: request) { (data, response, error) in
             if error == nil {
                 guard let response = response as? HTTPURLResponse else {return}
+                print(response.statusCode)
                 if response.statusCode == 200 {
                     onComplete(true)
                 }else {
