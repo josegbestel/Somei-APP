@@ -64,14 +64,16 @@ class AccountRegisterViewController: UIViewController, UIPickerViewDelegate, UIP
     
     func returnDigt() -> String {
         let stringDigt = contaCorrenteTf.text!
-        let count = stringDigt.count
-        let account:String = String(stringDigt.dropFirst(count-1))
+        let cleanStr =  stringDigt.replacingOccurrences(of: "-", with: "", options: NSString.CompareOptions.literal, range:nil)
+        let count = cleanStr.count
+        let account:String = String(cleanStr.dropFirst(count-1))
         return account
     }
     
     func returnConta() -> String {
         let stringDigt = contaCorrenteTf.text!
-        let digit:String = String(stringDigt.dropLast())
+        let cleanStr =  stringDigt.replacingOccurrences(of: "-", with: "", options: NSString.CompareOptions.literal, range:nil)
+        let digit:String = String(cleanStr.dropLast())
         return digit
     }
     
@@ -81,7 +83,7 @@ class AccountRegisterViewController: UIViewController, UIPickerViewDelegate, UIP
     }
     
     @IBAction func continueButton(_ sender: Any) {
-        if agenciaTf.hasText,contaCorrenteTf.hasText{
+        if agenciaTf.hasText,contaCorrenteTf.hasText {
             ProfissionalManager.sharedInstance.profissional.account = createStruct()
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             let newNavigation = storyBoard.instantiateViewController(withIdentifier: "ConfirmDatasEmployeeViewController")
