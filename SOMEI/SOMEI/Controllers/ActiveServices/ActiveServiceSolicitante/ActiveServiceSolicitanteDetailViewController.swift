@@ -57,6 +57,13 @@ class ActiveServiceSolicitanteDetailViewController: UIViewController {
         price.text = "R$ \(OrcamentoManager.sharedInstance.selectedOrcamento?.valorMinimo ?? 0)"
         //Status View
         configureImageView()
+        
+        if OrcamentoManager.sharedInstance.selectedOrcamento?.status != "CONFIRMADO", OrcamentoManager.sharedInstance.selectedOrcamento?.status != "FINALIZADO" {
+            cosmosRate.isHidden = true
+        }else{
+            cosmosRate.isHidden = false
+        }
+        
     }
     
     func completeOrcamentoEndereco() -> String {
