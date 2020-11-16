@@ -149,6 +149,11 @@ class Orcamento {
     static func byDict(dict :[String : Any]) -> Orcamento {
         print("Dicionario:")
         print(dict)
+        let notaFiscal = dict["notaFiscal"] as? [String : Any]
+        let cnpj = notaFiscal?["cnpjEmitente"] as? Int
+        
+        let nf = NotaFiscal(id: nil, numero: notaFiscal?["numero"] as? Double, emitente:"\(cnpj ?? 0)")
+    
         let categoria = dict["categoria"] as? [String : Any]
         let profissao = categoria?["titulo"] as? String
         let descricao = dict["descricao"] as? String
@@ -182,7 +187,7 @@ class Orcamento {
         let localizacao = dict["localizacao"] as! [String : Any]
         let endereco:Localizacao = Localizacao(cep: localizacao["cep"] as? String, logradouro: localizacao["logradouro"] as? String, numero: localizacao["numero"] as? Int, complemento: localizacao["complemento"] as? String, bairro: localizacao["bairro"] as? String, cidade: localizacao["cidade"] as? String, uf: localizacao["uf"] as? String, longitude: localizacao["longitude"] as? String, latitude: localizacao["latitude"] as? String)
         
-        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos: nil, endereco: endereco, data: nil, horario: nil, status: status, valorMinimo: Int(valorMinimo), id: id, serviceId: id, agendaId: nil, agendaArray: nil, solicitante: nil, profissional: profissionalArray, idResposta: nil, notaFiscal: nil)
+        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos: nil, endereco: endereco, data: nil, horario: nil, status: status, valorMinimo: Int(valorMinimo), id: id, serviceId: id, agendaId: nil, agendaArray: nil, solicitante: nil, profissional: profissionalArray, idResposta: nil, notaFiscal: nf)
         
         return orcamento
     }

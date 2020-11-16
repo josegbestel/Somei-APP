@@ -54,13 +54,16 @@ class ActiveServiceSolicitanteDetailViewController: UIViewController {
         //Dados do servico
         //TODO: mudar orcamento para receber o solicitante
         if OrcamentoManager.sharedInstance.selectedOrcamento?.status == "FINALIZADO" {
+            nomeService.text = "Cnpj emissor da nota:\(OrcamentoManager.sharedInstance.selectedOrcamento?.notaFiscal?.emitente ?? "")"
+            labelToNF.text = "Numero da nota fiscal:\(OrcamentoManager.sharedInstance.selectedOrcamento?.notaFiscal?.numero ?? 0.0)"
+            labelToNF.isHidden = false
             cosmosRate.isHidden = true
             price.isHidden = true
-            
         }else{
             nomeService.text = OrcamentoManager.sharedInstance.selectedOrcamento?.solicitante?.name
             cosmosRate.rating = Double(OrcamentoManager.sharedInstance.selectedOrcamento?.solicitante?.nota ?? 5)
             price.text = "R$ \(OrcamentoManager.sharedInstance.selectedOrcamento?.valorMinimo ?? 0)"
+            labelToNF.isHidden = true
         }
       
         //Status View
@@ -69,9 +72,12 @@ class ActiveServiceSolicitanteDetailViewController: UIViewController {
         if OrcamentoManager.sharedInstance.selectedOrcamento?.status != "CONFIRMADO", OrcamentoManager.sharedInstance.selectedOrcamento?.status != "FINALIZADO" {
             cosmosRate.isHidden = true
         }else{
-            cosmosRate.isHidden = false
+            if OrcamentoManager.sharedInstance.selectedOrcamento?.status == "FINALIZADO" {
+                cosmosRate.isHidden = true
+            }else{
+                cosmosRate.isHidden = false
+            }
         }
-        
     }
     
     func completeOrcamentoEndereco() -> String {

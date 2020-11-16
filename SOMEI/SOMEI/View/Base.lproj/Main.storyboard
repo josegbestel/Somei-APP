@@ -8320,7 +8320,6 @@
                                             <constraint firstItem="192-sf-yOf" firstAttribute="top" secondItem="rI3-Xb-rBZ" secondAttribute="top" constant="10" id="9G9-KI-O66"/>
                                             <constraint firstAttribute="bottom" secondItem="dMr-zH-7wq" secondAttribute="bottom" constant="17" id="HHI-Uh-4UE"/>
                                             <constraint firstItem="zB4-CA-ogf" firstAttribute="top" secondItem="192-sf-yOf" secondAttribute="bottom" constant="10" id="TLs-ZE-aTf"/>
-                                            <constraint firstItem="16R-aP-IUK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="192-sf-yOf" secondAttribute="trailing" constant="8" symbolic="YES" id="cF1-xk-4sg"/>
                                             <constraint firstItem="192-sf-yOf" firstAttribute="leading" secondItem="rI3-Xb-rBZ" secondAttribute="leading" constant="10" id="chp-U6-PI2"/>
                                             <constraint firstAttribute="trailing" secondItem="16R-aP-IUK" secondAttribute="trailing" constant="10" id="gGc-Tm-312"/>
                                             <constraint firstItem="dMr-zH-7wq" firstAttribute="centerX" secondItem="rI3-Xb-rBZ" secondAttribute="centerX" id="oSq-EW-8qR"/>

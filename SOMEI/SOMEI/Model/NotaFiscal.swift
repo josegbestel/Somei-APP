@@ -12,9 +12,9 @@ class NotaFiscal {
  
     var id:Int?
     var numero:Double?
-    var emitente:Int?
+    var emitente:String?
     
-    init(id:Int?, numero:Double?, emitente:Int?) {
+    init(id:Int?, numero:Double?, emitente:String?) {
         
         self.id = id
         self.numero = numero
