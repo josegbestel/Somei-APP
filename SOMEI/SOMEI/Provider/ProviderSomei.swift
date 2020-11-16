@@ -411,10 +411,10 @@ class ProviderSomei {
             print("Resultado login (provider)")
             print(err == nil)
             print(err as Any)
-            if let res:Bool = (err == nil){
+            if let res:Bool? = (err == nil){
                 print("res")
                 print(res)
-                if(res){
+                if(res!){
                     //Login feito com sucesso
                     print("A requisição com sucesso")
                     completion(true, result)

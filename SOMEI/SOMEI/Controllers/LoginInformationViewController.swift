@@ -54,8 +54,8 @@ class LoginInformationViewController: UIViewController {
         //Realizar login
         ProviderSomei.loginUser(email: emailLogin.text!, password: passwordLogin.text!){ (res, result) in
             DispatchQueue.main.async{
-                if let sucesso:Bool = res{
-                    if(sucesso){
+                if let sucesso:Bool? = res{
+                    if(sucesso!){
                         print("Login realizado com sucesso")
                         self.loginErrorText.isHidden = false;
                         
@@ -92,8 +92,8 @@ class LoginInformationViewController: UIViewController {
     func profissionalLogin() {
         ProviderSomei.loginUser(email: emailLogin.text!, password: passwordLogin.text!){ (res, result) in
             DispatchQueue.main.async{
-                if let sucesso:Bool = res{
-                    if(sucesso){
+                if let sucesso:Bool? = res{
+                    if(sucesso!){
                         print("Login realizado com sucesso")
                         self.loginErrorText.isHidden = false;
                         
