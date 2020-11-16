@@ -110,6 +110,49 @@ class ProviderSomei {
         
     }
     
+    class func requestPerfilSolicitante(id:String,email:String, password:String,completion: @escaping (Bool) -> Void) {
+        let loginString = String(format: "%@:%@", email, password)
+        let loginData = loginString.data(using: String.Encoding.utf8)!
+        let base64LoginString = loginData.base64EncodedString()
+        let completeUrl = "https://somei-app-server.herokuapp.com/api/v1/solicitante/\(id)/perfil"
+        
+        guard let url = URL(string:completeUrl) else {return}
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+        
+        let dataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error? ) in
+            if error == nil {
+                guard let response = response as? HTTPURLResponse else {return}
+                print(response.statusCode)
+                if response.statusCode == 200 {
+                    guard let data = data else {return}
+                    do{
+                        if let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? Dictionary<String, AnyObject> {
+                            print(json)
+                            let solicitatePerfil = Solicitante.byDictPerfil(dict: json, password: password)
+                            SolicitanteManager.sharedInstance.receivedPerfil(perfil: solicitatePerfil)
+                            print("\nPerfil carregados no Model\n\n")
+                            completion(true)
+                        }
+                    }catch {
+                        print(error.localizedDescription)
+                    }
+                }else{
+                    if let data = data {
+                        let json = String(data: data, encoding: String.Encoding.utf8)
+                        print("Failure Response: \(String(describing: json))")
+                    }else {
+                        print("status invalido do servidor:\(response.statusCode)")
+                    }
+                }
+            }else {
+                print(error?.localizedDescription as Any)
+            }
+        }
+        dataTask.resume()
+    }
+    
     class func requestPerfil(id:String,email:String, password:String,completion: @escaping (Bool) -> Void){
         let loginString = String(format: "%@:%@", email, password)
         let loginData = loginString.data(using: String.Encoding.utf8)!

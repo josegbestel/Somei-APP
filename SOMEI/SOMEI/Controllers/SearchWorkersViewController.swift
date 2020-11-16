@@ -26,6 +26,10 @@ class SearchWorkersViewController: UIViewController {
             
         }
         
+        ProviderSomei.requestPerfilSolicitante(id: String(SolicitanteManager.sharedInstance.solicitante.id!), email: SolicitanteManager.sharedInstance.solicitante.email!, password: SolicitanteManager.sharedInstance.solicitante.password!) {success in
+            
+        }
+        
         //Atualizar o data
         OrcamentoManager.sharedInstance.loadApiAndSaveCoreData()
         

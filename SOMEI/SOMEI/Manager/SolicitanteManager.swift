@@ -68,6 +68,9 @@ class SolicitanteManager {
         SomeiUserDefaults.shared.defaults.set(false, forKey: UserDefaultsKeys.createdSolicitantePerfil.rawValue)
     }
     
+    func receivedPerfil(perfil: Solicitante) {
+        
+    }
     
     func completeRegister(onComplete: @escaping (Bool) -> Void) {
 
