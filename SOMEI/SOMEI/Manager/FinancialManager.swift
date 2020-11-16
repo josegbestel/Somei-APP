@@ -53,8 +53,7 @@ class FinancialManager {
         if let array = margemDeLucro.ganhosPrevistosArray {
             for values in array {
                if values > 0 {
-                let index = extractArray.count
-                   extractArray.insert(values, at: index)
+                   extractArray.insert(values, at: 1)
                }
             }
         }
