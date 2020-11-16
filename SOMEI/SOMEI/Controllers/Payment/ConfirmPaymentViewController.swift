@@ -28,7 +28,7 @@ class ConfirmPaymentViewController: UIViewController {
         completePhoto()
         fantasyNameLabel.text = OrcamentoManager.sharedInstance.profissionalEscolhidoRespostaOrcamento.name
         cnpjLabel.text = OrcamentoManager.sharedInstance.profissionalEscolhidoRespostaOrcamento.cnpj
-        priceLabel.text = "\(OrcamentoManager.sharedInstance.selectedOrcamento?.valorMinimo ?? 0)"
+        priceLabel.text = "R$\(OrcamentoManager.sharedInstance.selectedOrcamento?.valorMinimo ?? 0)"
         enterpriseLabel.text = OrcamentoManager.sharedInstance.profissionalEscolhidoRespostaOrcamento.name
         categoriaLabel.text = OrcamentoManager.sharedInstance.profissionalEscolhidoRespostaOrcamento.mainActivity
         descriptionLabel.text = OrcamentoManager.sharedInstance.selectedOrcamento?.descricao
