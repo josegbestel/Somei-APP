@@ -26,6 +26,7 @@ class ActiveServiceSolicitanteDetailViewController: UIViewController {
     @IBOutlet weak var nomeService: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var cosmosRate: CosmosView!
+    @IBOutlet weak var labelToNF: UILabel!
     
     @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var imageView: UIImageView!
@@ -52,9 +53,16 @@ class ActiveServiceSolicitanteDetailViewController: UIViewController {
         
         //Dados do servico
         //TODO: mudar orcamento para receber o solicitante
-        nomeService.text = OrcamentoManager.sharedInstance.selectedOrcamento?.solicitante?.name
-        cosmosRate.rating = Double(OrcamentoManager.sharedInstance.selectedOrcamento?.solicitante?.nota ?? 5)
-        price.text = "R$ \(OrcamentoManager.sharedInstance.selectedOrcamento?.valorMinimo ?? 0)"
+        if OrcamentoManager.sharedInstance.selectedOrcamento?.status == "FINALIZADO" {
+            cosmosRate.isHidden = true
+            price.isHidden = true
+            
+        }else{
+            nomeService.text = OrcamentoManager.sharedInstance.selectedOrcamento?.solicitante?.name
+            cosmosRate.rating = Double(OrcamentoManager.sharedInstance.selectedOrcamento?.solicitante?.nota ?? 5)
+            price.text = "R$ \(OrcamentoManager.sharedInstance.selectedOrcamento?.valorMinimo ?? 0)"
+        }
+      
         //Status View
         configureImageView()
         

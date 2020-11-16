@@ -803,7 +803,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuy-eH-BJo">
-                                        <rect key="frame" x="187" y="432" width="42" height="21"/>
+                                        <rect key="frame" x="187" y="431.5" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -7456,20 +7456,20 @@
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="SHL-Bi-f45" customClass="DepositsTableViewCell" customModule="SOMEI" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="374" height="59"/>
+                                                        <rect key="frame" x="0.0" y="28" width="374" height="59.5"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SHL-Bi-f45" id="Gp5-Xg-uLF">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="59"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="59.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="17/sep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvK-Ul-66S">
-                                                                    <rect key="frame" x="25" y="16" width="65.5" height="27"/>
+                                                                    <rect key="frame" x="25" y="16" width="65.5" height="27.5"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZS-7s-DcF">
-                                                                    <rect key="frame" x="299.5" y="11" width="54.5" height="37"/>
+                                                                    <rect key="frame" x="299.5" y="11" width="54.5" height="37.5"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -8306,16 +8306,24 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMr-zH-7wq">
+                                                <rect key="frame" x="171" y="46" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="16R-aP-IUK" firstAttribute="centerY" secondItem="192-sf-yOf" secondAttribute="centerY" id="0wg-sV-nIT"/>
                                             <constraint firstAttribute="trailing" secondItem="zB4-CA-ogf" secondAttribute="trailing" constant="225" id="5U3-Ud-U9d"/>
                                             <constraint firstItem="192-sf-yOf" firstAttribute="top" secondItem="rI3-Xb-rBZ" secondAttribute="top" constant="10" id="9G9-KI-O66"/>
+                                            <constraint firstAttribute="bottom" secondItem="dMr-zH-7wq" secondAttribute="bottom" constant="17" id="HHI-Uh-4UE"/>
                                             <constraint firstItem="zB4-CA-ogf" firstAttribute="top" secondItem="192-sf-yOf" secondAttribute="bottom" constant="10" id="TLs-ZE-aTf"/>
                                             <constraint firstItem="16R-aP-IUK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="192-sf-yOf" secondAttribute="trailing" constant="8" symbolic="YES" id="cF1-xk-4sg"/>
                                             <constraint firstItem="192-sf-yOf" firstAttribute="leading" secondItem="rI3-Xb-rBZ" secondAttribute="leading" constant="10" id="chp-U6-PI2"/>
                                             <constraint firstAttribute="trailing" secondItem="16R-aP-IUK" secondAttribute="trailing" constant="10" id="gGc-Tm-312"/>
+                                            <constraint firstItem="dMr-zH-7wq" firstAttribute="centerX" secondItem="rI3-Xb-rBZ" secondAttribute="centerX" id="oSq-EW-8qR"/>
                                             <constraint firstItem="zB4-CA-ogf" firstAttribute="leading" secondItem="rI3-Xb-rBZ" secondAttribute="leading" constant="10" id="x6n-N6-Gbh"/>
                                         </constraints>
                                     </view>
@@ -8434,6 +8442,7 @@
                         <outlet property="descriptionLabel" destination="ocs-VB-8O2" id="8yn-Yz-jeF"/>
                         <outlet property="descriptionSolicitationView" destination="ocu-VX-yFq" id="Izi-Oc-YHR"/>
                         <outlet property="imageView" destination="8w6-H6-6LZ" id="uzp-Mx-UEZ"/>
+                        <outlet property="labelToNF" destination="dMr-zH-7wq" id="cwY-LX-zKx"/>
                         <outlet property="mainStatusLabel" destination="TsP-Fp-UBV" id="Fbb-LN-gET"/>
                         <outlet property="nomeService" destination="192-sf-yOf" id="9SS-JQ-5i6"/>
                         <outlet property="price" destination="16R-aP-IUK" id="x6A-in-IVm"/>

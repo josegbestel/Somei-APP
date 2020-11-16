@@ -27,8 +27,9 @@ class Orcamento {
     var solicitante:Solicitante?
     var profissional:[Profissional]?
     var idResposta:Int?
+    var notaFiscal:NotaFiscal?
     
-    init(profissao:String?,descricao:String?,photos:[UIImage]?,linkPhotos:[URL]?,endereco:Localizacao?,data:String?,horario:String?, status :String?, valorMinimo:Int?, id:Int?,serviceId:Int?, agendaId:Int?,agendaArray:[Agenda]?,solicitante:Solicitante?,profissional:[Profissional]?,idResposta:Int?) {
+    init(profissao:String?,descricao:String?,photos:[UIImage]?,linkPhotos:[URL]?,endereco:Localizacao?,data:String?,horario:String?, status :String?, valorMinimo:Int?, id:Int?,serviceId:Int?, agendaId:Int?,agendaArray:[Agenda]?,solicitante:Solicitante?,profissional:[Profissional]?,idResposta:Int?,notaFiscal:NotaFiscal?) {
         
         self.profissao = profissao
         self.descricao = descricao
@@ -46,6 +47,7 @@ class Orcamento {
         self.serviceId = serviceId
         self.profissional = profissional
         self.idResposta = idResposta
+        self.notaFiscal = notaFiscal
         
     }
     
@@ -139,7 +141,7 @@ class Orcamento {
         }
         //Fim do bloco de instancia das imagens
         
-        let orcamento = Orcamento(profissao: profissao, descricao: descricaoOrcamento, photos: nil, linkPhotos:fotosLinks , endereco: endereco, data: nil, horario: nil, status: statusOrcamento, valorMinimo: Int(valorOrcamento ?? 0.0), id: idOrcamento, serviceId: idOrcamento, agendaId: nil, agendaArray: agendaArray, solicitante: solicitanteModel, profissional: professionalArray, idResposta: nil)
+        let orcamento = Orcamento(profissao: profissao, descricao: descricaoOrcamento, photos: nil, linkPhotos:fotosLinks , endereco: endereco, data: nil, horario: nil, status: statusOrcamento, valorMinimo: Int(valorOrcamento ?? 0.0), id: idOrcamento, serviceId: idOrcamento, agendaId: nil, agendaArray: agendaArray, solicitante: solicitanteModel, profissional: professionalArray, idResposta: nil, notaFiscal: nil)
         
         return orcamento
     }
@@ -180,7 +182,7 @@ class Orcamento {
         let localizacao = dict["localizacao"] as! [String : Any]
         let endereco:Localizacao = Localizacao(cep: localizacao["cep"] as? String, logradouro: localizacao["logradouro"] as? String, numero: localizacao["numero"] as? Int, complemento: localizacao["complemento"] as? String, bairro: localizacao["bairro"] as? String, cidade: localizacao["cidade"] as? String, uf: localizacao["uf"] as? String, longitude: localizacao["longitude"] as? String, latitude: localizacao["latitude"] as? String)
         
-        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos: nil, endereco: endereco, data: nil, horario: nil, status: status, valorMinimo: Int(valorMinimo), id: id, serviceId: id, agendaId: nil, agendaArray: nil, solicitante: nil, profissional: profissionalArray, idResposta: nil)
+        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos: nil, endereco: endereco, data: nil, horario: nil, status: status, valorMinimo: Int(valorMinimo), id: id, serviceId: id, agendaId: nil, agendaArray: nil, solicitante: nil, profissional: profissionalArray, idResposta: nil, notaFiscal: nil)
         
         return orcamento
     }
@@ -240,7 +242,7 @@ class Orcamento {
         let solicitante:Solicitante = Solicitante(cpf: cpf, nota: nota, name: name, age: age?["year"] as? Int, phone: phone, email: email, photo: nil, password: nil, photoLink: URL(string: photoLink), services: nil, comentarios: nil, id: idSolicitante, dtNasc: bornDate)
         //end of convert solicitante
         let endereco:Localizacao = Localizacao(cep: localizacao?["cep"] as? String, logradouro: localizacao?["logradouro"] as? String, numero: localizacao?["numero"] as? Int, complemento: localizacao?["complemento"] as? String, bairro: localizacao?["bairro"] as? String, cidade: localizacao?["cidade"] as? String, uf: localizacao?["uf"] as? String, longitude: localizacao?["longitude"] as? String, latitude: localizacao?["latitude"] as? String)
-        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos:fotosLinks , endereco: endereco, data: nil, horario: nil, status: status, valorMinimo: nil, id: id, serviceId: serviceId, agendaId: nil, agendaArray: agendaArray, solicitante: solicitante, profissional: nil, idResposta: nil)
+        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos:fotosLinks , endereco: endereco, data: nil, horario: nil, status: status, valorMinimo: nil, id: id, serviceId: serviceId, agendaId: nil, agendaArray: agendaArray, solicitante: solicitante, profissional: nil, idResposta: nil, notaFiscal: nil)
         return orcamento
     }
     

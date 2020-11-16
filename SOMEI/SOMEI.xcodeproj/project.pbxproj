@@ -135,6 +135,7 @@
 		D1C7059025586BDC008C9C3F /* ConfirmPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C7058F25586BDC008C9C3F /* ConfirmPaymentViewController.swift */; };
 		D1CB809E256185F400BCB584 /* CartaoModelStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CB809D256185F400BCB584 /* CartaoModelStruct.swift */; };
 		D1CB80A725619A1F00BCB584 /* ConfirmOrcamentoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CB80A625619A1F00BCB584 /* ConfirmOrcamentoViewController.swift */; };
+		D1CB80AF2562356800BCB584 /* NotaFiscal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CB80AE2562356700BCB584 /* NotaFiscal.swift */; };
 		D1D09037254CE54500AF69FB /* DetailOrcamentoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D09036254CE54500AF69FB /* DetailOrcamentoListViewController.swift */; };
 		D1E51A1C2558A520004FE02C /* AccountStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E51A1B2558A520004FE02C /* AccountStruct.swift */; };
 		D1E51A212558B5BF004FE02C /* AccountRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E51A202558B5BF004FE02C /* AccountRegisterViewController.swift */; };
@@ -299,6 +300,7 @@
 		D1C7058F25586BDC008C9C3F /* ConfirmPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPaymentViewController.swift; sourceTree = "<group>"; };
 		D1CB809D256185F400BCB584 /* CartaoModelStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartaoModelStruct.swift; sourceTree = "<group>"; };
 		D1CB80A625619A1F00BCB584 /* ConfirmOrcamentoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmOrcamentoViewController.swift; sourceTree = "<group>"; };
+		D1CB80AE2562356700BCB584 /* NotaFiscal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotaFiscal.swift; sourceTree = "<group>"; };
 		D1D09036254CE54500AF69FB /* DetailOrcamentoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOrcamentoListViewController.swift; sourceTree = "<group>"; };
 		D1E51A1B2558A520004FE02C /* AccountStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStruct.swift; sourceTree = "<group>"; };
 		D1E51A202558B5BF004FE02C /* AccountRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRegisterViewController.swift; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 				3970B957250F5302006C36DD /* Comentario.swift */,
 				D1807187252854390087385E /* ProfissionalServicosAtivos.swift */,
 				D171F73A2534CF4D00C67EA7 /* Financial.swift */,
+				D1CB80AE2562356700BCB584 /* NotaFiscal.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1036,6 +1039,7 @@
 				3970B9C2250F5302006C36DD /* FlexibleHourViewController.swift in Sources */,
 				3970B9C4250F5302006C36DD /* SelectHourTableViewCell.swift in Sources */,
 				D1FF5DA825604FA60084E937 /* DateStruct.swift in Sources */,
+				D1CB80AF2562356800BCB584 /* NotaFiscal.swift in Sources */,
 				3970B9B3250F5302006C36DD /* AnswerOrcamentoManager.swift in Sources */,
 				3970B9A8250F5302006C36DD /* Place.swift in Sources */,
 				3970B9A5250F5302006C36DD /* OrcamentoStruct.swift in Sources */,
