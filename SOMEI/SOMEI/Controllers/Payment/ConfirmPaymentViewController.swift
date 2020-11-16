@@ -120,12 +120,17 @@ class ConfirmPaymentViewController: UIViewController {
     @IBAction func backButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func confirmButton(_ sender: Any) {
         PaymentManager.sharedInstance.completePayment() { success in
             if success {
-                self.sucessoPopUp()
+                DispatchQueue.main.async {
+                    self.sucessoPopUp()
+                }
             }else {
-                self.errorPopUp()
+                DispatchQueue.main.async {
+                    self.errorPopUp()
+                }
             }
         }
     }
