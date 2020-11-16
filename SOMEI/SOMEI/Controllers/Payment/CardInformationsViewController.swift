@@ -63,7 +63,6 @@ class CardInformationsViewController: UIViewController {
                 print("Codigo hash do cartão:\(hash)")
                 PaymentManager.sharedInstance.hash = hash
                 self.goesToConfirmDatas()
-              
             } catch let error {
                 /* Erro - A variável error conterá o erro ocorrido ao obter o hash */
                 print("Tivemos um erro ao obter o hash:\(error)")
@@ -79,7 +78,6 @@ class CardInformationsViewController: UIViewController {
     @IBAction func continueButton(_ sender: Any) {
         if nameCard.hasText, numberCard.hasText, digtCard.hasText,mesValidadeTextField.hasText {
             completeInformationCard()
-            goesToConfirmDatas()
         }else{
             errorPopUp()
         }
