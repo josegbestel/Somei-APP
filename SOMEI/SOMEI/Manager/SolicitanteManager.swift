@@ -65,8 +65,10 @@ class SolicitanteManager {
     }
     
     func logOut() {
-        cleanSolicitanteInCoreData()
-        OrcamentoManager.sharedInstance.cleanProfessionOnCoreData()
+        DispatchQueue.main.async {
+            self.cleanSolicitanteInCoreData()
+            OrcamentoManager.sharedInstance.cleanProfessionOnCoreData()
+        }
         SomeiUserDefaults.shared.defaults.set(false, forKey: UserDefaultsKeys.createdSolicitantePerfil.rawValue)
     }
     

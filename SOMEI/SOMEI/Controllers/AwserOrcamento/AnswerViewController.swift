@@ -122,7 +122,7 @@ class AnswerViewController: ViewController {
         }
     }
 
-    func awnserOrcamento() {
+    func awnserOrcamento() { 
         if ProfissionalManager.sharedInstance.profissional.email != nil, ProfissionalManager.sharedInstance.profissional.password != nil, OrcamentoManager.sharedInstance.selectedOrcamento?.id != nil {
             ProviderSomei.answerRequest(structToSend: constructStruct(), id: String((OrcamentoManager.sharedInstance.selectedOrcamento?.id)!), email: ProfissionalManager.sharedInstance.profissional.email!, password: ProfissionalManager.sharedInstance.profissional.password!){success in
                 if success == true{
