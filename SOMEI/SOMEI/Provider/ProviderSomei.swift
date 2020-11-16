@@ -51,7 +51,7 @@ class ProviderSomei {
         let dataTask = session.dataTask(with: request) { (data, response, error) in
             if error == nil {
                 guard let response = response as? HTTPURLResponse else {return}
-                if response.statusCode == 200 {
+                if response.statusCode == 200 || response.statusCode == 204 {
                     print("Status sucesso code:\(response.statusCode)")
                     completion(true)
                 } else {
