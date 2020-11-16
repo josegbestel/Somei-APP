@@ -95,10 +95,9 @@ class AnswerViewController: ViewController {
     }
     
     func goesToOrcamentoRespondidoScreen() {
-        let newVC = self.storyboard?.instantiateViewController(withIdentifier: "orcamentoRespondido")
-        self.definesPresentationContext = true
-        newVC?.modalPresentationStyle = .overCurrentContext
-        self.present(newVC!, animated: true, completion: nil)
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let newNavigation = storyBoard.instantiateViewController(withIdentifier: "perfilHomeEmployee")
+        self.present(newNavigation, animated: true, completion: nil)
     }
     
     func cleanStringComa(string:String) -> Int {
