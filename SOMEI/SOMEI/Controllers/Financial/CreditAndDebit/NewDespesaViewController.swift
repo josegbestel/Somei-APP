@@ -17,7 +17,7 @@ class NewDespesaViewController: UIViewController {
     @IBOutlet weak var choiceDebitOrCredit: UISegmentedControl!
     
     var debitOrCreditVar:String = "Debito"
-    var valorToLib:Double = 0
+    var valorToLib:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,12 +55,12 @@ class NewDespesaViewController: UIViewController {
     
     func fixValueIfDebitOrCredit() {
         if debitOrCreditVar == "Credito" {
+            valorToLib = Int(despesaValue.text ?? "0") ?? 0
+        }else{
             var readValue = ""
             readValue.append("-")
             readValue.append("\(despesaValue.text ?? "0")")
-            valorToLib = Double(readValue) ?? 0
-        }else{
-            valorToLib = Double(despesaValue.text ?? "0") ?? 0
+            valorToLib = Int(readValue) ?? 0
         }
     }
     
