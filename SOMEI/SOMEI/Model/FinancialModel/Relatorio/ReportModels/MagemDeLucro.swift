@@ -35,12 +35,13 @@ class MargemDeLucro {
         let ganhosDict = dict["resultadoMes"] as? [String : Any]
         var valoresArray:[Double]? = []
         let detalhes = ganhosDict?["detalhes"] as? [String : Any]
-        let ganhosArrayFromLib = detalhes?["ganhos"] as! [[String : Any]]
-        for ganhosArray in ganhosArrayFromLib {
-            let ganhoValor = ganhosArray["valor"] as? Double ?? 0
-            valoresArray?.insert(ganhoValor, at: 0)
+        if let ganhosArrayFromLib = detalhes?["ganhos"] as? [[String : Any]] {
+            for ganhosArray in ganhosArrayFromLib {
+                let ganhoValor = ganhosArray["valor"] as? Double ?? 0
+                valoresArray?.insert(ganhoValor, at: 0)
+            }
         }
-        
+      
         let lucro:MargemDeLucro = MargemDeLucro(ganhos: ganhos, gastos: gastos, porcentagem: porcentagem, ganhosArray: valoresArray)
         
         return lucro
