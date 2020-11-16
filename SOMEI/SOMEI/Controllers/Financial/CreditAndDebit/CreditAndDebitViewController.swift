@@ -22,6 +22,15 @@ class CreditAndDebitViewController: ViewController {
         completeInformation()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+       super.viewWillDisappear(animated)
+        if let firstVC = presentingViewController as? FinancialReportingViewController {
+             DispatchQueue.main.async {
+                firstVC.reloadFinancias()
+             }
+         }
+     }
+    
     func completeInformation() {
         tableView.reloadData()
         debitNumberView.text = "R$ \(FinancialManager.sharedInstance.calculateDedit())"

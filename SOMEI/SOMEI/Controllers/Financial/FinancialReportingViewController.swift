@@ -67,6 +67,26 @@ class FinancialReportingViewController: UIViewController {
         }
     }
     
+    func reloadFinancias() {
+        ProviderSomei.requestReportValues(id: String(ProfissionalManager.sharedInstance.profissional.id!), email: ProfissionalManager.sharedInstance.profissional.email!, password: ProfissionalManager.sharedInstance.profissional.password!) {success in
+            if success == true {
+                print("sucesso ao recarregar os relatorios de financas")
+                DispatchQueue.main.async {
+                    self.completeInformation()
+                }
+            }
+         }
+        
+        ProviderSomei.requestReportValues(id: String(ProfissionalManager.sharedInstance.profissional.id!), email: ProfissionalManager.sharedInstance.profissional.email!, password: ProfissionalManager.sharedInstance.profissional.password!) {success in
+            if success == true {
+                print("sucesso ao recarregar os relatorios de financas")
+                DispatchQueue.main.async {
+                    self.completeInformation()
+                }
+            }
+         }
+    }
+    
     func completeProfitMargin() {
         let percent = (FinancialManager.sharedInstance.margemDeLucro.porcentagem ?? 0) * 100
         percentlabel.text = "\(percent)%"
