@@ -7824,7 +7824,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButton:" destination="LHm-ME-5g2" eventType="touchUpInside" id="dim-wB-2Xq"/>
+                                    <action selector="backButton:" destination="LHm-ME-5g2" eventType="touchUpInside" id="qup-8D-V1d"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pagar Serviço" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQV-uv-nFH">
@@ -7848,7 +7848,6 @@
                                         </state>
                                         <connections>
                                             <action selector="confirmButton:" destination="LHm-ME-5g2" eventType="touchUpInside" id="Etq-j2-Upp"/>
-                                            <action selector="confirmeButton:" destination="LHm-ME-5g2" eventType="touchUpInside" id="YRX-qT-ChL"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome fantaia empresa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m74-7V-rZP">
@@ -7973,16 +7972,11 @@
                     <navigationItem key="navigationItem" id="Hcu-4H-DZ6"/>
                     <connections>
                         <outlet property="categoriaLabel" destination="NKe-nE-feY" id="pD2-FF-1Qj"/>
-                        <outlet property="clientPhoto" destination="LbL-xG-txa" id="TM6-3Q-Z6y"/>
                         <outlet property="cnpjLabel" destination="Ewr-Sl-WpB" id="7PX-ad-GQi"/>
-                        <outlet property="cpfName" destination="KcP-P8-Nl1" id="L04-e8-gHe"/>
                         <outlet property="descriptionLabel" destination="KcP-P8-Nl1" id="dvf-6F-qar"/>
-                        <outlet property="emailLabel" destination="Sff-a3-yTr" id="mst-kY-5vb"/>
                         <outlet property="enterpriseLabel" destination="Sff-a3-yTr" id="5p9-Ds-5LS"/>
                         <outlet property="fantasyNameLabel" destination="m74-7V-rZP" id="AXA-V1-uqC"/>
                         <outlet property="imageViewPerfil" destination="LbL-xG-txa" id="WfQ-S4-1YV"/>
-                        <outlet property="nameLabel" destination="m74-7V-rZP" id="7nz-By-ERf"/>
-                        <outlet property="phoneLabel" destination="NKe-nE-feY" id="m9H-IO-DLh"/>
                         <outlet property="priceLabel" destination="BBe-p1-X8e" id="rBv-RW-qWi"/>
                     </connections>
                 </viewController>

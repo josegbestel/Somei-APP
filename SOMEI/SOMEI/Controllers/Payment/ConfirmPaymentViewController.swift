@@ -117,6 +117,9 @@ class ConfirmPaymentViewController: UIViewController {
         self.present(alert, animated: true)
     }
 
+    @IBAction func backButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBAction func confirmButton(_ sender: Any) {
         PaymentManager.sharedInstance.completePayment() { success in
             if success {
