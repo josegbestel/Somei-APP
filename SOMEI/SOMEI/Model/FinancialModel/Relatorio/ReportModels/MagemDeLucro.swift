@@ -14,13 +14,15 @@ class MargemDeLucro {
     var gastos:Double?
     var porcentagem:Double?
     var ganhosArray:[Double]?
+    var ganhosPrevistosArray:[Double]?
     
-    init(ganhos:Double?,gastos:Double?,porcentagem:Double?, ganhosArray:[Double]?) {
+    init(ganhos:Double?,gastos:Double?,porcentagem:Double?, ganhosArray:[Double]?,ganhosPrevistosArray:[Double]?) {
         
         self.ganhos = ganhos
         self.gastos = gastos
         self.porcentagem = porcentagem
         self.ganhosArray = ganhosArray
+        self.ganhosPrevistosArray = ganhosPrevistosArray
         
     }
     
@@ -41,8 +43,16 @@ class MargemDeLucro {
                 valoresArray?.insert(ganhoValor, at: 0)
             }
         }
+        //previsao list
+        var valoresFuturosArray:[Double]? = []
+        if let previsaoArrayFromLib = detalhes?["previsao"] as? [[String : Any]] {
+            for ganhosArray in previsaoArrayFromLib {
+                let ganhoValor = ganhosArray["valor"] as? Double ?? 0
+                valoresFuturosArray?.insert(ganhoValor, at: 0)
+            }
+        }
       
-        let lucro:MargemDeLucro = MargemDeLucro(ganhos: ganhos, gastos: gastos, porcentagem: porcentagem, ganhosArray: valoresArray)
+        let lucro:MargemDeLucro = MargemDeLucro(ganhos: ganhos, gastos: gastos, porcentagem: porcentagem, ganhosArray: valoresArray, ganhosPrevistosArray: valoresFuturosArray)
         
         return lucro
     }

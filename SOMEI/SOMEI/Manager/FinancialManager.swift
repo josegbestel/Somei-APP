@@ -13,7 +13,7 @@ class FinancialManager {
     static var sharedInstance = FinancialManager()
     
     var extractRequestArray:[ReleasesValue] = []
-    var margemDeLucro:MargemDeLucro = MargemDeLucro(ganhos: nil, gastos: nil, porcentagem: nil, ganhosArray: nil)
+    var margemDeLucro:MargemDeLucro = MargemDeLucro(ganhos: nil, gastos: nil, porcentagem: nil, ganhosArray: nil, ganhosPrevistosArray: nil)
     var mouthsResults:MouthsResults = MouthsResults(metaMensal: nil, saldoAtual: nil, valorPrevisao: nil)
     var depositosBancarios:DepositosBancarios = DepositosBancarios(historico: nil, saldoALiberar: nil, saldoDisponivel: nil)
     
@@ -50,6 +50,15 @@ class FinancialManager {
                }
             }
         }
+        if let array = margemDeLucro.ganhosPrevistosArray {
+            for values in array {
+               if values > 0 {
+                let index = extractArray.count
+                   extractArray.insert(values, at: index)
+               }
+            }
+        }
+     
         return extractArray
     }
     

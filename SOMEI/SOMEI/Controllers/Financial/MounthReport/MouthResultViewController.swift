@@ -43,7 +43,7 @@ class MouthResultViewController: UIViewController {
     
     func atualizarGrafico() {
         let extracts = FinancialManager.sharedInstance.graphicDatas()
-        if extracts.count == 4 {
+        if extracts.count >= 4 {
             viewGraphics.atualizar([Int(extracts[0]),Int(extracts[1]),Int(extracts[2]),Int(extracts[3])])
         }else {
             if extracts.count == 3 {
