@@ -36,6 +36,9 @@ class ProfissionalManager {
         }
         if perfil.services != nil {
             profissional.services = perfil.services
+            if profissional.services?.count ?? 0 > 0 {
+                profissional.mainActivity = profissional.services?[0]
+            }
         }
         if perfil.linksPortfolio != nil {
             profissional.linksPortfolio = perfil.linksPortfolio

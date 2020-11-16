@@ -20,7 +20,8 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
     @IBOutlet weak var photoPerfil: UIImageView!
     @IBOutlet weak var nomeUserPerfil: UILabel!
     
-    @IBOutlet weak var firstServiceMoreOffered: UILabel!
+    
+    @IBOutlet weak var serviceOffer: UILabel!
     
     @IBOutlet weak var cosmosView: CosmosView!
     
@@ -40,6 +41,7 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
         loadPerfilOnCoreData()
         readDatasFromCoreData()
         completeInformationsPerfil()
+        completePortfolio()
         fixLayout()
         let imagem:UIImage = UIImage(named: "download")!
         imagesArray.insert(imagem, at: 0)
@@ -71,7 +73,34 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
         photoPerfil.image = ProfissionalManager.sharedInstance.profissional.photo
         nomeUserPerfil.text = "Olá \(firstName() ?? "")"
         cosmosView.rating = Double(ProfissionalManager.sharedInstance.profissional.nota ?? 5)
-        firstServiceMoreOffered.text = ProfissionalManager.sharedInstance.profissional.mainActivity
+        serviceOffer.text = ProfissionalManager.sharedInstance.profissional.mainActivity
+    }
+    
+    func completePortfolio() {
+        if ProfissionalManager.sharedInstance.profissional.linksPortfolio != nil {
+            if let links = ProfissionalManager.sharedInstance.profissional.linksPortfolio {
+                for link in links {
+                    if let urlImage =  URL(string: link) {
+                        downloadImagePortfolio(url: urlImage)
+                    }
+                }
+            }
+        }
+    }
+    
+    func downloadImagePortfolio(url: URL) {
+        print(url)
+        SomeiManager.sharedInstance.clearCache()
+        print("Download Started")
+        getData(from: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            DispatchQueue.main.async() { [weak self] in
+                self?.imagesArray.insert(UIImage(data: data)!, at: 0)
+                self?.collectionPhotosView.reloadData()
+            }
+        }
     }
     
     func firstName() -> String? {
