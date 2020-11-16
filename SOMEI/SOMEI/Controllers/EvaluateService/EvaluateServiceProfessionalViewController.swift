@@ -14,6 +14,7 @@ class EvaluateServiceProfessionalViewController: UIViewController {
     @IBOutlet weak var comentTextField: UITextField!
     @IBOutlet weak var cosmosRating: CosmosView!
     @IBOutlet weak var codigoServicoMunicipal: UITextField!
+    @IBOutlet weak var priceTf: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,13 @@ class EvaluateServiceProfessionalViewController: UIViewController {
     
     func returnStructForProfessional() -> FinishServiceStructProfissional {
         let avaliacao:Avaliacao = Avaliacao.init(comentario: comentTextField.text, idOrcamento: OrcamentoManager.sharedInstance.selectedOrcamentoToRequestService?.id, nota: cosmosRating.rating)
-        let structAvaluateForSolicitante:FinishServiceStructProfissional = FinishServiceStructProfissional.init(avaliacao: avaliacao, codigoServicoMunicipal: codigoServicoMunicipal.text, custoExecucao: Double(OrcamentoManager.sharedInstance.selectedOrcamentoToRequestService?.valorMinimo ?? 0))
+        var valor:Double = Double(OrcamentoManager.sharedInstance.selectedOrcamentoToRequestService?.valorMinimo ?? 0)
+        if let value = Double(priceTf.text!){
+            if value > 0 {
+                valor = value
+            }
+        }
+        let structAvaluateForSolicitante:FinishServiceStructProfissional = FinishServiceStructProfissional.init(avaliacao: avaliacao, codigoServicoMunicipal: codigoServicoMunicipal.text, custoExecucao: valor)
 
         return structAvaluateForSolicitante
     }
@@ -80,7 +87,7 @@ class EvaluateServiceProfessionalViewController: UIViewController {
     }
     
     @IBAction func continueButton(_ sender: Any) {
-        if comentTextField.hasText, codigoServicoMunicipal.hasText {
+        if comentTextField.hasText, codigoServicoMunicipal.hasText, priceTf.hasText {
             completeServiceAvaluateForProfessional()
         }else{
             errorPopUp()
