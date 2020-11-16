@@ -63,6 +63,13 @@ class DetailOrcamentoListViewController: UIViewController {
         configureImageView()
     }
     
+    @objc func goesToAvaliete(_ sender: UITapGestureRecognizer? = nil) {
+        let newVC = self.storyboard?.instantiateViewController(withIdentifier: "EvaluateServiceProfessionalViewController")
+        self.definesPresentationContext = true
+        newVC?.modalPresentationStyle = .overCurrentContext
+        self.present(newVC!, animated: true, completion: nil)
+    }
+    
     func configureImageView() {
         let status = OrcamentoManager.sharedInstance.selectedOrcamentoToRequestService?.status
         switch status {
@@ -82,6 +89,8 @@ class DetailOrcamentoListViewController: UIViewController {
             statusLabelStatusView.text = "Confirmar conclusão"
             statusLabelStatusView.backgroundColor = UIColor(red: 148/255, green: 62/255, blue: 255/255, alpha:1)
             imageViewStatus.image = UIImage(named: "PendenteStatus")
+            let statusViewGesture = UITapGestureRecognizer(target: self, action: #selector(self.goesToAvaliete(_:)))
+            statusView.addGestureRecognizer(statusViewGesture)
           case "FINALIZADO":
             statusLabelStatusView.text = "Serviço realizado"
             statusLabelStatusView.backgroundColor = UIColor(red: 6/255, green: 221/255, blue: 112/255, alpha:1)

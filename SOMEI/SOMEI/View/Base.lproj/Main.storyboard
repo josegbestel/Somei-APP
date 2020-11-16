@@ -8710,8 +8710,6 @@
                         <outlet property="codigoServicoMunicipal" destination="65G-UY-B7l" id="qFn-yY-DpE"/>
                         <outlet property="comentTextField" destination="noj-kZ-3ic" id="2E0-Fm-n96"/>
                         <outlet property="cosmosRating" destination="LwU-SL-NNS" id="M5T-Q5-nV4"/>
-                        <outlet property="ratingCosmosView" destination="LwU-SL-NNS" id="WEB-o0-1pv"/>
-                        <outlet property="tfDescription" destination="noj-kZ-3ic" id="kZM-6x-sF7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ENG-gq-wMa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
