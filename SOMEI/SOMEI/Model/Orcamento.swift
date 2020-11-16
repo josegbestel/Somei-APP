@@ -97,7 +97,7 @@ class Orcamento {
         let telefoneSolicitante = solicitante?["telefone"] as? String
         let avatarSolicitante = solicitante?["avatar"] as? String
         
-        let solicitanteModel:Solicitante = Solicitante(cpf: cpfSolicitante, nota: ratingSolicitante, name: nomeSolicitante, age: 0, phone: telefoneSolicitante, email: emailSolicitante, photo: nil, password: nil, photoLink: URL(string: avatarSolicitante ?? ""), services: nil, comentarios: nil, id: idSolicitante, dtNasc: nil)
+        let solicitanteModel:Solicitante = Solicitante(cpf: cpfSolicitante, nota: ratingSolicitante, name: nomeSolicitante, age: 0, phone: telefoneSolicitante, email: emailSolicitante, photo: nil, password: nil, photoLink: URL(string: avatarSolicitante ?? ""), services: nil, comentarios: nil, id: idSolicitante, dtNasc: nil,comentario:nil,servicos:nil)
         //end solicitante model
         
         //orcamento
@@ -244,7 +244,7 @@ class Orcamento {
   
         let bornDate = DateStruct.init(day: age?["day"] as? Int, mounth: age?["mounth"] as? Int, year: age?["year"] as? Int)
         
-        let solicitante:Solicitante = Solicitante(cpf: cpf, nota: nota, name: name, age: age?["year"] as? Int, phone: phone, email: email, photo: nil, password: nil, photoLink: URL(string: photoLink), services: nil, comentarios: nil, id: idSolicitante, dtNasc: bornDate)
+        let solicitante:Solicitante = Solicitante(cpf: cpf, nota: nota, name: name, age: age?["year"] as? Int, phone: phone, email: email, photo: nil, password: nil, photoLink: URL(string: photoLink), services: nil, comentarios: nil, id: idSolicitante, dtNasc: bornDate,comentario:nil,servicos:nil)
         //end of convert solicitante
         let endereco:Localizacao = Localizacao(cep: localizacao?["cep"] as? String, logradouro: localizacao?["logradouro"] as? String, numero: localizacao?["numero"] as? Int, complemento: localizacao?["complemento"] as? String, bairro: localizacao?["bairro"] as? String, cidade: localizacao?["cidade"] as? String, uf: localizacao?["uf"] as? String, longitude: localizacao?["longitude"] as? String, latitude: localizacao?["latitude"] as? String)
         let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos:fotosLinks , endereco: endereco, data: nil, horario: nil, status: status, valorMinimo: nil, id: id, serviceId: serviceId, agendaId: nil, agendaArray: agendaArray, solicitante: solicitante, profissional: nil, idResposta: nil, notaFiscal: nil)

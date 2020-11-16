@@ -4705,18 +4705,18 @@
                                             <constraint firstAttribute="height" constant="94" id="NRX-Mp-0dD"/>
                                         </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="M7o-Ge-jbj">
-                                            <size key="itemSize" width="357" height="102.5"/>
+                                            <size key="itemSize" width="357" height="98.5"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" restorationIdentifier="cell" id="JPO-dP-fVR" customClass="ComentsViewController" customModule="SOMEI" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="-4.5" width="357" height="102.5"/>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" restorationIdentifier="cell" reuseIdentifier="cell" id="JPO-dP-fVR" customClass="ComentsViewController" customModule="SOMEI" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="-2.5" width="357" height="98.5"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lg7-B5-4vi">
-                                                    <rect key="frame" x="0.0" y="0.0" width="357" height="102.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tKn-GB-9O2">
+                                                    <rect key="frame" x="0.0" y="0.0" width="357" height="98.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OxS-IQ-2iC">
                                                             <rect key="frame" x="8" y="0.0" width="341" height="103"/>
@@ -4770,18 +4770,23 @@
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="OxS-IQ-2iC" secondAttribute="trailing" constant="13" id="14n-Tc-Ax0"/>
                                                         <constraint firstAttribute="bottom" secondItem="OxS-IQ-2iC" secondAttribute="bottom" constant="5" id="RmF-5n-dxF"/>
-                                                        <constraint firstItem="OxS-IQ-2iC" firstAttribute="leading" secondItem="lg7-B5-4vi" secondAttribute="leading" constant="13" id="SBl-xh-j5z"/>
-                                                        <constraint firstItem="OxS-IQ-2iC" firstAttribute="top" secondItem="lg7-B5-4vi" secondAttribute="top" constant="5" id="bwE-6T-OGv"/>
+                                                        <constraint firstItem="OxS-IQ-2iC" firstAttribute="leading" secondItem="tKn-GB-9O2" secondAttribute="leading" constant="13" id="SBl-xh-j5z"/>
+                                                        <constraint firstItem="OxS-IQ-2iC" firstAttribute="top" secondItem="tKn-GB-9O2" secondAttribute="top" constant="5" id="bwE-6T-OGv"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
-                                                <size key="customSize" width="357" height="102.5"/>
+                                                <size key="customSize" width="357" height="98.5"/>
                                                 <connections>
+                                                    <outlet property="borderView" destination="OxS-IQ-2iC" id="5b2-Df-kTM"/>
                                                     <outlet property="comentarioLabel" destination="ggk-MT-uqr" id="CfT-zx-rpV"/>
                                                     <outlet property="cosmosView" destination="AQ4-SB-9dr" id="dYe-lx-D2K"/>
                                                     <outlet property="nomeProfissionalLabel" destination="Jr3-jr-15k" id="j62-qz-wIt"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="pXh-md-kp6" id="Rb1-KB-5V5"/>
+                                            <outlet property="delegate" destination="pXh-md-kp6" id="NyX-R9-hbe"/>
+                                        </connections>
                                     </collectionView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUB-1r-8Ec" customClass="UICornerableButton" customModule="SOMEI" customModuleProvider="target">
                                         <rect key="frame" x="67" y="454" width="280" height="70"/>
@@ -4911,7 +4916,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VQd-kv-7QY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="638" y="2538"/>
+            <point key="canvasLocation" x="637.68115942028987" y="2537.9464285714284"/>
         </scene>
         <!--Login Cadastro View Controlller-->
         <scene sceneID="OHB-CO-9ES">

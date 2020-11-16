@@ -243,13 +243,13 @@ class ClientePerfilViewController: UIViewController, NSFetchedResultsControllerD
 }
 extension ClientePerfilViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return fetchedResultsComentersController.fetchedObjects?.count ?? 0
+        return SolicitanteManager.sharedInstance.solicitanteComents?.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ComentsViewController
         
-        let comentario = fetchedResultsComentersController.fetchedObjects?[indexPath.row]
+        let comentario = SolicitanteManager.sharedInstance.solicitanteComents?[indexPath.row]
         
         cell.clipsToBounds = true
         cell.borderView.backgroundColor = UIColor.white

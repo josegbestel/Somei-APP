@@ -29,6 +29,9 @@ class SolicitanteManager {
                 servicosSolicitante?.insert(service, at: 0)
             }
         }
+        if perfil.nota != 0 {
+            solicitante.nota = perfil.nota
+        }
     }
     
     func saveSolicitantePerfilOnCoreData() {
