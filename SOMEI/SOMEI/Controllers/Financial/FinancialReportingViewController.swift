@@ -68,7 +68,8 @@ class FinancialReportingViewController: UIViewController {
     }
     
     func completeProfitMargin() {
-        percentlabel.text = "\(FinancialManager.sharedInstance.margemDeLucro.porcentagem ?? 0)%"
+        let percent = (FinancialManager.sharedInstance.margemDeLucro.porcentagem ?? 0) * 100
+        percentlabel.text = "\(percent)%"
     }
     
     func completeInformationMouthsResults() {
