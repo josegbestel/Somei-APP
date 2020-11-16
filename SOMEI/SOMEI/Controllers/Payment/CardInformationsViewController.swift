@@ -19,8 +19,13 @@ class CardInformationsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(CardInformationsViewController.dismissKeyboard)))
     }
+    
+    @objc func dismissKeyboard() {
+          self.view.endEditing(true)
+    }
+    
     func errorPopUp() {
         let alert = UIAlertController(title: "Algo deu errado", message: "Por favor verifique os dados informados", preferredStyle: .alert)
         let ok = UIAlertAction(title: "Ok!", style: .default, handler: { action in
