@@ -43,6 +43,9 @@ class requestedServicesTableViewCell: UITableViewCell {
         }else if (status.uppercased() == "FINALIZADO") {
             self.statusLabel.text = "Finalizado"
             self.statusLabel.backgroundColor = UIColor(red: 6/255, green: 221/255, blue: 112/255, alpha:1)
+        }else if (status.uppercased() == "PENDENTE") {
+            self.statusLabel.text = "Pendente"
+            self.statusLabel.backgroundColor = UIColor(red: 148/255, green: 62/255, blue: 255/255, alpha:1)
         }else{
             self.statusLabel.text = "-"
             self.statusLabel.backgroundColor = UIColor.black

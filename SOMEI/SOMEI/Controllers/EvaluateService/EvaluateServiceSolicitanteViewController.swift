@@ -34,10 +34,9 @@ class EvaluateServiceSolicitanteViewController: UIViewController {
     
     func goesToPerfil() {
         DispatchQueue.main.async {
-            let newVC = self.storyboard?.instantiateViewController(withIdentifier: "SearchWorkersViewController")
-            self.definesPresentationContext = true
-            newVC?.modalPresentationStyle = .overCurrentContext
-            self.present(newVC!, animated: true, completion: nil)
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let newNavigation = storyBoard.instantiateViewController(withIdentifier: "SolicitanteHome")
+            self.present(newNavigation, animated: true, completion: nil)
         }
     }
     

@@ -17,7 +17,11 @@ class EvaluateServiceProfessionalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(EvaluateServiceProfessionalViewController.dismissKeyboard)))
+    }
+    
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
     }
     
     func errorPopUp() {
