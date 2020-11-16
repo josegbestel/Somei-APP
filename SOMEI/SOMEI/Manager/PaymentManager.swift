@@ -17,7 +17,7 @@ class PaymentManager {
     var hash:String = ""
     
     func completePayment(completion: @escaping (Bool) -> Void) {
-        ProviderSomei.awnserWithCreditCard(structToSend: CreateStructCard(hash: hash), idAwser: "\(OrcamentoManager.sharedInstance.profissionalEscolhidoRespostaOrcamento.id ?? 0)" , idServico: "\(OrcamentoManager.sharedInstance.selectedOrcamento?.serviceId ?? 0)", email: "\(SolicitanteManager.sharedInstance.solicitante.email ?? "")", password: "\(SolicitanteManager.sharedInstance.solicitante.password ?? "")") {(Success) -> Void in
+        ProviderSomei.awnserWithCreditCard(structToSend: CreateStructCard(hash: hash), idAwser: "\(OrcamentoManager.sharedInstance.profissionalEscolhidoRespostaOrcamento.idResposta ?? 0)" , idServico: "\(OrcamentoManager.sharedInstance.selectedOrcamento?.serviceId ?? 0)", email: "\(SolicitanteManager.sharedInstance.solicitante.email ?? "")", password: "\(SolicitanteManager.sharedInstance.solicitante.password ?? "")") {(Success) -> Void in
             if Success {
                 completion(true)
             }else {
