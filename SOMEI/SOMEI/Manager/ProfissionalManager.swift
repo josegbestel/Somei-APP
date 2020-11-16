@@ -183,9 +183,7 @@ class ProfissionalManager {
        }
     
     func logOut() {
-        cleanProfessionalOnCoreData()
         SomeiUserDefaults.shared.defaults.set(false, forKey: UserDefaultsKeys.createdProfessionalPerfil.rawValue)
-        
     }
     
     
