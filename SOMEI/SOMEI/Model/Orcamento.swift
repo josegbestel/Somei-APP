@@ -149,7 +149,7 @@ class Orcamento {
         let status = dict["status"] as? String
         var valorMinimo = 0.0
         var profissionalArray:[Profissional] = []
-        
+        let id = dict["id"] as? Int
         if let respostas = dict["respostas"] as? [[String : Any]] {
             //pegar profissional do json
             
@@ -174,7 +174,8 @@ class Orcamento {
 
         let localizacao = dict["localizacao"] as! [String : Any]
         let endereco:Localizacao = Localizacao(cep: localizacao["cep"] as? String, logradouro: localizacao["logradouro"] as? String, numero: localizacao["numero"] as? Int, complemento: localizacao["complemento"] as? String, bairro: localizacao["bairro"] as? String, cidade: localizacao["cidade"] as? String, uf: localizacao["uf"] as? String, longitude: localizacao["longitude"] as? String, latitude: localizacao["latitude"] as? String)
-        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos: nil, endereco: endereco, data: nil, horario: nil, status: status, valorMinimo: Int(valorMinimo), id: nil, serviceId: nil, agendaId: nil, agendaArray: nil, solicitante: nil, profissional: profissionalArray)
+        
+        let orcamento = Orcamento(profissao: profissao, descricao: descricao, photos: nil, linkPhotos: nil, endereco: endereco, data: nil, horario: nil, status: status, valorMinimo: Int(valorMinimo), id: id, serviceId: id, agendaId: nil, agendaArray: nil, solicitante: nil, profissional: profissionalArray)
         
         return orcamento
     }
