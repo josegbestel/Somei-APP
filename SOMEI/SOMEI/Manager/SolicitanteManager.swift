@@ -13,9 +13,23 @@ class SolicitanteManager {
   
     static var sharedInstance = SolicitanteManager()
     
-    var solicitante = Solicitante(cpf:nil,nota:nil,name:nil,age:0,phone:nil,email:nil,photo:nil,password:nil, photoLink: nil,services:[], comentarios: nil, id: nil, dtNasc: nil)
-    
+    var solicitante = Solicitante(cpf:nil,nota:nil,name:nil,age:0,phone:nil,email:nil,photo:nil,password:nil, photoLink: nil,services:[], comentarios: nil, id: nil, dtNasc: nil, comentario:nil,servicos:nil)
+    var solicitanteComents:[Comentario]? = []
+    var servicosSolicitante:[String]? = []
     var solicitantePerfil:SolicitanteUser!
+    
+    func receivedPerfil(perfil: Solicitante) {
+        if let comentarios = perfil.comentarios {
+            for coments in comentarios {
+                solicitanteComents?.insert(coments, at: 0)
+            }
+        }
+        if let servicos = perfil.servicos {
+            for service in servicos {
+                servicosSolicitante?.insert(service, at: 0)
+            }
+        }
+    }
     
     func saveSolicitantePerfilOnCoreData() {
         if solicitantePerfil == nil {
@@ -66,10 +80,6 @@ class SolicitanteManager {
     
     func logOut() {
         SomeiUserDefaults.shared.defaults.set(false, forKey: UserDefaultsKeys.createdSolicitantePerfil.rawValue)
-    }
-    
-    func receivedPerfil(perfil: Solicitante) {
-        
     }
     
     func completeRegister(onComplete: @escaping (Bool) -> Void) {

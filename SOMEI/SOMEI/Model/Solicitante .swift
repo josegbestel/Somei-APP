@@ -53,7 +53,7 @@ class Solicitante: Usuario {
                 servicosArray.insert(servico, at: 0)
             }
         }
-        let solicitante:Solicitante = Solicitante(cpf: nil, nota: rating, name: nil, age: nil, phone: nil, email: nil, photo: nil, password: nil, photoLink: nil, services: nil, comentarios: nil, id: nil, dtNasc: nil, comentario: comentariosArray, servicos: servicosArray)
+        let solicitante:Solicitante = Solicitante(cpf: nil, nota: rating, name: nil, age: nil, phone: nil, email: nil, photo: nil, password: nil, photoLink: nil, services: nil, comentarios: comentariosArray, id: nil, dtNasc: nil, comentario: comentariosArray, servicos: servicosArray)
     
         return solicitante
     }
