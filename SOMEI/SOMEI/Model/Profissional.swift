@@ -24,8 +24,9 @@ class Profissional: Usuario {
     var dataNasc:String?
     var linksPortfolio:[String]?
     var idResposta:Int?
+    var lastWork:String?
     
-    init(cnpj:String?,profissao:String?, name:String?, age:Int?, phone:String?, email:String?, photo:UIImage?, password:String?, endereço:Localizacao?, photoLink:URL?, ownerName:String?,portifolio:[UIImage]?,nota:Int?,services:[String]?,id:Int?,metaMensal:Double?,account:AccountStruct?,ownerCpf:String?,dataNasc:String?,linksPortfolio:[String]?,idResposta:Int?) {
+    init(cnpj:String?,profissao:String?, name:String?, age:Int?, phone:String?, email:String?, photo:UIImage?, password:String?, endereço:Localizacao?, photoLink:URL?, ownerName:String?,portifolio:[UIImage]?,nota:Int?,services:[String]?,id:Int?,metaMensal:Double?,account:AccountStruct?,ownerCpf:String?,dataNasc:String?,linksPortfolio:[String]?,idResposta:Int?,lastWork:String?) {
         super.init(name:name, age:age, phone:phone, email:email, photo:photo, password: password, photoLink: photoLink, id:id)
         
         self.cnpj = cnpj
@@ -41,6 +42,7 @@ class Profissional: Usuario {
         self.dataNasc = dataNasc
         self.linksPortfolio = linksPortfolio
         self.idResposta = idResposta
+        self.lastWork = lastWork
         
     }
     
@@ -69,7 +71,7 @@ class Profissional: Usuario {
         let localizacao = dict["localizacao"] as! [String : Any]
         let endereco:Localizacao = Localizacao(cep: localizacao["cep"] as? String, logradouro: localizacao["logradouro"] as? String, numero: localizacao["numero"] as? Int, complemento: localizacao["complemento"] as? String, bairro: localizacao["bairro"] as? String, cidade: localizacao["cidade"] as? String, uf: localizacao["uf"] as? String, longitude: localizacao["longitude"] as? String, latitude: localizacao["latitude"] as? String)
         
-        let profissional = Profissional(cnpj: cnpj, profissao: profissao, name: nomeFantasia, age: age, phone: phone, email: email, photo: nil, password: password, endereço: endereco, photoLink: URL(string: photoLink ?? ""), ownerName: ownerName, portifolio: nil, nota: nota, services: services, id: id, metaMensal: metaMensal, account: nil, ownerCpf: nil, dataNasc: nil, linksPortfolio: nil, idResposta: nil)
+        let profissional = Profissional(cnpj: cnpj, profissao: profissao, name: nomeFantasia, age: age, phone: phone, email: email, photo: nil, password: password, endereço: endereco, photoLink: URL(string: photoLink ?? ""), ownerName: ownerName, portifolio: nil, nota: nota, services: services, id: id, metaMensal: metaMensal, account: nil, ownerCpf: nil, dataNasc: nil, linksPortfolio: nil, idResposta: nil, lastWork: nil)
         
         return profissional
     }
@@ -93,7 +95,7 @@ class Profissional: Usuario {
             }
         }
         
-        let profissional = Profissional(cnpj: nil, profissao: nil, name: nomeFantasia, age: nil, phone: nil, email: nil, photo: nil, password: nil, endereço: nil, photoLink: nil, ownerName: nil, portifolio: nil, nota: rating, services: servicosArray, id: id, metaMensal: nil, account: nil, ownerCpf: nil, dataNasc: nil, linksPortfolio: linksPortfolio, idResposta: nil)
+        let profissional = Profissional(cnpj: nil, profissao: nil, name: nomeFantasia, age: nil, phone: nil, email: nil, photo: nil, password: nil, endereço: nil, photoLink: nil, ownerName: nil, portifolio: nil, nota: rating, services: servicosArray, id: id, metaMensal: nil, account: nil, ownerCpf: nil, dataNasc: nil, linksPortfolio: linksPortfolio, idResposta: nil, lastWork: nil)
         
         return profissional
     }

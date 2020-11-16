@@ -81,7 +81,7 @@ class Orcamento {
         let accountProfessional = AccountStruct.init(nBanco: banco, nAgencia: agencia, nConta: numeroConta, nComplementarConta: complementoAccount, tipoConta: tipoContaCorrentePoupanca)
         //end of financial professional
         
-        let profissionalModel:Profissional = Profissional(cnpj: cnpjProfissional, profissao: profissao, name: name, age: nil, phone: phone, email: email, photo: nil, password: nil, endereço: nil, photoLink: URL(string: professionalAvatar ?? ""), ownerName: ownerName, portifolio: nil, nota: nota, services: worksArray, id: idProfessional, metaMensal: nil, account: accountProfessional, ownerCpf: ownerCpf, dataNasc: nil, linksPortfolio: nil, idResposta: nil)
+        let profissionalModel:Profissional = Profissional(cnpj: cnpjProfissional, profissao: profissao, name: name, age: nil, phone: phone, email: email, photo: nil, password: nil, endereço: nil, photoLink: URL(string: professionalAvatar ?? ""), ownerName: ownerName, portifolio: nil, nota: nota, services: worksArray, id: idProfessional, metaMensal: nil, account: accountProfessional, ownerCpf: ownerCpf, dataNasc: nil, linksPortfolio: nil, idResposta: nil, lastWork: nil)
         
         var professionalArray:[Profissional]? = []
         professionalArray?.insert(profissionalModel, at: 0)
@@ -176,7 +176,7 @@ class Orcamento {
                 
                 valorMinimo = resposta["valor"] as? Double ?? 0.0
                 
-                let profissionalModel = Profissional(cnpj: nil, profissao: nil, name: nomeFantasia, age: nil, phone: nil, email: email, photo: nil, password: nil, endereço: nil, photoLink: URL(string: avatarProfissional), ownerName: nomeOwner, portifolio: nil, nota: rating, services: nil, id: idProfissional, metaMensal: nil, account: nil, ownerCpf: nil, dataNasc: nil, linksPortfolio: nil, idResposta: idResposta)
+                let profissionalModel = Profissional(cnpj: nil, profissao: nil, name: nomeFantasia, age: nil, phone: nil, email: email, photo: nil, password: nil, endereço: nil, photoLink: URL(string: avatarProfissional), ownerName: nomeOwner, portifolio: nil, nota: rating, services: nil, id: idProfissional, metaMensal: nil, account: nil, ownerCpf: nil, dataNasc: nil, linksPortfolio: nil, idResposta: idResposta, lastWork: nil)
                 
                 profissionalArray.insert(profissionalModel, at: 0)
             }

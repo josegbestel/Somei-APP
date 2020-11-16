@@ -73,7 +73,8 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
         photoPerfil.image = ProfissionalManager.sharedInstance.profissional.photo
         nomeUserPerfil.text = "Olá \(firstName() ?? "")"
         cosmosView.rating = Double(ProfissionalManager.sharedInstance.profissional.nota ?? 5)
-        serviceOffer.text = ProfissionalManager.sharedInstance.profissional.mainActivity
+        serviceOffer.text = ProfissionalManager.sharedInstance.profissional.lastWork ?? ""
+        serviceOffer.isHidden = false
     }
     
     func completePortfolio() {
@@ -82,6 +83,7 @@ class EmployeePerfilViewController: UIViewController, NSFetchedResultsController
                 for link in links {
                     if let urlImage =  URL(string: link) {
                         downloadImagePortfolio(url: urlImage)
+                        SomeiManager.sharedInstance.clearCache()
                     }
                 }
             }

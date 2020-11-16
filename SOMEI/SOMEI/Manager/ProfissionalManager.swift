@@ -17,7 +17,7 @@ class ProfissionalManager {
     var profissionalPerfil: ProfissionalEntity!
     var categoriasSomei: CategoriasProfissionais!
     
-    var profissional = Profissional(cnpj:nil,profissao:nil, name:nil, age:0, phone:nil, email:nil, photo:nil, password:nil,endereço:nil, photoLink:URL(string: ""), ownerName: nil,portifolio:nil, nota: nil, services: nil, id: nil, metaMensal: nil, account: nil, ownerCpf: nil, dataNasc: nil, linksPortfolio: nil, idResposta: nil)
+    var profissional = Profissional(cnpj:nil,profissao:nil, name:nil, age:0, phone:nil, email:nil, photo:nil, password:nil,endereço:nil, photoLink:URL(string: ""), ownerName: nil,portifolio:nil, nota: nil, services: nil, id: nil, metaMensal: nil, account: nil, ownerCpf: nil, dataNasc: nil, linksPortfolio: nil, idResposta: nil, lastWork: nil)
     var endereco = Localizacao(cep: nil, logradouro: nil, numero: nil, complemento: nil, bairro: "Curitiba", cidade: nil, uf: nil, longitude: "-25.433075", latitude: "-49.275830")
     var Street:String = ""
     
@@ -35,6 +35,8 @@ class ProfissionalManager {
             profissional.nota = perfil.nota
         }
         if perfil.services != nil {
+            profissional.lastWork = perfil.services?.first
+            profissional.mainActivity = perfil.services?.first
             profissional.services = perfil.services
             if profissional.services?.count ?? 0 > 0 {
                 profissional.mainActivity = profissional.services?[0]
