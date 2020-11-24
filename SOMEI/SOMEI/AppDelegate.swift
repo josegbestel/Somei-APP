@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SBDChannelDelegate {
         //Configuração do firebase para salvar as imagens
         FirebaseApp.configure()
         //Configuração Sendbird para uso do chat //Necessario troca de App_id para apresentação
-        let APP_ID = "57300459-ED93-4EA8-B8BA-4A462060572D"
-        let USER_ID = "Suporte"
+        let APP_ID = "1BC26036-5B4A-40B3-8C22-07597EE25CC0"
+        let USER_ID = "Usuario"
 //        let CHANNEL_URL = "sendbird_open_channel_9586_ba2109976fc07f43e75e64050bda9a01d0709a38"
         SBDMain.initWithApplicationId(APP_ID)
         SBUGlobals.CurrentUser = SBUUser(userId: USER_ID)
